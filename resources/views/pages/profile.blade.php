@@ -193,7 +193,7 @@
                 <p class="card-description">
                   Harap Perhatikan data sebaik mungkin
                 </p>
-                <form class="forms-sample" method="POST" action="{{ route('profile-main-update',$profile_id) }}">
+                <form class="forms-sample" method="POST" action="{{ route('profile-main-update') }}">
                   @method('PATCH')
                   @csrf
                   
@@ -261,20 +261,14 @@
                     <label for="building_area">Luas Bangunan Masjid</label>
                     <input type="text" name="building_area" class="form-control" id="building_area" placeholder="Luas bangunan Masjid">
                   </div>
-                  <div class="form-group">
-                    <label class="form-label" for="customFile">Upload Foto Masjid</label>
-                    <input type="file" class="form-control" id="customFile" />
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputCity1">City</label>
-                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleTextarea1">Textarea</label>
-                    <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                  </div>
+     
+                  
+                  @if ($mosque->mosque_profile == null)
                   <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                  <button class="btn btn-light">Cancel</button>
+                  @else
+                  <a type="submit" class="btn btn-success mr-2">Edit</a>
+                  @endif
+                 
                 </form>
               </div>
             </div>

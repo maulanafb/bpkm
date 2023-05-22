@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/profile',[MosqueProfileController::class,'index'])->name('profile-page');
-Route::patch('/profile/${id}',[MosqueProfileController::class,'update'])->name('profile-main-update');
+Route::patch('/profile',[MosqueProfileController::class,'store'])->name('profile-main-update');
 Route::get('/test',[TestingController::class,'index'])->name('test');
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -18,12 +18,9 @@ class MosqueProfileController extends Controller
     {
         $auth = Auth::user()->id;
         $mosque = User::all()->first();
-        $profile_id = User::all()->first()->mosque_profile->id;
-    
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"profile_id"=>$profile_id]);
-
+        return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth]);
     }
 
     /**
@@ -40,7 +37,20 @@ class MosqueProfileController extends Controller
     public function store(Request $request)
     {
       
+        $data = [
+            'user_id'=> Auth::user()->id,
+            'problem' => $request['problem'],
+            'funding_plan' => $request['funding_plan'],
+            'funding_needs' => $request['funding_needs'],
+            'building_area' => $request['building_area'],
+            'mosque_account_number' => $request['mosque_account_number'],
+            'bmi_account_number' => $request['bmi_account_number'],
+            'history' => $request['history'],
+    ];
+        
+        MosqueProfile::create($data);
 
+        return redirect()->route('profile-page');
     }
 
     /**
@@ -62,24 +72,9 @@ class MosqueProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueProfile $mosqueProfile,$id)
+    public function update(Request $request, MosqueProfile $mosqueProfile)
     {
-        $data = [
-            'user_id'=> Auth::user()->id,
-            'problem' => $request['problem'],
-            'funding_plan' => $request['funding_plan'],
-            'funding_needs' => $request['funding_needs'],
-            'building_area' => $request['building_area'],
-            'mosque_account_number' => $request['mosque_account_number'],
-            'bmi_account_number' => $request['bmi_account_number'],
-            'history' => $request['history'],
-    ];
-        $mosqueProfile = MosqueProfile::findOrFail($id);
-        $mosqueProfile->update($data);
-
-        
-
-        return redirect()->route('profile-page');
+        //
     }
 
     /**
