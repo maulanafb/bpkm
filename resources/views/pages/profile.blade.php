@@ -193,7 +193,7 @@
                 <p class="card-description">
                   Harap Perhatikan data sebaik mungkin
                 </p>
-                <form class="forms-sample" method="POST" action="{{ route('profile-main-update') }}">
+                <form class="forms-sample" method="POST" action="{{ route('profile-main-update',$profile_id) }}">
                   @method('PATCH')
                   @csrf
                   
