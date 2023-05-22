@@ -17,7 +17,7 @@ class MosqueDocument extends Model
         
     ];
 
-    public function mosque(){
-        return $this->belongsTo(Mosque::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

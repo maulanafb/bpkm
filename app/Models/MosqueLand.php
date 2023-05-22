@@ -17,7 +17,7 @@ class MosqueLand extends Model
         'current_state_development',
         'total_land_area'
     ];
-    public function mosque(){
-        return $this->belongsTo(Mosque::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

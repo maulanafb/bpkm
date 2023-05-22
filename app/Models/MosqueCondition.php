@@ -18,7 +18,7 @@ class MosqueCondition extends Model
         'business_entity_status'
     ];
 
-    public function mosque(){
-        return $this->belongsTo(Mosque::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

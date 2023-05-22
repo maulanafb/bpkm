@@ -17,7 +17,7 @@ class MosqueProfile extends Model
         'building_area'
     ];
 
-        public function mosque(){
-        return $this->belongsTo(Mosque::class);
+        public function user(){
+        return $this->belongsTo(User::class);
     }
 }

@@ -42,6 +42,23 @@
               <div class="form-group">
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="konfirmasi Password">
               </div>
+              <div class="form-group">
+                <label for="provinces_id">Provinsi</label>
+                <select data-show-subtext="true" data-live-search="true" name="provinces_id" id="provinces_id select_box" class="selectpicker form-control" v-model="provinces_id" v-if="provinces">
+                    @foreach ($provinces as $province)
+                        <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">{{ $province->name }}</option>
+                    @endforeach
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="regencies_id">Kabupaten/Kota</label>
+                <select data-live-search="true" name="regencies_id" id="regencies_id" class="selectpicker form-control" v-model="regencies_id" v-if="regencies">
+                  @foreach ($regencies as $regency)
+                      <option  value="{{ $regency->id }}">{{$regency->name }}</option>
+                  @endforeach
+                </select>
+               
+              </div>
               <div class="mt-3">
                 {{-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a> --}}
                 <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">

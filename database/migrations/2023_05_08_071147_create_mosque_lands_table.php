@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('mosque_lands', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mosque_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('land_status');
             $table->string('land_name');
             $table->string('development_process');
             $table->string('current_state_development');
             $table->string('total_land_area');
             
-            $table->foreign('mosque_id')->references('id')->on('mosques')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }

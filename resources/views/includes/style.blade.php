@@ -11,4 +11,5 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/logo_munzalan_mini.png" />
+  <link rel="shortcut icon" href="images/logo_munzalan_mini.png" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+ 

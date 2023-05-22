@@ -43,7 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function mosque() {
-        return $this->hasOne(Mosque::class);
-    } 
+    public function mosque_profile() {
+        return $this->hasOne(MosqueProfile::class);
+    }
+
+    public function regency(){
+        return $this->belongsTo(Regency::class);
+    }
+
+    public function province(){
+        return $this->belongsTo(Province::class);
+    }
 }

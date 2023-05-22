@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/admin', function () {
-    return view('pages.admin.dashboard');
-});
+Route::get('/admin',[MosqueProfileController::class,'index']);
 
 Route::get('/profile',[MosqueController::class,'index'])->name('profile-page');
 
@@ -26,6 +25,10 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
+
+Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
+Route::get('cities', 'DependentDropdownController@cities')->name('cities');
+Route::get('districts', 'DependentDropdownController@districts')->name('districts');
+Route::get('villages', 'DependentDropdownController@villages')->name('villages');
 

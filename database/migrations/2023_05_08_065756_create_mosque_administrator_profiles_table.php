@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('mosque_administrator_profiles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mosque_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('coordinator_name');
             $table->string('phone_number');
             $table->boolean('coordinator_status')->default(0);
             $table->string('other_position');
             $table->string('director_name');
 
-            $table->foreign('mosque_id')->references('id')->on('mosques')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }

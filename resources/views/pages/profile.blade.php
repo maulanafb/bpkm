@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
+@push('addon-style')
 
+@endpush
 <div class="container-fluid page-body-wrapper">
     <!-- partial:../../partials/_settings-panel.html -->
     <div class="theme-setting-wrapper">
@@ -193,16 +195,37 @@
                 </p>
                 <form class="forms-sample">
                   <div class="form-group">
-                    <label for="exampleInputName1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <label for="exampleInputName1">Nama</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail3">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                    <label for="exampleInputEmail3">Alamat Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword4">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="provinces_id">Province</label>
+                    <select data-show-subtext="true" data-live-search="true" name="provinces_id" id="provinces_id select_box" class="selectpicker form-control" v-model="provinces_id" v-if="provinces">
+                        @foreach ($provinces as $province)
+                            <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">{{ $province->name }}</option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="regencies_id">City</label>
+                    <select data-live-search="true" name="regencies_id" id="regencies_id" class="form-control" v-model="regencies_id" v-if="regencies">
+                      @foreach ($regencies as $regency)
+                          <option  value="{{ $regency->id }}">{{$regency->name }}</option>
+                      @endforeach
+                    </select>
+                   
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Alamat lengkap</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="">
                   </div>
                   <div class="form-group">
                     <label for="exampleSelectGender">Gender</label>
@@ -251,3 +274,48 @@
   </div>
 
 @endsection
+
+
+@push('addon-script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-toasted"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      var locations = new Vue({
+        el: "#locations",
+        mounted() {
+          this.getProvincesData();
+        },
+        data: {
+          provinces: null,
+          regencies: null,
+          provinces_id: null,
+          regencies_id: null,
+        },
+        methods: {
+          getProvincesData() {
+            var self = this;
+            axios.get('{{ route('api-provinces') }}')
+              .then(function (response) {
+                  self.provinces = response.data;
+              })
+          },
+          getRegenciesData() {
+            var self = this;
+            axios.get('{{ url('api/regencies') }}/' + self.provinces_id)
+              .then(function (response) {
+                  self.regencies = response.data;
+              })
+          },
+        },
+        watch: {
+          provinces_id: function (val, oldVal) {
+            this.regencies_id = null;
+            this.getRegenciesData();
+          },
+        }
+      });
+    </script>
+@endpush

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('mosque_documents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mosque_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('land_title_deed');
             $table->string('mosque_photo');
             $table->string('mosque_design');
-            $table->foreign('mosque_id')->references('id')->on('mosques')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
     }

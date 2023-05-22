@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mosque;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MosqueController extends Controller
@@ -12,7 +15,11 @@ class MosqueController extends Controller
      */
     public function index()
     {
-        return view('pages.profile');
+        
+        $mosque = User::all();
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies]);
     }
 
     /**

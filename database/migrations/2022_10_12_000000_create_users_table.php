@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mosques', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->string('name');
+            $table->string('phone_number');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->text('address');
             $table->char('regency_id');
             $table->char('province_id');
@@ -21,11 +25,20 @@ return new class extends Migration
             $table->String('mosque_account_number');
             $table->String('bmi_account_number');
             $table->text('history');
+
+            $table->foreign('province_id')
+            ->references('id')
+            ->on('provinces')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
+
+            $table->foreign('regency_id')
+            ->references('id')
+            ->on('regencies')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
+            $table->rememberToken();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('province_id')->references('id')->on('provinces')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('regency_id')->references('id')->on('regencies')->onUpdate('cascade')->onDelete('restrict');
-            
         });
     }
 
@@ -34,6 +47,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mosques');
+        Schema::dropIfExists('users');
     }
 };

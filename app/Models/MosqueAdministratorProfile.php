@@ -17,8 +17,8 @@ class MosqueAdministratorProfile extends Model
         'other_position',
         'director_name'
     ];
-        public function mosque(){
-        return $this->belongsTo(Mosque::class);
+        public function user(){
+        return $this->belongsTo(User::class);
     }
 
     
