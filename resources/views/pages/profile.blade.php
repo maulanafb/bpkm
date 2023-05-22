@@ -193,7 +193,15 @@
                 <p class="card-description">
                   Harap Perhatikan data sebaik mungkin
                 </p>
-                <form class="forms-sample">
+                <form class="forms-sample" method="POST" action="{{ route('profile-main-update') }}">
+                  @method('PATCH')
+                  @csrf
+                  
+                  
+                  <div class="form-group">
+                    
+                    <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputName1">Nama</label>
                     <input type="text" class="form-control" id="exampleInputName1" value="{{ $mosque->name }}" placeholder="{{ $mosque->name }}">
@@ -225,22 +233,37 @@
                   <div class="form-group">
                     <textarea cols="5" rows="5" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $mosque->address }}" required autocomplete="address" autofocus placeholder="Alamat Lengkap Masjid">{{ $mosque->address }}</textarea>
                   </div>
+                  <label for="address" >Sejarah Masjid</label>
                   <div class="form-group">
-                    <label for="exampleSelectGender">Gender</label>
-                      <select class="form-control" id="exampleSelectGender">
-                        <option>Male</option>
-                        <option>Female</option>
-                      </select>
-                    </div>
+                    <textarea cols="5" rows="5" id="history" type="text" class="form-control @error('history') is-invalid @enderror" name="history" value="{{ $mosque->history }}" required autocomplete="address" autofocus placeholder="Alamat Lengkap Masjid">{{ $mosque->mosque_profile->history ?? 'Belum ada data' }}</textarea>
+                  </div>
                   <div class="form-group">
-                    <label>File upload</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
-                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                      <span class="input-group-append">
-                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                      </span>
-                    </div>
+                    <label for="problem">Permasalahan Terkait Masjid</label>
+                    <input type="text" name="problem" class="form-control" id="problem" placeholder="Permasalahan Masjid">
+                  </div>
+                  <div class="form-group">
+                    <label for="funding_plan">Rencana Kebutuhan dana</label>
+                    <input type="text" name="funding_plan" class="form-control" id="funding_plan" placeholder="Rencana Kebutuhan dana (untuk apa)">
+                  </div>
+                  <div class="form-group">
+                    <label for="funding_needs">Berapa jumlah nominal kebutuhan dana</label>
+                    <input type="number" name="funding_needs" class="form-control" id="funding_needs" placeholder="dalam rupiah" >
+                  </div>
+                  <div class="form-group">
+                    <label for="mosque_account_number">Rekening Masjid, Contoh : 28138123 a/n Munzalan Indonesia</label>
+                    <input type="text" name="mosque_account_number" class="form-control" id="mosque_account_number" placeholder="No Rekening Masjid">
+                  </div>
+                  <div class="form-group">
+                    <label for="bmi_account_number">Rekening BMI, Contoh : 28138123 a/n Munzalan Indonesia</label>
+                    <input type="text" name="bmi_account_number" class="form-control" id="bmi_account_number" placeholder="No Rekening BMI">
+                  </div>
+                  <div class="form-group">
+                    <label for="building_area">Luas Bangunan Masjid</label>
+                    <input type="text" name="building_area" class="form-control" id="building_area" placeholder="Luas bangunan Masjid">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="customFile">Upload Foto Masjid</label>
+                    <input type="file" class="form-control" id="customFile" />
                   </div>
                   <div class="form-group">
                     <label for="exampleInputCity1">City</label>
@@ -275,6 +298,39 @@
 
 
 @push('addon-script')
+<script>
+   /* Tanpa Rupiah */
+   var tanpa_rupiah = document.getElementById('tanpa-rupiah');
+    tanpa_rupiah.addEventListener('keyup', function(e)
+    {
+        tanpa_rupiah.value = formatRupiah(this.value);
+    });
+    
+    /* Dengan Rupiah */
+    var dengan_rupiah = document.getElementById('funding_needs');
+    dengan_rupiah.addEventListener('keyup', function(e)
+    {
+        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

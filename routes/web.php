@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,12 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/admin',[MosqueProfileController::class,'index']);
-
-Route::get('/profile',[MosqueController::class,'index'])->name('profile-page');
-
+Route::get('/profile',[MosqueProfileController::class,'index'])->name('profile-page');
+Route::patch('/profile',[MosqueProfileController::class,'store'])->name('profile-main-update');
+Route::get('/test',[TestingController::class,'index'])->name('test');
 Auth::routes();
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

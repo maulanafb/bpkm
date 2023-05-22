@@ -7,6 +7,7 @@ use App\Models\Province;
 use App\Models\Regency;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MosqueProfileController extends Controller
 {
@@ -15,11 +16,11 @@ class MosqueProfileController extends Controller
      */
     public function index()
     {
-        $mosque = User::all();
+        $auth = Auth::user()->id;
+        $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.admin.dashboard',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies]);
-          
+        return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth]);
     }
 
     /**
@@ -35,7 +36,21 @@ class MosqueProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = [
+            'user_id'=> Auth::user()->id,
+            'problem' => $request['problem'],
+            'funding_plan' => $request['funding_plan'],
+            'funding_needs' => $request['funding_needs'],
+            'building_area' => $request['building_area'],
+            'mosque_account_number' => $request['mosque_account_number'],
+            'bmi_account_number' => $request['bmi_account_number'],
+            'history' => $request['history'],
+    ];
+        
+        MosqueProfile::create($data);
+
+        return redirect()->route('profile-page');
     }
 
     /**

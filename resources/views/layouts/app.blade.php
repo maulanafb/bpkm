@@ -19,9 +19,9 @@
   </div>
 
   {{-- script  --}}
-  @stack('prepend-style')
+  @stack('prepend-script')
   @include('includes.script')
-  @stack('addon-style')
+  @stack('addon-script')
 </body>
 
 </html>

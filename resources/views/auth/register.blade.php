@@ -58,7 +58,7 @@
                 <label for="regencies_id">Kabupaten/Kota</label>
                 <select data-live-search="true" name="regencies_id" id="regencies_id" class="selectpicker form-control" v-model="regencies_id" v-if="regencies">
                   @foreach ($regencies as $regency)
-                      <option  value="{{ $regency->id }}">{{$mosque->regency->name }}</option>
+                      
                       <option  value="{{ $regency->id }}">{{$regency->name }}</option>
                   @endforeach
                 </select>

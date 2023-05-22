@@ -10,10 +10,13 @@ class MosqueProfile extends Model
     use HasFactory;
 
     protected $fillable = [
-        'mosque_id',
+        'user_id',
         'problem',
+        'bmi_account_number',
+        'mosque_account_number',
         'funding_plan',
         'funding_needs',
+        'history',
         'building_area'
     ];
 
