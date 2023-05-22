@@ -16,7 +16,7 @@ class MosqueController extends Controller
     public function index()
     {
         
-        $mosque = User::all();
+        $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
         return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies]);

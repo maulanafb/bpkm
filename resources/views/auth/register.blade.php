@@ -18,6 +18,10 @@
               <div class="form-group">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Masjid">
               </div>
+            <label for="coordinator" >Nama koordinator/Penanggung Jawab Masjid</label>
+              <div class="form-group">
+                <input id="coordinator" type="text" class="form-control @error('coordinator') is-invalid @enderror" name="coordinator" value="{{ old('coordinator') }}" required autocomplete="coordinator" autofocus placeholder="Nama Koordinator/penanggung jawab Masjid">
+              </div>
             <label for="name" >Email</label>
               <div class="form-group">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
@@ -43,8 +47,8 @@
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="konfirmasi Password">
               </div>
               <div class="form-group">
-                <label for="provinces_id">Provinsi</label>
-                <select data-show-subtext="true" data-live-search="true" name="provinces_id" id="provinces_id select_box" class="selectpicker form-control" v-model="provinces_id" v-if="provinces">
+                <label for="province_id">Provinsi</label>
+                <select data-show-subtext="true" data-live-search="true" name="province_id" id="province_id select_box" class="selectpicker form-control" v-model="province_id" v-if="province">
                     @foreach ($provinces as $province)
                         <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">{{ $province->name }}</option>
                     @endforeach
@@ -54,10 +58,16 @@
                 <label for="regencies_id">Kabupaten/Kota</label>
                 <select data-live-search="true" name="regencies_id" id="regencies_id" class="selectpicker form-control" v-model="regencies_id" v-if="regencies">
                   @foreach ($regencies as $regency)
+                      <option  value="{{ $regency->id }}">{{$mosque->regency->name }}</option>
                       <option  value="{{ $regency->id }}">{{$regency->name }}</option>
                   @endforeach
                 </select>
                
+              </div>
+              <label for="address" >Alamat Lengkap Masjid</label>
+              <div class="form-group">
+                
+                <textarea cols="5" rows="5" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus placeholder="Alamat Lengkap Masjid"></textarea>
               </div>
               <div class="mt-3">
                 {{-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a> --}}

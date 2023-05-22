@@ -191,41 +191,39 @@
               <div class="card-body">
                 <h4 class="card-title">Selamat datang di halaman edit profile</h4>
                 <p class="card-description">
-                  Basic form elements
+                  Harap Perhatikan data sebaik mungkin
                 </p>
                 <form class="forms-sample">
                   <div class="form-group">
                     <label for="exampleInputName1">Nama</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="">
+                    <input type="text" class="form-control" id="exampleInputName1" value="{{ $mosque->name }}" placeholder="{{ $mosque->name }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail3">Alamat Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="">
+                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="" value="{{ $mosque->email }}">
                   </div>
+
                   <div class="form-group">
-                    <label for="exampleInputPassword4">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                    <label for="provinces_id">Province</label>
+                    <label for="provinces_id">Provinsi</label>
                     <select data-show-subtext="true" data-live-search="true" name="provinces_id" id="provinces_id select_box" class="selectpicker form-control" v-model="provinces_id" v-if="provinces">
                         @foreach ($provinces as $province)
-                            <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">{{ $province->name }}</option>
+                            <option data-tokens="{{ $province->name }}" value="{{ $province->id }}" >{{ $mosque->province->name }}</option>
+                            <option data-tokens="{{ $province->name }}" value="{{ $province->id }}" >{{ $province->name }}</option>
                         @endforeach
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="regencies_id">City</label>
-                    <select data-live-search="true" name="regencies_id" id="regencies_id" class="form-control" v-model="regencies_id" v-if="regencies">
+                    <label for="regencies_id">Kabupaten/Kota</label>
+                    <select data-show-subtext="true" data-live-search="true" name="regencies_id" id="provinces_id select_box" class="selectpicker form-control" v-model="provinces_id" v-if="provinces">
                       @foreach ($regencies as $regency)
-                          <option  value="{{ $regency->id }}">{{$regency->name }}</option>
+                      <option  value="{{ $regency->id }}">{{$mosque->regency->name }} </option>
+                          <option data-tokens="{{ $regency->name }}" value="{{ $regency->id }}">{{ $regency->name }}</option>
                       @endforeach
-                    </select>
-                   
+                  </select>
                   </div>
+                  <label for="address" >Alamat Lengkap Masjid</label>
                   <div class="form-group">
-                    <label for="exampleInputName1">Alamat lengkap</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="">
+                    <textarea cols="5" rows="5" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $mosque->address }}" required autocomplete="address" autofocus placeholder="Alamat Lengkap Masjid">{{ $mosque->address }}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelectGender">Gender</label>

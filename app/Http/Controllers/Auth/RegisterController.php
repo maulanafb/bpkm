@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::DASHBOARD;
 
     /**
      * Create a new controller instance.
@@ -51,6 +51,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'province_id' => ['required', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,11 +67,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // $data = User::create([
+        //     'name' => $data['name'],
+        //     'phone_number' => $data['phone_number'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'address' => $data['address'],
+        //     'province_id' => $data['province_id'],
+        //     'regency_id' => $data['regencies_id'],
+        //     'coordinator' => $data['coordinator'],
+        // ]);
+        // dd($data);
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
             'phone_number' => $data['phone_number'],
+            'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'province_id' => $data['province_id'],
+            'regency_id' => $data['regency_id'],
+            'coordinator' => $data['coordinator'],
         ]);
     }
 }

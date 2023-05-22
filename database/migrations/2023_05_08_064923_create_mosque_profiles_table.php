@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('funding_plan');
             $table->string('funding_needs');
             $table->string('building_area');
+            $table->String('mosque_account_number');
+            $table->String('bmi_account_number');
+            $table->text('history');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });

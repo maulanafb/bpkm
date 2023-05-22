@@ -22,9 +22,6 @@ return new class extends Migration
             $table->char('regency_id');
             $table->char('province_id');
             $table->String('coordinator');
-            $table->String('mosque_account_number');
-            $table->String('bmi_account_number');
-            $table->text('history');
 
             $table->foreign('province_id')
             ->references('id')
