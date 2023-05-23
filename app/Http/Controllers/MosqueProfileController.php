@@ -20,7 +20,7 @@ class MosqueProfileController extends Controller
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth]);
+        return view('pages.mosque-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth]);
     }
 
     /**
@@ -50,7 +50,7 @@ class MosqueProfileController extends Controller
         
         MosqueProfile::create($data);
 
-        return redirect()->route('profile-page');
+        return redirect()->route('mosque-land');
     }
 
     /**

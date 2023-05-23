@@ -266,7 +266,7 @@
                   @if ($mosque->mosque_profile == null)
                   <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   @else
-                  <a type="submit" class="btn btn-success mr-2">Edit</a>
+                  <a type="submit" href="" class="btn btn-success mr-2">Edit</a>
                   @endif
                  
                 </form>

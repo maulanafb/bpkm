@@ -10,7 +10,7 @@ class MosqueLand extends Model
     use HasFactory;
 
     protected $fillable = [
-        'mosque_id',
+        'user_id',
         'land_status',
         'land_name',
         'development_process',

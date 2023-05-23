@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MosqueLand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MosqueLandController extends Controller
 {
@@ -12,7 +13,10 @@ class MosqueLandController extends Controller
      */
     public function index()
     {
-        //
+        $auth = Auth::user()->id;
+        return view('pages.mosque-land',[
+            'auth'=>$auth
+        ]);
     }
 
     /**
@@ -28,7 +32,20 @@ class MosqueLandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'user_id'=> Auth::user()->id,
+            'land_status' => $request['land_status'],
+            'land_name' => $request['land_name'],
+            'development_process' => $request['development_process'],
+            'current_state_development' => $request['current_state_development'],
+            'total_land_area' => $request['total_land_area'],
+            
+            'history' => $request['history'],
+    ];
+        
+        MosqueLand::create($data);
+
+        return redirect()->route('mosque-land');
     }
 
     /**

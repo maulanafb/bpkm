@@ -7,7 +7,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="{{ route('profile-page') }}" >
+        <a class="nav-link"  href="{{ route('mosque-profile') }}" >
           <i class="icon-head menu-icon"></i>
           <span class="menu-title">User Pages</span>
         </a>

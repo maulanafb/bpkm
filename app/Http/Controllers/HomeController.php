@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         $mosques = User::all()->first();
+        
+        $v1 = Auth::user()->mosque_admin;
+        $v2 = Auth::user()->mosque_profile;
+        $v3 = Auth::user()->mosque_land;
+        $v4 = Auth::user()->mosque_document;
+        $v5 = Auth::user()->mosque_condition;
+        
+        if( $v1 || $v2 || $v3 || $v4 || $v5 == null){
+            return redirect()->route('mosque-profile');
+        }
+     
         return view('pages.dashboard',["mosques"=>$mosques]);
     }
 }

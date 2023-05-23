@@ -50,6 +50,18 @@ class User extends Authenticatable
     public function mosque_profile() {
         return $this->hasOne(MosqueProfile::class);
     }
+    public function mosque_admin(){
+        return $this->hasOne(MosqueAdministratorProfile::class);
+    }
+    public function mosque_land(){
+        return $this->hasOne(MosqueLand::class);
+    }
+    public function mosque_document(){
+        return $this->hasOne(MosqueDocument::class);
+    }
+    public function mosque_condition(){
+        return $this->hasOne(MosqueCondition::class);
+    }
 
     public function regency(){
         return $this->belongsTo(Regency::class);
