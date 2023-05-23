@@ -7,8 +7,6 @@
 @section('content')
 @push('addon-style')
 <style>
-  
-
 .bcca-breadcrumb {
   margin-left: 20px;
   margin-top: 40px;
@@ -112,8 +110,6 @@
 .active:hover {
   background-color: #ab509f;
 }
-
-
 </style>
 @endpush
 <div class="main-panel mt-5">        
@@ -124,11 +120,13 @@
         
         <div class="card">
           <div class="bcca-breadcrumb">
-            <div class="bcca-breadcrumb-item">5<i class="fa fa-pencil"></i></div>
-            <div class="bcca-breadcrumb-item bcca-breadcrumb-item-active active">4</div>
-            <div class="bcca-breadcrumb-item">3</div>
-            <div class="bcca-breadcrumb-item">2</div>
-            <div class="bcca-breadcrumb-item">1</div>
+            <a class="bcca-breadcrumb-item" href="{{ route('mosque-document') }}">5<i class="fa fa-pencil"></i></a>
+            <div ></div>
+            <a class="bcca-breadcrumb-item bcca-breadcrumb-item-active active" href="{{ route('mosque-administrator') }}">4</a>
+            <a class="bcca-breadcrumb-item" href="{{ route('mosque-condition') }}">3</a>
+            <a class="bcca-breadcrumb-item" href="{{ route('mosque-land') }}">2</a>
+            <a class="bcca-breadcrumb-item" href="{{ route('mosque-profile') }}">1</a>
+           
             {{-- <div class="bcca-breadcrumb-item">Home</div> --}}
           </div>
           <div class="card-body">

@@ -4,6 +4,7 @@ use App\Http\Controllers\MosqueAdministratorProfileController;
 use App\Http\Controllers\MosqueConditionController;
 use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
+use App\Http\Controllers\MosqueDocumentController;
 use App\Http\Controllers\MosqueLandController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,9 @@ Route::post('/mosque-condition',[MosqueConditionController::class,'store'])->nam
 
 Route::get('/mosque-administrator',[MosqueAdministratorProfileController::class,'index'])->name('mosque-administrator');
 Route::post('/mosque-administrator',[MosqueAdministratorProfileController::class,'store'])->name('mosque-administrator-store');
+
+Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
+Route::post('/mosque-document',[MosqueDocumentController::class,'store'])->name('mosque-document-store');
 
 
 
