@@ -45,7 +45,7 @@ class MosqueLandController extends Controller
         
         MosqueLand::create($data);
 
-        return redirect()->route('mosque-land');
+        return redirect()->route('mosque-condition');
     }
 
     /**

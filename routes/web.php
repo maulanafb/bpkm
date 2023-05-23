@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MosqueAdministratorProfileController;
 use App\Http\Controllers\MosqueConditionController;
 use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
@@ -30,6 +31,9 @@ Route::post('/mosque-land',[MosqueLandController::class,'store'])->name('mosque-
 
 Route::get('/mosque-condition',[MosqueConditionController::class,'index'])->name('mosque-condition');
 Route::post('/mosque-condition',[MosqueConditionController::class,'store'])->name('mosque-condition-store');
+
+Route::get('/mosque-administrator',[MosqueAdministratorProfileController::class,'index'])->name('mosque-administrator');
+Route::post('/mosque-administrator',[MosqueAdministratorProfileController::class,'store'])->name('mosque-administrator-store');
 
 
 

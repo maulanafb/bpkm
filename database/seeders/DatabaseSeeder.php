@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             DistrictsSeeder::class,
             VillagesSeeder::class,
-            IndoRegionSeeder::class
+            IndoRegionSeeder::class,
+            UserSeeder::class
     ]);
     }
 }

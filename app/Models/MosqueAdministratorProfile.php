@@ -10,7 +10,7 @@ class MosqueAdministratorProfile extends Model
     use HasFactory;
 
     protected $fillable = [
-        'mosque_id',
+        'user_id',
         'coordinator_name',
         'phone_number',
         'coordinator_status',

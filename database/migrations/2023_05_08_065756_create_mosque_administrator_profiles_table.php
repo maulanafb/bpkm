@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('coordinator_name');
             $table->string('phone_number');
-            $table->boolean('coordinator_status')->default(0);
+            $table->string('coordinator_status');
             $table->string('other_position');
             $table->string('director_name');
 

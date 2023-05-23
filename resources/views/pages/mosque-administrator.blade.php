@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 @push('addon-style')
 <style>
   
@@ -113,6 +112,8 @@
 .active:hover {
   background-color: #ab509f;
 }
+
+
 </style>
 @endpush
 <div class="main-panel mt-5">        
@@ -120,21 +121,21 @@
     <div class="row">
 
       <div class="col-12 grid-margin stretch-card">
+        
         <div class="card">
           <div class="bcca-breadcrumb">
             <div class="bcca-breadcrumb-item">5<i class="fa fa-pencil"></i></div>
-            <div class="bcca-breadcrumb-item">4</div>
+            <div class="bcca-breadcrumb-item bcca-breadcrumb-item-active active">4</div>
             <div class="bcca-breadcrumb-item">3</div>
-            <div class="bcca-breadcrumb-item bcca-breadcrumb-item-active active">2</div>
+            <div class="bcca-breadcrumb-item">2</div>
             <div class="bcca-breadcrumb-item">1</div>
             {{-- <div class="bcca-breadcrumb-item">Home</div> --}}
           </div>
           <div class="card-body">
+            
             <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
-            <p class="card-description">
-              Harap Perhatikan data sebaik mungkin
-            </p>
-            <form class="forms-sample" method="POST" action="{{ route('mosque-land-store') }}">
+  
+            <form class="forms-sample" method="POST" action="{{ route('mosque-administrator-store') }}">
               
               @csrf
               
@@ -145,27 +146,29 @@
               </div>
   
               <div class="form-group">
-                <label for="land_status">Status tanah masjid</label>
-                <input type="text" name="land_status" class="form-control" id="land_status" placeholder="Status tanah masjid">
+                <label for="coordinator_name">Nama Koordinator/Penanggung Jawab</label>
+                <input required type="text" name="coordinator_name" class="form-control" id="coordinator_name" placeholder="Nama Koordinator/penanggung jawab">
               </div>
               <div class="form-group">
-                <label for="land_name">Status tanah atas nama siapa</label>
-                <input type="text" name="land_name" class="form-control" id="land_name" >
+                <label for="phone_number">Nomor Hp Koordinator/Penanggung jawab Masjid</label>
+                <input required type="text" name="phone_number" class="form-control" id="phone_number" placeholder="Nomor Hp Koordinator/Penanggung jawab Masjid">
               </div>
               <div class="form-group">
-                <label for="development_process">Proses Pembangunan</label>
-                <input type="text" name="development_process" class="form-control" id="development_process" >
+                <label for="coordinator_status">Apakah Santri Penerima Amanah (S.P.A) Masjid Kapal Munzalan?</label>
+                <select data-show-subtext="true" data-live-search="true" name="coordinator_status" id="coordinator_status select_box" class="selectpicker form-control" v-model="coordinator_status" v-if="coordinator_status">
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Bukan</option>
+              </select>
               </div>
               <div class="form-group">
-                <label for="current_state_development">Jelaskan Kondisi pembangunan terkini</label>
-                <input type="text" name="current_state_development" class="form-control" id="current_state_development" >
+                <label for="other_position">Jabatan/amanah lainnya? (selain koordinator/PJ Masjid Kapal Munzalan Cabang)</label>
+                <input required type="text" name="other_position" class="form-control" id="other_position" placeholder="Jabatan/amanah lainnya? (selain koordinator/PJ Masjid Kapal Munzalan Cabang)">
               </div>
               <div class="form-group">
-                <label for="total_land_area">Luas tanah keseluruhan Masjid</label>
-                <input type="text" name="total_land_area" class="form-control" id="total_land_area" >
+                <label for="director_name">Nama Wakil Pengasuh Wilayah/Cabang</label>
+                <input required type="text" name="director_name" class="form-control" id="director_name" placeholder="Nama Wakil Pengasuh Wilayah/Cabang">
               </div>
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
-             
             </form>
           </div>
         </div>
@@ -185,9 +188,3 @@
 <!-- main-panel ends -->
 @endsection
 
-
-@push('addon-script')
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-
-@endpush
