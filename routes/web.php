@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MosqueConditionController;
 use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
 use App\Http\Controllers\MosqueLandController;
@@ -18,15 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/test',[TestingController::class,'index'])->name('test');
 
 Route::get('/mosque-profile',[MosqueProfileController::class,'index'])->name('mosque-profile');
 Route::post('/mosque-profile',[MosqueProfileController::class,'store'])->name('mosque-profile-store');
-Route::get('/test',[TestingController::class,'index'])->name('test');
 
 
 Route::get('/mosque-land',[MosqueLandController::class,'index'])->name('mosque-land');
 Route::post('/mosque-land',[MosqueLandController::class,'store'])->name('mosque-land-store');
 
+Route::get('/mosque-condition',[MosqueConditionController::class,'index'])->name('mosque-condition');
+Route::post('/mosque-condition',[MosqueConditionController::class,'store'])->name('mosque-condition-store');
 
 
 

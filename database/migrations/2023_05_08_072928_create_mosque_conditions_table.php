@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('odoj_status')->default(0);
             $table->boolean('quran_house_status')->default(0);
             $table->boolean('business_entity_status')->default(0);
+            $table->boolean('bmi_status')->default(0);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });

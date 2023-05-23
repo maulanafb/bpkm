@@ -16,7 +16,7 @@ class TestingController extends Controller
      */
     public function index()
     {
-        $verify = Auth::user();
+        
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();

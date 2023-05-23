@@ -10,12 +10,13 @@ class MosqueCondition extends Model
     use HasFactory;
 
     protected $fillable = [
-        'mosque_id',
+        'user_id',
         'development_status',
         'director_house_status',
         'odoj_status',
         'quran_house_status',
-        'business_entity_status'
+        'business_entity_status',
+        'bmi_status'
     ];
 
     public function user(){
