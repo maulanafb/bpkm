@@ -35,7 +35,7 @@ class HomeController extends Controller
         $v5 = Auth::user()->mosque_condition;
         
         
-        if( ($v3) == null){
+        if( ($v4) == null){
             return redirect()->route('mosque-profile');
         }else{
             return view('pages.dashboard',["mosques"=>$mosques]);
