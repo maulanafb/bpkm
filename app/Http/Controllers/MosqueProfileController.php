@@ -17,10 +17,12 @@ class MosqueProfileController extends Controller
     public function index()
     {
         $auth = Auth::user()->id;
+        $user = Auth::user()->mosque_profile;
+        
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.mosque-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth]);
+        return view('pages.mosque-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user]);
     }
 
     /**
@@ -39,6 +41,7 @@ class MosqueProfileController extends Controller
       
         $data = [
             'user_id'=> Auth::user()->id,
+            'photo_path' => $request->file('photo_path')->store('assets/mosque', 'public'),
             'problem' => $request['problem'],
             'funding_plan' => $request['funding_plan'],
             'funding_needs' => $request['funding_needs'],

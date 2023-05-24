@@ -11,6 +11,7 @@ class MosqueProfile extends Model
 
     protected $fillable = [
         'user_id',
+        'photo_path',
         'problem',
         'bmi_account_number',
         'mosque_account_number',

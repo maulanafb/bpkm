@@ -10,7 +10,7 @@ class MosqueDocument extends Model
     use HasFactory;
 
     protected $fillable = [
-        'mosque_id',
+        'user_id',
         'land_title_deed',
         'mosque_photo',
         'mosque_design',

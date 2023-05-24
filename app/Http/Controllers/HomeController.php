@@ -34,10 +34,13 @@ class HomeController extends Controller
         $v4 = Auth::user()->mosque_document;
         $v5 = Auth::user()->mosque_condition;
         
-        if( $v1 || $v2 || $v3 || $v4 || $v5 == null){
+        
+        if( ($v3) == null){
             return redirect()->route('mosque-profile');
+        }else{
+            return view('pages.dashboard',["mosques"=>$mosques]);
         }
-     
-        return view('pages.dashboard',["mosques"=>$mosques]);
+        
+        
     }
 }

@@ -136,16 +136,20 @@
             <p class="card-description">
               Harap Perhatikan data sebaik mungkin
             </p>
-            <form class="forms-sample" method="POST" action="{{ route('mosque-profile-store') }}">
+            <form class="forms-sample" method="POST" action="{{ route('mosque-profile-store') }}" enctype="multipart/form-data">
               
               @csrf
-              
-              
-              <div class="form-group">
+              <div class="form-group" >
                 
                 <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
               </div>
-  
+              <label>Upload Foto Masjid</label>
+              @if ($user != null)
+                  <img width="100px" class="img-thumbnail" src="{{ Storage::url($user->photo_path) }}" alt="">
+              @else
+              <input type="file" name="photo_path" class="form-control" />
+              @endif
+              
               <div class="form-group">
                 <label for="problem">Permasalahan Terkait Masjid</label>
                 <input required type="text" name="problem" class="form-control" id="problem" placeholder="Permasalahan Masjid">

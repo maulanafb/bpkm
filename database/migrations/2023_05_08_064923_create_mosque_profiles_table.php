@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mosque_profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('photo_path');
             $table->text('problem');
             $table->string('funding_plan');
             $table->string('funding_needs');

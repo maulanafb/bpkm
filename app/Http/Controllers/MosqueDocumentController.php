@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MosqueDocument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MosqueDocumentController extends Controller
 {
@@ -12,7 +13,10 @@ class MosqueDocumentController extends Controller
      */
     public function index()
     {
-        //
+        $auth = Auth::user()->id;
+        return view('pages.mosque-document',[
+            'auth'=>$auth
+        ]);
     }
 
     /**
@@ -28,7 +32,15 @@ class MosqueDocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'user_id'=> Auth::user()->id,
+            'land_title_deed' => $request->file('land_title_deed')->store('assets/mosque/document/', 'public'),
+            'mosque_design' => $request->file('mosque_design')->store('assets/mosque/design/', 'public'),
+    ];
+        
+        MosqueDocument::create($data);
+
+        return redirect()->route('home');
     }
 
     /**
