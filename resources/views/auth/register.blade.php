@@ -18,23 +18,17 @@
               <div class="form-group">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Masjid">
               </div>
-            <label for="coordinator" >Nama koordinator/Penanggung Jawab Masjid</label>
-              <div class="form-group">
-                <input id="coordinator" type="text" class="form-control @error('coordinator') is-invalid @enderror" name="coordinator" value="{{ old('coordinator') }}" required autocomplete="coordinator" autofocus placeholder="Nama Koordinator/penanggung jawab Masjid">
-              </div>
+
             <label for="name" >Email</label>
               <div class="form-group">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
               </div>
-              <label for="name" >Nomor Hp Harap dengan format (08xxxxxxxx) contoh : 0812345667</label>
-              <div class="form-group">
-                <input id="phone_number" type="number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" placeholder="Nomor Hp">
-              </div>
+
               <label for="name" >Buat Password</label>
                <div class="form-group">
-                
+
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Buat Password">
-               
+
               </div>
               @error('password')
                   <span class="invalid-feedback" role="alert">
@@ -45,29 +39,6 @@
               <label for="password-confirm" >Konfirmasi Password</label>
               <div class="form-group">
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="konfirmasi Password">
-              </div>
-              <div class="form-group">
-                <label for="province_id">Provinsi</label>
-                <select data-show-subtext="true" data-live-search="true" name="province_id" id="province_id select_box" class="selectpicker form-control" v-model="province_id" v-if="province">
-                    @foreach ($provinces as $province)
-                        <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">{{ $province->name }}</option>
-                    @endforeach
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="regencies_id">Kabupaten/Kota</label>
-                <select data-live-search="true" name="regencies_id" id="regencies_id" class="selectpicker form-control" v-model="regencies_id" v-if="regencies">
-                  @foreach ($regencies as $regency)
-                      
-                      <option  value="{{ $regency->id }}">{{$regency->name }}</option>
-                  @endforeach
-                </select>
-               
-              </div>
-              <label for="address" >Alamat Lengkap Masjid</label>
-              <div class="form-group">
-                
-                <textarea cols="5" rows="5" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus placeholder="Alamat Lengkap Masjid"></textarea>
               </div>
               <div class="mt-3">
                 {{-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a> --}}

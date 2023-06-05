@@ -18,7 +18,13 @@ class MosqueProfile extends Model
         'funding_plan',
         'funding_needs',
         'history',
-        'building_area'
+        'building_area',
+        'address',
+        'province_id',
+        'regency_id',
+        'coordinator',
+        'phone_number'
+
     ];
 
         public function user(){

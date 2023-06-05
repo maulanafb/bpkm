@@ -22,7 +22,22 @@ return new class extends Migration
             $table->String('mosque_account_number');
             $table->String('bmi_account_number');
             $table->text('history');
+            $table->text('address');
+            $table->char('regency_id');
+            $table->char('province_id');
+            $table->String('coordinator');
+            $table->string('phone_number');
+            $table->foreign('province_id')
+            ->references('id')
+            ->on('provinces')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
 
+            $table->foreign('regency_id')
+            ->references('id')
+            ->on('regencies')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
             $table->foreign('user_id')->references('id')
             ->on('users')
             ->onUpdate('cascade')

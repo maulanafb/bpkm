@@ -8,7 +8,7 @@
 
 @push('addon-style')
 <style>
-  
+
 
 .bcca-breadcrumb {
   margin-left: 20px;
@@ -115,20 +115,20 @@
 }
 </style>
 @endpush
-<div class="main-panel mt-5">        
+<div class="main-panel mt-5">
   <div class="content-wrapper">
     <div class="row">
 
       <div class="col-12 grid-margin stretch-card">
         <div class="card">
           <div class="bcca-breadcrumb">
-            <a class="bcca-breadcrumb-item" href="{{ route('mosque-document') }}">5<i class="fa fa-pencil"></i></a>
+            <a class="bcca-breadcrumb-item" href="{{ route('mosque-document.index') }}">5<i class="fa fa-pencil"></i></a>
             <div ></div>
             <a class="bcca-breadcrumb-item" href="{{ route('mosque-administrator') }}">4</a>
             <a class="bcca-breadcrumb-item bcca-breadcrumb-item-active active" href="{{ route('mosque-condition') }}">3</a>
             <a class="bcca-breadcrumb-item" href="{{ route('mosque-land') }}">2</a>
-            <a class="bcca-breadcrumb-item" href="{{ route('mosque-profile') }}">1</a>
-           
+            <a class="bcca-breadcrumb-item" href="{{ route('mosque-profile.show') }}">1</a>
+
             {{-- <div class="bcca-breadcrumb-item">Home</div> --}}
           </div>
           <div class="card-body">
@@ -137,15 +137,15 @@
               Harap Perhatikan data sebaik mungkin
             </p>
             <form class="forms-sample" method="POST" action="{{ route('mosque-condition-store') }}">
-              
+
               @csrf
-              
-              
+
+
               <div class="form-group">
-                
+
                 <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
               </div>
-  
+
               <div class="form-group">
                 <label for="development_status">Apakah masih bisa pengembangan/pembebasan lahan disekitar Masjid</label>
                 <select data-show-subtext="true" data-live-search="true" name="development_status" id="development_status select_box" class="selectpicker form-control" v-model="development_status" v-if="province">
@@ -189,7 +189,7 @@
               </select>
               </div>
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
-             
+
             </form>
           </div>
         </div>
@@ -198,12 +198,7 @@
   </div>
   <!-- content-wrapper ends -->
   <!-- partial:../../partials/_footer.html -->
-  <footer class="footer">
-    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-    </div>
-  </footer>
+  @include('includes.footer')
   <!-- partial -->
 </div>
 <!-- main-panel ends -->

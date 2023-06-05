@@ -14,26 +14,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone_number');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->text('address');
-            $table->char('regency_id');
-            $table->char('province_id');
-            $table->String('coordinator');
 
-            $table->foreign('province_id')
-            ->references('id')
-            ->on('provinces')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
-
-            $table->foreign('regency_id')
-            ->references('id')
-            ->on('regencies')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
             $table->rememberToken();
             $table->timestamps();
         });

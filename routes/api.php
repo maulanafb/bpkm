@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('provinces', 'API\LocationController@provinces')->name('api-provinces');
-Route::get('regencies/{provinces_id}', 'API\LocationController@regencies')->name('api-regencies');
+// Route::get('provinces', 'API\LocationController@provinces')->name('api-provinces');
+// Route::get('regencies/{provinces_id}', 'API\LocationController@regencies')->name('api-regencies');

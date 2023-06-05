@@ -17,12 +17,8 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Masjid Kapal Munzalan Indonesia',
             'email' => 'admin@admin.com',
-            'phone_number' => '08123',
             'password' => Hash::make('password'),
-            'address' => '123',
-            'regency_id' => 6112,
-            'province_id' => 61,
-            'coordinator' => 'M awal',
+
         ]);
     }
 }

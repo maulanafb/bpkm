@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\MosqueProfile;
 use App\Models\Province;
 use App\Models\Regency;
@@ -11,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class MosqueProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -18,11 +21,11 @@ class MosqueProfileController extends Controller
     {
         $auth = Auth::user()->id;
         $user = Auth::user()->mosque_profile;
-        
+
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.mosque-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user]);
+        return view('pages.profile.dashboard-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user]);
     }
 
     /**
@@ -38,7 +41,7 @@ class MosqueProfileController extends Controller
      */
     public function store(Request $request)
     {
-      
+
         $data = [
             'user_id'=> Auth::user()->id,
             'photo_path' => $request->file('photo_path')->store('assets/mosque', 'public'),
@@ -49,8 +52,13 @@ class MosqueProfileController extends Controller
             'mosque_account_number' => $request['mosque_account_number'],
             'bmi_account_number' => $request['bmi_account_number'],
             'history' => $request['history'],
+            'phone_number' => $request['phone_number'],
+            'address' => $request['address'],
+            'province_id' => $request['province_id'],
+            'regency_id' => $request['regencies_id'],
+            'coordinator' => $request['coordinator'],
     ];
-        
+
         MosqueProfile::create($data);
 
         return redirect()->route('mosque-land');
@@ -61,7 +69,13 @@ class MosqueProfileController extends Controller
      */
     public function show(MosqueProfile $mosqueProfile)
     {
-        //
+        $auth = Auth::user()->id;
+        $user = Auth::user()->mosque_profile;
+
+        $mosque = User::all()->first();
+        $provinces = Province::all();
+        $regencies = Regency::all();
+        return view('pages.mosque-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user]);
     }
 
     /**

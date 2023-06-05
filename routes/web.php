@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\MosqueAdministratorProfileController;
 use App\Http\Controllers\MosqueConditionController;
 use App\Http\Controllers\MosqueProfileController;
@@ -23,9 +24,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/test',[TestingController::class,'index'])->name('test');
 
-Route::get('/mosque-profile',[MosqueProfileController::class,'index'])->name('mosque-profile');
+Route::get('/dashboard-profile',[MosqueProfileController::class,'index'])->name('mosque-profile.index');
 Route::post('/mosque-profile',[MosqueProfileController::class,'store'])->name('mosque-profile-store');
+Route::get('/mosque-profile',[MosqueProfileController::class,'show'])->name('mosque-profile.show');
 
+
+Route::resource('/mosque-document', MosqueDocumentController::class);
 
 Route::get('/mosque-land',[MosqueLandController::class,'index'])->name('mosque-land');
 Route::post('/mosque-land',[MosqueLandController::class,'store'])->name('mosque-land-store');
@@ -36,15 +40,17 @@ Route::post('/mosque-condition',[MosqueConditionController::class,'store'])->nam
 Route::get('/mosque-administrator',[MosqueAdministratorProfileController::class,'index'])->name('mosque-administrator');
 Route::post('/mosque-administrator',[MosqueAdministratorProfileController::class,'store'])->name('mosque-administrator-store');
 
-Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
-Route::post('/mosque-document',[MosqueDocumentController::class,'store'])->name('mosque-document-store');
+// Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
+// Route::post('/mosque-document',[MosqueDocumentController::class,'store'])->name('mosque-document-store');
+
+// Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
 
 
 
-Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
-Route::get('cities', 'DependentDropdownController@cities')->name('cities');
-Route::get('districts', 'DependentDropdownController@districts')->name('districts');
-Route::get('villages', 'DependentDropdownController@villages')->name('villages');
 
+// Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
+// Route::get('cities', 'DependentDropdownController@cities')->name('cities');
+// Route::get('districts', 'DependentDropdownController@districts')->name('districts');
+// Route::get('villages', 'DependentDropdownController@villages')->name('villages');
 
 Auth::routes();
