@@ -27,6 +27,7 @@ Route::get('/test',[TestingController::class,'index'])->name('test');
 Route::get('/dashboard-profile',[MosqueProfileController::class,'index'])->name('mosque-profile.index');
 Route::post('/mosque-profile',[MosqueProfileController::class,'store'])->name('mosque-profile-store');
 Route::get('/mosque-profile',[MosqueProfileController::class,'show'])->name('mosque-profile.show');
+Route::post('/mosque-profile-update/{id}',[MosqueProfileController::class,'update'])->name('mosque-profile.update');
 
 
 Route::resource('/mosque-document', MosqueDocumentController::class);

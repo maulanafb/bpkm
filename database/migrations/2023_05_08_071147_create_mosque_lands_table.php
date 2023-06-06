@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('land_name');
             $table->string('development_process');
             $table->string('current_state_development');
+            $table->string('building_area');
             $table->string('total_land_area');
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });

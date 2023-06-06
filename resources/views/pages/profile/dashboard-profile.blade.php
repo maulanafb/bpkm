@@ -203,23 +203,88 @@
             <div class="card">
               <div class="card-body">
                 <p class="card-title">Profile Settings</p>
-                <form class="forms-sample">
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Username</label>
-                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                <form class="forms-sample" enctype="multipart/form-data" action="{{ route('mosque-profile.update',$auth) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label>Foto Masjid Terbaru (LandScape)</label>
+                            <img width="100px" class="img-thumbnail" src="{{ Storage::url($user->photo_path) }}" alt="">
+                            <input type="file" name="photo_path" class="form-control" src="{{ $user->photo_path }}"/>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="coordinator">Nama Koordinator</label>
+                                <input type="text" class="form-control" id="coordinator" name="coordinator" placeholder="Nama Koordinator" value="{{ $user->coordinator }}">
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone_number">Nomor HP</label>
+                                <input type="number" class="form-control" id="phone_number" name="phone_number" value="{{ $user->phone_number }}">
+                              </div>
+                          </div>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="province_id">Provinsi</label>
+                                <select data-show-subtext="true" data-live-search="true" name="province_id" id="province_id select_box" class="selectpicker form-control" v-model="province_id" v-if="province">
+                                    <option  value="{{ $user->province_id }}" >{{ $user->province->name ?? '' }}</option>
+                                    @foreach ($provinces as $province)
+
+                                        <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">{{ $province->name }}</option>
+                                    @endforeach
+                                </select>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="regencies_id">Kabupaten/Kota</label>
+                                <select data-show-subtext="true" data-live-search="true" name="regencies_id" id="provinces_id select_box" class="selectpicker form-control" v-model="provinces_id" v-if="provinces">
+                                    <option  value="{{ $user->regency_id }}" >{{ $user->regency->name ?? '' }}</option>
+                                  @foreach ($regencies as $regency)
+
+                                      <option data-tokens="{{ $regency->name }}" value="{{ $regency->id }}">{{ $regency->name }}</option>
+                                  @endforeach
+                              </select>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="mosque_account_number">No Rekening Masjid</label>
+                                <input type="number" class="form-control" name="mosque_account_number" id="mosque_account_number" placeholder="Nama Koordinator" value="{{ $user->mosque_account_number }}">
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="bmi_account_number">No Rekening BMI</label>
+                                <input type="number" name="bmi_account_number" class="form-control" id="bmi_account_number" value="{{ $user->bmi_account_number }}">
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="history">Sejarah</label>
+                                <input type="text" class="form-control" name="history" id="history" placeholder="Nama Koordinator" value="{{ $user->history }}">
+                              </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="address">Alamat Lengkap Masjid</label>
+                                <input type="text" class="form-control" name="address" id="address" value="{{ $user->address }}">
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="problem">Permasalahan Masjid</label>
+                                <input type="text" class="form-control" id="problem" name="problem" value="{{ $user->problem }}">
+                              </div>
+                          </div>
+                          <input type="hidden" value="{{ $user->funding_plan }}">
+                          <input type="hidden" value="{{ $user->funding_needs }}">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputConfirmPassword1">Confirm Password</label>
-                      <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
-                    </div>
+
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>

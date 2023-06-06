@@ -30,4 +30,10 @@ class MosqueProfile extends Model
         public function user(){
         return $this->belongsTo(User::class);
     }
+        public function province(){
+            return $this->belongsTo(Province::class);
+    }
+        public function regency(){
+        return $this->belongsTo(Regency::class);
+    }
 }

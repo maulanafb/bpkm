@@ -182,7 +182,7 @@
     <!-- partial:../../partials/_sidebar.html -->
     @include('includes.sidebar')
     <!-- partial -->
-    <div class="main-panel">        
+    <div class="main-panel">
       <div class="content-wrapper">
         <div class="row">
 
@@ -193,13 +193,13 @@
                 <p class="card-description">
                   Harap Perhatikan data sebaik mungkin
                 </p>
-                <form class="forms-sample" method="POST" action="{{ route('profile-main-update') }}">
+                <form class="forms-sample" method="POST" action="">
                   @method('PATCH')
                   @csrf
-                  
-                  
+
+
                   <div class="form-group">
-                    
+
                     <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
                   </div>
                   <div class="form-group">
@@ -261,14 +261,14 @@
                     <label for="building_area">Luas Bangunan Masjid</label>
                     <input type="text" name="building_area" class="form-control" id="building_area" placeholder="Luas bangunan Masjid">
                   </div>
-     
-                  
+
+
                   @if ($mosque->mosque_profile == null)
                   <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   @else
                   <a type="submit" href="" class="btn btn-success mr-2">Edit</a>
                   @endif
-                 
+
                 </form>
               </div>
             </div>
@@ -299,14 +299,14 @@
     {
         tanpa_rupiah.value = formatRupiah(this.value);
     });
-    
+
     /* Dengan Rupiah */
     var dengan_rupiah = document.getElementById('funding_needs');
     dengan_rupiah.addEventListener('keyup', function(e)
     {
         dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
     });
-    
+
     /* Fungsi */
     function formatRupiah(angka, prefix)
     {
@@ -315,12 +315,12 @@
             sisa     = split[0].length % 3,
             rupiah     = split[0].substr(0, sisa),
             ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
-            
+
         if (ribuan) {
             separator = sisa ? '.' : '';
             rupiah += separator + ribuan.join('.');
         }
-        
+
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }

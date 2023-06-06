@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\isEmpty;
+
 class MosqueProfileController extends Controller
 {
     public function __construct()
@@ -21,11 +23,12 @@ class MosqueProfileController extends Controller
     {
         $auth = Auth::user()->id;
         $user = Auth::user()->mosque_profile;
+        $coba = MosqueProfile::all()->first();
 
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.profile.dashboard-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user]);
+        return view('pages.profile.dashboard-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user,'coba'=>$coba]);
     }
 
     /**
@@ -48,7 +51,7 @@ class MosqueProfileController extends Controller
             'problem' => $request['problem'],
             'funding_plan' => $request['funding_plan'],
             'funding_needs' => $request['funding_needs'],
-            'building_area' => $request['building_area'],
+
             'mosque_account_number' => $request['mosque_account_number'],
             'bmi_account_number' => $request['bmi_account_number'],
             'history' => $request['history'],
@@ -89,9 +92,19 @@ class MosqueProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueProfile $mosqueProfile)
+    public function update(Request $request, MosqueProfile $mosqueProfile,$id)
     {
-        //
+        $data = $request->all();
+        $user = Auth::user()->mosque_profile;
+        $item = MosqueProfile::findOrFail($id);
+
+        if(isset($data['photo_path'])){
+            $data['photo_path'] = $request->file('photo_path')->store('assets/mosque', 'public');
+
+        }
+        $item->update($data);
+
+        return redirect()->route('mosque-profile.index');
     }
 
     /**

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('problem');
             $table->string('funding_plan');
             $table->string('funding_needs');
-            $table->string('building_area');
+
             $table->String('mosque_account_number');
             $table->String('bmi_account_number');
             $table->text('history');

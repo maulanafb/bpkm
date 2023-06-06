@@ -169,7 +169,6 @@
                 <label for="regencies_id">Kabupaten/Kota</label>
                 <select data-live-search="true" name="regencies_id" id="regencies_id" class="selectpicker form-control" v-model="regencies_id" v-if="regencies">
                   @foreach ($regencies as $regency)
-
                       <option  value="{{ $regency->id }}">{{$regency->name }}</option>
                   @endforeach
                 </select>
@@ -199,10 +198,7 @@
                 <label for="bmi_account_number">Rekening BMI, Contoh : 28138123 a/n Munzalan Indonesia</label>
                 <input required type="text" name="bmi_account_number" class="form-control" id="bmi_account_number" placeholder="No Rekening BMI">
               </div>
-              <div class="form-group">
-                <label for="building_area">Luas Bangunan Masjid</label>
-                <input required type="text" name="building_area" class="form-control" id="building_area" placeholder="Luas bangunan Masjid">
-              </div>
+
               <div class="form-group">
                 <label for="history">Sejarah Masjid</label>
                 <textarea name="history" class="form-control" id="history" placeholder="Sejarah Masjid"></textarea>

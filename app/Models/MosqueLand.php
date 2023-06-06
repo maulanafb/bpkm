@@ -15,7 +15,8 @@ class MosqueLand extends Model
         'land_name',
         'development_process',
         'current_state_development',
-        'total_land_area'
+        'total_land_area',
+        'building_area',
     ];
     public function user(){
         return $this->belongsTo(User::class);

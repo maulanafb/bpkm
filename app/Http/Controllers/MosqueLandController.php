@@ -43,10 +43,10 @@ class MosqueLandController extends Controller
             'development_process' => $request['development_process'],
             'current_state_development' => $request['current_state_development'],
             'total_land_area' => $request['total_land_area'],
-            
+            'building_area' => $request['building_area'],
             'history' => $request['history'],
     ];
-        
+
         MosqueLand::create($data);
 
         return redirect()->route('mosque-condition');

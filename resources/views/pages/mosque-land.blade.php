@@ -166,6 +166,10 @@
                 <label for="total_land_area">Luas tanah keseluruhan Masjid</label>
                 <input type="text" name="total_land_area" class="form-control" id="total_land_area" >
               </div>
+              <div class="form-group">
+                <label for="building_area">Luas Bangunan Masjid</label>
+                <input required type="text" name="building_area" class="form-control" id="building_area" placeholder="Luas bangunan Masjid">
+              </div>
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
 
             </form>
