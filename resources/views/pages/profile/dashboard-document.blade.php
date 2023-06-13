@@ -193,42 +193,37 @@
             </div>
           </div>
         </div>
+
+
+
+
+
         <div class="row">
           <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 <p class="card-title">Profile Settings</p>
-                <form class="forms-sample" method="POST" action="{{ route('mosque-land-update',$auth) }}">
+                <form class="forms-sample" method="POST" action="{{ route('dashboard-document-update',$auth) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-
                       <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
                     </div>
 
                     <div class="form-group">
-                      <label for="land_status">Status tanah masjid</label>
-                      <input type="text" name="land_status" class="form-control" id="land_status" value="{{ $user->land_status }}">
+                      <label for="land_title_deed">Foto Bukti Dokumen Akta Ikrar Wakaf (AIW), Sertifikat/SKT Tanah Masjid </label>
+
+                      <img width="100px" class="img-thumbnail" src="{{ Storage::url($user->land_title_deed) }}" alt="">
+                      <input type="file" name="land_title_deed" class="form-control" src="{{ $user->land_title_deed }}"/>
+
                     </div>
+
                     <div class="form-group">
-                      <label for="land_name">Status tanah atas nama siapa</label>
-                      <input type="text" name="land_name" class="form-control" id="land_name" value="{{ $user->land_name }}">
+                      <label for="mosque_design">Design Rencana Bangunan Masjid (jika sudah ada)</label>
+                      <img width="100px" class="img-thumbnail" src="{{ Storage::url($user->mosque_design) }}" alt="">
+                      <input type="file" name="mosque_design" class="form-control" src="{{ $user->mosque_design }}"/>
+
                     </div>
-                    <div class="form-group">
-                      <label for="development_process">Proses Pembangunan</label>
-                      <input type="text" name="development_process" class="form-control" id="development_process" value="{{ $user->development_process }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="current_state_development">Jelaskan Kondisi pembangunan terkini</label>
-                      <input type="text" name="current_state_development" class="form-control" id="current_state_development" value="{{ $user->current_state_development }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="total_land_area">Luas tanah keseluruhan Masjid</label>
-                      <input type="text" name="total_land_area" class="form-control" id="total_land_area" value="{{ $user->total_land_area }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="building_area">Luas Bangunan Masjid</label>
-                      <input required type="text" name="building_area" class="form-control" id="building_area" value="{{ $user->building_area }}">
-                    </div>
+
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   </form>
                 </div>

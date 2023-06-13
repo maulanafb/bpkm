@@ -47,7 +47,7 @@ class MosqueAdministratorProfileController extends Controller
             'other_position' => $request['other_position'],
             'director_name' => $request['director_name'],
     ];
-        
+
         MosqueAdministratorProfile::create($data);
 
         return redirect()->route('mosque-document.index');
@@ -66,15 +66,29 @@ class MosqueAdministratorProfileController extends Controller
      */
     public function edit(MosqueAdministratorProfile $mosqueAdministratorProfile)
     {
-        //
+        $user = Auth::user()->mosque_admin;
+        // dd($user);
+        $coba = MosqueAdministratorProfile::all()->first();
+
+        $mosque = User::all()->first();
+        $auth = Auth::user()->id;
+        return view('pages.profile.dashboard-administrator',[
+            'auth'=>$auth,
+            'mosque'=>$mosque,
+            'user'=>$user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueAdministratorProfile $mosqueAdministratorProfile)
+    public function update(Request $request, MosqueAdministratorProfile $mosqueAdministratorProfile,$id)
     {
-        //
+        $data = $request->all();
+        $item = MosqueAdministratorProfile::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('dashboard-administrator-edit');
     }
 
     /**

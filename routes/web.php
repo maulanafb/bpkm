@@ -31,15 +31,23 @@ Route::post('/mosque-profile-update/{id}',[MosqueProfileController::class,'updat
 
 
 Route::resource('/mosque-document', MosqueDocumentController::class);
+Route::get('/dashboard-document',[MosqueDocumentController::class,'edit'])->name('mosque-document-edit');
+Route::post('/dashboard-document/${id}',[MosqueDocumentController::class,'update'])->name('dashboard-document-update');
 
 Route::get('/mosque-land',[MosqueLandController::class,'index'])->name('mosque-land');
 Route::post('/mosque-land',[MosqueLandController::class,'store'])->name('mosque-land-store');
+Route::get('/dashboard-land-edit',[MosqueLandController::class,'edit'])->name('mosque-land-edit');
+Route::post('/dashboard-land-update/{id}',[MosqueLandController::class,'update'])->name('mosque-land-update');
 
 Route::get('/mosque-condition',[MosqueConditionController::class,'index'])->name('mosque-condition');
 Route::post('/mosque-condition',[MosqueConditionController::class,'store'])->name('mosque-condition-store');
+Route::get('/dashboard-condition-edit',[MosqueConditionController::class,'edit'])->name('mosque-condition-edit');
+Route::post('/dashboard-condition-update/{id}',[MosqueConditionController::class,'update'])->name('dashboard-condition-update');
 
 Route::get('/mosque-administrator',[MosqueAdministratorProfileController::class,'index'])->name('mosque-administrator');
 Route::post('/mosque-administrator',[MosqueAdministratorProfileController::class,'store'])->name('mosque-administrator-store');
+Route::get('/dashboard-administrator-edit',[MosqueAdministratorProfileController::class,'edit'])->name('dashboard-administrator-edit');
+Route::post('/dashboard-administrator-update/{id}',[MosqueAdministratorProfileController::class,'update'])->name('dashboard-administrator-update');
 
 // Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
 // Route::post('/mosque-document',[MosqueDocumentController::class,'store'])->name('mosque-document-store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MosqueLand;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,15 +66,28 @@ class MosqueLandController extends Controller
      */
     public function edit(MosqueLand $mosqueLand)
     {
-        //
+        $user = Auth::user()->mosque_land;
+        $coba = MosqueLand::all()->first();
+
+        $mosque = User::all()->first();
+        $auth = Auth::user()->id;
+        return view('pages.profile.dashboard-land',[
+            'auth'=>$auth,
+            'mosque'=>$mosque,
+            'user'=>$user
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueLand $mosqueLand)
+    public function update(Request $request, MosqueLand $mosqueLand,$id)
     {
-        //
+        $data = $request->all();
+        $item = MosqueLand::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('mosque-land-edit');
     }
 
     /**

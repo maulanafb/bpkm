@@ -198,39 +198,63 @@
             <div class="card">
               <div class="card-body">
                 <p class="card-title">Profile Settings</p>
-                <form class="forms-sample" method="POST" action="{{ route('mosque-land-update',$auth) }}">
-                    @csrf
-                    <div class="form-group">
+                <form class="forms-sample" method="POST" action="{{ route('dashboard-condition-update',$auth) }}">
+              @csrf
+              <div class="form-group">
+                <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
+              </div>
 
-                      <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
-                    </div>
+              <div class="form-group">
+                <label for="development_status">Apakah masih bisa pengembangan/pembebasan lahan disekitar Masjid</label>
+                <select data-show-subtext="true" data-live-search="true" name="development_status" id="development_status select_box" class="selectpicker form-control" v-model="development_status" v-if="province">
+                    <option data-tokens="{{ $user->development_status }}" value="{{ $user->development_status }}">{{ $user->development_status ? 'Ya' : 'Tidak' }}</option>
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Tidak</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label for="director_house_status">Apakah Sudah ada rumah Ustadz/pengasuh?</label>
+                <select data-show-subtext="true" data-live-search="true" name="director_house_status" id="director_house_status select_box" class="selectpicker form-control" v-model="director_house_status" v-if="province">
+                    <option data-tokens="{{ $user->director_house_status }}" value="{{ $user->director_house_status }}">{{ $user->director_house_status ? 'Ya' : 'Tidak' }}</option>
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Tidak</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label for="quran_house_status">Apakah di kawasan Masjid sudah terdapat rumah Qur'an/Pondok khusus santri?</label>
+                <select data-show-subtext="true" data-live-search="true" name="quran_house_status" id="quran_house_status select_box" class="selectpicker form-control" v-model="quran_house_status" v-if="province">
+                    <option data-tokens="{{ $user->quran_house_status }}" value="{{ $user->quran_house_status }}">{{ $user->quran_house_status ? 'Ya' : 'Tidak' }}</option>
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Tidak</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label for="odoj_status">Apakah di Masjid sudah ada program rutin One Day One Juz (ODOJ)</label>
+                <select data-show-subtext="true" data-live-search="true" name="odoj_status" id="odoj_status select_box" class="selectpicker form-control" v-model="odoj_status" v-if="province">
+                    <option data-tokens="{{ $user->odoj_status }}" value="{{ $user->odoj_status }}">{{ $user->odoj_status ? 'Ya' : 'Tidak' }}</option>
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Tidak</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label for="business_entity_status">Apakah di kawasan Masjid sudah terdapat amal usaha Masjid Munzalan?</label>
+                <select data-show-subtext="true" data-live-search="true" name="business_entity_status" id="business_entity_status select_box" class="selectpicker form-control" v-model="business_entity_status" v-if="province">
+                    <option data-tokens="{{ $user->business_entity_status }}" value="{{ $user->business_entity_status }}">{{ $user->business_entity_status ? 'Ya' : 'Tidak' }}</option>
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Tidak</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label for="bmi_status">Apakah di kawasan Masjid sudah terdapat Baitulmaal Munzalan Indonesia?</label>
+                <select data-show-subtext="true" data-live-search="true" name="bmi_status" id="bmi_status select_box" class="selectpicker form-control" v-model="bmi_status" v-if="province">
+                    <option data-tokens="{{ $user->bmi_status }}" value="{{ $user->bmi_status }}">{{ $user->bmi_status ? 'Ya' : 'Tidak' }}</option>
+                  <option data-tokens="ya" value="1">Ya</option>
+                  <option data-tokens="tidak" value="0">Tidak</option>
+              </select>
+              </div>
+              <button type="submit" class="btn btn-primary mr-2">Submit</button>
 
-                    <div class="form-group">
-                      <label for="land_status">Status tanah masjid</label>
-                      <input type="text" name="land_status" class="form-control" id="land_status" value="{{ $user->land_status }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="land_name">Status tanah atas nama siapa</label>
-                      <input type="text" name="land_name" class="form-control" id="land_name" value="{{ $user->land_name }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="development_process">Proses Pembangunan</label>
-                      <input type="text" name="development_process" class="form-control" id="development_process" value="{{ $user->development_process }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="current_state_development">Jelaskan Kondisi pembangunan terkini</label>
-                      <input type="text" name="current_state_development" class="form-control" id="current_state_development" value="{{ $user->current_state_development }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="total_land_area">Luas tanah keseluruhan Masjid</label>
-                      <input type="text" name="total_land_area" class="form-control" id="total_land_area" value="{{ $user->total_land_area }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="building_area">Luas Bangunan Masjid</label>
-                      <input required type="text" name="building_area" class="form-control" id="building_area" value="{{ $user->building_area }}">
-                    </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                  </form>
+            </form>
                 </div>
               </div>
             </div>

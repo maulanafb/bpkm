@@ -15,10 +15,10 @@
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-profile.index') }}">Profile</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Tanah</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Kondisi</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Dokumen</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Profile Koordinator</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-land-edit') }}">Tanah</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-condition-edit') }}">Kondisi</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-document-edit') }}">Dokumen</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('dashboard-administrator-edit') }}">Profile Koordinator</a></li>
 
           </ul>
         </div>

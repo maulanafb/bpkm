@@ -198,36 +198,34 @@
             <div class="card">
               <div class="card-body">
                 <p class="card-title">Profile Settings</p>
-                <form class="forms-sample" method="POST" action="{{ route('mosque-land-update',$auth) }}">
+                <form class="forms-sample" method="POST" action="{{ route('dashboard-administrator-update',$auth) }}">
                     @csrf
                     <div class="form-group">
-
                       <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
                     </div>
-
                     <div class="form-group">
-                      <label for="land_status">Status tanah masjid</label>
-                      <input type="text" name="land_status" class="form-control" id="land_status" value="{{ $user->land_status }}">
+                      <label for="coordinator_name">Nama Koordinator/Penanggung Jawab</label>
+                      <input required type="text" name="coordinator_name" class="form-control" id="coordinator_name" value="{{ $user->coordinator_name }}">
                     </div>
                     <div class="form-group">
-                      <label for="land_name">Status tanah atas nama siapa</label>
-                      <input type="text" name="land_name" class="form-control" id="land_name" value="{{ $user->land_name }}">
+                      <label for="phone_number">Nomor Hp Koordinator/Penanggung jawab Masjid</label>
+                      <input required type="text" name="phone_number" class="form-control" id="phone_number" value="{{ $user->phone_number }}">
                     </div>
                     <div class="form-group">
-                      <label for="development_process">Proses Pembangunan</label>
-                      <input type="text" name="development_process" class="form-control" id="development_process" value="{{ $user->development_process }}">
+                      <label for="coordinator_status">Apakah Santri Penerima Amanah (S.P.A) Masjid Kapal Munzalan?</label>
+                      <select data-show-subtext="true" data-live-search="true" name="coordinator_status" id="coordinator_status select_box" class="selectpicker form-control" v-model="coordinator_status" v-if="coordinator_status">
+                        <option data-tokens="{{ $user->coordinator_status }}" value="{{ $user->coordinator_status }}">{{ $user->coordinator_status ? 'Ya' : 'Bukan'}}</option>
+                        <option data-tokens="ya" value="1">Ya</option>
+                        <option data-tokens="tidak" value="0">Bukan</option>
+                    </select>
                     </div>
                     <div class="form-group">
-                      <label for="current_state_development">Jelaskan Kondisi pembangunan terkini</label>
-                      <input type="text" name="current_state_development" class="form-control" id="current_state_development" value="{{ $user->current_state_development }}">
+                      <label for="other_position">Jabatan/amanah lainnya? (selain koordinator/PJ Masjid Kapal Munzalan Cabang)</label>
+                      <input required type="text" name="other_position" class="form-control" id="other_position" value="{{ $user->other_position }}">
                     </div>
                     <div class="form-group">
-                      <label for="total_land_area">Luas tanah keseluruhan Masjid</label>
-                      <input type="text" name="total_land_area" class="form-control" id="total_land_area" value="{{ $user->total_land_area }}">
-                    </div>
-                    <div class="form-group">
-                      <label for="building_area">Luas Bangunan Masjid</label>
-                      <input required type="text" name="building_area" class="form-control" id="building_area" value="{{ $user->building_area }}">
+                      <label for="director_name">Nama Wakil Pengasuh Wilayah/Cabang</label>
+                      <input required type="text" name="director_name" class="form-control" id="director_name" value="{{ $user->director_name }}">
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   </form>
