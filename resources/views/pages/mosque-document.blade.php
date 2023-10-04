@@ -134,12 +134,8 @@
             <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
 
             <form class="forms-sample" method="POST" action="{{ route('mosque-document.store') }}" enctype="multipart/form-data">
-
               @csrf
-
-
               <div class="form-group">
-
                 <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
               </div>
 

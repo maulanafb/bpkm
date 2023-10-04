@@ -8805,6 +8805,22 @@ sub {
 sup {
   top: -.5em;
 }
+/* CSS untuk mengubah warna tombol konfirmasi */
+.custom-confirm-button-class {
+    background-color: #ab509f !important;
+    /* Anda bisa menyesuaikan warna sesuai keinginan Anda */
+    color: #ffffff !important; /* Warna teks */
+    border-color: #ab509f !important; /* Warna border (jika diperlukan) */
+}
+
+/* CSS untuk mengubah warna teks tombol konfirmasi saat dihover */
+.custom-confirm-button-class:hover {
+    background-color: #813b79 !important;
+    /* Ganti warna sesuai dengan keinginan Anda saat tombol dihover */
+}
+.custom-icon-class {
+    color: #ab509f !important; /* Ganti warna ikon sesuai keinginan Anda */
+}
 
 a {
   color: #007bff;
@@ -19059,7 +19075,7 @@ a.text-dark:hover, a.text-dark:focus {
   .table, .jsgrid .jsgrid-table {
     border-collapse: collapse !important;
   }
-  
+
   .table td,
   .jsgrid .jsgrid-table td, .table th, .jsgrid .jsgrid-table th {
     background-color: #ffffff !important;

@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -47,27 +48,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function mosque_profile() {
+    public function mosque_profile()
+    {
         return $this->hasOne(MosqueProfile::class);
     }
-    public function mosque_admin(){
+    public function mosque_admin()
+    {
         return $this->hasOne(MosqueAdministratorProfile::class);
     }
-    public function mosque_land(){
+    public function mosque_land()
+    {
         return $this->hasOne(MosqueLand::class);
     }
-    public function mosque_document(){
+    public function mosque_document()
+    {
         return $this->hasOne(MosqueDocument::class);
     }
-    public function mosque_condition(){
+    public function mosque_condition()
+    {
         return $this->hasOne(MosqueCondition::class);
     }
 
-    public function regency(){
+    public function regency()
+    {
         return $this->belongsTo(Regency::class);
     }
 
-    public function province(){
+    public function province()
+    {
         return $this->belongsTo(Province::class);
     }
 }

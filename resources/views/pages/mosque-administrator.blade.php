@@ -134,15 +134,10 @@
             <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
 
             <form class="forms-sample" method="POST" action="{{ route('mosque-administrator-store') }}">
-
               @csrf
-
-
               <div class="form-group">
-
                 <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
               </div>
-
               <div class="form-group">
                 <label for="coordinator_name">Nama Koordinator/Penanggung Jawab</label>
                 <input required type="text" name="coordinator_name" class="form-control" id="coordinator_name" placeholder="Nama Koordinator/penanggung jawab">

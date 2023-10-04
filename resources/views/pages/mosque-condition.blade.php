@@ -137,12 +137,8 @@
               Harap Perhatikan data sebaik mungkin
             </p>
             <form class="forms-sample" method="POST" action="{{ route('mosque-condition-store') }}">
-
               @csrf
-
-
               <div class="form-group">
-
                 <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
               </div>
 

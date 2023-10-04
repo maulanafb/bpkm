@@ -19,8 +19,8 @@ class MosqueConditionController extends Controller
     public function index()
     {
         $auth = Auth::user()->id;
-        return view('pages.mosque-condition',[
-            'auth'=>$auth
+        return view('pages.mosque-condition', [
+            'auth' => $auth
         ]);
     }
 
@@ -38,14 +38,14 @@ class MosqueConditionController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'user_id'=> Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'development_status' => $request['development_status'],
             'director_house_status' => $request['director_house_status'],
             'odoj_status' => $request['odoj_status'],
             'quran_house_status' => $request['quran_house_status'],
             'business_entity_status' => $request['business_entity_status'],
             'bmi_status' => $request['bmi_status'],
-    ];
+        ];
 
         MosqueCondition::create($data);
 
@@ -70,22 +70,21 @@ class MosqueConditionController extends Controller
 
         $mosque = User::all()->first();
         $auth = Auth::user()->id;
-        return view('pages.profile.dashboard-condition',[
-            'auth'=>$auth,
-            'mosque'=>$mosque,
-            'user'=>$user
+        return view('pages.profile.dashboard-condition', [
+            'auth' => $auth,
+            'mosque' => $mosque,
+            'user' => $user
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueCondition $mosqueCondition,$id)
+    public function update(Request $request, MosqueCondition $mosqueCondition, $id)
     {
         $data = $request->all();
         $item = MosqueCondition::findOrFail($id);
         $item->update($data);
-
         return redirect()->route('mosque-land-edit');
     }
 

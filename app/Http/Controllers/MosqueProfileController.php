@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\MosqueProfile;
 use App\Models\Province;
 use App\Models\Regency;
@@ -28,7 +29,7 @@ class MosqueProfileController extends Controller
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.profile.dashboard-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user,'coba'=>$coba]);
+        return view('pages.profile.dashboard-profile', ["mosque" => $mosque, "provinces" => $provinces, "regencies" => $regencies, "auth" => $auth, "user" => $user, 'coba' => $coba]);
     }
 
     /**
@@ -46,7 +47,7 @@ class MosqueProfileController extends Controller
     {
 
         $data = [
-            'user_id'=> Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'photo_path' => $request->file('photo_path')->store('assets/mosque', 'public'),
             'problem' => $request['problem'],
             'funding_plan' => $request['funding_plan'],
@@ -60,7 +61,7 @@ class MosqueProfileController extends Controller
             'province_id' => $request['province_id'],
             'regency_id' => $request['regencies_id'],
             'coordinator' => $request['coordinator'],
-    ];
+        ];
 
         MosqueProfile::create($data);
 
@@ -78,7 +79,7 @@ class MosqueProfileController extends Controller
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.mosque-profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies,"auth"=>$auth,"user"=>$user]);
+        return view('pages.mosque-profile', ["mosque" => $mosque, "provinces" => $provinces, "regencies" => $regencies, "auth" => $auth, "user" => $user]);
     }
 
     /**
@@ -92,13 +93,14 @@ class MosqueProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueProfile $mosqueProfile,$id)
+    public function update(Request $request, MosqueProfile $mosqueProfile, $id)
     {
         $data = $request->all();
+        // dd($data);
         $user = Auth::user()->mosque_profile;
         $item = MosqueProfile::findOrFail($id);
 
-        if(isset($data['photo_path'])){
+        if (isset($data['photo_path'])) {
             $data['photo_path'] = $request->file('photo_path')->store('assets/mosque', 'public');
 
         }

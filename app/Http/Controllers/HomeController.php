@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
 
         $mosques = User::all()->first();
+        $allMosque = User::get();
 
         $v1 = Auth::user()->mosque_admin;
         $v2 = Auth::user()->mosque_profile;
@@ -35,10 +36,10 @@ class HomeController extends Controller
         $v5 = Auth::user()->mosque_condition;
 
 
-        if( ($v4) == null){
+        if (($v4) == null) {
             return redirect()->route('mosque-profile.show');
-        }else{
-            return view('pages.dashboard',["mosques"=>$mosques]);
+        } else {
+            return view('pages.dashboard', ["mosques" => $mosques, "allMosque" => $allMosque]);
         }
 
 
