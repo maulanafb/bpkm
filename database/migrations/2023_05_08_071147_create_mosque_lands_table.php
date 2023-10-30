@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,10 +15,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('land_status');
             $table->string('land_name');
-            $table->string('development_process');
-            $table->string('current_state_development');
-            $table->string('building_area');
-            $table->string('total_land_area');
+            $table->number('total_land_area');
+            $table->number('building_area');
+            $table->string('land_document')->nullable();
+            $table->string('mosque_design')->nullable();
+            $table->string('mosque_rab')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();

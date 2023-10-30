@@ -8723,6 +8723,7 @@ body {
   outline: 0 !important;
 }
 
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -8805,6 +8806,17 @@ sub {
 sup {
   top: -.5em;
 }
+/* CSS untuk efek glassmorphism pada card-header */
+.glassmorphism-effect {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #ab509f;
+}
+
 /* CSS untuk mengubah warna tombol konfirmasi */
 .custom-confirm-button-class {
     background-color: #ab509f !important;
@@ -8817,9 +8829,6 @@ sup {
 .custom-confirm-button-class:hover {
     background-color: #813b79 !important;
     /* Ganti warna sesuai dengan keinginan Anda saat tombol dihover */
-}
-.custom-icon-class {
-    color: #ab509f !important; /* Ganti warna ikon sesuai keinginan Anda */
 }
 
 a {

@@ -4,25 +4,41 @@
 @endsection
 @push('addon-style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <style>
+        /* CSS untuk efek glassmorphism pada card-header */
+        .card-head {
+            background-color: #ab509f;
+            color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Animasi selama 0.3 detik */
+        }
+
+        .card-head:hover {
+            background-color: #fff;
+            color: black;
+        }
+    </style>
 @endpush
 @section('content')
-    <div class="container " style="margin-top:150px ">
+    <div class="container  mb-5" style="margin-top: 150px;margin-bottom: 100px">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header mx-auto">{{ __('Halaman Ubah Password') }}</div>
-                    {{-- {{ Auth::user() }} --}}
+                    <div class="mx-auto px-5 py-2 rounded btn-primary card-head">
+                        {{ __('Halaman Ubah Password') }}
+                    </div>
 
                     <div class="card-body">
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
+                            <div class="alert alert-danger" role="alert">
+                                <ul class="list-unstyled">
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
                                     @endforeach
                                 </ul>
                             </div>
                         @endif
+
                         <form method="POST" action="{{ route('change-password') }}"
                             onsubmit="return confirmChangePassword();" id="change-password-form">
                             @csrf
@@ -76,7 +92,7 @@
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Jika pengguna mengonfirmasi, kirim formulir
+                        // Jika pengguna mengonfirmasi, kirim formulir atau lakukan tindakan lainnya
                         document.getElementById('change-password-form').submit();
                     }
                 });

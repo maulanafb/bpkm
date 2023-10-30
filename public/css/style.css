@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Montserrat:wght@400&display=swap');
+
+/* Gaya untuk kelas .poppins */
+.poppins {
+  font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+}
+.font-sm {
+    font-size: 7px;
+}
+.regency-name{
+    color: #ab509f;
+}
+h1,h2,h3,h4,p {
+    font-family: 'Poppins', sans-serif;
+}
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Style dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the button that is used to open the dropdown */
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown menu */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left: auto; /* Menghapus pengaturan kiri */
+  right: 0; /* Atur posisi ke kanan */
+  top: 100%; /* Atur posisi tepat di bawah tombol */
+}
+
+/* Style dropdown items */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none; /* Menghapus dekorasi teks (misalnya, garis bawah) */
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+    text-decoration: none;
+    color: black;
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu when the button is clicked */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+/* Style the Logout button */
+.dropdown-content button {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none; /* Menghapus dekorasi teks pada tombol */
+}
+

@@ -3,11 +3,13 @@
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\MosqueAdministratorProfileController;
+use App\Http\Controllers\MosqueCaretakerController;
 use App\Http\Controllers\MosqueConditionController;
 use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
 use App\Http\Controllers\MosqueDocumentController;
 use App\Http\Controllers\MosqueLandController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/masjid/{id}', [MosqueController::class, 'show'])->name('mosque.show');
+
+
 Route::get('/test', [TestingController::class, 'index'])->name('test');
 
 Route::get('/dashboard-profile', [MosqueProfileController::class, 'index'])->name('mosque-profile.index');
@@ -49,6 +55,15 @@ Route::get('/mosque-administrator', [MosqueAdministratorProfileController::class
 Route::post('/mosque-administrator', [MosqueAdministratorProfileController::class, 'store'])->name('mosque-administrator-store');
 Route::get('/dashboard-administrator-edit', [MosqueAdministratorProfileController::class, 'edit'])->name('dashboard-administrator-edit');
 Route::post('/dashboard-administrator-update/{id}', [MosqueAdministratorProfileController::class, 'update'])->name('dashboard-administrator-update');
+
+Route::get('/dashboard-mosque-admin', [MosqueCaretakerController::class, 'index'])->name('caretaker.index');
+Route::post('/pengurus-masjid', [MosqueCaretakerController::class, 'store'])->name('pengurus-masjid.store');
+Route::delete('/pengurus-masjid/{id}', [MosqueCaretakerController::class, 'destroy'])->name('pengurus-masjid.destroy');
+Route::put('/edit-pengurus-masjid/{id}', [MosqueCaretakerController::class, 'update'])->name('pengurus-masjid.update');
+
+Route::resource('/dashboard-mosque-programs', ProgramController::class);
+
+
 
 Route::get('/change-password', [ChangePasswordController::class, 'showChangePasswordForm'])->name('change-password');
 Route::post('/change-password', [ChangePasswordController::class, 'changePassword']);

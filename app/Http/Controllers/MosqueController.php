@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mosque;
+use App\Models\MosqueCaretaker;
+use App\Models\Program;
 use App\Models\Province;
 use App\Models\Regency;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MosqueController extends Controller
 {
@@ -19,11 +22,11 @@ class MosqueController extends Controller
      */
     public function index()
     {
-        
+
         $mosque = User::all()->first();
         $provinces = Province::all();
         $regencies = Regency::all();
-        return view('pages.profile',["mosque"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies]);
+        return view('pages.profile', ["mosque" => $mosque, "provinces" => $provinces, "regencies" => $regencies]);
     }
 
     /**
@@ -45,11 +48,19 @@ class MosqueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Mosque $mosque)
+    public function show($id)
     {
-        //
+        // $userId = Auth::user()->id;
+        $caretaker = MosqueCaretaker::where(['user_id' => $id])->get();
+        $programs = Program::where(['user_id' => $id])->get();
+        // dd($caretaker);
+        $mosque = User::find($id);
+        $mosque_land = $mosque->mosque_land;
+        $mosque_condition = $mosque->mosque_condition;
+        $mosque_coordinator = $mosque->mosque_admin;
+        // dd($mosque_condition);
+        return view('pages.mosque-detail', compact(['mosque', 'caretaker', 'programs', 'mosque_land', 'mosque_condition', 'mosque_coordinator']));
     }
-
     /**
      * Show the form for editing the specified resource.
      */

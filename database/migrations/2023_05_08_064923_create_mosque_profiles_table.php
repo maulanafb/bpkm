@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,33 +14,34 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('photo_path');
-            $table->text('problem');
-            $table->string('funding_plan');
-            $table->string('funding_needs');
-
-            $table->String('mosque_account_number');
-            $table->String('bmi_account_number');
-            $table->text('history');
+            $table->string('manager');
+            $table->string('phone_number');
             $table->text('address');
             $table->char('regency_id');
             $table->char('province_id');
-            $table->String('coordinator');
-            $table->string('phone_number');
+            $table->text('history');
+            $table->string('deputy_regional_supervisor');
+            $table->string('deputy_branch_supervisor')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('tweeter')->nullable();
             $table->foreign('province_id')
-            ->references('id')
-            ->on('provinces')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
+                ->references('id')
+                ->on('provinces')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
 
             $table->foreign('regency_id')
-            ->references('id')
-            ->on('regencies')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
+                ->references('id')
+                ->on('regencies')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->foreign('user_id')->references('id')
-            ->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
             $table->timestamps();
         });
     }
