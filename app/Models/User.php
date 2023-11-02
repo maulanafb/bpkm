@@ -64,9 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(MosqueLand::class);
     }
-    public function mosque_document()
+    public function mosque_program()
     {
-        return $this->hasOne(MosqueDocument::class);
+        return $this->hasOne(MosqueProgram::class);
     }
     public function mosque_condition()
     {

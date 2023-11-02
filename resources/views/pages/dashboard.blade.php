@@ -14,7 +14,6 @@
 @endpush
 
 @section('content')
-
     <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_settings-panel.html -->
         <div class="theme-setting-wrapper">
@@ -286,43 +285,50 @@
                         </div>
                     </div>
                 </div>
-                @role('admin')
-                    <div class=" my-2">
-                        <h3 class="text-start mb-3">Daftar Masjid Kapal Munzalan Indonesia</h3>
-                        <div class="row">
-                            @forelse ($allMosque as $mosque)
-                                <div class="col-md-4 mb-4">
-                                    <a href="{{ route('mosque.show', $mosque->id) }}"
-                                        style="text-decoration: none;color:black" target="_blank">
-                                        <!-- Add this anchor tag -->
-                                        <div class="card p-3" style="min-height: 350px">
+
+                <div class=" my-2">
+                    <h3 class="text-start mb-3">Daftar Masjid Kapal Munzalan Indonesia</h3>
+                    <div class="row">
+                        @forelse ($allMosque as $mosque)
+                            {{-- {{ $mosque->mosque_profile->photo_path ?? '' }} --}}
+                            <div class="col-md-4 mb-4">
+                                <a href="{{ route('mosque.show', $mosque->id) }}"
+                                    style="text-decoration: none;color:black" target="_blank">
+                                    <!-- Add this anchor tag -->
+                                    <div class="card p-3" style="min-height: 350px">
+                                        @if ($mosque->mosque_profile)
                                             <img src="{{ Storage::url($mosque->mosque_profile->photo_path) }}"
                                                 class="card-img-top rounded" style="height: 200px; object-fit: cover;"
                                                 alt="Foto Masjid">
-                                            <div
-                                                class="card-body d-flex flex-column justify-content-center align-items-center">
-                                                <h4 class="btn btn-primary font-weight-medium"
-                                                    style="background-color: #fff; color: #ab509f; font-weight: 600;font-size: 16px;letter-spacing: 0.8px">
-                                                    {{ $mosque->name }}
-                                                </h4>
-                                                {{-- <p class="card-text font-weight-medium"
+                                        @else
+                                            <img alt="logo"
+                                                src="https://via.placeholder.com/300x200.png?text=Masjid+Kapal+Munzalan+Indonesia"
+                                                class="card-img-top rounded" style="height: 200px; object-fit: cover;">
+                                        @endif
+                                        <div
+                                            class="card-body d-flex flex-column justify-content-center align-items-center">
+                                            <h4 class="btn btn-primary font-weight-medium"
+                                                style="background-color: #fff; color: #ab509f; font-weight: 600; font-size: 16px; letter-spacing: 0.8px">
+                                                {{ $mosque->name }}
+                                            </h4>
+                                            {{-- <p class="card-text font-weight-medium"
         style="color: #ab509f; font-weight: 600; background-color: #fff;">
         {{ $mosque->mosque_profile->regency->name }}
     </p> --}}
-                                            </div>
-
                                         </div>
-                                    </a> <!-- Close the anchor tag -->
-                                </div>
-                            @empty
-                                <div class="col-md-12">
-                                    <p class="text-center">Belum ada masjid yang tersedia.</p>
-                                </div>
-                            @endforelse
-                        </div>
+                                    </div>
 
+                                </a> <!-- Close the anchor tag -->
+                            </div>
+                        @empty
+                            <div class="col-md-12">
+                                <p class="text-center">Belum ada masjid yang tersedia.</p>
+                            </div>
+                        @endforelse
                     </div>
-                @endrole
+
+                </div>
+
 
 
 

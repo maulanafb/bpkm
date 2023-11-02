@@ -3,31 +3,37 @@
 @section('title')
     Admin BPKM
 @endsection
+@push('addon-style')
+    <style>
+        .notify {
+            z-index: 99999;
+        }
+    </style>
+@endpush
 
 @section('content')
+    <x-notify::notify style="z-index: 99999;" />
+
     <div class="container-fluid page-body-wrapper">
+        @if (session('notification'))
+            <script>
+                var notification = @json(session('notification'));
+                window.onload = function() {
+                    $.notify({
+                        title: notification.title,
+                        message: notification.message,
+                        icon: notification.icon
+                    }, {
+                        type: notification.type,
+                        delay: 2000 // Atur sesuai kebutuhan Anda
+                    });
+                }
+            </script>
+        @endif
         <!-- partial:partials/_settings-panel.html -->
         <div class="theme-setting-wrapper">
             <div id="settings-trigger"><i class="ti-settings"></i></div>
-            <div id="theme-settings" class="settings-panel">
-                <i class="settings-close ti-close"></i>
-                <p class="settings-heading">SIDEBAR SKINS</p>
-                <div class="sidebar-bg-options selected" id="sidebar-light-theme">
-                    <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
-                </div>
-                <div class="sidebar-bg-options" id="sidebar-dark-theme">
-                    <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
-                </div>
-                <p class="settings-heading mt-2">HEADER SKINS</p>
-                <div class="color-tiles mx-0 px-4">
-                    <div class="tiles success"></div>
-                    <div class="tiles warning"></div>
-                    <div class="tiles danger"></div>
-                    <div class="tiles info"></div>
-                    <div class="tiles dark"></div>
-                    <div class="tiles default"></div>
-                </div>
-            </div>
+
         </div>
         <div id="right-sidebar" class="settings-panel">
             <i class="settings-close ti-close"></i>
@@ -197,6 +203,7 @@
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
+
                 <div class="row">
                     <div class="col-md-12 grid-margin">
                         <div class="row">
@@ -219,104 +226,160 @@
                             <div class="card-body">
                                 <p class="card-title">Profile Settings</p>
                                 <form class="forms-sample" enctype="multipart/form-data"
-                                    action="{{ route('mosque-profile.update', $auth) }}" method="POST"
-                                    enctype="multipart/form-data">
+                                    action="{{ route('mosque-profile.update', $auth) }}" method="POST">
                                     @csrf
-                                    <div class="row">
-                                        <div class="col-md-12 mb-3">
-                                            <label>Foto Masjid Terbaru (LandScape)</label>
+                                    @method('PUT')
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
+                                    </div>
+                                    <label>Update Foto Masjid</label>
+                                    @if ($user != null)
+                                        <div class="form-group">
                                             <img width="100px" class="img-thumbnail"
                                                 src="{{ Storage::url($user->photo_path) }}" alt="">
-                                            <input type="file" name="photo_path" class="form-control"
-                                                src="{{ $user->photo_path }}" />
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="file" name="photo_path" class="form-control" />
+                                        </div>
+                                    @else
+                                    @endif
+                                    <label for="manager" class="mt-3">Nama Manager/Koordinator/PJ Masjid</label>
+                                    <div class="form-group">
+                                        <input id="manager" type="text"
+                                            class="form-control @error('manager') is-invalid @enderror" name="manager"
+                                            value="{{ $user->manager }}" autocomplete="manager" autofocus
+                                            placeholder="Nama Manager/Koordinator/PJ Masjid">
+                                    </div>
+                                    <label for="name">Nomor Hp Masjid, Harap dengan format (08xxxxxxxx) contoh :
+                                        0812345667</label>
+                                    <div class="form-group">
+                                        <input id="phone_number" type="number"
+                                            class="form-control @error('phone_number') is-invalid @enderror"
+                                            name="phone_number" value="{{ $user->phone_number }}"
+                                            autocomplete="phone_number" placeholder="Nomor Hp">
+                                    </div>
 
-                                            <div class="form-group">
-                                                <label for="coordinator">Nama Koordinator</label>
-                                                <input type="text" class="form-control" id="coordinator"
-                                                    name="coordinator" placeholder="Nama Koordinator"
-                                                    value="{{ $user->coordinator }}">
+
+                                    <div class="form-group">
+                                        <label for="province_id">Provinsi</label>
+                                        <select data-show-subtext="true" data-live-search="true" name="province_id"
+                                            id="province_id" class="selectpicker form-control">
+                                            <option data-tokens="{{ $user->province->name }}"
+                                                value="{{ $user->province_id }}">
+                                                {{ $user->province->name }}
+                                            </option>
+                                            @foreach ($provinces as $province)
+                                                <option data-tokens="{{ $province->name }}" value="{{ $province->id }}">
+                                                    {{ $province->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="regencies_id">Kabupaten/Kota</label>
+                                        <select data-live-search="true" name="regency_id" id="regencies_id"
+                                            class="selectpicker form-control">
+                                            <option data-tokens="{{ $user->regency->name }}"
+                                                value="{{ $user->regency_id }}">
+                                                {{ $user->regency->name }}
+                                            </option>
+                                            @foreach ($regencies as $regency)
+                                                @if ($regency->province_id == $provinces[0]->id)
+                                                    {{-- Menggunakan provinsi pertama sebagai default --}}
+                                                    @if ($regency->province_id == $provinces[0]->id)
+                                                        <option value="{{ $regency->id }}">
+                                                            {{ $regency->name }}
+                                                        </option>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
+                                    <label for="address">Alamat Lengkap Masjid</label>
+                                    <div class="form-group">
+
+                                        <textarea cols="5" rows="5" id="address" type="text"
+                                            class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" required
+                                            autocomplete="address" autofocus placeholder="Alamat Lengkap Masjid">{{ $user->address }}</textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="history">Sejarah Singkat Masjid</label>
+                                        <textarea name="history" class="form-control" id="history" placeholder="Sejarah Masjid">{{ $user->history }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deputy_regional_supervisor">Nama Wakil Pengasuh Wilayah</label>
+                                        <input type="text" value="{{ $user->deputy_regional_supervisor }}"
+                                            name="deputy_regional_supervisor" class="form-control"
+                                            id="deputy_regional_supervisor" placeholder="Sejarah Masjid">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deputy_branch_supervisor">Nama wakil Pengasuh Cabang(Jika ada)</label>
+                                        <input type="text"
+                                            value="{{ $user->deputy_branch_supervisor ?? 'Belum Ada' }}"
+                                            name="deputy_branch_supervisor" class="form-control"
+                                            id="deputy_branch_supervisor" placeholder="Sejarah Masjid">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="instagram">Instagram (Jika Ada)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fab fa-instagram"></i></span>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="phone_number">Nomor HP</label>
-                                                <input type="number" class="form-control" id="phone_number"
-                                                    name="phone_number" value="{{ $user->phone_number }}">
-                                            </div>
+                                            <input type="text" name="instagram"
+                                                value="{{ $user->instagram ?? 'Belum Ada' }}" class="form-control"
+                                                id="instagram" placeholder="Nama Pengguna Instagram">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="province_id">Provinsi</label>
-                                                <select data-show-subtext="true" data-live-search="true"
-                                                    name="province_id" id="province_id select_box"
-                                                    class="selectpicker form-control" v-model="province_id"
-                                                    v-if="province">
-                                                    <option value="{{ $user->province_id }}">
-                                                        {{ $user->province->name ?? '' }}</option>
-                                                    @foreach ($provinces as $province)
-                                                        <option data-tokens="{{ $province->name }}"
-                                                            value="{{ $province->id }}">{{ $province->name }}</option>
-                                                    @endforeach
-                                                </select>
+
+                                    <div class="form-group">
+                                        <label for="youtube">YouTube (Jika Ada)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fab fa-youtube"></i></span>
                                             </div>
+                                            <input value="{{ $user->youtube ?? 'Belum Ada' }}" type="text"
+                                                name="youtube" class="form-control" id="youtube"
+                                                placeholder="Nama Kanal YouTube">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="regency_id">Kabupaten/Kota</label>
-                                                <select data-show-subtext="true" data-live-search="true"
-                                                    name="regency_id" id="regency_id select_box"
-                                                    class="selectpicker form-control">
-                                                    <option value="{{ $user->regency_id }}">
-                                                        {{ $user->regency->name ?? '' }}</option>
-                                                    @foreach ($regencies as $regency)
-                                                        <option data-tokens="{{ $regency->name }}"
-                                                            value="{{ $regency->id }}">{{ $regency->name }}</option>
-                                                    @endforeach
-                                                </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="facebook">Facebook (Jika Ada)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fab fa-facebook"></i></span>
                                             </div>
+                                            <input value="{{ $user->instagram ?? 'Belum Ada' }}" type="text"
+                                                name="facebook" class="form-control" id="facebook"
+                                                placeholder="Nama Halaman Facebook">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="mosque_account_number">No Rekening Masjid</label>
-                                                <input type="number" class="form-control" name="mosque_account_number"
-                                                    id="mosque_account_number" placeholder="Nama Koordinator"
-                                                    value="{{ $user->mosque_account_number }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tiktok">TikTok (Jika Ada)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fab fa-tiktok"></i></span>
                                             </div>
+                                            <input type="text" value="{{ $user->tiktok ?? 'Belum Ada' }}"
+                                                name="tiktok" class="form-control" id="tiktok"
+                                                placeholder="Nama Pengguna TikTok">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="bmi_account_number">No Rekening BMI</label>
-                                                <input type="number" name="bmi_account_number" class="form-control"
-                                                    id="bmi_account_number" value="{{ $user->bmi_account_number }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tweeter">Twitter (Jika Ada)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fab fa-twitter"></i></span>
                                             </div>
+                                            <input value="{{ $user->tweeter ?? 'Belum Ada' }}" type="text"
+                                                name="tweeter" class="form-control" id="tweeter"
+                                                placeholder="Nama Pengguna Twitter">
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="history">Sejarah</label>
-                                                <input type="text" class="form-control" name="history" id="history"
-                                                    placeholder="Nama Koordinator" value="{{ $user->history }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="address">Alamat Lengkap Masjid</label>
-                                                <input type="text" class="form-control" name="address" id="address"
-                                                    value="{{ $user->address }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="problem">Permasalahan Masjid</label>
-                                                <input type="text" class="form-control" id="problem" name="problem"
-                                                    value="{{ $user->problem }}">
-                                            </div>
-                                        </div>
-                                        <input type="hidden" value="{{ $user->funding_plan }}">
-                                        <input type="hidden" value="{{ $user->funding_needs }}">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -332,6 +395,28 @@
             @include('includes.footer')
             <!-- partial -->
         </div>
+
         <!-- main-panel ends -->
     </div>
 @endsection
+@push('addon-script')
+    <script>
+        document.getElementById('province_id').addEventListener('change', function() {
+            var selectedProvince = this.value;
+            var regenciesDropdown = document.getElementById('regencies_id');
+
+            regenciesDropdown.innerHTML = ''; // Hapus opsi sebelumnya
+
+            @foreach ($regencies as $regency)
+                if ({{ $regency->province_id }} == selectedProvince) {
+                    var option = document.createElement('option');
+                    option.value = {{ $regency->id }};
+                    option.text = "{{ $regency->name }}";
+                    regenciesDropdown.appendChild(option);
+                }
+            @endforeach
+
+            $('.selectpicker').selectpicker('refresh');
+        });
+    </script>
+@endpush

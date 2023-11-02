@@ -11,29 +11,34 @@ class MosqueProfile extends Model
 
     protected $fillable = [
         'user_id',
+        'manager',
         'photo_path',
-        'problem',
-        'bmi_account_number',
-        'mosque_account_number',
-        'funding_plan',
-        'funding_needs',
+        'deputy_regional_supervisor',
+        'deputy_branch_supervisor',
+        'tiktok',
+        'instagram',
+        'facebook',
+        'youtube',
+        'tweeter',
         'history',
         'building_area',
         'address',
         'province_id',
         'regency_id',
-        'coordinator',
         'phone_number'
 
     ];
 
-        public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-        public function province(){
-            return $this->belongsTo(Province::class);
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
     }
-        public function regency(){
+    public function regency()
+    {
         return $this->belongsTo(Regency::class);
     }
 }

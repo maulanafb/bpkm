@@ -32,8 +32,8 @@ class HomeController extends Controller
         $v1 = Auth::user()->mosque_admin;
         $v2 = Auth::user()->mosque_profile;
         $v3 = Auth::user()->mosque_land;
-        $v4 = Auth::user()->mosque_document;
-        $v5 = Auth::user()->mosque_condition;
+        $v4 = Auth::user()->mosque_program;
+        // $v5 = Auth::user()->;
 
 
         if (($v4) == null) {

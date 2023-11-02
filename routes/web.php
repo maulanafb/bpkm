@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\MonthlyFinancianReportController;
 use App\Http\Controllers\MosqueAdministratorProfileController;
 use App\Http\Controllers\MosqueCaretakerController;
 use App\Http\Controllers\MosqueConditionController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
 use App\Http\Controllers\MosqueDocumentController;
 use App\Http\Controllers\MosqueLandController;
+use App\Http\Controllers\MosqueProgramController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +34,9 @@ Route::get('/masjid/{id}', [MosqueController::class, 'show'])->name('mosque.show
 Route::get('/test', [TestingController::class, 'index'])->name('test');
 
 Route::get('/dashboard-profile', [MosqueProfileController::class, 'index'])->name('mosque-profile.index');
-Route::post('/mosque-profile', [MosqueProfileController::class, 'store'])->name('mosque-profile-store');
+Route::post('/mosque-profile', [MosqueProfileController::class, 'store'])->name('mosque-profile.store');
 Route::get('/mosque-profile', [MosqueProfileController::class, 'show'])->name('mosque-profile.show');
-Route::post('/mosque-profile-update/{id}', [MosqueProfileController::class, 'update'])->name('mosque-profile.update');
+Route::put('/mosque-profile-update/{id}', [MosqueProfileController::class, 'update'])->name('mosque-profile.update');
 
 
 Route::resource('/mosque-document', MosqueDocumentController::class);
@@ -46,10 +48,10 @@ Route::post('/mosque-land', [MosqueLandController::class, 'store'])->name('mosqu
 Route::get('/dashboard-land-edit', [MosqueLandController::class, 'edit'])->name('mosque-land-edit');
 Route::post('/dashboard-land-update/{id}', [MosqueLandController::class, 'update'])->name('mosque-land-update');
 
-Route::get('/mosque-condition', [MosqueConditionController::class, 'index'])->name('mosque-condition');
-Route::post('/mosque-condition', [MosqueConditionController::class, 'store'])->name('mosque-condition-store');
-Route::get('/dashboard-condition-edit', [MosqueConditionController::class, 'edit'])->name('mosque-condition-edit');
-Route::post('/dashboard-condition-update/{id}', [MosqueConditionController::class, 'update'])->name('dashboard-condition-update');
+Route::get('/mosque-program', [MosqueProgramController::class, 'index'])->name('mosque-program');
+Route::post('/mosque-program', [MosqueProgramController::class, 'store'])->name('mosque-program-store');
+Route::get('/dashboard-program-edit', [MosqueProgramController::class, 'edit'])->name('mosque-program-edit');
+Route::post('/dashboard-program-update/{id}', [MosqueProgramController::class, 'update'])->name('mosque-program-update');
 
 Route::get('/mosque-administrator', [MosqueAdministratorProfileController::class, 'index'])->name('mosque-administrator');
 Route::post('/mosque-administrator', [MosqueAdministratorProfileController::class, 'store'])->name('mosque-administrator-store');
@@ -61,9 +63,8 @@ Route::post('/pengurus-masjid', [MosqueCaretakerController::class, 'store'])->na
 Route::delete('/pengurus-masjid/{id}', [MosqueCaretakerController::class, 'destroy'])->name('pengurus-masjid.destroy');
 Route::put('/edit-pengurus-masjid/{id}', [MosqueCaretakerController::class, 'update'])->name('pengurus-masjid.update');
 
-Route::resource('/dashboard-mosque-programs', ProgramController::class);
-
-
+Route::get('/monthly-report', [MonthlyFinancianReportController::class, 'index'])->name('monthly-report.index');
+Route::get('/jumah-report', [MonthlyFinancianReportController::class, 'index'])->name('jumah-report.index');
 
 Route::get('/change-password', [ChangePasswordController::class, 'showChangePasswordForm'])->name('change-password');
 Route::post('/change-password', [ChangePasswordController::class, 'changePassword']);

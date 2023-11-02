@@ -11,15 +11,16 @@ class MosqueAdministratorProfile extends Model
 
     protected $fillable = [
         'user_id',
-        'coordinator_name',
+        'photo_path',
+        'manager_name',
         'phone_number',
-        'coordinator_status',
+        'manager_status',
         'other_position',
-        'director_name'
     ];
-        public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    
+
 }

@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->string('land_status');
             $table->string('land_name');
-            $table->number('total_land_area');
-            $table->number('building_area');
+            $table->integer('total_land_area');
+            $table->integer('building_area');
             $table->string('land_document')->nullable();
             $table->string('mosque_design')->nullable();
             $table->string('mosque_rab')->nullable();

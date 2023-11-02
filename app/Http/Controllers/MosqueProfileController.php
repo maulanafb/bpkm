@@ -45,27 +45,22 @@ class MosqueProfileController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'photo_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:9048',
+            // Sesuaikan validasi sesuai kebutuhan Anda
+            // Tambahkan validasi untuk field lainnya
+        ]);
 
-        $data = [
-            'user_id' => Auth::user()->id,
-            'photo_path' => $request->file('photo_path')->store('assets/mosque', 'public'),
-            'problem' => $request['problem'],
-            'funding_plan' => $request['funding_plan'],
-            'funding_needs' => $request['funding_needs'],
+        $data = $request->all();
 
-            'mosque_account_number' => $request['mosque_account_number'],
-            'bmi_account_number' => $request['bmi_account_number'],
-            'history' => $request['history'],
-            'phone_number' => $request['phone_number'],
-            'address' => $request['address'],
-            'province_id' => $request['province_id'],
-            'regency_id' => $request['regencies_id'],
-            'coordinator' => $request['coordinator'],
-        ];
-
+        if ($request->hasFile('photo_path')) {
+            $data['photo_path'] = $request->file('photo_path')->store('assets/mosque', 'public');
+        }
+        // Simpan data masjid ke dalam database
+        $data['user_id'] = Auth::user()->id;
         MosqueProfile::create($data);
-
-        return redirect()->route('mosque-land');
+        // dd($data);
+        return redirect()->route('mosque-administrator');
     }
 
     /**
@@ -93,21 +88,28 @@ class MosqueProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MosqueProfile $mosqueProfile, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
-        // dd($data);
+        unset($data['_token']);
+        unset($data['_method']);
+
         $user = Auth::user()->mosque_profile;
-        $item = MosqueProfile::findOrFail($id);
+        $item = MosqueProfile::where('user_id', $id);
 
-        if (isset($data['photo_path'])) {
+        if ($request->hasFile('photo_path')) {
             $data['photo_path'] = $request->file('photo_path')->store('assets/mosque', 'public');
-
         }
+
         $item->update($data);
+
+        // Tambahkan notifikasi sukses
+        notify()->success('Data berhasil diperbarui.');
 
         return redirect()->route('mosque-profile.index');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

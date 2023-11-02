@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\MosqueAdministratorProfile;
-use App\Models\Province;
-use App\Models\Regency;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,85 +13,69 @@ class MosqueAdministratorProfileController extends Controller
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $auth = Auth::user()->id;
-        return view('pages.mosque-administrator',[
-            'auth'=>$auth
+        $user = Auth::user()->mosque_admin;
+        return view('pages.mosque-administrator', [
+            'auth' => $auth,
+            'user' => $user
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $data = [
-            'user_id'=> Auth::user()->id,
-            'coordinator_name' => $request['coordinator_name'],
+            'user_id' => Auth::user()->id,
+            'manager_name' => $request['manager_name'],
             'phone_number' => $request['phone_number'],
-            'coordinator_status' => $request['coordinator_status'],
+            'manager_status' => $request['manager_status'],
             'other_position' => $request['other_position'],
-            'director_name' => $request['director_name'],
-    ];
-
+        ];
+        if ($request->hasFile('photo_path')) {
+            $data['photo_path'] = $request->file('photo_path')->store('assets/mosque', 'public');
+        }
         MosqueAdministratorProfile::create($data);
 
-        return redirect()->route('mosque-document.index');
+        return redirect()->route('mosque-land');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(MosqueAdministratorProfile $mosqueAdministratorProfile)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(MosqueAdministratorProfile $mosqueAdministratorProfile)
+    public function edit()
     {
         $user = Auth::user()->mosque_admin;
-        // dd($user);
-        $coba = MosqueAdministratorProfile::all()->first();
-
-        $mosque = User::all()->first();
+        $mosque = User::first();
         $auth = Auth::user()->id;
-        return view('pages.profile.dashboard-administrator',[
-            'auth'=>$auth,
-            'mosque'=>$mosque,
-            'user'=>$user
+        return view('pages.profile.dashboard-administrator', [
+            'auth' => $auth,
+            'mosque' => $mosque,
+            'user' => $user
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, MosqueAdministratorProfile $mosqueAdministratorProfile,$id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
-        $item = MosqueAdministratorProfile::findOrFail($id);
+        $item = MosqueAdministratorProfile::where('user_id', $id)->first();
+        if ($request->hasFile('photo_path')) {
+            $data['photo_path'] = $request->file('photo_path')->store('assets/mosque', 'public');
+        }
+
         $item->update($data);
 
         return redirect()->route('dashboard-administrator-edit');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(MosqueAdministratorProfile $mosqueAdministratorProfile)
     {
         //

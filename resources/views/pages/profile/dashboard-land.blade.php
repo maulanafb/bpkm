@@ -3,9 +3,16 @@
 @section('title')
     Admin BPKM
 @endsection
-
+@push('addon-style')
+    <style>
+        .notify {
+            z-index: 99999;
+        }
+    </style>
+@endpush
 @section('content')
     <div class="container-fluid page-body-wrapper">
+        <x-notify::notify style="z-index: 99999;" />
         <!-- partial:partials/_settings-panel.html -->
         <div class="theme-setting-wrapper">
             <div id="settings-trigger"><i class="ti-settings"></i></div>
@@ -214,7 +221,7 @@
                             <div class="card-body">
                                 <p class="card-title">Profile Settings</p>
                                 <form class="forms-sample" method="POST"
-                                    action="{{ route('mosque-land-update', $auth) }}">
+                                    action="{{ route('mosque-land-update', $auth) }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
 
@@ -223,36 +230,71 @@
 
                                     <div class="form-group">
                                         <label for="land_status">Status tanah masjid</label>
-                                        <input type="text" name="land_status" class="form-control" id="land_status"
-                                            value="{{ $user->land_status }}">
+                                        <select class="form-control text-center" id="land_status" name="land_status">
+                                            <option value="{{ $user->land_status }}">
+                                                {{ $statusMapping[$user->land_status] }}</option>
+                                            <option value="1">SHM</option>
+                                            <option value="2">Surat Tanah</option>
+                                            <option value="3">AIW atas nama pribadi/Yayasan Lain</option>
+                                            <option value="4">AIW atas nama yayasan Masjid Kapal Munzalan Indonesia
+                                            </option>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="land_name">Status tanah atas nama siapa</label>
                                         <input type="text" name="land_name" class="form-control" id="land_name"
-                                            value="{{ $user->land_name }}">
+                                            placeholder="Status tanah atas nama siapa" value="{{ $user->land_name }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="development_process">Proses Pembangunan</label>
-                                        <input type="text" name="development_process" class="form-control"
-                                            id="development_process" value="{{ $user->development_process }}">
+                                        <label for="total_land_area">Luas tanah dalam Meter persegi contoh : 1000
+                                        </label>
+                                        <input type="number" name="total_land_area" class="form-control"
+                                            id="total_land_area"
+                                            placeholder="Luas tanah dalam Meter persegi contoh : 1000"
+                                            value="{{ $user->total_land_area }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="current_state_development">Jelaskan Kondisi pembangunan terkini (Status
-                                            Bangunan)</label>
-                                        <input type="text" name="current_state_development" class="form-control"
-                                            id="current_state_development" value="{{ $user->current_state_development }}">
+                                        <label for="">Luas bangunan Masjid dalam Meter persegi contoh :
+                                            1000</label>
+                                        <input type="number" name="building_area" class="form-control"
+                                            id="building_area"
+                                            placeholder="Luas bangunan Masjid dalam m persegi contoh : 1000"
+                                            value="{{ $user->building_area }}">
                                     </div>
+
+
                                     <div class="form-group">
-                                        <label for="total_land_area">Luas tanah keseluruhan Masjid</label>
-                                        <input type="text" name="total_land_area" class="form-control"
-                                            id="total_land_area" value="{{ $user->total_land_area }}">
+                                        <label for="land_document">Update Dokumen SHM/Surat Tanah/AIW (PDF) Jika
+                                            Ada</label>
+                                        @if ($user->land_document)
+                                            <a href="{{ asset('storage/' . $user->land_document) }}"
+                                                target="_blank">Lihat</a>
+                                        @endif
+                                        <input type="file" name="land_document" class="form-control-file">
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="building_area">Luas Bangunan Masjid</label>
-                                        <input required type="text" name="building_area" class="form-control"
-                                            id="building_area" value="{{ $user->building_area }}">
+                                        <label for="mosque_design">Update Design Masjid (PDF) Jika Ada</label>
+                                        @if ($user->mosque_design)
+                                            <a href="{{ asset('storage/' . $user->mosque_design) }}"
+                                                target="_blank">Lihat</a>
+                                        @endif
+                                        <input type="file" name="mosque_design" class="form-control-file">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="mosque_rab">Update RAB Pembangunan Masjid (PDF) Jika Ada</label>
+                                        @if ($user->mosque_rab)
+                                            <a href="{{ asset('storage/' . $user->mosque_rab) }}"
+                                                target="_blank">Lihat</a>
+                                            <div id="pdf-viewer"></div>
+                                        @endif
+                                        <input type="file" name="mosque_rab" class="form-control-file">
+                                    </div>
+
                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
+
                                 </form>
                             </div>
                         </div>

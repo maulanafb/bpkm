@@ -13,12 +13,14 @@ class MosqueLand extends Model
         'user_id',
         'land_status',
         'land_name',
-        'development_process',
-        'current_state_development',
         'total_land_area',
         'building_area',
+        'land_document',
+        'mosque_design',
+        'mosque_rab',
     ];
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }
