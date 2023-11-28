@@ -13,10 +13,10 @@ return new class extends Migration {
         Schema::create('daily_checklists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->boolean('stw');
-            $table->boolean('al_mulk');
-            $table->boolean('smk');
-            $table->boolean('odoj');
+            $table->boolean('stw')->default(false);
+            $table->boolean('al_mulk')->default(false);
+            $table->boolean('smk')->default(false);
+            $table->boolean('odoj')->default(false);
             $table->date('date');
 
             $table->foreign('user_id')->references('id')

@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('monthly_checklists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->boolean('monthly_khatam_quran');
+            $table->boolean('monthly_khatam_quran')->default(false);
             $table->date('date');
 
             $table->foreign('user_id')->references('id')

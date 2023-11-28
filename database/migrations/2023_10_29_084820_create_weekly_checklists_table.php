@@ -13,12 +13,12 @@ return new class extends Migration {
         Schema::create('weekly_checklists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->boolean('praza');
-            $table->boolean('jumah_prayer');
+            $table->boolean('praza')->default(false);
+            $table->boolean('jumah_prayer')->default(false);
             // bp_sk = buka puasa senin kamis
-            $table->boolean('bp_sk');
-            $table->boolean('happy_family');
-            $table->boolean('happy_neighbour');
+            $table->boolean('bp_sk')->default(false);
+            $table->boolean('happy_family')->default(false);
+            $table->boolean('happy_neighbour')->default(false);
             $table->date('date');
 
             $table->foreign('user_id')->references('id')

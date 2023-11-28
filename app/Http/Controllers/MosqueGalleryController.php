@@ -38,16 +38,13 @@ class MosqueGalleryController extends Controller
             'description' => 'nullable',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:10000',
         ]);
-
         $data = [
             'title' => $request->title,
             'description' => $request->description,
         ];
-
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('galleries', 'public');
         }
-
         Auth::user()->galleries()->create($data);
         notify()->success('Foto berhasil ditambah.');
         return redirect()->route('mosque-gallery.index')->with('success', 'Image uploaded successfully');
@@ -68,29 +65,23 @@ class MosqueGalleryController extends Controller
         // Validasi data yang diterima dari formulir
         $request->validate([
             'title' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:10048',
         ]);
-
         // Ambil galeri berdasarkan ID
         $gallery = MosqueGallery::find($id);
-
         // Perbarui judul galeri
         $gallery->title = $request->get('title');
-
         // Perbarui gambar jika ada yang diunggah
         if ($request->hasFile('image')) {
             // Hapus gambar lama
             Storage::disk('public')->delete($gallery->image);
-
             // Simpan gambar yang baru diunggah
             $imagePath = $request->file('image')->store('gallery_images', 'public');
             $gallery->image = $imagePath;
         }
-
         // Simpan perubahan ke database
         $gallery->save();
         notify()->success('Gallery berhasil diubah.');
-
         // Redirect dengan pesan sukses jika diperlukan
         return redirect()->route('mosque-gallery.index')->with('success', 'Galeri berhasil diperbarui!');
     }

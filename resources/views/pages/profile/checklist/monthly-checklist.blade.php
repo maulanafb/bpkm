@@ -11,6 +11,15 @@
         .notify {
             z-index: 99999;
         }
+
+        .custom-form-check {
+            margin-left: 30px;
+            /* Sesuaikan dengan nilai margin left yang diinginkan */
+        }
+
+        input[type=checkbox] {
+            accent-color: green;
+        }
     </style>
 @endpush
 
@@ -65,7 +74,7 @@
 
                                 <div class="row mb-4 align-items-center ">
                                     <div class="col-md-6 col-sm-12 d-flex align-items-center ">
-                                        <h4 class="card-title text-center mb-0">Checklist Program Bulanan</h4>
+                                        <h4 class="card-title text-center mb-0">Checklist Program Harian</h4>
                                     </div>
                                     <div class="col-md-6 col-sm-12 d-flex justify-content-end align-items-center">
                                         <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
@@ -88,48 +97,61 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Foto</th>
-                                                <th>Jabatan</th>
+                                                <th>tanggal</th>
+                                                <th>Sholat Tepat Waktu</th>
+                                                <th>Al-Mulk Habis Maghrib</th>
+                                                <th>Subuh Menggapai Keberkahan</th>
+                                                <th>One Day One Juz</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($structures as $item)
+                                            @foreach ($dailyChecklists as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->date }}</td>
                                                     <td>
-                                                        {{-- Menampilkan gambar dengan lightbox --}}
-                                                        @if ($item->photo_path)
-                                                            <a href="{{ asset('storage/' . $item->photo_path) }}"
-                                                                data-lightbox="gallery{{ $item->id }}">
-                                                                <img src="{{ asset('storage/' . $item->photo_path) }}"
-                                                                    alt="{{ $item->name }}"
-                                                                    style="max-width: 150px; max-height: 150px;">
-                                                            </a>
+                                                        @if ($item->stw)
+                                                            <button class="btn btn-success">√</button>
                                                         @else
-                                                            No Image
+                                                            <button class="btn btn-danger">X</button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $item->position }}</td>
                                                     <td>
-                                                        {{-- Tambahkan tombol untuk edit dan hapus --}}
+                                                        @if ($item->al_mulk)
+                                                            <button class="btn btn-success">√</button>
+                                                        @else
+                                                            <button class="btn btn-danger">X</button>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($item->smk)
+                                                            <button class="btn btn-success">√</button>
+                                                        @else
+                                                            <button class="btn btn-danger">X</button>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($item->odoj)
+                                                            <button class="btn btn-success">√</button>
+                                                        @else
+                                                            <button class="btn btn-danger">X</button>
+                                                        @endif
+                                                    </td>
+                                                    <td>
                                                         <button class="btn btn-warning btn-edit"
-                                                            data-id="{{ $item->id }}" data-name="{{ $item->name }}"
-                                                            data-position="{{ $item->position }}"
-                                                            data-photo_path="{{ $item->photo_path }}" data-toggle="modal"
+                                                            data-id="{{ $item->id }}" data-stw="{{ $item->stw }}"
+                                                            data-al_mulk="{{ $item->al_mulk }}"
+                                                            data-smk="{{ $item->smk }}" data-odoj="{{ $item->odoj }}"
+                                                            data-date="{{ $item->date }}" data-toggle="modal"
                                                             data-target="#editModal">
                                                             Edit
                                                         </button>
                                                         <button class="btn btn-danger btn-delete"
                                                             data-id="{{ $item->id }}">Hapus</button>
-                                                        {{-- Form untuk menghapus --}}
                                                     </td>
                                                 </tr>
                                             @endforeach
-
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -142,31 +164,55 @@
             <!-- Modal "Tambah" -->
             <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="tambahModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog mx-auto" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="tambahModalLabel">Tambah Struktur Masjid</h5>
+                            <h5 class="modal-title" id="tambahModalLabel">Tambah Checklist Program Masjid</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form enctype="multipart/form-data" action="{{ route('mosque-structure.store') }}"
+                            <form enctype="multipart/form-data" action="{{ route('daily-checklists.store') }}"
                                 method="POST">
                                 @csrf
-                                <div class="form-group">
-                                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">Nama</label>
-                                    <input required type="text" class="form-control" id="name" name="name"
-                                        value="{{ old('name') }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+
+                                <!-- Label for checklist -->
+                                <label for="checklist" class="poppins">Checklist Program yang sudah dilaksanakan hari
+                                    ini:</label>
+
+                                <!-- Checkboxes for each field -->
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="stw" name="stw">
+                                    <label class="form-check-label ml-2 poppins" for="stw">Sholat Tepat Waktu</label>
                                 </div>
 
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="al_mulk" name="al_mulk">
+                                    <label class="form-check-label ml-2 poppins" for="al_mulk">Al Mulk</label>
+                                </div>
 
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="smk" name="smk">
+                                    <label class="form-check-label ml-2 poppins" for="smk">Shubuh Menggapai
+                                        Keberkahan</label>
+                                </div>
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="odoj" name="odoj">
+                                    <label class="form-check-label ml-2 poppins" for="odoj">One Day One Juz</label>
+                                </div>
+                                <!-- Date input -->
+                                <div class="form-group mt-4">
+                                    <label for="date" class="poppins">Tanggal</label>
+                                    <input required type="date" class="form-control poppins" id="date"
+                                        name="date">
+                                </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="button" class="btn btn-secondary poppins"
+                                        data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary poppins">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -174,14 +220,13 @@
                 </div>
             </div>
 
-
             {{-- modal edit  --}}
             <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit Struktur Masjid</h5>
+                            <h5 class="modal-title" id="editModalLabel">Edit Checklist Program Masjid</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -192,46 +237,51 @@
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" id="editid" name="user_id">
-                                <div class="form-group">
-                                    <label for="editName">Nama</label>
-                                    <input type="text" class="form-control" id="editName" name="name">
+
+                                <!-- Label for checklist -->
+                                <label for="checklist" class="poppins">Checklist Program yang sudah dilaksanakan hari
+                                    ini:</label>
+
+                                <!-- Checkboxes for each field -->
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_stw" name="stw">
+                                    <label class="form-check-label ml-2 poppins" for="edit_stw">Sholat Tepat Waktu</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="editPosition">Posisi</label>
-                                    <select class="form-control" id="editPosition" name="position">
-                                        <option value="Direktur">Direktur</option>
-                                        <option value="Wakil Direktur">Wakil Direktur</option>
-                                        <option value="Kabag Umum">Kabag Umum</option>
-                                        <option value="Kabag Operasional">Kabag Operasional</option>
-                                        <option value="Kabag Multimedia">Kabag Multimedia</option>
-                                        <option value="Kabag Program">Kabag Program</option>
-                                        <option value="Kabag Pembangunan">Kabag Pembangunan</option>
-                                        <option value="Kepala Unit">Kepala Unit</option>
-                                        <option value="Administrasi">Administrasi</option>
-                                        <option value="Program">Program</option>
-                                        <option value="Operasional">Operasional</option>
-                                        <option value="Multimedia">Multimedia</option>
-                                        <option value="Perlengkapan">Perlengkapan</option>
-                                    </select>
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_al_mulk" name="al_mulk">
+                                    <label class="form-check-label ml-2 poppins" for="edit_al_mulk">Al Mulk</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="editPhoto">Ubah Foto</label>
-                                    <input type="file" class="form-control-file" id="editPhoto" name="photo_path"
-                                        accept="image/*">
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_smk" name="smk">
+                                    <label class="form-check-label ml-2 poppins" for="edit_smk">Shubuh Menggapai
+                                        Keberkahan</label>
                                 </div>
-                                <div class="form-group">
-                                    <img id="editPhotoPreview" src="" alt="Photo Preview"
-                                        style="max-width: 100%;">
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_odoj" name="odoj">
+                                    <label class="form-check-label ml-2 poppins" for="edit_odoj">One Day One Juz</label>
                                 </div>
+
+                                <!-- Date input -->
+                                <div class="form-group mt-4">
+                                    <label for="edit_date" class="poppins">Tanggal</label>
+                                    <input required type="date" class="form-control poppins" id="edit_date"
+                                        name="date">
+                                </div>
+
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                    <button type="button" class="btn btn-secondary poppins"
+                                        data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary poppins">Simpan Perubahan</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+
 
 
             <!-- content-wrapper ends -->
@@ -248,70 +298,41 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // ...
+        var table = $('#report').DataTable();
 
-            // Event listener untuk tombol hapus
-            $('.btn-delete').click(function() {
-                var id = $(this).data('id');
+        $('.btn-delete').click(function() {
+            var id = $(this).data('id');
 
-                // Tampilkan pesan konfirmasi SweetAlert
-                Swal.fire({
-                    title: 'Konfirmasi Hapus',
-                    text: 'Anda yakin ingin menghapus data ini?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Hapus',
-                    cancelButtonText: 'Batal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Jika dikonfirmasi, kirim AJAX request dengan metode DELETE
-                        $.ajax({
-                            url: '{{ url('mosque-structure') }}/' + id,
-                            type: 'DELETE',
-                            data: {
-                                "_token": "{{ csrf_token() }}"
-                            },
-                            success: function(response) {
-                                // Handle the success response
-                                Swal.fire('Deleted!', 'Your data has been deleted.',
-                                    'success');
-                                // Optionally, you can update the UI or perform other actions
-                            },
-                            error: function(xhr) {
-                                // Handle the error response
-                                Swal.fire('Error!', 'An error occurred while deleting.',
-                                    'error');
-                                // Optionally, you can log errors or perform other actions
-                            }
-                        });
-                        window.location.reload();
-                    }
-                });
+            Swal.fire({
+                title: 'Konfirmasi Hapus',
+                text: 'Anda yakin ingin menghapus data ini?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Menggunakan parameter id dalam URL
+                    $.ajax({
+                        url: '{{ url('daily-checklists') }}/' + id, // Ganti dengan URL yang sesuai
+                        type: 'DELETE',
+                        data: {
+                            "_token": "{{ csrf_token() }}"
+                        },
+                        success: function(response) {
+                            Swal.fire('Deleted!', 'Your data has been deleted.', 'success');
+                            // Optionally, you can update the UI or perform other actions
+                        },
+                        error: function(xhr) {
+                            Swal.fire('Error!', 'An error occurred while deleting.', 'error');
+                            // Optionally, you can log errors or perform other actions
+                        }
+                    });
+                    window.location.reload();
+                }
             });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('.btn-delete').click(function() {
-                var id = $(this).data('id');
-                // Set ID yang akan dihapus ke modal konfirmasi
-                $('#confirmDeleteBtn').data('id', id);
-                // Tampilkan modal konfirmasi
-                $('#deleteModal').modal('show');
-            });
-
-            // Event listener untuk konfirmasi hapus
-            $('#confirmDeleteBtn').click(function() {
-                var id = $(this).data('id');
-                // Redirect ke route delete dengan menyertakan parameter id
-                window.location.href = '{{ url('mosque-structure-destroy') }}/' + id;
-            });
-            // Inisiasi tabel dengan DataTables
-            var table = $('#report').DataTable();
         });
     </script>
     <script>
@@ -326,20 +347,42 @@
         $('#editModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var id = button.data('id');
-            var name = button.data('name');
-            var position = button.data('position');
-            var photoPath = button.data('photo_path');
+            var stw = button.data('stw');
+            var alMulk = button.data('al_mulk');
+            var smk = button.data('smk');
+            var odoj = button.data('odoj');
+            var date = button.data('date');
 
             var modal = $(this);
             var form = modal.find('#editForm');
 
             // Set action URL dengan menyertakan parameter id
-            form.attr('action', '{{ url('mosque-structure-update') }}/' + id);
+            form.attr('action', '{{ url('daily-checklists') }}/' + id);
 
             modal.find('#editid').val(id);
-            modal.find('#editName').val(name);
-            modal.find('#editPosition').val(position);
-            modal.find('#editPhotoPreview').attr('src', '{{ asset('storage/') }}/' + photoPath);
+            modal.find('#edit_stw').prop('checked', stw);
+            modal.find('#edit_al_mulk').prop('checked', alMulk);
+            modal.find('#edit_smk').prop('checked', smk);
+            modal.find('#edit_odoj').prop('checked', odoj);
+            modal.find('#edit_date').val(date);
+
+            // ... kode lainnya
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Menggunakan jQuery untuk menangani perubahan status checkbox
+            $('.custom-form-check input[type="checkbox"]').change(function() {
+                if ($(this).is(':checked')) {
+                    $(this).parent().addClass(
+                        'bg-primary text-white rounded'
+                    ); // Menambahkan warna latar belakang primary jika dicentang
+                } else {
+                    $(this).parent().removeClass(
+                        'bg-primary text-white'
+                    ); // Menghapus warna latar belakang primary jika tidak dicentang
+                }
+            });
         });
     </script>
 @endpush
