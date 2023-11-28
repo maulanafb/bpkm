@@ -54,7 +54,7 @@ class MosqueAdministratorProfileController extends Controller
     public function edit()
     {
         $user = Auth::user()->mosque_admin;
-        $mosque = User::first();
+        $mosque = Auth::user();
         $auth = Auth::user()->id;
         return view('pages.profile.dashboard-administrator', [
             'auth' => $auth,

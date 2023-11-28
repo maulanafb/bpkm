@@ -10,13 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('monthly_financial_report', function (Blueprint $table) {
+        Schema::create('jumah_financial_reports', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->bigInteger('income');
-            $table->bigInteger('outcome');
             $table->date('date');
-            $table->string('photo_path');
+
             $table->foreign('user_id')->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
@@ -30,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('monthly_financial_report');
+        Schema::dropIfExists('jumah_financial_report');
     }
 };

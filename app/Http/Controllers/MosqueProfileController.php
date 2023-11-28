@@ -26,7 +26,7 @@ class MosqueProfileController extends Controller
         $user = Auth::user()->mosque_profile;
         $coba = MosqueProfile::all()->first();
 
-        $mosque = User::all()->first();
+        $mosque = Auth::user();
         $provinces = Province::all();
         $regencies = Regency::all();
         return view('pages.profile.dashboard-profile', ["mosque" => $mosque, "provinces" => $provinces, "regencies" => $regencies, "auth" => $auth, "user" => $user, 'coba' => $coba]);

@@ -10,10 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('jumah_financial_report', function (Blueprint $table) {
+        Schema::create('monthly_checklists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->bigInteger('income');
+            $table->boolean('monthly_khatam_quran');
             $table->date('date');
 
             $table->foreign('user_id')->references('id')
@@ -29,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('jumah_financial_report');
+        Schema::dropIfExists('monthly_checklists');
     }
 };

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Gallery;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -73,6 +75,23 @@ class User extends Authenticatable
         return $this->hasOne(MosqueCondition::class);
     }
 
+    public function monthly_report()
+    {
+        return $this->hasMany(MonthlyFinancialReport::class);
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(MosqueGallery::class);
+    }
+    public function structures()
+    {
+        return $this->hasMany(MosqueStructure::class);
+    }
+    public function daily_checklists()
+    {
+        return $this->hasMany(DailyChecklist::class);
+    }
     public function regency()
     {
         return $this->belongsTo(Regency::class);

@@ -11,10 +11,10 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="icon-menu"></span>
         </button>
-        <ul class="navbar-nav navbar-nav-right">
+        <ul class="navbar-nav navbar-nav-right ">
             <li class="nav-item dropdown">
                 <div class="dropdown">
-                    <button class="dropbtn" id="dropdownBtn">
+                    <button class="dropbtn p-4" id="dropdownBtn">
                         <i class="ti-settings text-primary"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownContent">
@@ -29,7 +29,6 @@
                         </form>
                     </div>
                 </div>
-
             </li>
         </ul>
 

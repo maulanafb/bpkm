@@ -61,7 +61,7 @@
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Keuangan Bulanan</h4>
+                                <h4 class="card-title">Pemasukan Jum'at</h4>
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-md-6 col-sm-12">
                                         <div class="row align-items-center">
@@ -109,35 +109,27 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Pemasukan</th>
-                                                <th>Pengeluaran</th>
+
                                                 <th>Tanggal</th>
-                                                <th>Foto</th>
+
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($monthlyReports as $report)
+                                            @foreach ($jumahReports as $report)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td> <!-- Nomor otomatis, dimulai dari 1 -->
                                                     <td>Rp {{ number_format($report->income, 0, ',', '.') }}</td>
                                                     <!-- Format mata uang untuk income -->
-                                                    <td>Rp {{ number_format($report->outcome, 0, ',', '.') }}</td>
+
                                                     <!-- Format mata uang untuk outcome -->
                                                     <td>{{ $report->date }}</td>
-                                                    <td>
-                                                        <a class="btn btn-success"
-                                                            href="{{ asset('storage/' . $report->photo_path) }}"
-                                                            data-fancybox="gallery" data-caption="Deskripsi Gambar">
-                                                            Lihat
-                                                        </a>
-                                                    </td>
+
                                                     <td>
                                                         <button class="btn btn-warning btn-edit"
                                                             data-id="{{ $report->id }}"
                                                             data-income="{{ $report->income }}"
-                                                            data-outcome="{{ $report->outcome }}"
-                                                            data-date="{{ $report->date }}"
-                                                            data-photo_path="{{ $report->photo_path }}" data-toggle="modal"
+                                                            data-date="{{ $report->date }}" data-toggle="modal"
                                                             data-target="#editModal">
                                                             Edit
                                                         </button>
@@ -162,14 +154,13 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="tambahModalLabel">Tambah Pemasukan dan pengeluaran</h5>
+                            <h5 class="modal-title" id="tambahModalLabel">Tambah Pemasukan Jum'at</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form enctype="multipart/form-data" action="{{ route('monthly-report.store') }}"
-                                method="POST">
+                            <form enctype="multipart/form-data" action="{{ route('jumah-report.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" name="user_id" value="1">
@@ -179,21 +170,13 @@
                                     <input required type="text" class="form-control" id="income" name="income"
                                         value="{{ old('income') }}" oninput="formatCurrency('income')">
                                 </div>
-                                <div class="form-group">
-                                    <label for="outcome">Pengeluaran</label>
-                                    <input required type="text" class="form-control" id="outcome" name="outcome"
-                                        value="{{ old('outcome') }}" oninput="formatCurrency('outcome')">
-                                </div>
+
                                 <div class="form-group">
                                     <label for="date">Tanggal</label>
                                     <input required type="date" class="form-control" id="date" name="date"
                                         value="{{ old('date') }}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="photo_path">Upload Rekap (Foto)</label>
-                                    <input required type="file" class="form-control-file" id="photo_path"
-                                        name="photo_path">
-                                </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -210,7 +193,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit Data Keuangan Bulanan</h5>
+                            <h5 class="modal-title" id="editModalLabel">Edit Data Pemasukan Jum'at</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -224,21 +207,10 @@
                                     <label for="editIncome">Pemasukan</label>
                                     <input type="text" class="form-control" id="editIncome" name="income">
                                 </div>
-                                <div class="form-group">
-                                    <label for="editOutcome">Pengeluaran</label>
-                                    <input type="text" class="form-control" id="editOutcome" name="outcome">
-                                </div>
+
                                 <div class="form-group">
                                     <label for="editDate">Tanggal</label>
                                     <input type="date" class="form-control" id="editDate" name="date">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editPhoto">Ubah Rekap (Foto)</label>
-                                    <input type="file" class="form-control-file" id="editPhoto" name="photo_path">
-                                </div>
-                                <div class="form-group">
-                                    <img id="editPhotoPreview" src="" alt="Photo Preview"
-                                        style="max-width: 100%;">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -249,8 +221,6 @@
                     </div>
                 </div>
             </div>
-
-
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
             @include('includes.footer')
@@ -283,7 +253,7 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "POST",
-                            url: '{{ route('monthly-report.destroy', '') }}/' + id,
+                            url: '{{ route('jumah-report.destroy', '') }}/' + id,
                             data: {
                                 _token: '{{ csrf_token() }}',
                                 _method: 'DELETE'
@@ -311,31 +281,28 @@
             $('.btn-edit').click(function() {
                 var id = $(this).data('id');
                 var income = $(this).data('income');
-                var outcome = $(this).data('outcome');
+
                 var date = $(this).data('date');
-                var photoPath = $(this).data('photo_path');
-                photoPath = '{{ asset('storage') }}' + '/' + photoPath;
+
 
                 // Mengisi data ke dalam formulir modal edit
                 $('#editid').val(id);
                 $('#editIncome').val(income);
-                $('#editOutcome').val(outcome);
+
                 $('#editDate').val(date);
 
                 // Menyusun URL aksi formulir berdasarkan ID pengurus masjid
-                var actionUrl = '/monthly-report-update/' +
+                var actionUrl = '/jumah-report-update/' +
                     id; // Sesuaikan dengan URL yang sesuai dengan route edit
                 $('#editForm').attr('action', actionUrl);
 
                 // Mengisi data sebelumnya ke dalam formulir
                 $('#editIncome').val(income);
-                $('#editOutcome').val(outcome);
+
                 $('#editDate').val(date);
 
                 // Menampilkan preview foto
-                var photoPreview = $('#editPhotoPreview');
-                photoPreview.attr('src', photoPath);
-                photoPreview.show();
+
             });
         });
     </script>

@@ -72,7 +72,7 @@ class MosqueProgramController extends Controller
     {
         $user = Auth::user()->mosque_program;
 
-        $mosque = User::all()->first();
+        $mosque = Auth::user();
         $auth = Auth::user()->id;
         return view('pages.profile.dashboard-programs', [
             'auth' => $auth,

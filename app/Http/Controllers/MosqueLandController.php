@@ -105,7 +105,7 @@ class MosqueLandController extends Controller
             4 => 'AIW Atas Nama Yayasan Masjid Kapal Munzalan',
         ];
 
-        $mosque = User::all()->first();
+        $mosque = Auth::user();
         $auth = Auth::user()->id;
         return view('pages.profile.dashboard-land', [
             'auth' => $auth,

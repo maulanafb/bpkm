@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mosque;
 use App\Models\MosqueCaretaker;
+use App\Models\MosqueProgram;
 use App\Models\Program;
 use App\Models\Province;
 use App\Models\Regency;
@@ -52,14 +53,13 @@ class MosqueController extends Controller
     {
         // $userId = Auth::user()->id;
         $caretaker = MosqueCaretaker::where(['user_id' => $id])->get();
-        $programs = Program::where(['user_id' => $id])->get();
+        $programs = MosqueProgram::where(['user_id' => $id])->get();
         // dd($caretaker);
         $mosque = User::find($id);
         $mosque_land = $mosque->mosque_land;
-        $mosque_condition = $mosque->mosque_condition;
         $mosque_coordinator = $mosque->mosque_admin;
         // dd($mosque_condition);
-        return view('pages.mosque-detail', compact(['mosque', 'caretaker', 'programs', 'mosque_land', 'mosque_condition', 'mosque_coordinator']));
+        return view('pages.mosque-detail', compact(['mosque', 'caretaker', 'programs', 'mosque_land', 'mosque_coordinator']));
     }
     /**
      * Show the form for editing the specified resource.

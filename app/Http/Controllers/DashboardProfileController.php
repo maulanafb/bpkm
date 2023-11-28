@@ -14,10 +14,10 @@ class DashboardProfileController extends Controller
 
     public function index()
     {
-        
-        $mosque = User::all()->first();
-       
-        return view('pages.profile.dashboard-profile',['mosque'=>$mosque]);
+
+        $mosque = Auth::user();
+
+        return view('pages.profile.dashboard-profile', ['mosque' => $mosque]);
     }
-    
+
 }

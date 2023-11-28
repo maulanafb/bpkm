@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\ChecklistProgramController;
+use App\Http\Controllers\DailyChecklistController;
 use App\Http\Controllers\DashboardProfileController;
+use App\Http\Controllers\JumahFinancialController;
+use App\Http\Controllers\MonthlyChecklistController;
 use App\Http\Controllers\MonthlyFinancianReportController;
 use App\Http\Controllers\MosqueAdministratorProfileController;
 use App\Http\Controllers\MosqueCaretakerController;
@@ -9,10 +13,13 @@ use App\Http\Controllers\MosqueConditionController;
 use App\Http\Controllers\MosqueProfileController;
 use App\Http\Controllers\MosqueController;
 use App\Http\Controllers\MosqueDocumentController;
+use App\Http\Controllers\MosqueGalleryController;
 use App\Http\Controllers\MosqueLandController;
 use App\Http\Controllers\MosqueProgramController;
+use App\Http\Controllers\MosqueStructureController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\TestingController;
+use App\Http\Controllers\WeeklyChecklistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -64,23 +71,31 @@ Route::delete('/pengurus-masjid/{id}', [MosqueCaretakerController::class, 'destr
 Route::put('/edit-pengurus-masjid/{id}', [MosqueCaretakerController::class, 'update'])->name('pengurus-masjid.update');
 
 Route::get('/monthly-report', [MonthlyFinancianReportController::class, 'index'])->name('monthly-report.index');
-Route::get('/jumah-report', [MonthlyFinancianReportController::class, 'index'])->name('jumah-report.index');
+Route::post('/monthly-report', [MonthlyFinancianReportController::class, 'store'])->name('monthly-report.store');
+Route::put('/monthly-report-update/{id}', [MonthlyFinancianReportController::class, 'update'])->name('monthly-report.update');
+Route::delete('monthly-report/{id}', [MonthlyFinancianReportController::class, 'destroy'])->name('monthly-report.destroy');
+
+
+Route::get('/jumah-report', [JumahFinancialController::class, 'index'])->name('jumah-report.index');
+Route::post('/jumah-report', [JumahFinancialController::class, 'store'])->name('jumah-report.store');
+Route::put('/jumah-report-update/{id}', [JumahFinancialController::class, 'update'])->name('jumah-report.update');
+Route::delete('/jumah-report/{id}', [JumahFinancialController::class, 'destroy'])->name('jumah-report.destroy');
+
+Route::get('/mosque-gallery', [MosqueGalleryController::class, 'index'])->name('mosque-gallery.index');
+Route::post('/mosque-gallery', [MosqueGalleryController::class, 'store'])->name('mosque-gallery.store');
+Route::put('/mosque-gallery-update/{id}', [MosqueGalleryController::class, 'update'])->name('mosque-gallery.update');
+Route::delete('/mosque-gallery/{id}', [MosqueGalleryController::class, 'destroy'])->name('mosque-gallery.destroy');
+
+Route::get('/mosque-structure', [MosqueStructureController::class, 'index'])->name('mosque-structure.index');
+Route::post('/mosque-structure', [MosqueStructureController::class, 'store'])->name('mosque-structure.store');
+Route::put('/mosque-structure-update/{id}', [MosqueStructureController::class, 'update'])->name('mosque-structure.update');
+Route::delete('/mosque-structure/{id}', [MosqueStructureController::class, 'destroy'])->name('mosque-structure.destroy');
+
+Route::resource('daily-checklists', DailyChecklistController::class);
+Route::resource('weekly-checklists', WeeklyChecklistController::class);
+Route::resource('monthly-checklists', MonthlyChecklistController::class);
 
 Route::get('/change-password', [ChangePasswordController::class, 'showChangePasswordForm'])->name('change-password');
 Route::post('/change-password', [ChangePasswordController::class, 'changePassword']);
-
-
-// Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
-// Route::post('/mosque-document',[MosqueDocumentController::class,'store'])->name('mosque-document-store');
-
-// Route::get('/mosque-document',[MosqueDocumentController::class,'index'])->name('mosque-document');
-
-
-
-
-// Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
-// Route::get('cities', 'DependentDropdownController@cities')->name('cities');
-// Route::get('districts', 'DependentDropdownController@districts')->name('districts');
-// Route::get('villages', 'DependentDropdownController@villages')->name('villages');
 
 Auth::routes();
