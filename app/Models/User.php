@@ -92,6 +92,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(DailyChecklist::class);
     }
+    public function weekly_cehcklists()
+    {
+        return $this->hasMany(WeeklyChecklist::class);
+    }
+    public function monthly_checklists()
+    {
+        return $this->hasMany(MonthlyChecklist::class);
+    }
     public function regency()
     {
         return $this->belongsTo(Regency::class);

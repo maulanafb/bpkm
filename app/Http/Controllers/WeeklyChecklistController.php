@@ -1,69 +1,85 @@
 <?php
+// app/Http/Controllers/WeeklyChecklistController.php
 
 namespace App\Http\Controllers;
 
-use App\Models\MosqueStructure;
+use App\Models\WeeklyChecklist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class WeeklyChecklistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
+        $weeklyChecklists = WeeklyChecklist::where('user_id', auth()->user()->id)->get();
+        // dd($weeklyChecklists);
         $mosque = Auth::user();
-        $structures = MosqueStructure::where('user_id', auth()->user()->id)->get();
-
-        return view('pages.profile.checklist.weekly-checklist', compact(['structures', 'mosque']));
+        return view('pages.profile.checklist.weekly-checklist', compact('weeklyChecklists', 'mosque'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('weekly_checklists.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'user_id' => 'required',
+            // 'praza' => 'required|boolean',
+            // 'jumah_prayer' => 'required|boolean',
+            // 'bp_sk' => 'required|boolean',
+            // 'happy_family' => 'required|boolean',
+            // 'happy_neighbour' => 'required|boolean',
+            'date' => 'required|date',
+        ]);
+        $data['praza'] = $request->filled('praza');
+        $data['jumah_prayer'] = $request->filled('jumah_prayer');
+        $data['bp_sk'] = $request->filled('bp_sk');
+        $data['happy_family'] = $request->filled('happy_family');
+        $data['happy_neighbour'] = $request->filled('happy_neighbour');
+        WeeklyChecklist::create($data);
+        notify()->success('Data berhasil ditambah.');
+        return redirect()->route('weekly-checklists.index')
+            ->with('success', 'Weekly Checklist created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(WeeklyChecklist $weeklyChecklist)
     {
-        //
+        return view('weekly_checklists.edit', compact('weeklyChecklist'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = $request->validate([
+            // 'user_id' => 'required',
+            // 'praza' => 'required|boolean',
+            // 'jumah_prayer' => 'required|boolean',
+            // 'bp_sk' => 'required|boolean',
+            // 'happy_family' => 'required|boolean',
+            // 'happy_neighbour' => 'required|boolean',
+            'date' => 'required|date',
+        ]);
+        $data['praza'] = $request->filled('praza');
+        $data['jumah_prayer'] = $request->filled('jumah_prayer');
+        $data['bp_sk'] = $request->filled('bp_sk');
+        $data['happy_family'] = $request->filled('happy_family');
+        $data['happy_neighbour'] = $request->filled('happy_neighbour');
+        unset($data['user_id']);
+        WeeklyChecklist::where('id', $id)->update($data);
+        notify()->success('Data berhasil diubah.');
+        return redirect()->route('weekly-checklists.index')
+            ->with('success', 'Weekly Checklist updated successfully');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy($id)
     {
-        //
-    }
+        $weeklyChecklist = WeeklyChecklist::find($id);
+        if (!$weeklyChecklist) {
+            return response()->json(['success' => false]);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $weeklyChecklist->delete();
+        notify()->success('Data berhasil dihapus.');
+        return response()->json(['success' => true]);
     }
 }

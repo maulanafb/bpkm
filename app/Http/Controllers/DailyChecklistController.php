@@ -14,7 +14,7 @@ class DailyChecklistController extends Controller
      */
     public function index()
     {
-        $dailyChecklists = DailyChecklist::all();
+        $dailyChecklists = DailyChecklist::where('user_id', auth()->user()->id)->get();
         $mosque = Auth::user();
         return view('pages.profile.checklist.daily-checklist', compact('dailyChecklists', 'mosque'));
     }
@@ -54,7 +54,7 @@ class DailyChecklistController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'user_id' => 'required',
+            // 'user_id' => 'required',
             // 'stw' => 'nullable|boolean',
             // 'al_mulk' => 'nullable|boolean',
             // 'smk' => 'nullable|boolean',
@@ -67,6 +67,7 @@ class DailyChecklistController extends Controller
         $data['odoj'] = $request->filled('odoj');
         // Menggunakan where untuk menemukan DailyChecklist berdasarkan ID
         // dd($data);
+        unset($data['user_id']);
         DailyChecklist::where('id', $id)->update($data);
         notify()->success('Data berhasil diubah.');
         return redirect()->route('daily-checklists.index')
