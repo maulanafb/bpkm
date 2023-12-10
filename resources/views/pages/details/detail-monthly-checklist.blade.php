@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.details')
 
 @section('title')
     Admin BPKM
@@ -52,7 +52,7 @@
 
         <!-- partial -->
         <!-- partial:partials/_sidebar.html -->
-        @include('includes.sidebar')
+        @include('includes.sidebar-detail')
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
@@ -61,7 +61,7 @@
                         <div class="row">
                             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                 {{-- <span><img width="200px" height="200px" src="{{ Storage::url($user->photo_path ?? '') }}" alt="..." class="img-fluid rounded"></span> --}}
-                                <h3 class="font-weight-bold">Assalamualaikum {{ $mosque->name }}</h3>
+                                <h3 class="font-weight-bold">Assalamualaikum {{ $user->name }}</h3>
                                 <h6 class="font-weight-normal mb-0">We Are Nothing Allah Is Everything</h6>
                             </div>
                         </div>
@@ -73,21 +73,14 @@
                             <div class="card-body">
 
                                 <div class="row mb-4 align-items-center ">
-                                    <div class="col-md-6 col-sm-12 d-flex align-items-center ">
-                                        <h4 class="card-title text-center mb-0">Checklist Program Bulanan</h4>
+                                    <div class="col-md-12 col-sm-12 d-flex align-items-center ">
+                                        <h4 class="card-title text-center mb-0">Checklist Program Bulanan
+                                            {{ $mosque->name }}</h4>
                                     </div>
-                                    <div class="col-md-6 col-sm-12 d-flex justify-content-end align-items-center">
-                                        <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
-                                            data-target="#pdfExportModal">
-                                            Export <i class="fas fa-file-pdf"></i>
-                                        </button>
-                                        <button class="btn btn-primary mx-2 poppins" data-toggle="modal"
-                                            data-target="#tambahModal">
-                                            Tambah
-                                        </button>
-                                    </div>
+
                                 </div>
-                                <form action="{{ route('monthly-checklists.index') }}" method="GET" class="d-flex ">
+                                <form action="{{ route('monthly-checklists.show', ['monthly_checklist' => $mosqueId]) }}"
+                                    method="GET" class="d-flex ">
 
                                     <div class="row d-flex ">
                                         <div class="mr-2">
@@ -111,7 +104,7 @@
                                                 <th>tanggal</th>
                                                 <th>Khatam Quran Tiap Bulan</th>
 
-                                                <th>Aksi</th>
+                                                {{-- <th>Aksi</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -127,7 +120,7 @@
                                                         @endif
                                                     </td>
 
-                                                    <td>
+                                                    {{-- <td>
                                                         <button class="btn btn-warning btn-edit"
                                                             data-id="{{ $item->id }}" data-stw="{{ $item->stw }}"
                                                             data-monthly_khatam_quran="{{ $item->monthly_khatam_quran }}"
@@ -137,7 +130,7 @@
                                                         </button>
                                                         <button class="btn btn-danger btn-delete"
                                                             data-id="{{ $item->id }}">Hapus</button>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

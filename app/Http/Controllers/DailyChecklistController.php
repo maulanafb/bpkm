@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DailyChecklist;
 use App\Models\MosqueStructure;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,11 +13,52 @@ class DailyChecklistController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+
+    public function index(Request $request)
     {
-        $dailyChecklists = DailyChecklist::where('user_id', auth()->user()->id)->get();
+        // Ambil data daily checklist
+        $checklists = DailyChecklist::where('user_id', auth()->user()->id);
+
+        // Filter berdasarkan tanggal jika tanggal mulai dan tanggal selesai diberikan
+        if ($request->has('start_date')) {
+            $start_date = $request->input('start_date');
+            $checklists->whereDate('date', '>=', $start_date);
+        }
+        if ($request->has('end_date')) {
+            $end_date = $request->input('end_date');
+            $checklists->whereDate('date', '<=', $end_date);
+        }
+
+        $dailyChecklists = $checklists->get();
         $mosque = Auth::user();
+
         return view('pages.profile.checklist.daily-checklist', compact('dailyChecklists', 'mosque'));
+    }
+
+
+    public function show($id, Request $request)
+    {
+        // Ambil data daily checklist berdasarkan $id (user_id)
+        $checklists = DailyChecklist::where('user_id', $id);
+
+        // Filter berdasarkan tanggal jika tanggal mulai dan tanggal selesai diberikan
+        if ($request->has('start_date')) {
+            $start_date = $request->input('start_date');
+            $checklists->whereDate('date', '>=', $start_date);
+        }
+        if ($request->has('end_date')) {
+            $end_date = $request->input('end_date');
+            $checklists->whereDate('date', '<=', $end_date);
+        }
+
+        $dailyChecklists = $checklists->get();
+
+        $mosqueId = $id;
+        $mosque = User::find($id);
+        $user = Auth::user();
+
+        return view('pages.details.detail-daily-checklist', compact('dailyChecklists', 'mosque', 'mosqueId', 'user'));
     }
 
     public function create()

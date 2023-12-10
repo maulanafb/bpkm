@@ -3,18 +3,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\WeeklyChecklist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class WeeklyChecklistController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $weeklyChecklists = WeeklyChecklist::where('user_id', auth()->user()->id)->get();
-        // dd($weeklyChecklists);
+        $weeklyChecklists = WeeklyChecklist::where('user_id', auth()->user()->id);
+
+        // Filter berdasarkan tanggal jika tanggal mulai dan tanggal selesai diberikan
+        if ($request->has('start_date')) {
+            $start_date = $request->input('start_date');
+            $weeklyChecklists->whereDate('date', '>=', $start_date);
+        }
+        if ($request->has('end_date')) {
+            $end_date = $request->input('end_date');
+            $weeklyChecklists->whereDate('date', '<=', $end_date);
+        }
+
+        $weeklyChecklists = $weeklyChecklists->get();
         $mosque = Auth::user();
+
         return view('pages.profile.checklist.weekly-checklist', compact('weeklyChecklists', 'mosque'));
+    }
+    public function show($id, Request $request)
+    {
+        $weeklyChecklists = WeeklyChecklist::where('user_id', $id);
+
+        // Filter berdasarkan tanggal jika tanggal mulai dan tanggal selesai diberikan
+        if ($request->has('start_date')) {
+            $start_date = $request->input('start_date');
+            $weeklyChecklists->whereDate('date', '>=', $start_date);
+        }
+        if ($request->has('end_date')) {
+            $end_date = $request->input('end_date');
+            $weeklyChecklists->whereDate('date', '<=', $end_date);
+        }
+
+        $weeklyChecklists = $weeklyChecklists->get();
+        $mosqueId = $id;
+        $mosque = User::find($id);
+        $user = Auth::user();
+        return view('pages.details.detail-weekly-checklist', compact('weeklyChecklists', 'mosque', 'mosqueId', 'user'));
     }
     public function create()
     {

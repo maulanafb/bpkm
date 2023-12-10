@@ -21,7 +21,7 @@ class TestingController extends Controller
         $provinces = Province::all();
         $regencies = Regency::all();
         $coba = Auth::user();
-        return view('pages.test',['coba'=>$coba,"mosques"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies]);
+        return view('pages.mosque-detail',['coba'=>$coba,"mosques"=>$mosque,"provinces"=>$provinces,"regencies"=>$regencies]);
     }
 
     /**

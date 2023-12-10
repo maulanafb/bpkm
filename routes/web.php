@@ -82,6 +82,7 @@ Route::put('/jumah-report-update/{id}', [JumahFinancialController::class, 'updat
 Route::delete('/jumah-report/{id}', [JumahFinancialController::class, 'destroy'])->name('jumah-report.destroy');
 
 Route::get('/mosque-gallery', [MosqueGalleryController::class, 'index'])->name('mosque-gallery.index');
+Route::get('/mosque-gallery/{id}', [MosqueGalleryController::class, 'show'])->name('mosque-gallery.show');
 Route::post('/mosque-gallery', [MosqueGalleryController::class, 'store'])->name('mosque-gallery.store');
 Route::put('/mosque-gallery-update/{id}', [MosqueGalleryController::class, 'update'])->name('mosque-gallery.update');
 Route::delete('/mosque-gallery/{id}', [MosqueGalleryController::class, 'destroy'])->name('mosque-gallery.destroy');

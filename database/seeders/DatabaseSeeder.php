@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             IndoRegionSeeder::class,
             UserSeeder::class,
-            // RolesTableSeeder::class,
+            RolesTableSeeder::class,
         ]);
     }
 }

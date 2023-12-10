@@ -50,7 +50,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function mosque_profile()
+    public function mosque_profiles()
     {
         return $this->hasOne(MosqueProfile::class);
     }

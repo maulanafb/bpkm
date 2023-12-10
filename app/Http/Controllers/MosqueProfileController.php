@@ -23,7 +23,7 @@ class MosqueProfileController extends Controller
     public function index()
     {
         $auth = Auth::user()->id;
-        $user = Auth::user()->mosque_profile;
+        $user = Auth::user()->mosque_profiles;
         $coba = MosqueProfile::all()->first();
 
         $mosque = Auth::user();

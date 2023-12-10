@@ -50,9 +50,16 @@ class MosqueGalleryController extends Controller
         return redirect()->route('mosque-gallery.index')->with('success', 'Image uploaded successfully');
     }
 
-    public function show(Request $request)
+    public function show(Request $request, $id)
     {
-        return view('gallery.show', compact('gallery'));
+        $auth = Auth::user()->id;
+
+        $mosqueId = $id;
+        $mosque = User::find($id);
+        $galleries = MosqueGallery::where('user_id', $id)->get();
+        // dd($galleries);
+        return view('pages.details.detail-gallery', compact(['galleries', 'mosque', 'mosqueId']));
+
     }
 
     public function edit(Request $request)

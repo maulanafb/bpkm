@@ -234,7 +234,7 @@
                                         </div>
                                         <div class="ml-2">
                                             <h4 class="location font-weight-normal font-poppins mb-2">
-                                                {{ $mosques->mosque_profile->regency->name }}</h4>
+                                                {{ $mosques->mosque_profiles->regency->name }}</h4>
                                             <h6 class="font-weight-normal">Indonesia</h6>
                                         </div>
                                     </div>
@@ -290,14 +290,14 @@
                     <h3 class="text-start mb-3">Daftar Masjid Kapal Munzalan Indonesia</h3>
                     <div class="row">
                         @forelse ($allMosque as $mosque)
-                            {{-- {{ $mosque->mosque_profile->photo_path ?? '' }} --}}
+                            {{-- {{ $mosque->mosque_profiles->photo_path ?? '' }} --}}
                             <div class="col-md-4 mb-4">
                                 <a href="{{ route('mosque.show', $mosque->id) }}"
                                     style="text-decoration: none;color:black" target="_blank">
                                     <!-- Add this anchor tag -->
                                     <div class="card p-3" style="min-height: 350px">
-                                        @if ($mosque->mosque_profile)
-                                            <img src="{{ Storage::url($mosque->mosque_profile->photo_path) }}"
+                                        @if ($mosque->mosque_profiles)
+                                            <img src="{{ Storage::url($mosque->mosque_profiles->photo_path) }}"
                                                 class="card-img-top rounded" style="height: 200px; object-fit: cover;"
                                                 alt="Foto Masjid">
                                         @else
@@ -313,7 +313,7 @@
                                             </h4>
                                             {{-- <p class="card-text font-weight-medium"
         style="color: #ab509f; font-weight: 600; background-color: #fff;">
-        {{ $mosque->mosque_profile->regency->name }}
+        {{ $mosque->mosque_profiles->regency->name }}
     </p> --}}
                                         </div>
                                     </div>

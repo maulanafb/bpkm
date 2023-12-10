@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.details')
 
 @section('title')
     Admin BPKM
@@ -52,7 +52,7 @@
 
         <!-- partial -->
         <!-- partial:partials/_sidebar.html -->
-        @include('includes.sidebar')
+        @include('includes.sidebar-detail')
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
@@ -61,7 +61,7 @@
                         <div class="row">
                             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                 {{-- <span><img width="200px" height="200px" src="{{ Storage::url($user->photo_path ?? '') }}" alt="..." class="img-fluid rounded"></span> --}}
-                                <h3 class="font-weight-bold">Assalamualaikum {{ $mosque->name }}</h3>
+                                <h3 class="font-weight-bold">Assalamualaikum {{ $user->name }}</h3>
                                 <h6 class="font-weight-normal mb-0">We Are Nothing Allah Is Everything</h6>
                             </div>
                         </div>
@@ -73,10 +73,11 @@
                             <div class="card-body">
 
                                 <div class="row mb-4 align-items-center ">
-                                    <div class="col-md-6 col-sm-12 d-flex align-items-center ">
-                                        <h4 class="card-title text-center mb-0">Checklist Program Bulanan</h4>
+                                    <div class="col-md-12 col-sm-12 d-flex align-items-center ">
+                                        <h4 class="card-title text-center mb-0">Checklist Program Harian {{ $mosque->name }}
+                                        </h4>
                                     </div>
-                                    <div class="col-md-6 col-sm-12 d-flex justify-content-end align-items-center">
+                                    {{-- <div class="col-md-6 col-sm-12 d-flex justify-content-end align-items-center">
                                         <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
                                             data-target="#pdfExportModal">
                                             Export <i class="fas fa-file-pdf"></i>
@@ -85,9 +86,10 @@
                                             data-target="#tambahModal">
                                             Tambah
                                         </button>
-                                    </div>
+                                    </div> --}}
                                 </div>
-                                <form action="{{ route('monthly-checklists.index') }}" method="GET" class="d-flex ">
+                                <form action="{{ route('daily-checklists.show', ['daily_checklist' => $mosqueId]) }}"
+                                    method="GET" class="d-flex ">
 
                                     <div class="row d-flex ">
                                         <div class="mr-2">
@@ -109,35 +111,58 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>tanggal</th>
-                                                <th>Khatam Quran Tiap Bulan</th>
-
-                                                <th>Aksi</th>
+                                                <th>Sholat Tepat Waktu</th>
+                                                <th>Al-Mulk Habis Maghrib</th>
+                                                <th>Subuh Menggapai Keberkahan</th>
+                                                <th>One Day One Juz</th>
+                                                {{-- <th>Aksi</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($monthlyChecklists as $item)
+                                            @foreach ($dailyChecklists as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->date }}</td>
                                                     <td>
-                                                        @if ($item->monthly_khatam_quran)
+                                                        @if ($item->stw)
                                                             <button class="btn btn-success">√</button>
                                                         @else
                                                             <button class="btn btn-danger">X</button>
                                                         @endif
                                                     </td>
-
                                                     <td>
+                                                        @if ($item->al_mulk)
+                                                            <button class="btn btn-success">√</button>
+                                                        @else
+                                                            <button class="btn btn-danger">X</button>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($item->smk)
+                                                            <button class="btn btn-success">√</button>
+                                                        @else
+                                                            <button class="btn btn-danger">X</button>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($item->odoj)
+                                                            <button class="btn btn-success">√</button>
+                                                        @else
+                                                            <button class="btn btn-danger">X</button>
+                                                        @endif
+                                                    </td>
+                                                    {{-- <td>
                                                         <button class="btn btn-warning btn-edit"
                                                             data-id="{{ $item->id }}" data-stw="{{ $item->stw }}"
-                                                            data-monthly_khatam_quran="{{ $item->monthly_khatam_quran }}"
+                                                            data-al_mulk="{{ $item->al_mulk }}"
+                                                            data-smk="{{ $item->smk }}" data-odoj="{{ $item->odoj }}"
                                                             data-date="{{ $item->date }}" data-toggle="modal"
                                                             data-target="#editModal">
                                                             Edit
                                                         </button>
                                                         <button class="btn btn-danger btn-delete"
                                                             data-id="{{ $item->id }}">Hapus</button>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -161,24 +186,36 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form enctype="multipart/form-data" action="{{ route('monthly-checklists.store') }}"
+                            <form enctype="multipart/form-data" action="{{ route('daily-checklists.store') }}"
                                 method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
                                 <!-- Label for checklist -->
-                                <label for="checklist" class="poppins">Checklist Program yang sudah dilaksanakan Bulan
+                                <label for="checklist" class="poppins">Checklist Program yang sudah dilaksanakan hari
                                     ini:</label>
 
                                 <!-- Checkboxes for each field -->
                                 <div class="form-check custom-form-check">
-                                    <input class="form-check-input" type="checkbox" id="monthly_khatam_quran"
-                                        name="monthly_khatam_quran">
-                                    <label class="form-check-label ml-2 poppins" for="monthly_khatam_quran">Khatam Quran
-                                        Tiap Bulan</label>
+                                    <input class="form-check-input" type="checkbox" id="stw" name="stw">
+                                    <label class="form-check-label ml-2 poppins" for="stw">Sholat Tepat Waktu</label>
                                 </div>
 
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="al_mulk" name="al_mulk">
+                                    <label class="form-check-label ml-2 poppins" for="al_mulk">Al Mulk</label>
+                                </div>
 
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="smk" name="smk">
+                                    <label class="form-check-label ml-2 poppins" for="smk">Shubuh Menggapai
+                                        Keberkahan</label>
+                                </div>
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="odoj" name="odoj">
+                                    <label class="form-check-label ml-2 poppins" for="odoj">One Day One Juz</label>
+                                </div>
                                 <!-- Date input -->
                                 <div class="form-group mt-4">
                                     <label for="date" class="poppins">Tanggal</label>
@@ -215,15 +252,29 @@
                                 <input type="hidden" id="editid" name="user_id">
 
                                 <!-- Label for checklist -->
-                                <label for="checklist" class="poppins">Checklist Program yang sudah dilaksanakan Bulan
+                                <label for="checklist" class="poppins">Checklist Program yang sudah dilaksanakan hari
                                     ini:</label>
 
                                 <!-- Checkboxes for each field -->
                                 <div class="form-check custom-form-check">
-                                    <input class="form-check-input" type="checkbox" id="edit_monthly_khatam_quran"
-                                        name="monthly_khatam_quran">
-                                    <label class="form-check-label ml-2 poppins" for="edit_monthly_khatam_quran">Khatam
-                                        Quran Tiap Bulan</label>
+                                    <input class="form-check-input" type="checkbox" id="edit_stw" name="stw">
+                                    <label class="form-check-label ml-2 poppins" for="edit_stw">Sholat Tepat Waktu</label>
+                                </div>
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_al_mulk" name="al_mulk">
+                                    <label class="form-check-label ml-2 poppins" for="edit_al_mulk">Al Mulk</label>
+                                </div>
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_smk" name="smk">
+                                    <label class="form-check-label ml-2 poppins" for="edit_smk">Shubuh Menggapai
+                                        Keberkahan</label>
+                                </div>
+
+                                <div class="form-check custom-form-check">
+                                    <input class="form-check-input" type="checkbox" id="edit_odoj" name="odoj">
+                                    <label class="form-check-label ml-2 poppins" for="edit_odoj">One Day One Juz</label>
                                 </div>
 
                                 <!-- Date input -->
@@ -278,8 +329,7 @@
                 if (result.isConfirmed) {
                     // Menggunakan parameter id dalam URL
                     $.ajax({
-                        url: '{{ url('monthly-checklists') }}/' +
-                            id, // Ganti dengan URL yang sesuai
+                        url: '{{ url('daily-checklists') }}/' + id, // Ganti dengan URL yang sesuai
                         type: 'DELETE',
                         data: {
                             "_token": "{{ csrf_token() }}"
@@ -310,20 +360,24 @@
         $('#editModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var id = button.data('id');
-            var monthly_khatam_quran = button.data('monthly_khatam_quran');
-
+            var stw = button.data('stw');
+            var alMulk = button.data('al_mulk');
+            var smk = button.data('smk');
+            var odoj = button.data('odoj');
             var date = button.data('date');
 
             var modal = $(this);
             var form = modal.find('#editForm');
 
             // Set action URL dengan menyertakan parameter id
-            form.attr('action', '{{ url('monthly-checklists') }}/' + id);
+            form.attr('action', '{{ url('daily-checklists') }}/' + id);
 
             modal.find('#editid').val(id);
+            modal.find('#edit_stw').prop('checked', stw);
+            modal.find('#edit_al_mulk').prop('checked', alMulk);
+            modal.find('#edit_smk').prop('checked', smk);
+            modal.find('#edit_odoj').prop('checked', odoj);
             modal.find('#edit_date').val(date);
-            modal.find('#edit_monthly_khatam_quran').prop('checked', monthly_khatam_quran);
-
 
             // ... kode lainnya
         });

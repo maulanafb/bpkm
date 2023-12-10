@@ -24,6 +24,8 @@
     @stack('prepend-script')
     @include('includes.script')
     @stack('addon-script')
+
+
     {{-- resources/views/layouts/app.blade.php --}}
 
     <script>
@@ -33,13 +35,15 @@
             var href = element.attr('href');
 
             // Check if the current URL is the home page
-            if (currentUrl === "{{ route('home') }}") {
-                // Jika berada di route home, hanya set aktif untuk menu "Home"
-                if (href === "{{ route('home') }}") {
+            if (currentUrl !== "{{ route('home') }}") {
+                if (currentUrl === "" && href === "{{ url('/') }}") {
+                    setActive(element);
+                } else if (currentUrl !== "" && href.indexOf(currentUrl) !== -1) {
                     setActive(element);
                 }
             } else {
-                if (currentUrl !== "" && href.indexOf(currentUrl) !== -1) {
+                // Jika berada di route home, hanya set aktif untuk menu "Home"
+                if (href === "{{ route('home') }}") {
                     setActive(element);
                 }
             }
@@ -72,8 +76,6 @@
             $('.sidebar').find('.collapse.show').collapse('hide');
         });
     </script>
-
-
 </body>
 
 </html>

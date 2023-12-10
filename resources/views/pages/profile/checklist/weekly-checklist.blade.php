@@ -83,6 +83,18 @@
                                         </button>
                                     </div>
                                 </div>
+                                <form action="{{ route('weekly-checklists.index') }}" method="GET" class="d-flex ">
+
+                                    <div class="row d-flex ">
+                                        <div class="mr-2">
+                                            <input required type="date" name="start_date" class="form-control">
+                                        </div>
+                                        <div class="mr-2">
+                                            <input required type="date" name="end_date" class="form-control">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                    </div>
+                                </form>
                                 <hr>
                                 <div class="table-responsive">
                                     <table class="table" id="weeklyReport">

@@ -54,12 +54,14 @@ class MosqueController extends Controller
         // $userId = Auth::user()->id;
         $caretaker = MosqueCaretaker::where(['user_id' => $id])->get();
         $programs = MosqueProgram::where(['user_id' => $id])->get();
-        // dd($caretaker);
+        $provinces = Province::all();
+        $regencies = Regency::all();
         $mosque = User::find($id);
         $mosque_land = $mosque->mosque_land;
         $mosque_coordinator = $mosque->mosque_admin;
+        $mosqueId = $id;
         // dd($mosque_condition);
-        return view('pages.mosque-detail', compact(['mosque', 'caretaker', 'programs', 'mosque_land', 'mosque_coordinator']));
+        return view('pages.details.detail-mosque', compact(['mosqueId', 'provinces', 'regencies', 'mosque', 'caretaker', 'programs', 'mosque_land', 'mosque_coordinator']));
     }
     /**
      * Show the form for editing the specified resource.
