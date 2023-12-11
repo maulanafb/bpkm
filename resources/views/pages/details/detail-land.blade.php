@@ -1,20 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.details')
 
 @section('title')
     Admin BPKM
 @endsection
 @push('addon-style')
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&family=Poppins:wght@400;500&display=swap');
-
-        .font-poppins {
-            font-family: 'Poppins', sans-serif;
+        .notify {
+            z-index: 99999;
         }
     </style>
 @endpush
-
 @section('content')
     <div class="container-fluid page-body-wrapper">
+        <x-notify::notify style="z-index: 99999;" />
         <!-- partial:partials/_settings-panel.html -->
         <div class="theme-setting-wrapper">
             <div id="settings-trigger"><i class="ti-settings"></i></div>
@@ -202,7 +200,7 @@
         </div>
         <!-- partial -->
         <!-- partial:partials/_sidebar.html -->
-        @include('includes.sidebar')
+        @include('includes.sidebar-detail')
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
@@ -210,162 +208,114 @@
                     <div class="col-md-12 grid-margin">
                         <div class="row">
                             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                <h3 class="font-weight-normal">Assalamualaikum {{ Auth::user()->name }}</h3>
-                                <h6 class="font-weight-normal mb-0 poppins">We Are Nothing Allah is Everything</h6>
-                            </div>
-                            <div class="col-12 col-xl-4">
-                                <div class="justify-content-end d-flex">
-
-                                </div>
+                                {{-- <span><img width="200px" height="200px" src="{{ Storage::url($user->photo_path ?? '') }}" alt="..." class="img-fluid rounded"></span> --}}
+                                <h3 class="font-weight-bold">Assalamualaikum {{ $mosque->name }}</h3>
+                                <h6 class="font-weight-normal mb-0">We Are Nothing Allah Is Everything</h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card tale-bg">
-                            <div class="card-people mt-auto">
-                                <img src="images/dashboard/people.svg" alt="people">
-                                <div class="weather-info">
-                                    <div class="d-flex">
-                                        <div>
-                                            <h2 class="mb-0 font-weight-normal"><i
-                                                    class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title">Status Tanah dan Bangunan</p>
+                                <form class="forms-sample" method="POST"
+                                    action="{{ route('mosque-land-update', $auth) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+
+                                        <input type="hidden" value="{{ $auth }}" name="user_id" id="user_id">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="land_status">Status tanah masjid</label>
+                                                <select class="form-control text-center" id="land_status"
+                                                    name="land_status">
+                                                    <option value="{{ $user->land_status }}">
+                                                        {{ $statusMapping[$user->land_status] }}</option>
+                                                    <option value="1">SHM</option>
+                                                    <option value="2">Surat Tanah</option>
+                                                    <option value="3">AIW atas nama pribadi/Yayasan Lain</option>
+                                                    <option value="4">AIW atas nama yayasan Masjid Kapal Munzalan
+                                                        Indonesia
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="land_name">Status tanah atas nama siapa</label>
+                                                <input type="text" name="land_name" class="form-control"
+                                                    id="land_name" placeholder="Status tanah atas nama siapa"
+                                                    value="{{ $user->land_name }}">
+                                            </div>
                                         </div>
-                                        <div class="ml-2">
-                                            <h4 class="location font-weight-normal font-poppins mb-2">
-                                                {{ $mosques->mosque_profiles->regency->name }}</h4>
-                                            <h6 class="font-weight-normal">Indonesia</h6>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="total_land_area">Luas tanah dalam Meter persegi contoh : 1000
+                                                </label>
+                                                <input type="number" name="total_land_area" class="form-control"
+                                                    id="total_land_area"
+                                                    placeholder="Luas tanah dalam Meter persegi contoh : 1000"
+                                                    value="{{ $user->total_land_area }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Luas bangunan Masjid dalam Meter persegi contoh :
+                                                    1000</label>
+                                                <input type="number" name="building_area" class="form-control"
+                                                    id="building_area"
+                                                    placeholder="Luas bangunan Masjid dalam m persegi contoh : 1000"
+                                                    value="{{ $user->building_area }}">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 grid-margin transparent">
-                        <div class="row">
-                            <div class="col-md-6 mb-4 stretch-card transparent">
-                                <div class="card card-tale">
-                                    <div class="card-body">
-                                        <p class="mb-4">Total Pemasukan</p>
-                                        <p class="fs-30 mb-2">Rp {{ number_format($totalIncome, 0, ',', '.') }}</p>
 
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4 stretch-card transparent">
-                                <div class="card card-dark-blue">
-                                    <div class="card-body">
-                                        <p class="mb-4">Total Masjid</p>
-                                        <p class="fs-30 mb-2">{{ \App\Models\User::count() }}</p>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            {{-- <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                                <div class="card card-light-blue">
-                                    <div class="card-body">
-                                        <p class="mb-4">Total Infaq</p>
-                                        <p class="fs-30 mb-2">34040</p>
-
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <div class="col-md-6 stretch-card transparent">
-                                <div class="card card-light-danger">
-                                    <div class="card-body">
-                                        <p class="mb-4">Total Pengeluaran</p>
-                                        <p class="fs-30 mb-2">Rp {{ number_format($totalOutcome, 0, ',', '.') }}</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class=" my-2">
-                    <h3 class="text-start mb-3">Daftar Masjid Kapal Munzalan Indonesia</h3>
-                    <div class="row">
-                        @forelse ($allMosque as $mosque)
-                            {{-- {{ $mosque->mosque_profiles->photo_path ?? '' }} --}}
-                            <div class="col-md-4 mb-4">
-                                <a href="{{ route('mosque.show', $mosque->id) }}"
-                                    style="text-decoration: none;color:black" target="_blank">
-                                    <!-- Add this anchor tag -->
-                                    <div class="card p-3" style="min-height: 350px">
-                                        @if ($mosque->mosque_profiles)
-                                            <img src="{{ Storage::url($mosque->mosque_profiles->photo_path) }}"
-                                                class="card-img-top rounded" style="height: 200px; object-fit: cover;"
-                                                alt="Foto Masjid">
-                                        @else
-                                            <img alt="logo"
-                                                src="https://via.placeholder.com/300x200.png?text=Masjid+Kapal+Munzalan+Indonesia"
-                                                class="card-img-top rounded" style="height: 200px; object-fit: cover;">
+                                    {{-- <div class="form-group">
+                                        <label for="land_document">Update Dokumen SHM/Surat Tanah/AIW (PDF) Jika
+                                            Ada</label>
+                                        @if ($user->land_document)
+                                            <a href="{{ asset('storage/' . $user->land_document) }}"
+                                                target="_blank">Lihat</a>
                                         @endif
-                                        <div
-                                            class="card-body d-flex flex-column justify-content-center align-items-center">
-                                            <h4 class="btn btn-primary font-weight-medium"
-                                                style="background-color: #fff; color: #ab509f; font-weight: 600; font-size: 16px; letter-spacing: 0.8px">
-                                                {{ $mosque->name }}
-                                            </h4>
-                                            {{-- <p class="card-text font-weight-medium"
-        style="color: #ab509f; font-weight: 600; background-color: #fff;">
-        {{ $mosque->mosque_profiles->regency->name }}
-    </p> --}}
-                                        </div>
+                                        <input type="file" name="land_document" class="form-control-file">
                                     </div>
 
-                                </a> <!-- Close the anchor tag -->
+                                    <div class="form-group">
+                                        <label for="mosque_design">Update Design Masjid (PDF) Jika Ada</label>
+                                        @if ($user->mosque_design)
+                                            <a href="{{ asset('storage/' . $user->mosque_design) }}"
+                                                target="_blank">Lihat</a>
+                                        @endif
+                                        <input type="file" name="mosque_design" class="form-control-file">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mosque_rab">Update RAB Pembangunan Masjid (PDF) Jika Ada</label>
+                                        @if ($user->mosque_rab)
+                                            <a href="{{ asset('storage/' . $user->mosque_rab) }}"
+                                                target="_blank">Lihat</a>
+                                            <div id="pdf-viewer"></div>
+                                        @endif
+                                        <input type="file" name="mosque_rab" class="form-control-file">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary mr-2">Submit</button> --}}
+
+                                </form>
                             </div>
-                        @empty
-                            <div class="col-md-12">
-                                <p class="text-center">Belum ada masjid yang tersedia.</p>
-                            </div>
-                        @endforelse
+                        </div>
                     </div>
-
                 </div>
-
-
-
-
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023.
-                        <a href="#" target="_blank">Badan Pengelola Kemakmuran Masjid </a>||
-                        Masjid Kapal Munzalan Indonesia.</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
-                            class="ti-heart text-danger ml-1"></i></span>
-                </div>
-            </footer>
+            @include('includes.footer')
             <!-- partial -->
         </div>
         <!-- main-panel ends -->
     </div>
 @endsection
-@push('addon-script')
-    <script>
-        $(document).ready(function() {
-            $('.nav-link[data-toggle="collapses"]').on('click', function(e) {
-                e.preventDefault(); // Mencegah tautan dari mengarahkan ke halaman lain
-
-                var target = $($(this).attr('href'));
-                if (target.length) {
-                    // Cek apakah elemen sudah terbuka atau tertutup
-                    if (target.hasClass('show')) {
-                        target.collapses('hide'); // Jika sudah terbuka, sembunyikan elemen
-                    } else {
-                        target.collapses('show'); // Jika sudah tertutup, tampilkan elemen
-                    }
-                }
-            });
-        });
-    </script>
-@endpush

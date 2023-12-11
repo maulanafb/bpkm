@@ -86,9 +86,25 @@ class MosqueLandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MosqueLand $mosqueLand)
+    public function show($id)
     {
-        //
+        $user = Auth::user()->mosque_land;
+        $statusMapping = [
+            1 => 'SHM',
+            2 => 'Surat Tanah',
+            3 => 'AIW Pribadi',
+            4 => 'AIW Atas Nama Yayasan Masjid Kapal Munzalan',
+        ];
+        $mosqueId = $id;
+        $mosque = MosqueLand::where('user_id', $id)->first();
+        $auth = Auth::user()->id;
+        return view('pages.details.detail-land', [
+            'auth' => $auth,
+            'mosque' => $mosque,
+            'user' => $user,
+            'statusMapping' => $statusMapping,
+            'mosqueId' => $mosqueId
+        ]);
     }
 
     /**

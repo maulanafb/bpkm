@@ -41,6 +41,32 @@ class MonthlyFinancianReportController extends Controller
         return view('pages.finance.finance-monthly-report', compact(['monthlyReports', 'mosque', 'auth']));
     }
 
+    public function show(Request $request, $id)
+    {
+        // Ambil data keuangan bulanan
+        $reports = MonthlyFinancialReport::where('user_id', $id);
+
+        // Filter berdasarkan tanggal jika tanggal mulai dan tanggal selesai diberikan
+        if ($request->has('start_date')) {
+            $start_date = $request->input('start_date');
+            $reports->where('date', '>=', $start_date);
+        }
+        if ($request->has('end_date')) {
+            $end_date = $request->input('end_date');
+            $reports->where('date', '<=', $end_date);
+        }
+
+        $monthlyReports = $reports->get();
+
+        // $monthlyReports = Auth::user()->monthly_report;
+        // dd($reports->income);
+        $mosqueId = $id;
+        $mosque = Auth::user();
+        $auth = Auth::user()->id;
+        return view('pages.details.detail-finance-monthly-report', compact(['mosqueId', 'monthlyReports', 'mosque', 'auth']));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -97,10 +123,6 @@ class MonthlyFinancianReportController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

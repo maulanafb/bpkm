@@ -67,9 +67,12 @@ class MosqueStructureController extends Controller
 
 
 
-    public function show(MosqueStructure $structure)
+    public function show($id)
     {
-        return view('pages.profile.mosque-structures.show', compact('structure'));
+        $mosqueId = $id;
+        $mosque = Auth::user();
+        $structures = MosqueStructure::where('user_id', $id)->get();
+        return view('pages.details.detail-structure', compact('structures', 'mosqueId', 'mosque'));
     }
 
     public function edit(MosqueStructure $structure)

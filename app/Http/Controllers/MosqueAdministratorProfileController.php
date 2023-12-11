@@ -46,9 +46,19 @@ class MosqueAdministratorProfileController extends Controller
         return redirect()->route('mosque-land');
     }
 
-    public function show(MosqueAdministratorProfile $mosqueAdministratorProfile)
+    public function show($id)
     {
-        //
+        $auth = Auth::user()->id;
+        $user = MosqueAdministratorProfile::where('user_id', $id)->first();
+        // dd($user);
+        $mosque = Auth::user();
+        $mosqueId = $id;
+        return view('pages.details.detail-administrator', [
+            'auth' => $auth,
+            'user' => $user,
+            'mosqueId' => $mosqueId,
+            'mosque' => $mosque
+        ]);
     }
 
     public function edit()

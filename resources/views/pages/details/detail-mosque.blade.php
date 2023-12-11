@@ -241,10 +241,14 @@
                                                         class="fab fa-twitter"></i></a>
                                             @endif
                                         </div>
-
+                                        {{-- <div class="d-flex justify-center">
+                                            <a href="{{ route('mosque.activate', $mosqueId) }}"
+                                                class="card-title w-full mt-5 mb-3 bg-success py-2 text-white text-center rounded">Aktifkan</a>
+                                        </div> --}}
                                     </form>
                                 </div>
                             </div>
+
                             {{-- end profile items  --}}
                         </div>
                     </div>

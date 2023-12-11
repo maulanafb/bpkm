@@ -24,7 +24,7 @@ class MosqueController extends Controller
     public function index()
     {
 
-        $mosque = User::all()->first();
+        $mosque = User::where('id', Auth::user());
         $provinces = Province::all();
         $regencies = Regency::all();
         return view('pages.profile', ["mosque" => $mosque, "provinces" => $provinces, "regencies" => $regencies]);
@@ -85,5 +85,18 @@ class MosqueController extends Controller
     public function destroy(Mosque $mosque)
     {
         //
+    }
+    public function activate(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        // Toggle the 'verif' column
+        $user->update(['verif' => !$user->verif]);
+
+        // You can use notify() or any other notification method here
+        notify()->success('Data berhasil diubah.');
+
+        return redirect()->route('mosque.show', $id)
+            ->with('success', 'User verification status toggled successfully');
     }
 }

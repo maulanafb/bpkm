@@ -60,9 +60,12 @@ class MosqueProgramController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MosqueCondition $mosqueCondition)
+    public function show($id)
     {
-        //
+        $mosque = Auth::user();
+        $user = MosqueProgram::where('user_id', $id)->first();
+        $mosqueId = $id;
+        return view('pages.details.detail-programs', compact(['mosqueId', 'user', 'mosque']));
     }
 
     /**

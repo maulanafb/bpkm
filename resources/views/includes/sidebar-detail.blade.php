@@ -18,16 +18,16 @@
                             style="font-size: 13px">Profil
                             Masjid</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-land-edit') }}"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-land.show', $mosqueId) }}"
                             style="font-size: 13px">Tanah &
                             Bangunan</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('dashboard-administrator-edit') }}"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-administrator.show', $mosqueId) }}"
                             style="font-size: 13px">Profil
                             Manager</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-program-edit') }}"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-program.show', $mosqueId) }}"
                             style="font-size: 13px">Program Masjid</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-structure.index') }}"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('mosque-structure.show', $mosqueId) }}"
                             style="font-size: 13px">Struktur Pengurus</a>
                     </li>
 
@@ -43,11 +43,11 @@
 
             <div class="collapse" id="finance">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('monthly-report.index') }}"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('monthly-report.show', $mosqueId) }}"
                             style="font-size: 13px">Keuangan bulanan
                         </a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('jumah-report.index') }}"
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('jumah-report.show', $mosqueId) }}"
                             style="font-size: 13px">Pemasukan Jumat</a></li>
                 </ul>
             </div>

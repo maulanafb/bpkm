@@ -71,7 +71,6 @@
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-
                                 <div class="row mb-4 align-items-center ">
                                     <div class="col-md-12 col-sm-12 d-flex align-items-center ">
                                         <h4 class="card-title text-center mb-0">Checklist Program Harian {{ $mosque->name }}

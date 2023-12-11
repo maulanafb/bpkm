@@ -36,6 +36,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/masjid/{id}', [MosqueController::class, 'show'])->name('mosque.show');
+Route::get('/masjid/active/{id}', [MosqueController::class, 'activate'])->name('mosque.activate');
 
 
 Route::get('/test', [TestingController::class, 'index'])->name('test');
@@ -51,16 +52,19 @@ Route::get('/dashboard-document', [MosqueDocumentController::class, 'edit'])->na
 Route::post('/dashboard-document/${id}', [MosqueDocumentController::class, 'update'])->name('dashboard-document-update');
 
 Route::get('/mosque-land', [MosqueLandController::class, 'index'])->name('mosque-land');
+Route::get('/mosque-land/{id}', [MosqueLandController::class, 'show'])->name('mosque-land.show');
 Route::post('/mosque-land', [MosqueLandController::class, 'store'])->name('mosque-land-store');
 Route::get('/dashboard-land-edit', [MosqueLandController::class, 'edit'])->name('mosque-land-edit');
 Route::post('/dashboard-land-update/{id}', [MosqueLandController::class, 'update'])->name('mosque-land-update');
 
 Route::get('/mosque-program', [MosqueProgramController::class, 'index'])->name('mosque-program');
+Route::get('/mosque-program/{id}', [MosqueProgramController::class, 'show'])->name('mosque-program.show');
 Route::post('/mosque-program', [MosqueProgramController::class, 'store'])->name('mosque-program-store');
 Route::get('/dashboard-program-edit', [MosqueProgramController::class, 'edit'])->name('mosque-program-edit');
 Route::post('/dashboard-program-update/{id}', [MosqueProgramController::class, 'update'])->name('mosque-program-update');
 
 Route::get('/mosque-administrator', [MosqueAdministratorProfileController::class, 'index'])->name('mosque-administrator');
+Route::get('/mosque-administrator/{id}', [MosqueAdministratorProfileController::class, 'show'])->name('mosque-administrator.show');
 Route::post('/mosque-administrator', [MosqueAdministratorProfileController::class, 'store'])->name('mosque-administrator-store');
 Route::get('/dashboard-administrator-edit', [MosqueAdministratorProfileController::class, 'edit'])->name('dashboard-administrator-edit');
 Route::post('/dashboard-administrator-update/{id}', [MosqueAdministratorProfileController::class, 'update'])->name('dashboard-administrator-update');
@@ -71,12 +75,14 @@ Route::delete('/pengurus-masjid/{id}', [MosqueCaretakerController::class, 'destr
 Route::put('/edit-pengurus-masjid/{id}', [MosqueCaretakerController::class, 'update'])->name('pengurus-masjid.update');
 
 Route::get('/monthly-report', [MonthlyFinancianReportController::class, 'index'])->name('monthly-report.index');
+Route::get('/monthly-report/{id}', [MonthlyFinancianReportController::class, 'show'])->name('monthly-report.show');
 Route::post('/monthly-report', [MonthlyFinancianReportController::class, 'store'])->name('monthly-report.store');
 Route::put('/monthly-report-update/{id}', [MonthlyFinancianReportController::class, 'update'])->name('monthly-report.update');
 Route::delete('monthly-report/{id}', [MonthlyFinancianReportController::class, 'destroy'])->name('monthly-report.destroy');
 
 
 Route::get('/jumah-report', [JumahFinancialController::class, 'index'])->name('jumah-report.index');
+Route::get('/jumah-report/{id}', [JumahFinancialController::class, 'show'])->name('jumah-report.show');
 Route::post('/jumah-report', [JumahFinancialController::class, 'store'])->name('jumah-report.store');
 Route::put('/jumah-report-update/{id}', [JumahFinancialController::class, 'update'])->name('jumah-report.update');
 Route::delete('/jumah-report/{id}', [JumahFinancialController::class, 'destroy'])->name('jumah-report.destroy');
@@ -88,6 +94,7 @@ Route::put('/mosque-gallery-update/{id}', [MosqueGalleryController::class, 'upda
 Route::delete('/mosque-gallery/{id}', [MosqueGalleryController::class, 'destroy'])->name('mosque-gallery.destroy');
 
 Route::get('/mosque-structure', [MosqueStructureController::class, 'index'])->name('mosque-structure.index');
+Route::get('/mosque-structure/{id}', [MosqueStructureController::class, 'show'])->name('mosque-structure.show');
 Route::post('/mosque-structure', [MosqueStructureController::class, 'store'])->name('mosque-structure.store');
 Route::put('/mosque-structure-update/{id}', [MosqueStructureController::class, 'update'])->name('mosque-structure.update');
 Route::delete('/mosque-structure/{id}', [MosqueStructureController::class, 'destroy'])->name('mosque-structure.destroy');

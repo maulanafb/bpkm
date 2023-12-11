@@ -39,7 +39,30 @@ class JumahFinancialController extends Controller
         $auth = Auth::user()->id;
         return view('pages.finance.jumah-report', compact(['jumahReports', 'mosque', 'auth']));
     }
+    public function show(Request $request, $id)
+    {
+        // Ambil data keuangan bulanan
+        $reports = JumahFinancialreport::where('user_id', $id);
 
+        // Filter berdasarkan tanggal jika tanggal mulai dan tanggal selesai diberikan
+        if ($request->has('start_date')) {
+            $start_date = $request->input('start_date');
+            $reports->where('date', '>=', $start_date);
+        }
+        if ($request->has('end_date')) {
+            $end_date = $request->input('end_date');
+            $reports->where('date', '<=', $end_date);
+        }
+
+        $jumahReports = $reports->get();
+
+        // $jumahReports = Auth::user()->monthly_report;
+        // dd($reports->income);
+        $mosqueId = $id;
+        $mosque = Auth::user();
+        $auth = Auth::user()->id;
+        return view('pages.details.detail-jumah-report', compact(['mosqueId', 'jumahReports', 'mosque', 'auth']));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -88,10 +111,7 @@ class JumahFinancialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
