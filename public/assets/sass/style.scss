@@ -1,0 +1,7560 @@
+/*
+Template Name: Onovo
+Template URI: https://bslthemes.com/
+Author: bslthemes
+Author URI: https://themeforest.net/user/bslthemes
+Description: Onovo - Creative Portfolio Agency HTML5 Template
+Version: 1.0
+*/
+
+/* TABLE OF CONTENTS
+	1. Global
+		1.1 Container
+		1.2 Margin / Padding
+		1.3 Typography
+		1.4 Alignment
+		1.5 Animations
+		1.6 Hovers
+		1.7 Buttons
+		1.8 Socials
+		1.9 Stars
+		1.10 Parallax
+		1.11 Swiper
+		1.12 Onovo Navigations
+		1.13 Preloader
+	2. Header
+	3. Footer
+	4. Hero
+		4.1 Hero Slider
+		4.2 Hero Carousel
+		4.3 Hero Parallax
+	5. Services
+		5.1 Services-2
+		5.2 Services-3
+		5.3 Services-4
+	6. Numbers
+	7. Ticker
+	8. Portfolio
+		8.1 Portfolio Showcase
+	9. Team
+	10. Testimonials
+	11. Video
+	12. Counter
+	13. CTA
+	14. Blog
+		14.1 Blog Carousel
+	15. Brands
+	16. Team
+	17. Pricing
+	18. Contacts
+	19. Subscribe
+	20. History
+	21. Intro
+	22. FAQ
+	23. Portfolio Single
+	24. Team Single
+	25. 404
+	26. Blog Posts & Post
+	Skin Options
+*/
+
+/* ---
+	1. Global
+---*/
+
+* {
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+::-moz-placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+:-moz-placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+:-ms-input-placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	height: auto !important;
+	font-size: 18px;
+	color: #1B252E;
+	font-family: "Epilogue", sans-serif;
+	font-weight: 400;
+	line-height: 1.7;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+a:link {
+	color: #000;
+}
+
+a:active {
+	color: #000;
+}
+
+a:visited {
+	color: #000;
+}
+
+a:hover {
+	color: #000;
+}
+
+a img {
+	border: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+input,
+textarea,
+button {
+	font-family: "Epilogue";
+}
+
+label {
+	cursor: pointer;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+form p {
+	margin: 0 0 15px 0;
+}
+
+b, strong {
+	font-weight: 700;
+}
+
+.clear {
+	clear: both;
+}
+
+.onovo--noscroll {
+	overflow: hidden !important;
+}
+
+.onovo--notouch {
+	pointer-events: none !important;
+}
+
+/* Container */
+
+.container {
+	max-width: 1318px;
+}
+
+.container-lg {
+	max-width: 1338px;
+}
+
+.container-xl {
+	max-width: 1368px;
+}
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+	background: #fff;
+	z-index: 2;
+}
+
+.footer--fixed .wrapper {
+	padding-bottom: 90px;
+}
+
+.onovo-section-full {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.onovo-section-full > div {
+	position: relative;
+}
+
+.onovo-section-bg {
+	background-color: #FAFAFA;
+}
+
+@media (max-width: 991px) {
+	.hide-on-mobile {
+		display: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.hide-on-mobile-extra {
+		display: none;
+	}
+}
+
+@media (min-width: 991px) {
+	.hide-on-desktop {
+		display: none;
+	}
+}
+
+/* Margin / Padding */
+
+.row.gap-row {
+	margin-top: -30px;
+}
+
+.row.gap-row > div {
+	margin-top: 30px;
+}
+
+.gap-140 {
+	padding: 140px 100px;
+}
+
+.gap-top-140 {
+	padding-top: 140px;
+}
+
+.gap-top-130 {
+	padding-top: 130px;
+}
+
+.gap-top-120 {
+	padding-top: 120px;
+}
+
+.gap-top-110 {
+	padding-top: 110px;
+}
+
+.gap-top-100 {
+	padding-top: 100px;
+}
+
+.gap-top-90 {
+	padding-top: 90px;
+}
+
+.gap-top-80 {
+	padding-top: 80px;
+}
+
+.gap-top-70 {
+	padding-top: 70px;
+}
+
+.gap-top-60 {
+	padding-top: 60px;
+}
+
+.gap-top-50 {
+	padding-top: 50px;
+}
+
+.gap-top-40 {
+	padding-top: 40px;
+}
+
+.gap-top-0 {
+	padding-top: 40px;
+}
+
+.gap-bottom-140 {
+	padding-bottom: 140px;
+}
+
+.gap-bottom-130 {
+	padding-bottom: 130px;
+}
+
+.gap-bottom-120 {
+	padding-bottom: 120px;
+}
+
+.gap-bottom-110 {
+	padding-bottom: 110px;
+}
+
+.gap-bottom-100 {
+	padding-bottom: 100px;
+}
+
+.gap-bottom-90 {
+	padding-bottom: 90px;
+}
+
+.gap-bottom-80 {
+	padding-bottom: 80px;
+}
+
+.gap-bottom-70 {
+	padding-bottom: 70px;
+}
+
+.gap-bottom-60 {
+	padding-bottom: 60px;
+}
+
+.gap-bottom-50 {
+	padding-bottom: 50px;
+}
+
+.gap-bottom-40 {
+	padding-bottom: 40px;
+}
+
+.gap-bottom-0 {
+	padding-bottom: 0px;
+}
+
+@media (max-width: 1024px) {
+	.gap-140 {
+		padding: 140px 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.gap-140 {
+		padding: 80px 50px;
+	}
+	.gap-top-140 {
+		padding-top: 80px;
+	}
+	.gap-top-130 {
+		padding-top: 65px;
+	}
+	.gap-top-120 {
+		padding-top: 60px;
+	}
+	.gap-top-110 {
+		padding-top: 55px;
+	}
+	.gap-top-100 {
+		padding-top: 50px;
+	}
+	.gap-top-90 {
+		padding-top: 45px;
+	}
+	.gap-top-80 {
+		padding-top: 40px;
+	}
+	.gap-top-70 {
+		padding-top: 35px;
+	}
+	.gap-top-60 {
+		padding-top: 30px;
+	}
+	.gap-top-50 {
+		padding-top: 30px;
+	}
+	.gap-top-40 {
+		padding-top: 30px;
+	}
+	.gap-bottom-140 {
+		padding-bottom: 80px;
+	}
+	.gap-bottom-130 {
+		padding-bottom: 65px;
+	}
+	.gap-bottom-120 {
+		padding-bottom: 60px;
+	}
+	.gap-bottom-110 {
+		padding-bottom: 55px;
+	}
+	.gap-bottom-100 {
+		padding-bottom: 50px;
+	}
+	.gap-bottom-90 {
+		padding-bottom: 45px;
+	}
+	.gap-bottom-80 {
+		padding-bottom: 40px;
+	}
+	.gap-bottom-70 {
+		padding-bottom: 35px;
+	}
+	.gap-bottom-60 {
+		padding-bottom: 30px;
+	}
+	.gap-bottom-50 {
+		padding-bottom: 30px;
+	}
+	.gap-bottom-40 {
+		padding-bottom: 30px;
+	}
+}
+
+/* Typography */
+
+figure {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	font-family: "Epilogue";
+	margin: 0;
+	margin-bottom: 15px;
+	color: #000;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+h2 {
+	font-size: 50px;
+}
+
+h3 {
+	font-size: 40px;
+}
+
+h4 {
+	font-size: 30px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 18px;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+	margin: 40px 0 30px 0;
+}
+
+.post-content h1:first-child,
+.post-content h2:first-child,
+.post-content h3:first-child,
+.post-content h4:first-child,
+.post-content h5:first-child,
+.post-content h6:first-child {
+	margin-top: 0;
+}
+
+h1.onovo-title-1,
+h2.onovo-title-1,
+h3.onovo-title-1,
+h4.onovo-title-1,
+h5.onovo-title-1,
+h6.onovo-title-1,
+.onovo-title-1 {
+	margin: 0;
+	font-size: 70px;
+}
+
+h1.onovo-title-2,
+h2.onovo-title-2,
+h3.onovo-title-2,
+h4.onovo-title-2,
+h5.onovo-title-2,
+h6.onovo-title-2,
+.onovo-title-2 {
+	margin: 0;
+	font-size: 60px;
+}
+
+h1.onovo-title-2 strong,
+h2.onovo-title-2 strong,
+h3.onovo-title-2 strong,
+h4.onovo-title-2 strong,
+h5.onovo-title-2 strong,
+h6.onovo-title-2 strong,
+.onovo-title-2 strong {
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+h1.onovo-title-3,
+h2.onovo-title-3,
+h3.onovo-title-3,
+h4.onovo-title-3,
+h5.onovo-title-3,
+h6.onovo-title-3,
+.onovo-title-3 {
+	margin: 0;
+	font-size: 50px;
+}
+
+.onovo-subtitle-1 {
+	margin: 0 0 20px 0;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.onovo-subtitle-2 {
+	margin: 20px 0;
+}
+
+@media (max-width: 1024px) {
+	h1 {
+		font-size: 60px;
+	}
+	h2 {
+		font-size: 50px;
+	}
+	h3 {
+		font-size: 40px;
+	}
+	h4 {
+		font-size: 30px;
+	}
+	h5 {
+		font-size: 20px;
+	}
+	h6 {
+		font-size: 18px;
+	}
+	h1.onovo-title-1,
+	h2.onovo-title-1,
+	h3.onovo-title-1,
+	h4.onovo-title-1,
+	h5.onovo-title-1,
+	h6.onovo-title-1,
+	.onovo-title-1 {
+		margin: 0;
+		font-size: 60px;
+	}
+	h1.onovo-title-2,
+	h2.onovo-title-2,
+	h3.onovo-title-2,
+	h4.onovo-title-2,
+	h5.onovo-title-2,
+	h6.onovo-title-2,
+	.onovo-title-2 {
+		margin: 0;
+		font-size: 50px;
+	}
+	h1.onovo-title-3,
+	h2.onovo-title-3,
+	h3.onovo-title-3,
+	h4.onovo-title-3,
+	h5.onovo-title-3,
+	h6.onovo-title-3,
+	.onovo-title-3 {
+		margin: 0;
+		font-size: 40px;
+	}
+	h1.onovo-title-1 br,
+	h2.onovo-title-1 br,
+	h3.onovo-title-1 br,
+	h4.onovo-title-1 br,
+	h5.onovo-title-1 br,
+	h6.onovo-title-1 br,
+	.onovo-title-1 br {
+		display: none;
+	}
+	h1.onovo-title-2 br,
+	h2.onovo-title-2 br,
+	h3.onovo-title-2 br,
+	h4.onovo-title-2 br,
+	h5.onovo-title-2 br,
+	h6.onovo-title-2 br,
+	.onovo-title-2 br {
+		display: none;
+	}
+	h1.onovo-title-3 br,
+	h2.onovo-title-3 br,
+	h3.onovo-title-3 br,
+	h4.onovo-title-3 br,
+	h5.onovo-title-3 br,
+	h6.onovo-title-3 br,
+	.onovo-title-3 br {
+		display: none;
+	}
+}
+
+@media (max-width: 767px) {
+	h1 {
+		font-size: 42px;
+	}
+	h2 {
+		font-size: 38px;
+	}
+	h3 {
+		font-size: 32px;
+	}
+	h4 {
+		font-size: 26px;
+	}
+	h5 {
+		font-size: 20px;
+	}
+	h6 {
+		font-size: 18px;
+	}
+	h1.onovo-title-1,
+	h2.onovo-title-1,
+	h3.onovo-title-1,
+	h4.onovo-title-1,
+	h5.onovo-title-1,
+	h6.onovo-title-1,
+	.onovo-title-1 {
+		margin: 0;
+		font-size: 42px;
+	}
+	h1.onovo-title-2,
+	h2.onovo-title-2,
+	h3.onovo-title-2,
+	h4.onovo-title-2,
+	h5.onovo-title-2,
+	h6.onovo-title-2,
+	.onovo-title-2 {
+		margin: 0;
+		font-size: 38px;
+	}
+	h1.onovo-title-3,
+	h2.onovo-title-3,
+	h3.onovo-title-3,
+	h4.onovo-title-3,
+	h5.onovo-title-3,
+	h6.onovo-title-3,
+	.onovo-title-3 {
+		margin: 0;
+		font-size: 32px;
+	}
+	html,
+	body {
+		font-size: 16px;
+	}
+}
+
+body .onovo-text-white,
+body .onovo-text-white h1,
+body .onovo-text-white h2,
+body .onovo-text-white h3,
+body .onovo-text-white h4,
+body .onovo-text-white h5,
+body .onovo-text-white h6,
+body .onovo-text-white a {
+	color: #fff;
+}
+
+body .onovo-text-black,
+body .onovo-text-black h1,
+body .onovo-text-black h2,
+body .onovo-text-black h3,
+body .onovo-text-black h4,
+body .onovo-text-black h5,
+body .onovo-text-black h6,
+body .onovo-text-black a {
+	color: #000;
+}
+
+p {
+	padding: 0;
+	margin: 20px 0;
+}
+
+strong {
+	font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="tel"],
+input[type="address"],
+input[type="number"],
+textarea {
+	position: relative;
+	padding: 0 30px;
+	display: block;
+	width: 100%;
+	height: 62px;
+	font-size: 16px;
+	color: #000;
+	resize: none;
+	outline: 0;
+	font-weight: 400;
+	background: #fff;
+	border: 1px solid #B2B2B2;
+	border-radius: 62px;
+	-webkit-border-radius: 62px;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+textarea {
+	height: 125px!important;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	resize: none;
+	border-radius: 31px;
+	-webkit-border-radius: 31px;
+}
+
+label,
+legend {
+	display: block;
+	padding-bottom: 20px;
+	font-family: "Epilogue";
+}
+
+fieldset {
+	border-width: 0;
+	padding: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline;
+}
+
+label.error {
+	padding: 5px 10px 0 10px;
+	font-size: 14px;
+	line-height: 2;
+	color: red;
+	display: none;
+}
+
+ul {
+	list-style: disc;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-left: 0px;
+	list-style-position: inside;
+}
+
+ol {
+	list-style: decimal;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-left: 0px;
+	list-style-position: inside;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
+code {
+	padding: 0 4px;
+	font-size: 14px;
+	font-style: italic;
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: auto;
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+pre {
+	margin: 30px 0;
+	padding: 0;
+	max-width: 100%;
+	overflow: auto;
+	white-space: pre;
+	font-size: 14px;
+}
+
+mark,
+ins {
+	text-decoration: none;
+}
+
+dt {
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+dd {
+	margin-top: 0;
+	margin-bottom: 30px;
+	margin-left: 30px;
+}
+
+blockquote {
+	position: relative;
+	margin: 40px 0;
+	padding: 60px 8% 60px 170px;
+	font-size: 24px;
+	line-height: 1.3;
+	color: #fff;
+	font-weight: 400;
+	background: #000;
+	text-align: left;
+}
+
+blockquote::before {
+	content: '';
+	position: absolute;
+	top: 35px;
+	left: 70px;
+	width: 80px;
+	height: 80px;
+	background-color: #D8FF36;
+	background-image: url(../images/quote.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 26px;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+blockquote:after {
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	border: 1px solid #fff;
+	pointer-events: none;
+}
+
+blockquote p {
+	margin: 0 !important;
+	font-style: normal;
+}
+
+blockquote a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+blockquote cite {
+	font-size: 22px;
+	font-weight: 700;
+	font-style: normal;
+	display: block;
+	margin-top: 20px;
+	position: relative;
+	text-align: left;
+	color: #fff;
+}
+
+blockquote cite em {
+	font-style: normal;
+}
+
+input[type=checkbox],
+input[type=radio] {
+	display: inline-block;
+	vertical-align: top;
+}
+
+select,
+.custom-select {
+	background-color: transparent;
+	border: 0;
+	border: solid 1px #c9c9c9;
+	border-radius: 0;
+	box-shadow: none;
+	color: #787878;
+	font-size: inherit;
+	height: auto;
+	padding: 15px 16px;
+	position: relative;
+	width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin-top: -1rem;
+	outline: none;
+}
+
+select,
+.custom-select {
+	background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.1rem center/40px 12px;
+}
+
+hr {
+	border-top: 1px solid #8d99a7;
+}
+
+.onovo-contact-info {
+	position: relative;
+	background: #000;
+	padding: 50px;
+}
+
+.onovo-contact-info::before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	border: 1px solid #fff;
+	pointer-events: none;
+}
+
+.onovo-contact-info > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-contact-info > ul > li {
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #3E3E3E;
+}
+
+.onovo-contact-info > ul > li:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+/* Alignment */
+.align-center {
+	text-align: center !important;
+}
+
+.align-right {
+	text-align: right !important;
+}
+
+.align-left {
+	text-align: left !important;
+}
+
+.pull-right {
+	float: right !important;
+}
+
+.pull-left {
+	float: left !important;
+}
+
+.pull-none {
+	float: none !important;
+}
+
+.mrg-left {
+	margin-right: auto;
+}
+
+.mrg-right {
+	margin-left: auto;
+}
+
+.mrg-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignright {
+	margin-left: 30px;
+	margin-bottom: 30px;
+	float: right;
+	max-width: 50%;
+}
+
+.alignleft {
+	margin-right: 30px;
+	margin-bottom: 30px;
+	float: left;
+	max-width: 50%;
+}
+
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.full-width {
+	max-width: 100%;
+	width: 100%;
+}
+
+.full-max-width {
+	max-width: 100%;
+	width: auto;
+}
+
+.centrize {
+	display: table;
+	table-layout: fixed;
+	height: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.vertical-center {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+
+.text-lowercase {
+	text-transform: lowercase !important;
+}
+
+.text-capitalize {
+	text-transform: capitalize !important;
+}
+
+.text-regular {
+	font-weight: 400 !important;
+}
+
+.text-bold {
+	font-weight: 700 !important;
+}
+
+.text-italic {
+	font-style: italic !important;
+}
+
+.alert-success {
+	color: #000;
+	background: transparent;
+	border: none;
+}
+
+@media (max-width: 767px) {
+	.alignright {
+		margin-left: 0px;
+		margin-bottom: 30px;
+		float: none;
+		max-width: 100%;
+	}
+	.alignleft {
+		margin-right: 0px;
+		margin-bottom: 30px;
+		float: none;
+		max-width: 100%;
+	}
+	.wp-block-image .alignright,
+	.wp-block-image .alignleft {
+		max-width: 50%;
+	}
+}
+
+@media (max-width: 767px) {
+	.m-align-left {
+		text-align: left !important;
+	}
+	.m-align-center {
+		text-align: center !important;
+	}
+	.m-align-right {
+		text-align: right !important;
+	}
+}
+
+/* Animations */
+.onovo-circle-move {
+	animation: onovo-circle-move 6s infinite ease-in-out;
+}
+@keyframes onovo-circle-move {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	25% {
+		transform: translate(4px, 4px);
+	}
+	50% {
+		transform: translate(0px, 4px);
+	}
+	75% {
+		transform: translate(-4px, 0px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+.splitting span:not(.whitespace) {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.splitting span .word {
+	position: relative;
+	transform: translate(0, 100%);
+	transition: transform .6s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: transform .6s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.splitting span .word {
+	-webkit-transition-delay: calc(100ms + (100ms * var(--line-index)));
+	transition-delay: calc(100ms + (100ms * var(--line-index)));
+}
+
+.animated--active .splitting[data-scroll="in"] span .word,
+.animated--swiper--active .swiper-slide-active .splitting span .word {
+	transform: translate(0, 0%);
+}
+
+*[data-onovo-overlay] {
+	position: relative;
+}
+
+.onovo-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	transition: transform .6s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: transform .6s cubic-bezier(0.3, 0, 0.3, 1);
+	transform-origin: top right;
+	transform: scaleX(1);
+	z-index: 2;
+	pointer-events: none;
+}
+
+.animated--active [data-scroll="in"] .onovo-overlay {
+	transform: scaleX(0);
+}
+
+.animated--swiper--active .swiper-slide-active .onovo-overlay {
+	transform: scaleX(0);
+	-webkit-transition-delay: 0.8s;
+	transition-delay: 0.8s;
+}
+
+/* Hovers */
+.onovo-hover-1::before,
+.onovo-hover-2::before,
+.onovo-hover-3::before {
+	margin: 0;
+	content: '';
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	transform: scale(0);
+	-webkit-transform: scale(0);
+	background: #D8FF36;
+	pointer-events: none;
+}
+
+.onovo-hover-2::before {
+	left: 3px;
+	top: 3px;
+	width: calc(100% - 6px);
+	height: calc(100% - 6px);
+}
+
+.onovo-hover-3::before {
+	margin: -400px 0 0 -400px;
+	left: 50%;
+	top: 50%;
+	width: 800px;
+	height: 800px;
+}
+
+.onovo-hover-1:hover::before,
+.onovo-hover-2:hover::before,
+.onovo-hover-3:hover::before {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-hover-black::before {
+	background: #000 !important;
+}
+
+.onovo-hover-black-30::before {
+	background: rgba(0,0,0,0.3) !important;
+}
+
+.onovo-hover-btn > .arrow::after,
+.onovo-hover-btn > i::after {
+	margin: 0;
+	content: '';
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: calc(100% + 2px);
+	height: calc(100% + 2px);
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	transform: scale(0);
+	-webkit-transform: scale(0);
+	background: #D8FF36;
+	transform-origin: center center;
+}
+
+.onovo-hover-btn::before {
+	content: '';
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	right: 1px;
+	bottom: 1px;
+	background: #000;
+	border-radius: 66px;
+	-webkit-border-radius: 66px;
+}
+
+.onovo-hover-btn::after {
+	margin: 0;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: transform 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	transform: scaleY(0);
+	-webkit-transform: scaleY(0);
+	background: #D8FF36;
+	transform-origin: bottom center;
+	z-index: 1;
+}
+
+.onovo-hover-btn:hover::after {
+	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	transform-origin: top center;
+}
+
+.onovo-hover-btn:hover > .arrow::after,
+.onovo-hover-btn:hover > i::after {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-hover-label {
+	position: relative;
+}
+
+.onovo-hover-label .label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	z-index: 2;
+	opacity: 0;
+	transform: translateY(8px) scale(0.8);
+	-webkit-transform: translateY(6px) scale(0.8);
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-hover-label:hover .label {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	-webkit-transform: translateY(0) scale(1);
+}
+
+/* Buttons */
+a.onovo-lnk,
+span.onovo-lnk,
+.onovo-lnk a {
+	position: relative;
+}
+
+a.onovo-lnk::after,
+span.onovo-lnk::after,
+.onovo-lnk a::after,
+a.onovo-lnk.lnk--revert::after,
+span.onovo-lnk.lnk--revert::after,
+.onovo-lnk.lnk--revert a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	transform: scaleX(0);
+	-webkit-transform: scaleX(0);
+	transition: transform .4s ease-out;
+	-webkit-transition: transform .4s ease-out;
+	transform-origin: bottom right;
+}
+
+a.onovo-lnk.lnk--white::after,
+span.onovo-lnk.lnk--white::after,
+.onovo-lnk.lnk--white a::after {
+	background: #fff;
+}
+
+a.onovo-lnk.lnk--active::after,
+span.onovo-lnk.lnk--active::after,
+.onovo-lnk.lnk--active a::after {
+	background: #D8FF36;
+}
+
+a.onovo-lnk.lnk--revert::after,
+span.onovo-lnk.lnk--revert::after,
+.onovo-lnk.lnk--revert a::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+a.onovo-lnk:hover::after,
+span.onovo-lnk:hover::after,
+.onovo-lnk a:hover::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+a.onovo-lnk.lnk--revert:hover::after,
+span.onovo-lnk.lnk--revert:hover::after,
+.onovo-lnk.lnk--revert a:hover::after {
+	transform: scaleX(0);
+	-webkit-transform: scaleX(0);
+	transform-origin: bottom right;
+}
+
+a.onovo-btn,
+.onovo-btn,
+button[type="submit"],
+input[type="submit"],
+a.onovo-btn-circle,
+.onovo-btn-circle {
+	padding: 0 30px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 16px;
+	color: #fff;
+	font-weight: 700;
+	height: 66px;
+	line-height: 66px;
+	text-decoration: none;
+	outline: none!important;
+	cursor: pointer;
+	border: none;
+	box-shadow: none!important;
+	text-align: center;
+	background: transparent;
+	border-radius: 66px;
+	-webkit-border-radius: 66px;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+button[type="submit"],
+input[type="submit"] {
+	background: #000;
+	border-radius: 66px;
+	-webkit-border-radius: 66px;
+}
+
+button[type="submit"].onovo-btn,
+input[type="submit"].onovo-btn {
+	background: transparent;
+}
+
+a.onovo-btn.btn--large,
+.onovo-btn.btn--large {
+	padding: 0 40px;
+	color: #000;
+	font-size: 18px;
+	font-weight: 700;
+	height: 100px;
+	line-height: 100px;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+}
+
+a.onovo-btn-circle,
+.onovo-btn-circle {
+	padding: 0;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	border: 1px solid #3E3E3E;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+}
+
+.onovo-btn.btn--border {
+	color: #000;
+}
+
+.onovo-btn.btn--border.btn--white {
+	color: #fff;
+}
+
+.onovo-btn.btn--full {
+	width: 100%;
+}
+
+.onovo-btn.btn--white::before {
+	background: #fff;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+}
+
+.onovo-btn.btn--border::before {
+	background: transparent;
+	border: 1px solid #000;
+}
+
+.onovo-btn.btn--border.btn--white::before {
+	background: transparent;
+	border: 1px solid #fff;
+}
+
+.onovo-btn.btn--border::after {
+	background: #000;
+}
+
+.onovo-btn.btn--border.btn--color::after {
+	background: #D8FF36;
+}
+
+.onovo-btn.btn--white::after {
+	background: #000;
+}
+
+a.onovo-btn.btn--active,
+.onovo-btn.btn--active {
+	color: #000;
+}
+
+.onovo-btn.btn--active::before {
+	background: #D8FF36;
+}
+
+.onovo-btn.btn--active::after {
+	background: #fff;
+}
+
+a.onovo-btn:hover,
+.onovo-btn:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+a.onovo-btn.btn--white:hover,
+.onovo-btn.btn--white:hover,
+a.onovo-btn.btn--border:hover,
+.onovo-btn.btn--border:hover {
+	color: #fff;
+}
+
+a.onovo-btn.btn--border.btn--color:hover,
+.onovo-btn.btn--border.btn--color:hover {
+	color: #000;
+}
+
+.onovo-btn .arrow,
+.onovo-head-btn .arrow,
+.onovo-btn.btn--icon i,
+.onovo-btn-circle .arrow {
+	margin: 0 10px 0 -10px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 30px;
+	text-align: center;
+	transform: scale(0.87);
+	-webkit-transform: scale(0.87);
+	transition: transform 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: transform 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	z-index: 2;
+}
+
+.onovo-head-btn .arrow {
+	margin: 0 0 0 10px;
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-btn-circle .arrow {
+	margin: 0;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+}
+
+.onovo-btn .arrow::before,
+.onovo-head-btn .arrow::before {
+	content: '';
+	position: absolute;
+	left: 1px;
+	right: 1px;
+	bottom: 1px;
+	top: 1px;
+	background: #D8FF36;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-head-btn .arrow::before {
+	background: #000 !important;
+}
+
+.onovo-btn.btn--border .arrow::before,
+.onovo-btn.btn--border i {
+	background: #000;
+}
+
+.onovo-btn.btn--border.btn--white .arrow::before,
+.onovo-btn.btn--border.btn--white i {
+	background: #fff;
+}
+
+.onovo-btn:hover .arrow,
+.onovo-head-btn:hover .arrow,
+.onovo-btn.btn--icon:hover i,
+.onovo-btn-circle:hover .arrow {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-btn.btn--large.btn--icon i {
+	margin: 0 23px 0 -20px;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	border-radius: 60px;
+	font-size: 24px;
+}
+
+.onovo-btn.btn--icon.btn--white i,
+.onovo-btn.btn--icon.btn--border i {
+	background: #000;
+	color: #fff;
+}
+
+.onovo-btn.btn--icon.btn--border.btn--white i {
+	background: #fff;
+	color: #000;
+}
+
+.onovo-btn.btn--icon.btn--white:hover i,
+.onovo-btn.btn--icon.btn--border:hover i {
+	color: #000;
+}
+
+.onovo-btn.btn--icon.btn--border.btn--white:hover i {
+	color: #fff;
+}
+
+.onovo-btn.btn--icon i::before {
+	position: relative;
+	z-index: 2;
+}
+
+.onovo-btn .arrow::after {
+	background: #000;
+}
+
+.onovo-btn.btn--border .arrow::after,
+.onovo-btn.btn--border i::after {
+	background: #D8FF36;
+}
+
+.onovo-btn.btn--border.btn--white .arrow::after,
+.onovo-btn.btn--border.btn--white i::after {
+	background: #000;
+}
+
+.onovo-btn .arrow span,
+.onovo-head-btn .arrow span,
+.onovo-btn-circle .arrow span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.onovo-btn .arrow span::before,
+.onovo-btn .arrow span::after,
+.onovo-head-btn .arrow span::before,
+.onovo-head-btn .arrow span::after,
+.onovo-btn-circle .arrow span::before,
+.onovo-btn-circle .arrow span::after {
+	margin: -2px 0 0 -6px;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 13px;
+	height: 3px;
+	background: #000;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-btn.btn--border .arrow span::before,
+.onovo-btn.btn--border .arrow span::after {
+	background: #fff;
+}
+
+.onovo-btn.btn--border.btn--white .arrow span::before,
+.onovo-btn.btn--border.btn--white .arrow span::after {
+	background: #000;
+}
+
+.onovo-btn .arrow span::after,
+.onovo-head-btn .arrow span::after,
+.onovo-btn-circle .arrow span::after {
+	content: '';
+	width: 3px;
+	height: 13px;
+	margin: -7px 0 0 -1px;
+}
+
+.onovo-btn:hover .arrow span::before,
+.onovo-btn:hover .arrow span::after,
+.onovo-head-btn:hover .arrow span::before,
+.onovo-head-btn:hover .arrow span::after {
+	background: #fff;
+}
+
+.onovo-btn-circle:hover .arrow span::before,
+.onovo-btn-circle:hover .arrow span::after,
+.onovo-btn.btn--border:hover .arrow span::before,
+.onovo-btn.btn--border:hover .arrow span::after {
+	background: #000;
+}
+
+.onovo-btn.btn--border.btn--white:hover .arrow span::before,
+.onovo-btn.btn--border.btn--white:hover .arrow span::after {
+	background: #fff;
+}
+
+.onovo-btn > span,
+button > span,
+.onovo-head-btn span {
+	position: relative;
+	display: inline-block;
+	z-index: 2;
+}
+
+/* Socials */
+.onovo-social-1 ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+}
+
+.onovo-social-1 ul li {
+	margin-right: 4px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.onovo-social-1.social--minimal ul li {
+	margin-right: 0;
+}
+
+.onovo-social-1 ul li a {
+	position: relative;
+	display: flex;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #3E3E3E;
+	border-radius: 70px;
+	align-items: center;
+	justify-content: center;
+	font-size: 22px;
+	font-weight: 700;
+	color: #666;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-social-1.social--minimal ul li a {
+	width: 40px;
+	height: 40px;
+	border: none;
+	font-size: 18px;
+	color: #000;
+}
+
+.onovo-social-1 ul li a::before {
+	background: #000;
+}
+
+.onovo--social--dark .onovo-social-1 ul li a::before {
+    background: #282828;
+}
+
+.onovo-social-1 ul li a i,
+.onovo-social-1 ul li a span {
+	position: relative;
+	z-index: 2;
+}
+
+.onovo-social-1 ul li a:hover {
+	color: #fff;
+	border-color: #000;
+}
+
+.onovo--social--dark .onovo-social-1 ul li a:hover {
+    border-color: #282828;
+}
+
+.onovo-social-2 ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+}
+
+.onovo-social-2 ul li {
+	margin-right: 4px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.onovo-social-2 ul li a {
+	position: relative;
+	display: flex;
+	width: 56px;
+	height: 56px;
+	border: 1px solid #fff;
+	border-radius: 56px;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	color: #fff;
+	font-weight: 700;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-social-2 ul li a::before,
+.onovo-social-active ul li a::before {
+	background: #D8FF36;
+}
+
+.onovo-social-2 ul li a i,
+.onovo-social-2 ul li a span {
+	position: relative;
+	z-index: 2;
+}
+
+.onovo-social-2 ul li a:hover,
+.onovo-social-active ul li a:hover {
+	color: #000;
+	border-color: #D8FF36;
+}
+
+/* Stars */
+.onovo-stars {
+	margin: 0 15px;
+	padding: 0 15px;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	height: 26px;
+	line-height: 28px;
+	font-weight: 800;
+	color: #000;
+	background: #D8FF36;
+	border-radius: 26px;
+	-webkit-border-radius: 26px;
+}
+
+.onovo-stars i::before {
+	color: #000;
+}
+
+.onovo-stars.stars--small {
+	margin: 0 10px;
+	padding: 0 10px;
+	font-size: 12px;
+	height: 21px;
+	line-height: 23px;
+}
+
+/* Parallax */
+
+#pp-nav {
+	position: absolute!important;
+	right: 50px !important;
+	width: 32px;
+	z-index: 18;
+}
+
+#pp-nav ul li {
+	margin: 0;
+}
+
+#pp-nav ul li+li {
+	margin-top: 10px;
+}
+
+#pp-nav ul li,
+#pp-nav ul li a {
+	position: static;
+	width: 100%;
+	height: auto;
+}
+
+#pp-nav ul li a span {
+	display: block;
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 32px;
+	background: transparent!important;
+	border: none!important;
+	opacity: 1;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+#pp-nav ul li a span::before {
+	margin: -2px 0 0 -2px;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 4px;
+	width: 4px;
+	background: #fff;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.parallax--dark #pp-nav ul li a span::before {
+	background: #000;
+}
+
+#pp-nav .pp-nav-active {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0%;
+	height: 32px;
+	width: 32px;
+	border: 1px solid #fff;
+	opacity: 0.35;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: top 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: top 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.parallax--dark #pp-nav .pp-nav-active {
+	border-color: #000;
+}
+
+/* Swiper */
+
+.swiper-button-disabled {
+	pointer-events: none;
+	opacity: 0.45;
+}
+
+.onovo-navs {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+}
+
+.onovo-navs-box {
+	padding: 7px;
+	background: #fff;
+	border-radius: 81px;
+	-webkit-border-radius: 81px;
+}
+
+.onovo-paginations-container {
+	position: relative;
+	margin: 0 45px;
+}
+
+.onovo-navs-box,
+.onovo-navs .onovo-prev,
+.onovo-navs .onovo-next,
+.onovo-paginations,
+.onovo-paginations-container {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.swiper-nav-active {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 32px;
+	height: 32px;
+	border: 1px solid #000;
+	opacity: 0.35;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-paginations .swiper-pagination-bullet {
+	margin: 0;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 32px;
+	height: 32px;
+	background: none;
+	border: none;
+	opacity: 1;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-paginations .swiper-pagination-bullet::before {
+	margin: -2px 0 0 -2px;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 4px;
+	width: 4px;
+	background: #000;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-paginations-container.pag--white .swiper-nav-active {
+	border-color: #fff;
+}
+
+.onovo-paginations-container.pag--white .swiper-pagination-bullet::before {
+	background: #fff;
+}
+
+/* Onovo Navigations */
+.onovo-page-navigation {
+	position: relative;
+	margin: 60px 0 0 0;
+	padding: 15px;
+	border: 1px solid #B2B2B2;
+	border-radius: 60px;
+	-webkit-border-radius: 60px;
+}
+
+.onovo-page-navigation-content::after {
+	content: '';
+	position: relative;
+	clear: both;
+	display: block;
+}
+
+.onovo-page-navigation a.page-navigation__posts {
+	margin-left: -10px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 20px;
+	height: 100%;
+	font-size: 20px;
+}
+
+.onovo-page-navigation a {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	line-height: 21px;
+	font-weight: 600;
+}
+
+.onovo-page-navigation a.page-navigation__prev {
+	float: left;
+	display: block;
+}
+
+.onovo-page-navigation a.page-navigation__next {
+	float: right;
+	display: block;
+}
+
+.page-links,
+.pager,
+.onovo-loadmore {
+	text-align: center;
+	margin: 30px 0;
+}
+
+.page-links {
+	margin-bottom: 60px;
+}
+
+.pager span,
+.pager a,
+.page-links .post-page-numbers {
+	display: inline-block;
+	vertical-align: middle;
+	width: 67px;
+	height: 67px;
+	line-height: 67px;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.pager a:hover,
+.page-links .post-page-numbers:hover {
+	background: #D8FF36;
+	border-color: #D8FF36;
+	color: #000;
+}
+
+.pager .current,
+.page-links .current {
+	color: #000;
+    background-color: #D8FF36;
+}
+
+.onovo-prev,
+.onovo-next,
+.pager .onovo-prev,
+.pager .onovo-next {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 67px;
+	height: 67px;
+	border: 1px solid #6a5a5a;
+	border-radius: 67px;
+	cursor: pointer;
+	background: transparent !important;
+}
+
+.pager .onovo-prev {
+	margin-right: 30px;
+}
+
+.pager .onovo-next {
+	margin-left: 30px;
+}
+
+.onovo-prev.nav--white,
+.onovo-next.nav--white {
+	border-color: rgba(255,255,255,0.35);
+}
+
+.onovo-prev i,
+.onovo-next i {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-prev:hover i {
+	transform: translateX(-5px);
+}
+
+.onovo-next:hover i {
+	transform: translateX(5px);
+}
+
+.onovo-prev i::before,
+.onovo-next i::before {
+	margin-top: -1px;
+	content: '';
+	position: absolute;
+	left: 34px;
+	top: 50%;
+	width: 50px;
+	height: 3px;
+	background: #000;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-next i::before {
+	left: auto;
+	right: 34px;
+}
+
+.onovo-prev i::after,
+.onovo-next i::after {
+	margin-top: -7px;
+	content: '';
+	position: absolute;
+	left: 19px;
+	top: 50%;
+	border: 8px solid transparent;
+	border-right: 8px solid #000;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-next i::after {
+	left: auto;
+	right: 19px;
+	border-right: 8px solid transparent;
+	border-left: 8px solid #000;
+}
+
+.onovo-prev.nav--white i::before,
+.onovo-next.nav--white i::before {
+	background: #fff;
+}
+
+.onovo-prev.nav--white:hover i::before,
+.onovo-next.nav--white:hover i::before {
+	background: #000;
+}
+
+.onovo-prev.nav--white i::after {
+	border-right-color: #fff;
+}
+
+.onovo-prev.nav--white:hover i::after {
+	border-right-color: #000;
+}
+
+.onovo-next.nav--white i::after {
+	border-left-color: #fff;
+}
+
+.onovo-next.nav--white:hover i::after {
+	border-left-color: #000;
+}
+
+/* Preloader */
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.preloader.loaded {
+	visibility: hidden;
+	z-index: -1;
+}
+
+.preloader::before,
+.preloader::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	background: #D8FF36;
+	transform-origin: top center;
+}
+
+.preloader::after {
+	background: #000;
+}
+
+.preloader.closed::before {
+	animation: onovo-preloader-close 0.6s forwards cubic-bezier(0.3, 0, 0.3, 1) 0.3s;
+}
+
+.preloader.closed::after {
+	animation: onovo-preloader-close 0.6s forwards cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+@keyframes onovo-preloader-close {
+	0% {
+		transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+	}
+	50% {
+		transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+	}
+	100% {
+		transform: scaleY(0);
+		-webkit-transform: scaleY(0);
+	}
+}
+
+.preloader__spinner {
+	position: relative;
+	width: 50px;
+	height: 50px;
+	align-self: center;
+	z-index: 2;
+}
+
+.preloader__double-bounce {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	animation: bounce 2s infinite ease-in-out;
+	opacity: 1;
+	border-radius: 50%;
+	background-color: #D8FF36;
+}
+
+.preloader__double-bounce--delay {
+	animation-delay: -1s;
+	opacity: 0.5;
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1);
+	}
+}
+
+.disable_preloader .preloader {
+	display: none !important;
+}
+
+@media (max-width: 767px) {
+	.onovo-prev,
+	.onovo-next,
+	.pager .onovo-prev,
+	.pager .onovo-next {
+		width: 57px;
+		height: 57px;
+		border-radius: 57px;
+	}
+	.pager .onovo-next {
+		margin-left: 15px;
+	}
+	.pager .onovo-prev {
+		margin-right: 15px;
+	}
+	a.onovo-btn.btn--large,
+	.onovo-btn.btn--large {
+		font-size: 16px;
+	}
+}
+
+
+/*---
+	2. Header
+---*/
+
+.onovo-header {
+	padding: 10px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 19;
+}
+
+.onovo-header-default {
+	padding: 20px 0;
+}
+
+.admin-bar .onovo-header {
+	top: 32px;
+}
+
+.onovo-header.sticky {
+	position: fixed;
+	background-color: #fff;
+	box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+.header--white.onovo-header.sticky {
+	background-color: #000;
+}
+
+.onovo-header .row > div:first-child {
+	z-index: 2;
+}
+
+.slideUp {
+	position: fixed;
+	top: -140px;
+	left: 0;
+	width: 100%;
+}
+
+.slideDown {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: black;
+}
+
+.slideUp,
+.slideDown{
+	transition: all .5s ease-out;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+}
+
+.onovo-logo {
+	padding: 0;
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.onovo-logo:hover {
+	text-decoration: none;
+}
+
+.logo--large {
+	display: block;
+	font-size: 26px;
+	line-height: 40px;
+	font-weight: 600;
+}
+
+.logo--small {
+	display: block;
+	font-size: 11px;
+	line-height: 1.18;
+	opacity: 0.6;
+}
+
+.header--white .logo--small,
+.header--white .logo--large {
+	color: #fff;
+}
+
+.onovo-logo-image {
+	position: relative;
+	line-height: 1;
+}
+
+.onovo-logo-image img {
+	max-width: 100%;
+	height: auto;
+}
+
+.onovo-logo-image img.logo--white,
+.header--white .onovo-logo-image img,
+.header--active .onovo-logo-image img {
+	display: none;
+}
+
+.header--white .onovo-logo-image img.logo--white,
+.header--active .onovo-logo-image img.logo--white {
+	display: block;
+}
+
+a.onovo-head-btn,
+.onovo-head-btn {
+	position: relative;
+	float: right;
+	height: 40px;
+}
+
+.onovo-head-btn::before,
+.onovo-head-btn::after {
+	display: none;
+}
+
+.header--white a.onovo-head-btn,
+.header--white .onovo-head-btn,
+.header--active a.onovo-head-btn,
+.header--active .onovo-head-btn {
+	color: #fff;
+}
+
+.header--active a.onovo-head-btn,
+.header--active .onovo-head-btn {
+	transition-delay: 0.6s;
+}
+
+.header--builder a.onovo-head-btn,
+.header--builder .onovo-head-btn {
+	display: inline-block;
+	float: none;
+}
+
+.header--white .onovo-head-btn .arrow::before,
+.header--active .onovo-head-btn .arrow::before {
+	background: #fff !important;
+}
+
+.header--active .onovo-head-btn .arrow::before {
+	transition-delay: 0.6s;
+}
+
+.onovo-head-btn .arrow span::before,
+.onovo-head-btn .arrow span::after {
+	background: #fff;
+}
+
+.header--white .onovo-head-btn .arrow span::before,
+.header--white .onovo-head-btn .arrow span::after,
+.header--active .onovo-head-btn .arrow span::before,
+.header--active .onovo-head-btn .arrow span::after {
+	background: #000;
+}
+
+.onovo-head-btn:hover .arrow span::before,
+.onovo-head-btn:hover .arrow span::after {
+	background: #000;
+}
+
+.header--active .onovo-head-btn .arrow span::before,
+.header--active .onovo-head-btn .arrow span::after {
+	transition-delay: 0.6s;
+}
+
+.onovo-menu-horizontal {
+	display: none;
+}
+
+.onovo-menu-horizontal ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 1024px) {
+	.onovo-menu-btn {
+		display: inline-block !important;
+	}
+}
+
+@media (min-width: 1025px) {
+	.onovo-menu-horizontal {
+		display: block;
+	}
+	.onovo-menu-horizontal + .onovo-menu-btn {
+		display: none;
+	}
+}
+
+.onovo-menu-horizontal ul li {
+	padding: 0 15px;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 40px;
+	position: relative;
+}
+
+.header--white .onovo-menu-horizontal ul li, .header--white .onovo-menu-horizontal ul li a {
+	color: #fff;
+}
+
+.onovo-menu-horizontal ul li a {
+	font-weight: 500;
+}
+
+.onovo-menu-horizontal ul li i {
+	margin-left: 8px;
+	font-size: 0.8em;
+	transition: all 0.3s ease 0s;
+}
+
+.onovo-menu-horizontal ul li ul li:hover i {
+    transform: rotate(-90deg);
+}
+
+.onovo-menu-horizontal ul ul {
+	margin-left: -120px;
+	padding: 20px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 240px;
+	background: #fff;
+	transform: translate(0, 30px);
+	-webkit-transform: translate(0, 30px);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu-horizontal ul ul ul {
+    left: 100%;
+    margin-left: 0;
+}
+
+.onovo-menu-horizontal ul li:hover > ul {
+	transform: translate(0, 40px);
+	-webkit-transform: translate(0, 40px);
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.onovo-menu-horizontal ul li:hover > ul ul {
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, -35px);
+}
+
+.onovo-menu-horizontal ul ul:before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	border: 1px solid #000;
+}
+
+.onovo-menu-horizontal ul ul ul:before {
+    left: 0;
+}
+
+.onovo-menu-horizontal ul ul li {
+	margin: 15px 0;
+	padding: 0;
+	display: block;
+	line-height: normal;
+}
+
+.onovo-menu-horizontal ul ul li,
+.header--white .onovo-menu-horizontal ul ul li,
+.onovo-menu-horizontal ul ul li a,
+.header--white .onovo-menu-horizontal ul ul li a {
+	color: #000;
+}
+
+.onovo-menu-horizontal ul ul li a {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.onovo-header-default .onovo-menu-horizontal ul ul li {
+	text-align: center;
+}
+
+a.onovo-menu-btn,
+.onovo-menu-btn {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 50px;
+	height: 40px;
+	align-items: center;
+	z-index: 2;
+}
+
+.onovo-menu-btn span {
+	margin-top: -6px;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+	height: 12px;
+	display: block;
+}
+
+.onovo-menu-btn span::before,
+.onovo-menu-btn span::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	transform: rotate(0);
+	-webkit-transform: rotate(0);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.header--white .onovo-menu-btn span::before,
+.header--white .onovo-menu-btn span::after,
+.header--active .onovo-menu-btn span::before,
+.header--active .onovo-menu-btn span::after {
+	background: #fff;
+}
+
+.header--active .onovo-menu-btn span::before,
+.header--active .onovo-menu-btn span::after {
+	transition-delay: 0.6s;
+}
+
+.onovo-menu-btn span::after {
+	top: auto;
+	bottom: 0;
+}
+
+.onovo-menu-btn.btn--active span::before {
+	top: 5px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.onovo-menu-btn.btn--active span::after {
+	bottom: 5px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.onovo-menu-popup {
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.onovo-menu-popup.menu--visible {
+	opacity: 1;
+	visibility: visible;
+	z-index: 0;
+}
+
+.onovo-menu-overlay,
+.onovo-menu-overlay-after {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleY(0);
+	-webkit-transform: scaleY(0);
+	background: #D8FF36;
+	transform-origin: top center;
+	animation: onovo-menu-overlay-close 0.9s forwards cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu-overlay.overlay--circle,
+.onovo-menu-overlay-after.overlay--circle {
+	left: -25vw;
+	top: -25vw;
+	width: 150vw;
+	height: 150vw;
+	border-radius: 100%;
+	transform: scale(0);
+	-webkit-transform: scale(0);
+}
+
+.onovo-menu-overlay-after {
+	background: #000;
+	animation: onovo-menu-overlay-close 0.6s forwards cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu-overlay-after.overlay--circle {
+	animation: onovo-menu-overlay-close-circle 1.2s forwards cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu-popup.menu--open .onovo-menu-overlay {
+	animation: onovo-menu-overlay-open 0.6s forwards cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu-popup.menu--open .onovo-menu-overlay-after {
+	animation: onovo-menu-overlay-open 0.6s forwards cubic-bezier(0.3, 0, 0.3, 1) 0.3s;
+}
+
+.onovo-menu-popup.menu--open .onovo-menu-overlay.overlay--circle {
+	animation: onovo-menu-overlay-open-circle 1.2s forwards cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu-popup.menu--open .onovo-menu-overlay-after.overlay--circle {
+	animation: onovo-menu-overlay-open-circle 1.2s forwards cubic-bezier(0.3, 0, 0.3, 1) 0.3s;
+}
+
+@keyframes onovo-menu-overlay-close {
+	0% {
+		transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+	}
+	50% {
+		transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+	}
+	100% {
+		transform: scaleY(0);
+		-webkit-transform: scaleY(0);
+	}
+}
+
+@keyframes onovo-menu-overlay-open {
+	0% {
+		transform: scaleY(0);
+		-webkit-transform: scaleY(0);
+	}
+	100% {
+		transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+	}
+}
+
+@keyframes onovo-menu-overlay-close-circle {
+	0% {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	50% {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+}
+
+@keyframes onovo-menu-overlay-open-circle {
+	0% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+
+.onovo-menu-container {
+	position: absolute;
+	overflow: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	left: 0;
+	top: 140px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: calc(100% - 140px);
+	-webkit-overflow-scrolling: touch;
+}
+
+.onovo-menu-container .container {
+	margin: auto;
+}
+
+.onovo-menu {
+	padding-left: 80px;
+}
+
+.onovo-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: onovo-menu-counter;
+}
+
+.onovo-menu ul.sub-menu {
+	position: relative;
+	overflow: hidden;
+	max-height: 0;
+	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu .opened > ul.sub-menu {
+	max-height: 1000px;
+	transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 1.2s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu ul li {
+	margin: 30px 0;
+	position: relative;
+	font-size: 90px;
+	font-weight: 600;
+	line-height: 1;
+	counter-increment: onovo-menu-counter;
+	opacity: 0;
+	transform: translateY(3px);
+	-webkit-transform: translateY(3px);
+	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+	transform-origin: top left;
+}
+
+.onovo-menu ul ul li {
+	font-size: 0.6em;
+}
+
+.onovo-menu ul li:nth-child(2) {
+	transition-delay: 0.1s;
+	-webkit-transition-delay: 0.1s;
+}
+
+.onovo-menu ul li:nth-child(3) {
+	transition-delay: 0.2s;
+	-webkit-transition-delay: 0.2s;
+}
+
+.onovo-menu ul li:nth-child(4) {
+	transition-delay: 0.3s;
+	-webkit-transition-delay: 0.3s;
+}
+
+.onovo-menu ul li:nth-child(5) {
+	transition-delay: 0.4s;
+	-webkit-transition-delay: 0.4s;
+}
+
+.onovo-menu ul li:nth-child(6) {
+	transition-delay: 0.5s;
+	-webkit-transition-delay: 0.5s;
+}
+
+.onovo-menu ul li:nth-child(7) {
+	transition-delay: 0.6s;
+	-webkit-transition-delay: 0.6s;
+}
+
+.onovo-menu ul li:nth-child(8) {
+	transition-delay: 0.7s;
+	-webkit-transition-delay: 0.7s;
+}
+
+.onovo-menu ul li:nth-child(9) {
+	transition-delay: 0.8s;
+	-webkit-transition-delay: 0.8s;
+}
+
+.onovo-menu ul li:nth-child(10) {
+	transition-delay: 0.9s;
+	-webkit-transition-delay: 0.9s;
+}
+
+.onovo-menu-popup.menu--ready .onovo-menu ul li {
+	opacity: 1;
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+}
+
+.onovo-menu ul li a {
+	position: relative;
+	color: #aeaeae;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu ul li a::before {
+	content: "0" counter(onovo-menu-counter) ".";
+	position: absolute;
+	left: -80px;
+	top: 15px;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: uppercase;
+	color: #494949;
+}
+
+.onovo-menu ul ul a::before {
+	display: none;
+}
+
+.onovo-menu ul li a:hover {
+	color: #fff;
+}
+
+.onovo-menu ul li .icon {
+	margin-left: 15px;
+	position: relative;
+	top: 30px;
+	display: inline-block;
+	vertical-align: top;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 0.4em;
+	color: #aeaeae;
+	cursor: pointer;
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-menu ul li.opened > .icon {
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
+
+.onovo-header-default .onovo-menu {
+	text-align: left;
+}
+
+.onovo-menu ul li.current-menu-item > a:after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+@media (max-width: 1024px) {
+	.onovo-header-default .onovo-menu ul li {
+		font-size: 48px;
+	}
+	.onovo-header-default .onovo-menu ul ul li {
+		font-size: 30px;
+	}
+	.onovo-header-default .onovo-menu ul ul ul li {
+		font-size: 22px;
+	}
+	.onovo-header-default .onovo-menu ul li .icon {
+		margin-top: 8px;
+		top: 0;
+	}
+	.onovo-header-default .onovo-menu ul li li .icon, .onovo-menu ul li li .icon {
+		font-size: 20px;
+		margin-top: -2px;
+	}
+	.onovo-menu ul.sub-menu ul.sub-menu {
+		background: rgba(255,255,255,0.1);
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.onovo-menu ul.sub-menu .opened ul.sub-menu {
+		margin-top: 15px;
+	}
+}
+
+@media (max-width: 767px) {
+	.header--builder a.onovo-head-btn, .header--builder .onovo-head-btn {
+		font-size: 0;
+	}
+	.onovo-menu {
+		padding-left: 40px;
+	}
+	.onovo-menu ul li {
+		margin: 20px 0;
+		font-size: 38px;
+	}
+	.onovo-menu ul li a::before {
+		left: -40px;
+		top: 10px;
+		font-size: 12px;
+	}
+	.onovo-menu ul li .icon {
+    	margin-left: 8px;
+    	margin-top: 4px;
+    	top: 0;
+	}
+	.onovo-header-default .onovo-menu ul li {
+		font-size: 28px;
+	}
+	.onovo-header-default .onovo-menu ul ul li {
+		font-size: 18px;
+	}
+	.onovo-header-default .onovo-menu ul ul ul li {
+		font-size: 16px;
+	}
+	.onovo-header-default .onovo-menu ul li .icon {
+		margin-top: -2px;
+	}
+	.onovo-header-default .onovo-menu ul li li .icon, .onovo-menu ul li li .icon {
+		font-size: 14px;
+		margin-top: -2px;
+		height: 20px;
+		line-height: 20px;
+	}
+	.onovo-header-default > .container > .row > * {
+		max-width: 50%;
+		width: 50%;
+	}
+	.onovo-menu > ul > li > a {
+		color: #fff;
+	}
+	.onovo-menu ul.sub-menu .opened ul.sub-menu {
+		margin-top: 5px;
+	}
+}
+
+
+/*---
+	3. Footer
+---*/
+
+.footer--fixed .onovo-footer,
+.footer--sticky .onovo-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer--sticky .onovo-footer {
+	z-index: 3;
+}
+
+.onovo-footer.footer--dark {
+	background: #000;
+}
+
+.onovo-footer.footer--white {
+	background: #FAFAFA;
+}
+
+.onovo-footer .footer--default {
+	padding: 90px 0 30px 0;
+}
+
+.onovo-footer .copyright {
+	font-size: 18px;
+}
+
+.onovo-footer .separator {
+	margin: 60px 0 30px 0;
+	border-top: 7px solid transparent;
+	background-image: url("../images/fline.svg");
+}
+
+ul.onovo-footer-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.onovo-footer-menu li {
+	margin: 0 0 14px 0;
+	font-size: 18px;
+}
+
+.onovo-footer-lnk {
+	font-size: 40px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+	.footer--fixed .wrapper {
+		padding-bottom: 80px;
+		margin-bottom: 0!important;
+	}
+	.footer--fixed .onovo-footer, .footer--sticky .onovo-footer {
+		position: relative;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-footer .copyright {
+		font-size: 16px;
+	}
+	.onovo-footer ul.onovo-footer-menu li {
+		font-size: 16px;
+	}
+	.onovo-footer .footer--default {
+		padding: 60px 0 30px 0;
+	}
+	.onovo-footer-lnk {
+		font-size: 24px;
+	}
+}
+
+
+/*---
+	4. Hero
+---*/
+
+.onovo-hero {
+	position: relative;
+	height: 100vh;
+	background: #555;
+}
+
+.onovo-hero .image,
+.onovo-hero .image video {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.onovo-hero .image video {
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-hero .image .ovrl,
+.onovo-hero .video .ovrl,
+.onovo-intro .image .ovrl,
+.onovo-intro .video .ovrl {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.35;
+	z-index: 2;
+}
+
+.onovo-hero .container {
+	padding-top: 100px;
+	position: relative;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	z-index: 3;
+}
+
+.onovo-hero .title {
+	margin: 0;
+	font-size: 110px;
+	font-weight: 500;
+}
+
+.onovo-sep {
+	margin: -10px 0 0 15px;
+	position: relative;
+	top: 0;
+	right: 0;
+	display: inline-block;
+	width: 34px;
+	height: 1em;
+}
+
+.onovo-sep .sep-img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+
+.onovo-hero .subtitle {
+	margin: 40px 0 40px 710px;
+	max-width: 560px;
+	font-size: 28px;
+}
+
+.onovo-hero .subtitle.subtitle--center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.onovo-hero .subtitle.subtitle--left {
+	margin-left: 0;
+}
+
+.onovo-play-btn {
+	position: absolute;
+	right: .75rem;
+	bottom: 63px;
+	width: 67px;
+	height: 67px;
+	z-index: 3;
+}
+
+.onovo-play-btn .play-circles {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border: 1px solid #fff;
+}
+
+.onovo-play-btn.play--black .play-circles {
+	border-color: #000;
+}
+
+.onovo-play-btn .play-circles::after {
+	content: '';
+	position: absolute;
+	left: -10px;
+	top: -10px;
+	right: -10px;
+	bottom: -10px;
+	border: 1px solid #fff;
+	opacity: 0.31;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	animation: onovo-play-btn-wave 2s infinite ease-in-out;
+}
+
+.onovo-play-btn.play--black .play-circles::after {
+	border-color: #000;
+}
+
+@keyframes onovo-play-btn-wave {
+	0% {
+		left: -10px;
+		top: -10px;
+		right: -10px;
+		bottom: -10px;
+		opacity: 0.31;
+	}
+	50% {
+		left: -20px;
+		top: -20px;
+		right: -20px;
+		bottom: -20px;
+		opacity: 0;
+	}
+	51% {
+		left: -10px;
+		top: -10px;
+		right: -10px;
+		bottom: -10px;
+		opacity: 0;
+	}
+	100% {
+		left: -10px;
+		top: -10px;
+		right: -10px;
+		bottom: -10px;
+		opacity: 0.31;
+	}
+}
+
+.onovo-play-btn .play-lines {
+	margin: -8px 0 0 -9px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 18px;
+	height: 17px;
+}
+
+.onovo-play-btn .play-lines span {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 3px;
+	height: 2px;
+	background: #fff;
+}
+
+.onovo-play-btn.play--black .play-lines span {
+	background: #000;
+}
+
+.onovo-play-btn .play-lines span:nth-child(1) {
+	left: 0;
+	height: 17px;
+}
+
+.onovo-play-btn .play-lines span:nth-child(2) {
+	left: 5px;
+	height: 14px;
+}
+
+.onovo-play-btn .play-lines span:nth-child(3) {
+	left: 10px;
+	height: 10px;
+}
+
+.onovo-play-btn .play-lines span:nth-child(4) {
+	left: 15px;
+	height: 12px;
+}
+
+.onovo-play-btn.active .play-lines span:nth-child(1) {
+	animation: onovo-play-btn-lines-1 1s infinite ease-in-out;
+}
+
+.onovo-play-btn.active .play-lines span:nth-child(2) {
+	animation: onovo-play-btn-lines-2 0.8s infinite ease-in-out;
+}
+
+.onovo-play-btn.active .play-lines span:nth-child(3) {
+	animation: onovo-play-btn-lines-3 0.4s infinite ease-in-out;
+}
+
+.onovo-play-btn.active .play-lines span:nth-child(4) {
+	animation: onovo-play-btn-lines-4 0.6s infinite ease-in-out;
+}
+
+@keyframes onovo-play-btn-lines-1 {
+	0% {
+		height: 17px;
+	}
+	100% {
+		height: 2px;
+	}
+}
+
+@keyframes onovo-play-btn-lines-2 {
+	0% {
+		height: 14px;
+	}
+	100% {
+		height: 2px;
+	}
+}
+
+@keyframes onovo-play-btn-lines-3 {
+	0% {
+		height: 10px;
+	}
+	100% {
+		height: 2px;
+	}
+}
+
+@keyframes onovo-play-btn-lines-4 {
+	0% {
+		height: 12px;
+	}
+	100% {
+		height: 2px;
+	}
+}
+
+/*---
+	4.1 Hero Slider
+---*/
+
+.onovo-hero .js-hero-slider,
+.onovo-hero .onovo-hero-slide-item {
+	position: relative;
+	height: 100%;
+}
+
+.onovo-hero .js-hero-slider .swiper-slide {
+	overflow: hidden;
+}
+
+.onovo-hero.hero--two .container {
+	padding-top: 50px;
+}
+
+.onovo-hero.hero--two .image .ovrl,
+.onovo-hero.hero--two .video .ovrl {
+	background: linear-gradient(270deg,rgba(4,25,29,.1) 0%,rgba(4,25,29,.7) 80%);
+}
+
+.onovo-hero.hero--two .title {
+	font-size: 60px;
+	font-weight: 600;
+}
+
+.onovo-hero.hero--two .title strong {
+	font-size: 70px;
+}
+
+.onovo-hero.hero--two .subtitle {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.onovo-hero .onovo-navs {
+	position: absolute;
+	left: 50%;
+	bottom: 63px;
+	max-width: 1311px;
+	z-index: 3;
+	transform: translateX(-50%);
+}
+
+.onovo-hero .onovo-navs .onovo-prev {
+	position: absolute;
+	left: 10px;
+	right: auto;
+	top: -20px;
+}
+
+.onovo-hero .onovo-navs .onovo-next {
+	position: absolute;
+	right: 10px;
+	left: auto;
+	top: -20px;
+}
+
+.onovo-hero .js-hero-slider .onovo-bts {
+	transform: translateY(20px);
+	opacity: 0;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	transition-delay: 0s;
+}
+
+.animated--swiper--active .onovo-hero .js-hero-slider .swiper-slide-active .onovo-bts {
+	transform: translateY(0px);
+	opacity: 1;
+	transition-delay: 1s;
+}
+
+.animated--swiper--active .onovo-hero .js-hero-slider .swiper-slide .splitting span .word {
+	-webkit-transition-delay: calc(1000ms + (100ms * var(--line-index)));
+	transition-delay: calc(1000ms + (100ms * var(--line-index)));
+}
+
+/*---
+	4.2 Hero Carousel
+---*/
+
+.onovo-hero-carousel {
+	padding-bottom: 160px;
+	margin: 0 auto;
+	width: 328px;
+}
+
+.onovo-hero-carousel .swiper-container {
+	overflow: visible;
+}
+
+.onovo-hero-carousel .swiper-wrapper {
+	transition-delay: 1s;
+}
+
+.onovo-hero-carousel .swiper-slide {
+	width: auto;
+}
+
+.onovo-hero-carousel-item {
+	position: relative;
+	width: 100px;
+	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-hero-carousel .swiper-slide:nth-child(1n) .onovo-hero-carousel-item .slide {
+	top: 0;
+}
+
+.onovo-hero-carousel .swiper-slide:nth-child(2n) .onovo-hero-carousel-item .slide {
+	top: 20px;
+}
+
+.onovo-hero-carousel .swiper-slide:nth-child(3n) .onovo-hero-carousel-item .slide {
+	top: 40px;
+}
+
+.onovo-hero-carousel-item .slide {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	height: 380px;
+	pointer-events: none;
+}
+
+.onovo-hero-carousel-item .img {
+	margin-left: -164px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	display: block;
+	width: 328px;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.onovo-hero-carousel-item .img video {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-hero-carousel-item .titles {
+	margin-left: -300px;
+	position: absolute;
+	left: 50%;
+	bottom: -160px;
+	width: 600px;
+	pointer-events: none;
+}
+
+.onovo-hero-carousel-item .subtitle {
+	margin: 0 0 5px 0;
+	display: block;
+	font-size: 15px;
+	line-height: 1;
+	color: #555;
+	text-transform: uppercase;
+	height: 20px;
+}
+
+.onovo-hero-carousel-item .title {
+	margin: 0;
+	display: block;
+	font-size: 38px;
+	font-weight: 700;
+	height: 45px;
+}
+
+.onovo-hero-carousel-item .text-line-inner {
+	position: relative;
+	display: inline-block;
+	line-height: 1;
+	width: 100%;
+	white-space: nowrap;
+}
+
+.onovo-hero-carousel .swiper-slide.swiper-slide-active .onovo-hero-carousel-item {
+	width: 328px;
+	transition-delay: 1s;
+}
+
+.onovo-hero-carousel .swiper-slide.swiper-slide-active .onovo-hero-carousel-item .titles,
+.onovo-hero-carousel .swiper-slide.swiper-slide-active .onovo-hero-carousel-item .slide {
+	pointer-events: auto;
+}
+
+.onovo-hero-carousel .swiper-slide .splitting {
+	opacity: 0;
+	transition: all .3s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .3s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-hero-carousel .swiper-slide.swiper-slide-active .splitting {
+	opacity: 1;
+}
+
+.animated--active .onovo-hero-carousel .swiper-slide .splitting span .word {
+	-webkit-transition-delay: calc(1500ms + (100ms * var(--line-index)));
+	transition-delay: calc(1500ms + (100ms * var(--line-index)));
+}
+
+.js-hero-carousel-navs {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 64px;
+	height: 1px;
+	font-size: 0;
+	z-index: 2;
+}
+
+.js-hero-carousel-navs .onovo-prev,
+.js-hero-carousel-navs .onovo-next {
+	margin: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.js-hero-carousel-navs .onovo-next {
+	left: auto;
+	right: 0;
+}
+
+@media (max-width: 767px) {
+	.onovo-hero-carousel .swiper-wrapper,
+	.onovo-hero-carousel .swiper-slide.swiper-slide-active .onovo-hero-carousel-item {
+	  transition-delay: 0s;
+	}
+	.onovo-hero-carousel .swiper-slide,
+	.onovo-hero-carousel-item {
+	  width: 328px;
+	}
+	.onovo-hero-carousel .swiper-slide.swiper-slide-active,
+	.onovo-hero-carousel .swiper-slide.swiper-slide-active .onovo-hero-carousel-item {
+	  width: 328px;
+	}
+	.animated--active .onovo-hero-carousel .swiper-slide .splitting span .word {
+	  -webkit-transition-delay: calc(100ms * var(--line-index));
+	  transition-delay: calc(100ms * var(--line-index));
+	}
+  }
+
+/*---
+	4.3 Hero Parallax
+---*/
+
+.onovo-hero-parallax {
+	position: relative;
+	height: 100vh;
+	background: #555;
+}
+
+.onovo-hero-parallax .image,
+.onovo-hero-parallax .image video {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #555;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.onovo-hero-parallax .image video {
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-hero-parallax .image .ovrl,
+.onovo-hero-parallax .video .ovrl {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.35;
+	z-index: 2;
+}
+
+.onovo-hero-parallax .container {
+	position: relative;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	z-index: 3;
+}
+
+.onovo-hero-parallax .onovo-subtitle-1 {
+	margin-top: 20px;
+}
+
+.onovo-hero-parallax .title {
+	margin: 0 0 30px 0;
+	position: relative;
+	font-size: 80px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.onovo-hero-parallax .title .sep {
+	position: absolute;
+	left: 280px;
+	top: -120px;
+	width: 472px;
+	height: 449px;
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.onovo-hero-parallax .onovo-bts,
+.onovo-hero-parallax .title .sep {
+	opacity: 0;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	transition-delay: 0s;
+}
+
+.onovo-hero-parallax .onovo-bts {
+	transform: translateY(50px);
+}
+
+.onovo-hero-parallax .title .sep {
+	transform: translateY(-100px);
+}
+
+.onovo-hero-parallax .splitting span .word {
+	-webkit-transition-delay: calc(800ms + (100ms * var(--line-index)));
+	transition-delay: calc(800ms + (100ms * var(--line-index)));
+}
+
+.animated--swiper--active .onovo-hero-parallax .active .splitting span .word {
+	transform: translate(0, 0%);
+}
+
+.animated--swiper--active .onovo-hero-parallax .active .onovo-bts,
+.animated--swiper--active .onovo-hero-parallax .active .title .sep {
+	transform: translateY(0px);
+	opacity: 1;
+	transition-delay: 0.6s;
+}
+
+.animated--swiper--active .onovo-hero-parallax .active .onovo-bts {
+	transition-delay: 0.8s;
+}
+
+.animated--swiper--active .onovo-hero-parallax .active .title .sep {
+	transition-delay: 0.8s;
+}
+
+.onovo-navs.js-hero-parallax-navs {
+	position: absolute;
+	left: 50%;
+	top: auto;
+	bottom: 60px;
+	margin-top: 0;
+	max-width: 1291px;
+	z-index: 18;
+	display: flex;
+	justify-content: space-between;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
+
+.onovo-navs.js-hero-parallax-navs .onovo-prev,
+.onovo-navs.js-hero-parallax-navs .onovo-next {
+	margin: 0 10px;
+}
+
+.onovo-navs.js-hero-parallax-navs.navs--disabled,
+.onovo-hero-parallax.pp--disabled #pp-nav {
+	opacity: 0;
+	visibility: hidden;
+}
+
+@media (max-width: 1024px) {
+	.onovo-hero .subtitle {
+		margin-left: 0;
+	}
+	.js-hero-carousel-navs {
+		left: 10px;
+		right: 10px;
+		bottom: -10px;
+	}
+	.onovo-hero-parallax .title {
+		max-width: 650px;
+	}
+	.onovo-hero-parallax .image:after, .onovo-hero-parallax .image video:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: 0.2;
+		transition: 0.3s ease 0s;
+	}
+	.parallax--dark .onovo-hero-parallax .image:after, .parallax--dark .onovo-hero-parallax .image video:after {
+		background: #fff;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-hero .title {
+		font-size: 60px;
+	}
+	.onovo-sep {
+		width: 24px;
+	}
+	.onovo-hero .subtitle {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		max-width: 100%;
+		font-size: 18px;
+	}
+	.onovo-hero .subtitle br {
+		display: none;
+	}
+	.onovo-hero .container {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.onovo-hero.hero--two .title {
+		font-size: 40px;
+	}
+	.onovo-hero.hero--two .subtitle {
+		font-size: 18px;
+	}
+	.onovo-hero-carousel {
+		padding-top: 160px;
+	}
+	.js-hero-carousel-navs {
+		bottom: 30px;
+	}
+	.onovo-hero-carousel .swiper-slide:nth-child(2n) .onovo-hero-carousel-item .slide {
+		top: 0;
+	}
+	.onovo-hero-carousel .swiper-slide:nth-child(1n) .onovo-hero-carousel-item .slide {
+		top: 0;
+	}
+	.onovo-hero-carousel-item .titles {
+		margin-left: -150px;
+		margin-top: 30px;
+		left: 50%;
+		bottom: auto;
+		top: 100%;
+		width: 300px;
+	}
+	.onovo-hero-carousel-item .title {
+		margin: 0;
+		font-size: 26px;
+		height: auto;
+	}
+	.onovo-hero-carousel-item .text-line-inner {
+		white-space: normal;
+	}
+	.onovo-hero-parallax .title {
+		font-size: 40px;
+	}
+	.onovo-hero-parallax .image:after, .onovo-hero-parallax .image video:after {
+		opacity: 0.4;
+	}
+	.onovo-hero-parallax .title .sep {
+		display: none;
+	}
+	#pp-nav {
+		right: 10px !important;
+	}
+	.onovo-navs.js-hero-parallax-navs {
+		bottom: 20px;
+	}
+}
+
+
+/*---
+  5. Services
+---*/
+
+.onovo-service-item {
+	position: relative;
+	max-width: 440px;
+}
+
+.onovo-service-item.active--default {
+	margin-top: -80px;
+}
+
+.onovo-service-item .image {
+	position: relative;
+	margin: 0 auto -85px auto;
+	width: 161px;
+	height: 161px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	background: #D8FF36;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.onovo-service-item .image:before {
+	content: '';
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	right: 8px;
+	bottom: 8px;
+	border: 1px solid #3E3E3E;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.onovo-service-item .image img {
+	width: auto;
+	height: auto;
+	max-width: 78px;
+	max-height: 78px;
+}
+
+.onovo-service-item .image .icon {
+	font-size: 60px;
+}
+
+.onovo-service-item-inner {
+	padding: 120px 60px 60px 60px;
+	position: relative;
+	overflow: hidden;
+	min-height: 220px;
+	border: 1px solid #3E3E3E;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-service-item.onovo-service-no-icon .onovo-service-item-inner {
+	padding-top: 60px;
+}
+
+.onovo-service-item-inner::after {
+	content: '';
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	right: 8px;
+	bottom: 8px;
+	border: 1px solid #3E3E3E;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	pointer-events: none;
+}
+
+.onovo-service-item-inner .title,
+.onovo-service-item-inner .list {
+	position: relative;
+	z-index: 2;
+}
+
+.onovo-service-item-inner .title {
+	margin: 0;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.onovo-service-item-inner .list {
+	margin-top: 30px;
+}
+
+.onovo-service-item-inner .list ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-service-item-inner .list ul li {
+	margin: 20px 0 0 0;
+	padding-left: 20px;
+	position: relative;
+}
+
+.onovo-service-item-inner .list ul li:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 10px;
+	width: 7px;
+	height: 9px;
+	background: url(../images/list.svg) no-repeat;
+	background-size: contain;
+}
+
+.onovo-service-item-inner:hover {
+	border-color: #000;
+}
+
+.onovo-service-item-inner:hover::after {
+	border-color: #fff;
+}
+
+.onovo-service-item-inner:hover .list ul li a,
+.onovo-service-item-inner:hover .title,
+.onovo-service-item-inner:hover .title a {
+	color: #fff;
+}
+
+.onovo-service-item-inner .list ul li a::after {
+	background: #fff;
+}
+
+/*---
+  5.1 Services-2
+---*/
+
+.onovo-service-grid-item {
+	margin: 0 auto;
+	padding: 40px;
+	position: relative;
+	max-width: 460px;
+	min-height: 460px;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.onovo-service-grid-item:before {
+	z-index: -1;
+}
+
+.onovo-service-grid-item .image {
+	margin-bottom: 20px;
+	display: block;
+	line-height: 1;
+}
+
+.onovo-service-grid-item .icon {
+	font-size: 50px;
+}
+
+.onovo-service-grid-item .image img {
+	width: auto;
+	max-height: 60px;
+}
+
+.onovo-services-grid-fw .onovo-service-grid-item.active::before {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-bubble {
+	position: absolute;
+	right: 0;
+	bottom: -60px;
+	width: 142px;
+	height: 152px;
+	pointer-events: none;
+}
+
+@keyframes bubbleOne {
+	0% { bottom: -20%; right: -10%; opacity: 0; transform: scale(0.3); }
+	50% { bottom: 0; right: 0; opacity: 1; transform: scale(1.05); }
+	100% { bottom: 0; right: 0; opacity: 1; transform: scale(1); }
+}
+
+.onovo-bubble .bubble-1 {
+	position: absolute;
+	width: 65px;
+	height: 65px;
+	bottom: -20%;
+	right: -10%;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	background: #D8FF36;
+	opacity: 0;
+	transform: scale(0.3);
+}
+
+.onovo-service-grid-item:hover .onovo-bubble .bubble-1,
+.onovo-services-grid-fw .onovo-service-grid-item.active .onovo-bubble .bubble-1 {
+	animation: bubbleOne 2.5s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+
+@keyframes bubbleTwo {
+	0% { bottom: 0%; left: -40%; opacity: 0; transform: scale(0.25); }
+	50% { bottom: 30%; left: 0%; opacity: 1; transform: scale(1); }
+	100% { bottom: 30%; left: 0%; opacity: 1; transform: scale(1); }
+}
+
+.onovo-bubble .bubble-2 {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	bottom: 0%;
+	left: -40%;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	background: #D8FF36;
+	opacity: 0;
+	transform: scale(0.25);
+}
+
+.onovo-service-grid-item:hover .onovo-bubble .bubble-2,
+.onovo-services-grid-fw .onovo-service-grid-item.active .onovo-bubble .bubble-2 {
+	animation: bubbleTwo 1.5s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+
+@keyframes bubbleThree {
+	0% { bottom: 30%; left: 30%; opacity: 0; transform: scale(0.35); }
+	50% { bottom: 63%; left: 57%; opacity: 1; transform: scale(1); }
+	100% { bottom: 63%; left: 57%; opacity: 1; transform: scale(1); }
+}
+
+.onovo-bubble .bubble-3 {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	bottom: 30%;
+	left: 30%;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	background: #D8FF36;
+	opacity: 0;
+	transform: scale(0.5);
+}
+
+.onovo-service-grid-item:hover .onovo-bubble .bubble-3,
+.onovo-services-grid-fw .onovo-service-grid-item.active .onovo-bubble .bubble-3 {
+	animation: bubbleThree 2s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+
+/*---
+  5.2 Services-3
+---*/
+
+.onovo-service-item-list {
+	margin-top: -1px;
+	padding: 30px 0;
+	position: relative;
+	border-top: 1px solid #8A8A8A;
+	border-bottom: 1px solid #8A8A8A;
+}
+
+.onovo-service-item-list-inner {
+	padding: 0 110px 0 70px;
+	position: relative;
+}
+
+.onovo-service-item-list .num {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-weight: 700;
+	font-size: 16px;
+	color: #555;
+}
+
+.onovo-service-item-list .image {
+	position: absolute;
+	overflow: hidden;
+	top: -12px;
+	right: 0;
+	width: 105px;
+	height: 105px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	z-index: 2;
+	border: 1px solid #3E3E3E;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-service-item-list .image:after {
+	content: '';
+	position: absolute;
+	left: 4px;
+	top: 4px;
+	right: 4px;
+	bottom: 4px;
+	border: 1px solid #3E3E3E;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.onovo-service-item-list .image img {
+	position: relative;
+	width: auto;
+	height: auto;
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.onovo-service-item-list .title {
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.onovo-service-item-list p {
+	margin-bottom: 0;
+}
+
+.onovo-service-item-list .icon {
+	font-size: 44px;
+}
+
+/*---
+	5.3 Services-4
+---*/
+
+.onovo-services-showcase {
+	position: relative;
+}
+
+.onovo-services-showcase .items {
+	margin: 40px 0;
+}
+
+.onovo-services-showcase .items ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-services-showcase .items .title {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.onovo-services-showcase .items .title a {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.onovo-services-showcase .items .num,
+.onovo-services-showcase .items .name {
+	padding: 17px 0;
+	line-height: 1.2;
+	display: block;
+}
+
+.onovo-services-showcase .items .num {
+	width: 50px;
+	font-size: 15px;
+	color: #555;
+	text-transform: uppercase;
+}
+
+.onovo-services-showcase .items .name {
+	width: calc(100% - 50px);
+	color: #999;
+	transition: all .2s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .2s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-services-showcase .items .hover .name {
+	color: #000;
+}
+
+.onovo-services-showcase .items .hover .onovo-lnk::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.onovo-services-showcase .items .image {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 628px;
+	height: 422px;
+	pointer-events: none;
+}
+
+.onovo-services-showcase .items .image .img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	transition: clip-path .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: clip-path .4s cubic-bezier(0.3, 0, 0.3, 1);
+	z-index: 1;
+}
+
+.onovo-services-showcase .items .img-circle {
+	content: '';
+	position: absolute;
+	top: 90px;
+	left: 28%;
+	width: 366px;
+	height: 366px;
+	background: #D8FF36;
+	border-radius: 100%;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	pointer-events: none;
+}
+
+.onovo-services-showcase .items .hover .image .img {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	transition-delay: 0.4s;
+}
+
+@media (max-width: 1024px) {
+	.onovo-service-grid-item {
+		padding: 30px;
+		max-width: 400px;
+		min-height: 400px;
+	}
+	.onovo-service-item-inner {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+	.onovo-services-showcase .items {
+		margin: 30px 0;
+	}
+	.onovo-services-showcase .items .img-circle {
+		display: none;
+	}
+	.onovo-services-showcase .items ul li {
+		margin-bottom: 30px;
+	}
+	.onovo-services-showcase .items .image {
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 420px;
+		pointer-events: auto;
+	}
+	.onovo-services-showcase .items .image .img {
+		clip-path: none;
+	}
+	.onovo-services-showcase .items .name {
+		color: #000;
+	}
+	.onovo-service-item {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-service-grid-item {
+		padding: 15px;
+		max-width: 340px;
+		min-height: 340px;
+	}
+	.onovo-service-item-inner .title {
+		font-size: 26px;
+	}
+	.onovo-service-item-inner .list ul li {
+		margin: 10px 0 0 0;
+	}
+	.onovo-services-showcase .items ul li {
+		margin-bottom: 20px;
+	}
+	.onovo-services-showcase .items .image {
+		height: 280px;
+	}
+	.onovo-service-item-list-inner {
+		padding: 0;
+	}
+	.onovo-service-item-list .image {
+		position: relative;
+		margin-bottom: 20px;
+		top: 0;
+		left: 0;
+		right: auto;
+	}
+	.onovo-service-item-list .num {
+		margin-right: 5px;
+		position: relative;
+		left: 0;
+		top: 5px;
+		font-size: 14px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.onovo-service-item-list .title {
+		margin: 0;
+		display: inline-block;
+		vertical-align: top;
+		max-width: 270px;
+	}
+
+}
+
+
+/*---
+	6. Numbers
+---*/
+
+.onovo-number {
+	position: relative;
+	width: 250px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border: 1px solid #000;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.onovo-number::before {
+	content: '';
+	position: absolute;
+	left: 35px;
+	top: 35px;
+	right: 35px;
+	bottom: 35px;
+	border: 1px solid #000;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.onovo-number .num {
+	position: relative;
+	top: 7px;
+	font-size: 90px;
+	font-weight: 700;
+	line-height: 1;
+	text-shadow: 3px 3px 0 #000, -3px 3px 0 #000, 3px -3px 0 #000, -3px -3px 0 #000;
+}
+
+.onovo-circle-text-label {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	width: 90%;
+	height: 90%;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1;
+	animation: onovoRotateText 10s linear infinite;
+}
+
+.onovo-circle-text-label span {
+	position: absolute;
+	transform-origin: 0 111px;
+}
+
+@keyframes onovoRotateText {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+
+/*---
+	7. Ticker
+---*/
+
+.onovo-ticker-slider {
+	border-style: solid;
+	border-width: 1px 0px 1px 0px;
+	border-color: #555555;
+}
+
+.onovo-ticker-slider .swiper-wrapper {
+	transition-timing-function: linear;
+}
+
+.onovo-ticker-slider .swiper-slide {
+	width: auto;
+}
+
+.onovo-ticker-slider .title,
+.onovo-ticker-slider .title a {
+	margin: 0;
+	font-weight: 700;
+	font-size: 100px;
+	line-height: 1.3;
+	text-shadow: 3px 3px 0 #000, -3px 3px 0 #000, 3px -3px 0 #000, -3px -3px 0 #000;
+}
+
+@media (max-width: 1024px) {
+	.onovo-ticker-slider .title,
+	.onovo-ticker-slider .title a {
+		font-size: 70px;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-ticker-slider .title,
+	.onovo-ticker-slider .title a {
+		font-size: 50px;
+	}
+}
+
+
+/*---
+  8. Portfolio
+---*/
+
+.onovo-filter-container {
+	text-align: center;
+}
+
+.onovo-filter ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-filter ul li {
+	margin: 15px 0;
+}
+
+.onovo-filter ul li button {
+	margin: 0;
+	padding: 0;
+	display: block;
+	background: none;
+	border: none;
+	outline: none;
+	height: auto;
+	color: #999;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-filter ul li button.item--active,
+.onovo-filter ul li button:hover {
+	color: #000;
+}
+
+.onovo-filter.filter--default {
+	margin-bottom: 70px;
+	padding: 0 3px;
+	position: relative;
+	overflow: auto;
+	overflow-y: hidden;
+	max-width: 100%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.onovo-filter.filter--default::before {
+	content: '';
+	position: absolute;
+	left: 3px;
+	top: 0;
+	right: 3px;
+	bottom: 0;
+	border: 1px solid #6A6A6A;
+	border-radius: 85px;
+	-webkit-border-radius: 85px;
+}
+
+.onovo-filter.filter--default ul {
+	white-space: nowrap;
+	font-size: 0;
+}
+
+.onovo-filter.filter--default ul li {
+	margin: 0;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.onovo-filter.filter--default ul li::before {
+	margin-top: -13px;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 1px;
+	height: 26px;
+	background: #D0D0D0;
+	z-index: -1;
+}
+
+.onovo-filter.filter--default ul li:first-child::before {
+	display: none;
+}
+
+.onovo-filter.filter--default ul li button {
+	padding: 0 40px;
+	height: 85px;
+	line-height: 85px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #000;
+}
+
+.onovo-filter.filter--default .onovo-filter-nav-active {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 0 40px;
+	height: 85px;
+	line-height: 85px;
+	background: #D8FF36;
+	border-radius: 85px;
+	-webkit-border-radius: 85px;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-portfolio-items {
+	margin: 0 -30px;
+}
+
+.onovo-portfolio-items > .col-xs-12 {
+	padding: 0 30px;
+}
+
+@media (min-width: 992px) {
+	.onovo-portfolio-3-column .col-lg-6 {
+		flex: 0 0 auto;
+		width: 33.333%;
+	}
+}
+
+@media (min-width: 992px) {
+	.onovo-portfolio-4-column .col-lg-6 {
+		flex: 0 0 auto;
+		width: 25%;
+	}
+}
+
+.onovo-portfolio-item {
+	margin-bottom: 60px;
+	padding-bottom: 20px;
+	border-bottom: 3px solid #D6D6D6;
+}
+
+.onovo-portfolio-item .image {
+	margin-bottom: 25px;
+	position: relative;
+	overflow: hidden;
+}
+
+.onovo-portfolio-item .image a::after {
+	content: '';
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	width: 70px;
+	height: 70px;
+	background-color: #fff;
+	background-image: url(../images/arrow.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 24px 17px;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	opacity: 0;
+	transform: translateY(10px);
+	-webkit-transform: translateY(10px);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-portfolio-item:hover .image a::after {
+	opacity: 1;
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+}
+
+.onovo-portfolio-item .image img {
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-portfolio-item .title {
+	margin: 0 0 5px 0;
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.onovo-portfolio-item .text {
+	color: #555;
+	font-weight: 500;
+}
+
+.onovo-portfolio-item .text span {
+	margin: 0 5px 0 0;
+	display: inline-block;
+	vertical-align: top;
+	text-transform: capitalize;
+}
+
+.onovo-portfolio-item .text span:last-child em {
+	display: none;
+}
+
+.onovo-portfolio-item:hover .onovo-hover-3::before {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-portfolio-item:hover .onovo-lnk::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.onovo-portfolio-item-list {
+	position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.onovo-portfolio-item-list .image {
+	margin-bottom: 40px;
+	width: 47%;
+	order: 2;
+}
+
+.onovo-portfolio-item-list .desc {
+	padding: 30px 30px 30px 0;
+	width: 53%;
+	order: 1;
+}
+
+.onovo-portfolio-item-list .text {
+	margin: 0 0 5px 0;
+}
+
+.onovo-portfolio-item-list .title {
+	margin: 0 0 40px 0;
+	font-size: 44px;
+}
+
+.onovo-portfolio-item-list .onovo-text > div > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-portfolio-item-list .onovo-text > div > ul li {
+	margin: 0 0 15px 0;
+	color: #555;
+}
+
+.onovo-portfolio-item-list .onovo-text > div > ul li strong {
+	text-transform: uppercase;
+}
+
+/*---
+	8.1 Portfolio Showcase
+---*/
+
+.onovo-showcase {
+	position: relative;
+}
+
+.onovo-showcase .img-circle {
+	position: absolute;
+	top: 0;
+	right: 200px;
+	width: 420px;
+	height: 420px;
+	background: #D8FF36;
+	border-radius: 100%;
+	transform: scale(1);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	pointer-events: none;
+}
+
+.onovo-showcase-items {
+	max-width: 634px;
+}
+
+.onovo-showcase-item {
+	border-top: 1px solid #D3D3D3;
+	display: flex;
+	align-items: center;
+}
+
+.onovo-showcase-item:first-child {
+	border-top: none;
+}
+
+.onovo-showcase-item .category,
+.onovo-showcase-item .title a {
+	padding: 30px 0;
+	line-height: 1.2;
+}
+
+.onovo-showcase-item .category {
+	width: 155px;
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.onovo-showcase-item .category span {
+	display: block;
+}
+
+.onovo-showcase-item .title {
+	margin: 0;
+	width: calc(100% - 155px);
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.onovo-showcase-item .title a {
+	display: block;
+	color: #999;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-showcase-item.hover .title a {
+	color: #000;
+}
+
+.onovo-showcase-item .image {
+	position: absolute;
+	overflow: hidden;
+	top: 50px;
+	right: 50px;
+	width: 480px;
+	height: 370px;
+	opacity: 0;
+	transform: translate(-30%, -10%) rotate(-30deg) scale(0.3);
+	-webkit-transform: translate(-30%, -10%) rotate(-30deg) scale(0.3);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	pointer-events: none;
+}
+
+.onovo-showcase-item .image .img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	filter: blur(15px);
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-showcase-item.hover .image {
+	opacity: 1;
+	transform: translate(0, 0) rotate(-20deg) scale(1);
+	-webkit-transform: translate(0, 0) rotate(-20deg) scale(1);
+	z-index: 2;
+}
+
+.onovo-showcase-item.hover .image .img {
+	filter: blur(0px);
+}
+
+.onovo-project-info {
+	position: relative;
+	background: #000;
+	padding: 50px;
+}
+
+.onovo-project-info::before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	border: 1px solid #fff;
+	pointer-events: none;
+}
+
+.onovo-project-info > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-project-info > ul > li {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #3E3E3E;
+}
+
+.onovo-project-info > ul > li:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+.onovo-project-info > ul > li strong {
+	color: #D8FF36;
+}
+
+@media (min-width: 1025px) {
+	.onovo-filter.filter--default ul li button.item--active {
+		background: none !important;
+	}
+}
+
+@media (max-width: 1024px) {
+	.onovo-showcase .img-circle {
+		display: none;
+	}
+	.onovo-showcase-items {
+		max-width: 100%;
+	}
+	.onovo-showcase-item {
+		flex-wrap: wrap;
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+	.onovo-showcase-item:first-child {
+		padding-top: 0;
+	}
+	.onovo-showcase-item .category {
+		padding: 0 0 10px 0;
+		width: 100%;
+		order: 2;
+	}
+	.onovo-showcase-item .category a {
+		color: #999;
+	}
+	.onovo-showcase-item .title {
+		margin: 0;
+		width: 100%;
+		order: 2;
+	}
+	.onovo-showcase-item .title a {
+		padding: 0;
+		color: #000;
+	}
+	.onovo-showcase-item .image {
+		margin-bottom: 30px;
+		position: relative;
+		top: 0;
+		right: auto;
+		left: 0;
+		width: 100%;
+		height: 420px;
+		order: 1;
+		opacity: 1;
+		transform: none;
+		-webkit-transform: none;
+		pointer-events: auto;
+	}
+	.onovo-showcase-item.hover .image {
+		opacity: 1;
+		transform: none;
+		-webkit-transform: none;
+	}
+	.onovo-showcase-item .image .img {
+		filter: none;
+	}
+	.onovo-showcase-item.hover .image .img {
+		filter: none;
+	}
+	.onovo-filter-container {
+		margin-bottom: 30px;
+		text-align: left;
+	}
+	.onovo-filter {
+		position: relative;
+		overflow: auto;
+	}
+	.onovo-filter ul {
+		white-space: nowrap;
+	}
+	.onovo-filter ul li {
+		margin: 0 30px 15px 0;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.onovo-filter.filter--default {
+		margin-bottom: 0;
+	}
+	.onovo-filter.filter--default::before,
+	.onovo-filter.filter--default .onovo-filter-nav-active {
+		display: none;
+	}
+	.onovo-filter.filter--default ul li button {
+		border-radius: 85px;
+		-webkit-border-radius: 85px;
+	}
+	.onovo-filter.filter--default ul li button.item--active {
+		background: #D8FF36;
+	}
+	.onovo-portfolio-item-list {
+		display: block;
+	}
+	.onovo-portfolio-item-list .image {
+		margin-bottom: 0;
+		width: 100%;
+	}
+	.onovo-portfolio-item-list .desc {
+		padding-bottom: 0;
+		width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-showcase-item .image {
+		height: 280px;
+	}
+	.onovo-portfolio-item {
+		margin-bottom: 40px;
+	}
+	.onovo-portfolio-item-list .onovo-text > div > ul li {
+		font-size: 16px;
+	}
+	.onovo-portfolio-item-list .title {
+		margin: 0 0 20px 0;
+		font-size: 26px;
+	}
+	.onovo-portfolio .onovo-loadmore {
+		margin: 15px 0 0 0;
+	}
+}
+
+
+/*---
+	9. Team
+---*/
+
+.onovo-team-detail {
+	position: relative;
+	border: 1px solid #3E3E3E;
+}
+
+.onovo-team-detail:before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	border: 1px solid #3E3E3E;
+	pointer-events: none;
+}
+
+.onovo-team-detail > .row > div {
+	padding: 0 30px;
+}
+
+.onovo-team-detail .team-detail-img {
+	position: relative;
+	margin-bottom: -70px;
+	z-index: 2;
+}
+
+.onovo-team-item {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #3E3E3E;
+	height: 669px;
+}
+
+.onovo-team-item .desc {
+	padding: 32px 38px;
+	position: relative;
+}
+
+.onovo-team-item .title {
+	margin: 0 0 20px 0;
+	font-size: 36px;
+	line-height: 1;
+}
+
+.onovo-team-item .onovo-social-1 {
+	margin-top: 30px;
+}
+
+.onovo-team-item .image {
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	line-height: 1;
+}
+
+.onovo-team-item .image img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	filter: grayscale(1);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-team-item:hover .image img {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	filter: grayscale(0);
+}
+
+.onovo-team-item .num {
+	position: absolute;
+	right: -20px;
+	bottom: 0;
+	font-size: 300px;
+	font-weight: 700;
+	line-height: 0.5;
+	text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	pointer-events: none;
+}
+
+.onovo-team-item:hover .num {
+	color: #D8FF36;
+}
+
+@media (max-width: 1024px) {
+	.onovo-team-item .desc {
+		padding: 30px 10px 30px 30px;
+	}
+	.onovo-team-item .image img {
+		max-height: 460px;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-team-item .title {
+		font-size: 26px;
+	}
+	.onovo-team-item .desc {
+		padding: 38px;
+	}
+	.onovo-team-info ul li {
+		display: block;
+		word-break: break-word;
+	}
+	.onovo-team-info ul li br {
+		display: none;
+	}
+}
+
+
+/*---
+	10. Testimonials
+---*/
+
+.onovo-reviews {
+    position: relative;
+}
+
+.onovo-reviews-summary {
+	margin-top: 30px;
+}
+
+.onovo-reviews-summary .label {
+	font-size: 22px;
+	line-height: 26px;
+	font-weight: 700;
+}
+
+.onovo-reviews-carousel {
+	border-left: 1px solid #000;
+	padding-left: 55px;
+}
+
+.onovo-reviews-carousel .swiper-wrapper {
+	transition-delay: 0.6s;
+}
+
+.onovo-reviews-carousel.reviews--full {
+	position: relative;
+	border: none;
+	padding: 0;
+}
+
+.onovo-reviews-item .text {
+	font-size: 26px;
+}
+
+.onovo-reviews-carousel.reviews--full .onovo-reviews-item .text {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.onovo-reviews-item .text p {
+	margin-top: 0;
+}
+
+.onovo-reviews-item .title {
+	margin: 0 0 10px 0;
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.onovo-reviews-item .subtitle {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 21px;
+}
+
+.onovo-reviews-item .onovo-stars {
+	opacity: 0;
+	transform: translateY(10px);
+	-webkit-transform: translateY(10px);
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	transition-delay: 0.1s;
+}
+
+.onovo-reviews-item.swiper-slide-active .onovo-stars {
+	opacity: 1;
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+}
+
+.js-reviews-carousel-navs {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font-size: 0;
+}
+
+.js-reviews-carousel-navs .onovo-prev,
+.js-reviews-carousel-navs .onovo-next {
+	margin-right: 58px;
+}
+
+.onovo-reviews-carousel.reviews--full .js-reviews-carousel-navs {
+	margin-top: -33px;
+	top: 50%;
+	bottom: auto;
+	width: 100%;
+	height: 1px;
+	z-index: 2;
+}
+
+.onovo-reviews-carousel.reviews--full .onovo-prev,
+.onovo-reviews-carousel.reviews--full .onovo-next {
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.onovo-reviews-carousel.reviews--full .onovo-next {
+	left: auto;
+	right: 0;
+}
+
+@media (max-width: 1024px) {
+	.onovo-reviews-carousel {
+		margin: 55px 0 0 0;
+	}
+	.onovo-reviews-carousel.reviews--full {
+		margin: 0;
+	}
+	.onovo-reviews-item .text br {
+		display: none;
+	}
+	.js-reviews-carousel-navs {
+		margin-top: 30px;
+		position: relative;
+	}
+	.onovo-reviews-carousel.reviews--full .js-reviews-carousel-navs {
+		margin-top: -33px;
+		position: absolute;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-reviews-summary {
+		margin-top: 10px;
+	}
+	.onovo-reviews-summary .label {
+		font-size: 18px;
+	}
+	.onovo-stars {
+		margin: 0 5px;
+		padding: 0 10px;
+		font-size: 10px;
+	}
+	.onovo-reviews-carousel {
+		margin: 30px 0 0 0;
+		padding-left: 30px;
+	}
+	.onovo-reviews-item .text {
+		font-size: 18px;
+	}
+	.onovo-reviews-item .subtitle {
+		display: block;
+	}
+	.onovo-reviews-item .onovo-stars.stars--small {
+		margin: 10px 0 0 0;
+	}
+	.onovo-reviews-carousel.reviews--full .onovo-reviews-item .text {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.onovo-reviews-carousel.reviews--full .js-reviews-carousel-navs {
+		margin-top: 0;
+		position: relative;
+		height: 67px;
+	}
+}
+
+
+/*---
+	11. Video
+---*/
+
+.onovo-video {
+	position: relative;
+	height: 670px;
+	z-index: 1;
+	background-color: #555;
+}
+
+.onovo-video .image,
+.onovo-video video,
+.onovo-video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: #555;
+}
+
+.onovo-video .image {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.onovo-video .play {
+	margin: -95px 0 0 -95px;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 190px;
+	height: 190px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.onovo-video .play::before {
+	content: '';
+	position: absolute;
+	left: -10px;
+	top: -10px;
+	right: -10px;
+	bottom: -10px;
+	background: #D8FF36;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.onovo-video .play::after {
+	content: '';
+	position: absolute;
+	left: 40px;
+	top: 40px;
+	right: 40px;
+	bottom: 40px;
+	border: 2px solid #000;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+}
+
+.onovo-video .play .arrow {
+	left: 16px;
+	position: relative;
+	border: 25px solid transparent;
+	border-left: 36px solid #000;
+}
+
+.onovo-video .onovo-circle-text-label span {
+	transform-origin: 0 86px;
+}
+
+.onovo-video.active .image {
+	display: none;
+}
+
+.onovo-video.active .play {
+	display: none;
+}
+
+@media (max-width: 1024px) {
+	.onovo-video {
+		position: relative;
+		height: 560px;
+		z-index: 1;
+		background-color: #555;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-video {
+		height: 280px;
+	}
+	.onovo-video .play {
+		transform: scale(0.5);
+	}
+}
+
+
+/*---
+	12. Counter
+---*/
+
+.onovo-counter {
+	position: relative;
+}
+
+.onovo-counter .num,
+.onovo-counter .num-after {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 150px;
+	font-weight: 700;
+	line-height: 1;
+	text-shadow: 3px 3px 0 #000, -3px 3px 0 #000, 3px -3px 0 #000, -3px -3px 0 #000;
+}
+
+.onovo-counter .num-after {
+	font-size: 75px;
+}
+
+.onovo-counter .label {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1;
+	color: #666;
+}
+
+@media (max-width: 1024px) {
+	.onovo-counter .num, .onovo-counter .num-after {
+		font-size: 100px;
+	}
+	.onovo-counter .num-after {
+		font-size: 60px;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-counter .num, .onovo-counter .num-after {
+		font-size: 80px;
+	}
+	.onovo-counter .num-after {
+		font-size: 40px;
+	}
+	.onovo-counter .label {
+		margin: 10px 0 20px 0;
+		font-size: 18px;
+	}
+}
+
+
+/*---
+	13. CTA
+---*/
+
+.onovo-cta {
+	position: relative;
+}
+
+.onovo-cta-text {
+	color: #D5D5D5;
+	font-size: 26px;
+}
+
+.onovo-cta-text a {
+	color: #D8FF36;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 1em;
+}
+
+.onovo-cta-2-text a {
+	font-size: 40px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.onovo-cta-info {
+	position: relative;
+}
+
+.onovo-cta-info .email {
+	font-size: 40px;
+	color: #D8FF36;
+	font-weight: 500;
+	line-height: 1;
+}
+
+.onovo-cta-info .email a {
+	color: #D8FF36;
+	text-decoration: underline;
+}
+
+.onovo-cta-info .adr {
+	margin-top: 40px;
+	font-size: 26px;
+	color: #D5D5D5;
+}
+
+.onovo-cta-social {
+	margin-bottom: -200px;
+	position: relative;
+	width: 700px;
+	height: 700px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.onovo-cta-social .image {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.onovo-cta-social .cta-img-circle {
+	position: absolute;
+	background: #D8FF36;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	animation: onovoCtaCircle 1.5s cubic-bezier(0.3, 0, 0.3, 1) infinite;
+}
+
+.onovo-cta-social .cta-img-circle.img-circle--1 {
+	right: -40px;
+	top: 50px;
+	width: 140px;
+	height: 140px;
+	animation: onovoCtaCircle 4.5s cubic-bezier(0.3, 0, 0.3, 1) infinite;
+}
+
+.onovo-cta-social .cta-img-circle.img-circle--2 {
+	right: 150px;
+	top: -40px;
+	width: 110px;
+	height: 110px;
+	animation: onovoCtaCircleTwo 5.5s cubic-bezier(0.3, 0, 0.3, 1) infinite;
+}
+
+.onovo-cta-social .cta-img-circle.img-circle--3 {
+	right: 20px;
+	top: -100px;
+	width: 80px;
+	height: 80px;
+	animation: onovoCtaCircleThree 6.5s cubic-bezier(0.3, 0, 0.3, 1) infinite;
+}
+
+@keyframes onovoCtaCircle {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.85);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes onovoCtaCircleTwo {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.75);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes onovoCtaCircleThree {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.65);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.onovo-cta-social .desc {
+	width: 100%;
+}
+
+.onovo-cta-social .desc ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+	font-size: 0;
+}
+
+.onovo-cta-social .desc ul li {
+	margin: 7px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+
+.onovo-cta-social .desc ul li a {
+	min-width: 284px;
+}
+
+@media (max-width: 1024px) {
+	.onovo-cta-social {
+		margin-top: 0;
+		padding: 60px 0 120px 0;
+		position: relative;
+		width: 100%;
+		height: auto;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-cta-social {
+		margin-top: 15px;
+		margin-bottom: 0;
+		padding: 0;
+	}
+	.onovo-cta-social .image {
+		display: none;
+	}
+	.onovo-cta-social .desc ul li {
+		margin: 5px;
+	}
+	.onovo-cta-social .desc ul li a {
+		min-width: 330px;
+	}
+	a.onovo-btn.btn--large, .onovo-btn.btn--large {
+		padding: 0 25px;
+		height: 70px;
+		line-height: 70px;
+		border-radius: 70px;
+		-webkit-border-radius: 70px;
+	}
+	.onovo-btn.btn--large.btn--icon i {
+		margin: 0 5px 0 -20px;
+	}
+	.onovo-cta-text {
+		font-size: 16px;
+	}
+	.onovo-cta-text a {
+		font-size: 24px;
+	}
+	.onovo-cta-2-text a {
+		font-size: 24px;
+	}
+	.onovo-cta-info .email {
+		font-size: 24px;
+	}
+	.onovo-cta-info .adr {
+		margin-top: 20px;
+		font-size: 16px;
+	}
+}
+
+
+/*---
+	14. Blog
+---*/
+
+.onovo-blog-item {
+	margin-bottom: 40px;
+}
+
+.onovo-blog-item.archive-item {
+	margin-bottom: 60px;
+	padding-bottom: 40px;
+	border-bottom: 3px solid #D6D6D6;
+}
+
+.onovo-blog-item .image {
+	margin: 0 0 25px 0;
+	line-height: 1;
+}
+
+.onovo-blog-item .image img {
+	width: 100%;
+	height: 240px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-blog-item.archive-item .image img {
+	height: 460px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-blog-item .desc {
+	max-width: 92%;
+}
+
+.onovo-blog-item .desc .info {
+	margin-bottom: 20px;
+	font-size: 16px;
+	color: #000;
+	font-weight: 500;
+}
+
+.onovo-blog-item .desc .info .date,
+.onovo-blog-item .desc .info > span,
+.wp-block-latest-posts__post-date,
+.onovo-post-date .date {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.onovo-blog-item .desc .date,
+.wp-block-latest-posts__post-date,
+.onovo-post-date .date {
+	padding: 8px 22px;
+	margin-right: 22px;
+	color: #000;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 700;
+	background: #D8FF36;
+	border-radius: 36px;
+	-webkit-border-radius: 36px;
+}
+
+.onovo-blog-item .desc .title {
+	margin: 0;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.onovo-blog-item.archive-item .title {
+	font-size: 30px;
+}
+
+.onovo-blog-item .desc .onovo-text p {
+	margin-bottom: 0;
+}
+
+.onovo-blog-item .desc .onovo-text .onovo-btn {
+	margin-top: 20px;
+}
+
+.onovo-blog-item:not(.archive-item) .desc .onovo-text a {
+	display: none;
+}
+
+/*---
+	14.1 Blog Carousel
+---*/
+
+.onovo-blog-carousel .swiper-container {
+	overflow: visible;
+}
+
+.onovo-blog-carousel .swiper-slide {
+	opacity: 0;
+	transform: translateY(10px);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-blog-carousel .swiper-slide.swiper-slide-active,
+.onovo-blog-carousel .swiper-slide.swiper-slide-active + .swiper-slide {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.onovo-blog-slide-item {
+	margin-bottom: 30px;
+	padding: 40px 30px 20px 30px;
+	background: #fff;
+	min-height: 316px;
+}
+
+.onovo-blog-slide-item .image {
+	margin: 0 0 25px 0;
+	position: absolute;
+	top: 30px;
+	right: 26px;
+	width: 288px;
+	height: 312px;
+	line-height: 1;
+}
+
+.onovo-blog-slide-item .image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-blog-slide-item .desc {
+	max-width: 270px;
+}
+
+.onovo-blog-slide-item.full--width .desc {
+	max-width: 100%;
+}
+
+.onovo-blog-slide-item .desc .date {
+	margin-bottom: 12px;
+	padding: 0 25px;
+	font-size: 14px;
+	font-weight: 700;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 35px;
+	-webkit-border-radius: 35px;
+	background: #D8FF36;
+}
+
+.onovo-blog-slide-item .desc .date,
+.onovo-blog-slide-item .desc .date a {
+	display: inline-block;
+	vertical-align: top;
+	color: #000;
+}
+
+.onovo-blog-slide-item .desc .title {
+	padding-right: 10px;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.post_excerpt_disabled .onovo-blog-slide-item .desc .text {
+	display: none;
+}
+
+.onovo-blog-slide-item .onovo-btn {
+	display: none;
+}
+
+.onovo-blog-slide-item:hover .onovo-lnk::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.animated--active .onovo-blog-carousel .swiper-slide.swiper-slide-active .splitting span .word,
+.animated--active .onovo-blog-carousel .swiper-slide.swiper-slide-active + .swiper-slide .splitting span .word {
+	transform: translate(0, 0%);
+}
+
+.animated--active .onovo-blog-carousel .swiper-slide.swiper-slide-active .onovo-overlay,
+.animated--active .onovo-blog-carousel .swiper-slide.swiper-slide-active + .swiper-slide .onovo-overlay {
+	transform: scaleX(0);
+}
+
+.onovo-readmore {
+	font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+	.onovo-blog-slide-item .desc {
+		max-width: calc(100% - 300px);
+	}
+	.onovo-navs {
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-blog-slide-item .image {
+		margin: 0 0 25px 0;
+		position: relative;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 280px;
+	}
+	.onovo-blog-slide-item .desc {
+		max-width: 100%;
+	}
+	.onovo-blog-item.archive-item .image img {
+		height: 280px;
+	}
+}
+
+
+/*---
+	15. Brands
+---*/
+
+.onovo-brands {
+	padding: 30px;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	text-align: center;
+	line-height: 1;
+	border: 1px solid #3E3E3E;
+}
+
+.onovo-brands .image {
+	display: block;
+}
+
+.onovo-brands .image img {
+	width: auto;
+	height: auto;
+	max-height: 80px;
+}
+
+
+/*---
+	16. Team
+---*/
+
+.onovo-team-two-item {
+	position: relative;
+	overflow: hidden;
+}
+
+.onovo-team-two-item .onovo-social-2 {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	z-index: 2;
+	opacity: 0;
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-team-two-item:hover .onovo-social-2 {
+	opacity: 1;
+}
+
+.onovo-team-two-item .image {
+	position: relative;
+	overflow: hidden;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 380px;
+	text-align: center;
+	line-height: 1;
+}
+
+.onovo-team-two-item .onovo-hover-3::before {
+	z-index: 1;
+}
+
+.onovo-team-two-item:hover .onovo-hover-3::before {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-team-two-item .image img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-team-two-item:hover .image img {
+	transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	filter: grayscale(0);
+}
+
+.onovo-team-two-item .desc {
+	padding: 25px;
+	position: relative;
+}
+
+.onovo-team-two-item .title {
+	margin: 0 0 10px 0;
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.onovo-team-two-item .onovo-subtitle-1 {
+	margin: 0;
+	font-weight: 500;
+}
+
+
+/*---
+	17. Pricing
+---*/
+
+.onovo-pricing-item {
+	position: relative;
+	border: 1px solid #3E3E3E;
+}
+
+.onovo-pricing-item .pricing--badge {
+	padding: 0 20px;
+	position: absolute;
+	right: 10px;
+	top: -14px;
+	font-size: 13px;
+	font-weight: 700;
+	height: 29px;
+	line-height: 29px;
+	background: #000;
+}
+
+.onovo-pricing-item .title {
+	padding: 44px 66px;
+	position: relative;
+	min-height: 236px;
+}
+
+.onovo-pricing-item .name {
+	margin: 0 0 10px 0;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.onovo-pricing-item .subname {
+	margin: 0 0 5px 0;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.onovo-pricing-item .price {
+	font-size: 50px;
+	line-height: 1;
+	font-weight: 700;
+}
+
+.onovo-pricing-item .image {
+	padding: 0;
+	position: absolute;
+	top: -35px;
+	left: 68px;
+	width: 70px;
+	height: 70px;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	font-size: 30px;
+	background: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	line-height: 1;
+	z-index: 2;
+}
+
+.onovo-pricing-item .image img {
+	max-width: 100%;
+	width: 30px;
+	height: auto;
+}
+
+.onovo-pricing-item .desc {
+	margin: -6px;
+	padding: 50px 55px;
+	position: relative;
+	min-height: 386px;
+	background: #fff;
+	border: 1px solid #3E3E3E;
+}
+
+.onovo-pricing-item .pricing--overlay {
+	content: '';
+	position: absolute;
+	overflow: hidden;
+	left: 4px;
+	top: 4px;
+	right: 4px;
+	bottom: 4px;
+	border: 1px solid #3E3E3E;
+	pointer-events: none;
+}
+
+.onovo-pricing-item .list {
+	margin: 0 0 20px 0;
+}
+
+.onovo-pricing-item .list ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-pricing-item .list ul li {
+	position: relative;
+	margin: 0;
+	padding: 10px 0 10px 40px;
+	font-size: 16px;
+	border-top: 1px solid rgba(237, 237, 237, 1);
+	transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all .4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-pricing-item .list ul li:first-child {
+	border-top: none;
+}
+
+.onovo-pricing-item .list ul li > i {
+	margin-top: -10px;
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	font-size: 18px;
+	color: green;
+	height: 20px;
+	line-height: 20px;
+}
+
+.onovo-pricing-item:hover .pricing--overlay::before {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+
+.onovo-pricing-item:hover a.onovo-btn.btn--color,
+.onovo-pricing-item:hover .onovo-btn.btn--color {
+	color: #000;
+}
+
+.onovo-pricing-item:hover a.onovo-btn.btn--color::after,
+.onovo-pricing-item:hover .onovo-btn.btn--color::after {
+	background: #D8FF36;
+	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	transform-origin: top center;
+}
+
+.onovo-pricing-item:hover .list ul li {
+	color: #fff;
+	border-top-color: rgba(237, 237, 237, 0.22);
+}
+
+
+/*---
+	18. Contacts
+---*/
+
+.onovo-form-box {
+	position: relative;
+	background: #000;
+	padding: 70px;
+}
+
+.onovo-form-box::before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	border: 1px solid #fff;
+}
+
+.onovo-border-line::after {
+	content: '';
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	right: 8px;
+	bottom: 8px;
+	border: 1px solid #fff;
+	pointer-events: none;
+}
+
+
+/*---
+	19. Subscribe
+---*/
+
+body .onovo-subscribe-form {
+	margin: 0;
+}
+
+body .onovo-subscribe-form input[type="text"],
+body .onovo-subscribe-form input[type="email"],
+body .onovo-subscribe-form input[type="search"],
+body .onovo-subscribe-form input[type="password"],
+body .onovo-subscribe-form input[type="tel"],
+body .onovo-subscribe-form input[type="address"],
+body .onovo-subscribe-form input[type="number"],
+body .onovo-subscribe-form textarea {
+	padding: 0 60px;
+	width: 100%;
+	height: 90px;
+	font-size: 16px;
+	color: #fff;
+	background: transparent;
+	border-radius: 90px;
+	-webkit-border-radius: 90px;
+	border: 1px solid #A0A0A0;
+}
+
+body .onovo-subscribe-form ::placeholder {
+	color: #929292;
+}
+
+body .onovo-subscribe-form .submit-container {
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+/*---
+	20. History
+---*/
+
+.onovo-history-slider .swiper-container {
+	padding-top: 120px;
+	overflow: visible;
+}
+
+.onovo-history-slider .swiper-wrapper {
+	transition-duration: 0s !important;
+}
+
+.onovo-history-slider .swiper-slide {
+	opacity: 0;
+}
+
+.onovo-history-slider .swiper-slide.swiper-slide-active {
+	opacity: 1;
+}
+
+.animated--swiper--active .onovo-history-slider .swiper-slide .splitting span .word {
+	-webkit-transition-delay: calc(600ms + (100ms * var(--line-index)));
+	transition-delay: calc(600ms + (100ms * var(--line-index)));
+}
+
+.onovo-history-item {
+	display: flex;
+	align-items: center;
+}
+
+.onovo-history-item .image {
+	width: 691px;
+	height: 396px;
+	line-height: 1;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.onovo-history-item .desc {
+	padding-left: 76px;
+	max-width: calc(100% - 767px);
+}
+
+.onovo-history-item .subtitle {
+	margin: 20px 0;
+	font-size: 90px;
+	font-weight: 700;
+	line-height: 1;
+	text-shadow: 3px 3px 0 #000, -3px 3px 0 #000, 3px -3px 0 #000, -3px -3px 0 #000;
+}
+
+.onovo-history-item .title {
+	margin: 0;
+	font-size: 38px;
+	font-weight: 700;
+}
+
+.onovo-history-item .text {
+	color: #666;
+}
+
+.onovo-history-item:hover .onovo-lnk::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.onovo-navs.js-history-navs {
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.onovo-navs.js-history-navs::before {
+	content: '';
+	position: absolute;
+	top: 32.5px;
+	left: 67px;
+	right: 67px;
+	height: 3px;
+	background: #000;
+}
+
+.onovo-navs.js-history-navs .js-history-prev {
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+
+.onovo-navs.js-history-navs .js-history-next {
+	right: 0;
+	left: auto;
+	top: 0;
+	position: absolute;
+}
+
+.onovo-navs.js-history-navs .onovo-paginations-container,
+.onovo-navs.js-history-navs .js-history-pagination {
+	position: absolute;
+	top: 18px;
+	left: 97px;
+	right: 97px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.onovo-navs.js-history-navs .js-history-pagination {
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.onovo-navs.js-history-navs .swiper-nav-active {
+	opacity: 1;
+}
+
+.onovo-navs.js-history-navs .js-history-pagination .swiper-pagination-bullet {
+	margin: 0;
+	background: #fafafa;
+	width: 32px;
+	height: 32px;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+.onovo-navs.js-history-navs .js-history-pagination .swiper-pagination-bullet span {
+	margin-left: -40px;
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	font-size: 22px;
+	font-weight: 700;
+	width: 80px;
+	white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+	.onovo-history-item {
+		display: block;
+	}
+	.onovo-history-item .image {
+		width: 100%;
+		height: 440px;
+	}
+	.onovo-history-item .desc {
+		padding-left: 0;
+		padding-top: 30px;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-history-slider .swiper-container {
+		padding-top: 90px;
+	}
+	.onovo-navs.js-history-navs .onovo-paginations-container, .onovo-navs.js-history-navs .js-history-pagination {
+		left: 0;
+		right: 0;
+	}
+	.onovo-navs.js-history-navs .onovo-paginations-container {
+		margin: 0 67px;
+	}
+	.onovo-navs.js-history-navs .js-history-pagination .swiper-pagination-bullet span {
+		display: none;
+	}
+	.onovo-history-item .image {
+		height: 280px;
+	}
+	.onovo-history-item .subtitle {
+		font-size: 60px;
+		line-height: 1.3;
+	}
+	.onovo-history-item .title {
+		font-size: 26px;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-blog-slide-item .image {
+		margin: 0 0 25px 0;
+		position: relative;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 280px;
+	}
+	.onovo-blog-slide-item .desc {
+		max-width: 100%;
+	}
+	.onovo-prev i::before, .onovo-next i::before {
+		width: 30px;
+	}
+	.onovo-paginations-container {
+		margin: 0 5px;
+	}
+	.onovo-prev, .onovo-next, .pager .onovo-prev, .pager .onovo-next {
+		width: 57px;
+		height: 57px;
+	}
+	.onovo-navs.js-history-navs::before {
+		top: 27.5px;
+	}
+	.onovo-navs.js-history-navs .onovo-paginations-container {
+		top: 13px;
+	}
+	.onovo-hero .onovo-navs .onovo-prev {
+		top: -14px;
+	}
+	.onovo-hero .onovo-navs .onovo-next {
+		top: -14px;
+	}
+}
+
+
+/*---
+  21. Intro
+---*/
+
+.onovo-intro {
+	padding-top: 200px;
+	padding-bottom: 30px;
+	background: transparent;
+}
+
+.onovo-intro.intro--black {
+	background: #000;
+}
+
+.onovo-intro .image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.onovo-breadcrums {
+	margin-top: 60px;
+	padding-top: 30px;
+	border-top: 3px solid #848484;
+}
+
+.onovo-breadcrums ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 16px;
+}
+
+.onovo-breadcrums ul li {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.onovo-breadcrums ul li {
+	margin-right: 30px;
+	padding-right: 30px;
+	border-right: 1px solid #C0C0C0;
+}
+
+.onovo-breadcrums ul li:last-child {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.onovo-intro.intro--black .onovo-breadcrums ul li,
+.onovo-intro.intro--black .onovo-breadcrums ul li a {
+	color: #fff;
+}
+
+@media (max-width: 767px) {
+	.onovo-intro {
+		padding-top: 160px;
+	}
+	.onovo-breadcrums ul li {
+		font-size: 14px;
+	}
+}
+
+
+/*---
+  22. FAQ
+---*/
+
+.onovo-faq-item .onovo-collapse-btn {
+	padding: 28px 60px;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	font-size: 22px;
+	font-weight: 700;
+	cursor: pointer;
+	border-radius: 85px;
+	-webkit-border-radius: 85px;
+}
+
+.onovo-faq-item .onovo-collapse-btn::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #B2B2B2;
+	border-radius: 85px;
+	-webkit-border-radius: 85px;
+}
+
+.onovo-faq-item .onovo-collapse-btn::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: transform 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	transform: scaleY(0);
+	-webkit-transform: scaleY(0);
+	background: #D8FF36;
+	transform-origin: bottom center;
+}
+
+.onovo-faq-item .onovo-collapse-btn.active::after {
+	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	transform-origin: top center;
+}
+
+.onovo-faq-item .onovo-collapse-btn .arrow::before,
+.onovo-faq-item .onovo-collapse-btn .arrow::after {
+	margin-top: -30px;
+	content: '';
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #B2B2B2;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	z-index: 2;
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.onovo-faq-item .onovo-collapse-btn .arrow::after {
+	border: none;
+	background: url(../images/arrow_2.svg) no-repeat center center;
+	background-size: 12px 9px;
+}
+
+.onovo-faq-item .onovo-collapse-btn.active .arrow::before {
+	background: #000;
+	border-color: #000;
+}
+
+.onovo-faq-item .onovo-collapse-btn.active .arrow::after {
+	filter: invert(1);
+	transform: rotate(180deg);
+}
+
+.onovo-faq-item .onovo-collapse-btn > span {
+	position: relative;
+	z-index: 2;
+}
+
+.onovo-faq-item .onovo-text {
+	padding: 30px 60px;
+}
+
+.onovo-faq-item .onovo-text > *:first-child {
+	margin-top: 0;
+}
+
+@media (max-width: 767px) {
+	.onovo-faq-item .onovo-collapse-btn {
+		padding: 20px 90px 20px 30px;
+		font-size: 18px;
+	}
+	.onovo-faq-item .onovo-text {
+		padding: 0 30px 10px 30px;
+	}
+}
+
+
+/*---
+  23. Portfolio Single
+---*/
+
+.onovo-custom-gallery .col-md-6:nth-child(1), 
+.onovo-custom-gallery .col-md-6:nth-child(4), 
+.onovo-custom-gallery .col-md-6:nth-child(5), 
+.onovo-custom-gallery .col-md-6:nth-child(8), 
+.onovo-custom-gallery .col-md-6:nth-child(10) {
+	transform: scale(0.8);
+}
+
+.onovo-share .social-share > span {
+	display: none;
+}
+
+
+/*---
+  24. Team Single
+---*/
+
+.onovo-team-info ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.onovo-team-info ul li {
+	padding: 20px 0;
+	border-top: 1px solid #DBDBDB;
+	display: flex;
+}
+
+.onovo-team-info ul li .title {
+	width: 40%;
+	font-weight: 700;
+}
+
+.onovo-team-info ul li .onovo-text {
+	width: 60%;
+}
+
+.onovo-team-info ul li .onovo-text p {
+	margin: 0;
+}
+
+
+/*---
+  25. 404
+---*/
+
+.search-form label {
+	padding-bottom: 0;
+}
+
+.page-404 {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.page-404__num {
+	position: relative;
+	display: inline-block;
+	font-weight: 700;
+	font-size: 200px;
+	margin: 0;
+	color: #000;
+	line-height: 1;
+}
+
+.page-404__text {
+	margin-bottom: 30px;
+}
+
+.page-404 .search-form {
+	margin: 0 auto;
+}
+
+
+/*---
+  26. Blog Posts & Post
+---*/
+
+.onovo-post,
+.onovo-archive-post {
+	padding: 120px 0 0 0;
+}
+
+.onovo-post-pic {
+	margin-bottom: 60px;
+}
+
+.onovo-post-pic img {
+	width: 100%;
+	height: 680px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.onovo-post-wrapper {
+	padding: 0 7%;
+}
+
+.onovo-post-date {
+	margin: 0 0 30px 0;
+	color: #828282;
+}
+
+.onovo-post-date a {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.post-content p {
+	margin: 30px 0;
+}
+
+.post-content ul,
+.post-content ol {
+	margin: 30px 0;
+}
+
+.post-content ul li, 
+.post-content ol li {
+	margin: 10px 0;
+}
+
+.post-content ul ul,
+.post-content ol ol,
+.post-content ul ol,
+.post-content ol ul {
+	margin: 15px 0;
+}
+
+.post-content > *:first-child {
+	margin-top: 0;
+}
+
+.onovo-post-bottom {
+	margin: 30px 0 60px 0;
+	padding: 6px;
+	position: relative;
+	background: #000;
+}
+
+.onovo-post-bottom-content {
+	padding: 30px;
+	position: relative;
+	border: 1px solid #fff;
+}
+
+.onovo-post-categories, .onovo-post-tags, .onovo-post-socials {
+	margin: 0 0 10px 0;
+	display: block;
+	color: #BBBBBB;
+	font-weight: 500;
+	line-height: 56px;
+}
+
+.onovo-post-categories span, .onovo-post-tags span, .onovo-post-socials span {
+	margin-right: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.onovo-post-categories a {
+	color: #fff;
+}
+
+.onovo-post-socials {
+	margin-bottom: 0;
+}
+
+.social-share.onovo-post-socials.onovo-social-2 ul {
+	margin-left: -5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.social-share.onovo-post-socials.onovo-social-2 ul li a {
+	border: 1px solid #3E3E3E;
+}
+
+.onovo-post-comments {
+	padding: 0 7%;
+	margin-top: 60px;
+}
+
+.comment__title {
+	font-size: 30px;
+	line-height: 1.3;
+	font-weight: bold;
+	color: #000000;
+	margin-bottom: 30px;
+}
+
+.comment__title small {
+	margin-left: 8px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.comments {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.comment.comment-item {
+	list-style: none;
+}
+
+.comment.comment-item > .comment {
+    position: relative;
+    border: 1px solid #B2B2B2;
+    min-height: 180px;
+}
+
+.comment .comment-item+.comment-item {
+	margin-top: 20px;
+}
+
+.comment.comment-item ul.children > li {
+	margin-top: 20px;
+}
+
+.comment-item__photo {
+	margin: -1px;
+	display: flex;
+	padding: 25px;
+	border: 1px solid #B2B2B2;
+	height: calc(100% + 2px);
+	position: absolute;
+}
+
+.comment .comment-item__photo img {
+	float: none;
+	max-width: 128px;
+	width: 128px;
+	height: 128px;
+	border-radius: 0;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+
+.comment .comment-item__content {
+	padding-top: 25px;
+	padding-right: 25px;
+	margin-left: 205px;
+}
+
+.comment .comment-item__top {
+	margin-bottom: 15px;
+}
+
+.comment .comment-item__name {
+	font-size: 24px;
+	line-height: 26px;
+	font-weight: bold;
+	color: #000000;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.comment .comment-item__sent {
+	margin: 7px 0 0 10px;
+	font-size: 16px;
+	line-height: 1;
+	display: inline-block;
+	vertical-align: top;
+	color: #404040;
+}
+
+.comment .comment-item__reply a {
+	position: absolute;
+	right: -1px;
+	bottom: -1px;
+	padding: 9px 20px;
+	font-size: 16px;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	background: #000;
+	text-transform: uppercase;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.comment .comment-item__reply a:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -7px;
+	width: 15px;
+	height: 100%;
+	background: #000;
+	transform: skewX(-20deg);
+	transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+@media (min-width: 992px) {
+	.comment .comment-item__reply a:hover, 
+	.comment .comment-item__reply a:focus, 
+	.comment .comment-item__reply a:hover::before, 
+	.comment .comment-item__reply a:focus::before {
+		outline: none;
+		color: #000;
+		background-color: #D8FF36;
+	}
+}
+
+.comment .comment-item--replyed {
+	margin-left: 40px;
+}
+
+@media (min-width: 992px) {
+	.comment .comment-item--replyed {
+		margin-left: 60px;
+	}
+}
+
+.comment-respond {
+	max-width: 100%;
+	margin-top: 60px;
+}
+
+.comment-item .comment-respond {
+	padding: 40px 25px;
+	margin: -1px 0 0 0;
+	border: 1px solid #B2B2B2;
+}
+
+.comment-form .field {
+	margin-bottom: 30px;
+	padding: 0;
+}
+
+.comment-form__inputs-group {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (min-width: 992px) {
+	.comment-form__inputs-group {
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 0 -15px 30px;
+	}
+}
+
+.comment-form__inputs-group .comment-form__field-wrapper {
+	width: 100%;
+	margin: 0 0 15px;
+}
+
+@media (min-width: 992px) {
+	.comment-form__inputs-group .comment-form__field-wrapper {
+		width: calc(50% - 30px);
+		margin: 0 15px;
+	}
+}
+
+.comment-form__inputs-group .comment-form__field-wrapper label {
+	margin-bottom: 0;
+}
+
+.content-sidebar,
+.col-sidebar {
+	padding: 6px;
+	position: relative;
+	border: 1px solid #B2B2B2;
+}
+
+.content-sidebar {
+	padding: 0;
+}
+
+.content-sidebar .widget {
+	padding: 44px;
+	border-bottom: 1px solid #B2B2B2;
+}
+
+.content-sidebar .widget:last-child {
+	border-bottom: none;
+}
+
+.content-sidebar .widget .widget-title,
+.content-sidebar .widget h2 {
+	margin-bottom: 30px;
+	padding-bottom: 8px;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 22px;
+	font-weight: bold;
+	color: #000;
+	text-transform: uppercase;
+	border-bottom: 3px solid #000;
+}
+
+.content-sidebar ul,
+.content-sidebar ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.content-sidebar li,
+.wp-block-categories-list li,
+.wp-block-archives-list li {
+	margin-bottom: 15px;
+	position: relative;
+	line-height: 1.3;
+}
+
+.content-sidebar li a,
+.post-content .wp-block-archives li a {
+	position: relative;
+}
+
+.content-sidebar li > a::after,
+.post-content .wp-block-archives li > a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: #000;
+	transform: scaleX(0);
+	-webkit-transform: scaleX(0);
+	transition: transform .4s ease-out;
+	-webkit-transition: transform .4s ease-out;
+	transform-origin: bottom right;
+}
+
+.content-sidebar li a:hover::after,
+.post-content .wp-block-archives li a:hover::after {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.wp-block-latest-posts__post-title::after {
+	display: none;
+}
+
+.content-sidebar .screen-reader-text {
+	display: none;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li {
+	margin: 0 0 20px 0;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li:after {
+	content: '';
+	position: relative;
+	clear: both;
+	display: block;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li:last-child {
+	margin: 0;
+}
+
+.wp-block-latest-posts__featured-image {
+	margin-top: -3px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	float: left;
+	width: 100px;
+}
+
+.wp-block-latest-posts__featured-image img {
+	border-radius: 100% !important;
+	-webkit-border-radius: 100% !important;
+}
+
+.wp-block-latest-posts__post-title {
+	line-height: 1.3;
+	font-weight: 700;
+	display: block;
+}
+
+.wp-block-latest-posts__post-author {
+	font-size: 16px;
+	color: #555;
+}
+
+.wp-block-latest-posts__post-date {
+	margin: 10px 0;
+}
+
+.wp-block-latest-posts__post-excerpt {
+	font-size: 16px;
+	clear: both;
+}
+
+.wp-block-latest-posts__post-excerpt .onovo-btn {
+	display: none;
+}
+
+.post-content table {
+	width: 100%;
+	margin: 2rem 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+.post-content table td,
+.post-content table th {
+	padding: 10px 20px;
+	border: 1px solid #C4C4C4;
+	background: none;
+}
+
+.content-sidebar a {
+	text-decoration: none;
+}
+
+.content-sidebar a:hover {
+	text-decoration: none;
+}
+
+.content-sidebar ul ul {
+	margin-top: 0.6rem;
+}
+
+.content-sidebar ul ul li {
+	position: relative;
+	padding-left: 0.6rem;
+}
+
+.content-sidebar ul ul li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 12px;
+	width: 5px;
+	height: 1px;
+	background: #8d99a7;
+}
+
+.content-sidebar ul li cite {
+	padding: 0.5rem 0;
+	display: block;
+	font-size: 0.875rem;
+	color: #8d99a7;
+}
+
+.wp-block-tag-cloud {
+	margin: 5px 0 0 0;
+}
+
+.tags-links a,
+.col-sidebar .tagcloud a,
+.wp-block-tag-cloud a,
+.sidebar__tag-item,
+.onovo-post-tags a {
+	margin-right: 5px;
+	margin-bottom: 10px;
+	padding: 14px 25px;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	background: #D8FF36;
+	border: none;
+	font-size: 15px!important;
+	line-height: 1.7;
+	color: #000;
+	font-weight: 700;
+	transition: all 0.3s ease;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+}
+
+.content-sidebar ul.menu {
+	position: relative;
+	height: auto;
+	transform: none;
+	opacity: 1;
+	display: block;
+	background: none;
+}
+
+.screen-reader-text {
+	display: none;
+}
+
+.wp-caption-text,
+.wp-block-image figcaption,
+.wp-block-video figcaption,
+.wp-block-embed figcaption,
+.blocks-gallery-caption {
+	max-width: 100%;
+	margin: 0;
+	padding: 5px 10px 0 10px;
+	text-align: center;
+	font-size: 0.9em;
+	font-style: italic;
+	opacity: 0.7;
+}
+
+.wp-block-button {
+	margin-bottom: 20px;
+}
+
+.post-content .gallery .gallery-item {
+	margin: 0;
+	padding: 15px;
+	display: inline-block;
+	vertical-align: top;
+	width: 33.333%;
+	text-align: center;
+}
+
+.post-content .gallery.gallery-columns-1 .gallery-item {
+	width: 100%;
+}
+
+.post-content .gallery.gallery-columns-2 .gallery-item {
+	width: 50%;
+}
+
+.post-content .gallery.gallery-columns-3 .gallery-item {
+	width: 33.333%;
+}
+
+.post-content .gallery.gallery-columns-4 .gallery-item {
+	width: 25%;
+}
+
+.post-content .gallery.gallery-columns-5 .gallery-item {
+	width: 20%;
+}
+
+.content-sidebar .search-form,
+.search-form,
+.wp-block-search,
+.widget_product_search,
+.wp-block-search .wp-block-search__button {
+	position: relative;
+	max-width: 300px;
+}
+
+.content-sidebar .search-form input[type="search"],
+.search-form input[type="search"],
+.wp-block-search input[type="search"],
+.widget_product_search input[type="search"],
+.wp-block-search input[type="search"] {
+	background: #fff;
+}
+
+.content-sidebar .search-form input[type="submit"],
+.search-form input[type="submit"],
+.wp-block-search input[type="submit"],
+.widget_product_search input[type="submit"],
+.wp-block-search .wp-block-search__button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 100%;
+	z-index: 2;
+	opacity: 1;
+	font-size: 0;
+	cursor: pointer;
+	border: none;
+	background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3e%3cpath d='M62.9 56.5l-17-13.8c7.2-9.9 6.1-23.7-2.7-32.5C38.4 5.3 32 2.7 25.3 2.7s-13 2.6-17.8 7.4S0 21.3 0 28s2.7 13.1 7.5 17.9c5.1 5.1 11.5 7.5 17.9 7.5 6.1 0 12.3-2.1 17.1-6.7l17.3 14.1c.5.5 1.1.5 1.6.5.8 0 1.6-.3 2.1-1.1.8-1 .8-2.6-.6-3.7zM25.3 48c-5.3 0-10.4-2.1-14.1-5.9-3.7-3.7-5.9-8.8-5.9-14.1s2.1-10.4 5.9-14.1S20 8 25.3 8s10.4 2.1 14.1 5.9 5.9 8.8 5.9 14.1-2.1 10.4-5.9 14.1c-3.7 3.8-8.7 5.9-14.1 5.9z'/%3e%3c/svg%3e ") no-repeat center center;
+	background-size: 18px;
+}
+
+.wp-block-search {
+	position: relative;
+	max-width: 100%;
+}
+
+.content-sidebar .search-form label,
+.widget_product_search label {
+	display: block;
+}
+
+.wp-block-search .wp-block-search__label,
+.content-sidebar .search-form .screen-reader-text {
+	display: none;
+}
+
+.post-content .wp-block-archives,
+.comment-item__text .wp-block-archives {
+	margin: 2rem 0;
+}
+
+.wp-block-latest-comments__comment {
+	line-height: 1.3;
+}
+
+.wp-block-latest-comments__comment a {
+	font-weight: 700;
+}
+
+.wp-block-latest-comments__comment-excerpt {
+	margin-bottom: 1.9rem;
+}
+
+.wp-block-latest-comments__comment-excerpt p {
+	margin-top: 0!important;
+	font-size: 1.05rem;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.archive-item .title {
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	max-width: 100%;
+}
+
+.post-content::after {
+	clear: both;
+	position: relative;
+	display: block;
+	content: '';
+}
+
+@media (max-width: 1024px) {
+	.content-sidebar {
+		padding-left: 0;
+	}
+	.col-sidebar {
+		margin-top: 3rem;
+	}
+	.onovo-post-wrapper,
+	.onovo-post-comments {
+		padding: 0;
+	}
+	blockquote {
+		padding: 130px 30px 30px 30px;
+		font-size: 18px;
+		line-height: 1.7;
+	}
+	blockquote p {
+		font-size: 18px;
+		line-height: 1.7;
+	}
+	blockquote::before {
+		top: 30px;
+		left: 30px;
+	}
+	.onovo-post-pic img {
+		height: 480px;
+	}
+	.onovo-post,
+	.onovo-archive-post {
+		padding: 80px 0 0 0;
+	}
+	.onovo-contact-info {
+		margin-top: 40px;
+	}
+	.onovo-team-detail > .row {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	.onovo-team-detail .team-detail-img {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 767px) {
+	.onovo-breadcrums {
+		margin-top: 30px;
+	}
+	.onovo-post-pic img {
+		height: 280px;
+	}
+	.onovo-post-bottom-content {
+		padding: 24px;
+	}
+	.onovo-post-categories span, .onovo-post-tags span, .onovo-post-socials span {
+		margin-right: 0;
+		margin-bottom: 5px;
+		display: block;
+	}
+	.onovo-post-categories, .onovo-post-tags, .onovo-post-socials {
+		line-height: 1.7;
+	}
+	.onovo-post-tags:last-child {
+		margin-bottom: -5px;
+	}
+	.comment-item__photo {
+		margin: 0;
+		padding: 20px;
+		border: none;
+	}
+	.comment .comment-item__photo img {
+		max-width: 64px;
+		width: 64px;
+		height: 64px;
+	}
+	.comment .comment-item__content {
+		padding-top: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		margin-left: 100px;
+	}
+	.comment .comment-item__name {
+		font-size: 18px;
+		display: block;
+	}
+	.comment .comment-item__sent {
+		margin: 5px 0 0 0;
+	}
+	.comment__title small {
+		margin-left: 0;
+		font-size: 16px;
+	}
+	.onovo-social-2 ul li a {
+		width: 48px;
+		height: 48px;
+	}
+	.onovo-custom-gallery .col-md-6:nth-child(1), 
+	.onovo-custom-gallery .col-md-6:nth-child(4), 
+	.onovo-custom-gallery .col-md-6:nth-child(5), 
+	.onovo-custom-gallery .col-md-6:nth-child(8), 
+	.onovo-custom-gallery .col-md-6:nth-child(10) {
+		transform: none;
+	}
+	.onovo-page-navigation {
+		margin: 40px 0 0 0;
+	}
+	.onovo-post,
+	.onovo-archive-post {
+		padding: 70px 0 0 0;
+	}
+	.content-sidebar .widget {
+		padding: 30px;
+	}
+	.tags-links a, .col-sidebar .tagcloud a, .wp-block-tag-cloud a, .sidebar__tag-item, .onovo-post-tags a {
+		padding: 10px 15px;
+		font-size: 14px!important;
+	}
+	.pager span, .pager a, .page-links .post-page-numbers {
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+	}
+	.onovo-blog-item.archive-item {
+		margin-bottom: 50px;
+		padding-bottom: 30px;
+	}
+	.onovo-blog-item.archive-item .title {
+		font-size: 26px;
+	}
+	.post-content table td, .post-content table th {
+		padding: 10px;
+	}
+	.post-content tbody, .post-content td, .post-content tfoot, .post-content th, .post-content thead, .post-content tr {
+		display: block;
+		margin: -1px;
+	}
+	.post-content th {
+		display: none;
+	}
+	.comment__title {
+		margin-bottom: 15px;
+	}
+	.post-content .gallery.gallery-columns-2 .gallery-item,
+	.post-content .gallery.gallery-columns-3 .gallery-item,
+	.post-content .gallery.gallery-columns-4 .gallery-item {
+		width: 50%;
+	}
+	.onovo-form-box {
+		padding: 40px;
+	}
+	.onovo-team-detail > .row > div {
+		padding: 0;
+	}
+}
+
+/* ---
+	Skin Options
+---*/
+@import "skin-options";

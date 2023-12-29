@@ -5,6 +5,7 @@ use App\Http\Controllers\ChecklistProgramController;
 use App\Http\Controllers\DailyChecklistController;
 use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\JumahFinancialController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MonthlyChecklistController;
 use App\Http\Controllers\MonthlyFinancianReportController;
 use App\Http\Controllers\MosqueAdministratorProfileController;
@@ -33,10 +34,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::get('/masjid/{id}', [MosqueController::class, 'show'])->name('mosque.show');
 Route::get('/masjid/active/{id}', [MosqueController::class, 'activate'])->name('mosque.activate');
+Route::post('/mosque/{id}/accept', [MosqueController::class, 'accept'])->name('mosque.accept');
+Route::delete('/mosque/{id}/destroy', [MosqueController::class, 'destroy'])->name('mosque.destroy');
+Route::post('/mosque/{id}/disable', [MosqueController::class, 'disable'])->name('mosque.disable');
 
 
 Route::get('/test', [TestingController::class, 'index'])->name('test');

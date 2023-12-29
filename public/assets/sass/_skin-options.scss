@@ -1,0 +1,404 @@
+@import "settings";
+
+/* bg color */
+body,
+.wrapper,
+.onovo-overlay {
+    background-color: $theme_bg_color;
+}
+.onovo-number .num,
+.onovo-ticker-slider .title, 
+.onovo-ticker-slider .title a,
+.onovo-counter .num, 
+.onovo-counter .num-after,
+.onovo-history-item .subtitle,
+.onovo-team-item .num {
+    color: $theme_bg_color;
+}
+
+/*headings*/
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, 
+h1.onovo-title-1,
+h2.onovo-title-1,
+h3.onovo-title-1,
+h4.onovo-title-1,
+h5.onovo-title-1,
+h6.onovo-title-1,
+.onovo-title-1,
+h1.onovo-title-2,
+h2.onovo-title-2,
+h3.onovo-title-2,
+h4.onovo-title-2,
+h5.onovo-title-2,
+h6.onovo-title-2,
+.onovo-title-2,
+h1.onovo-title-3,
+h2.onovo-title-3,
+h3.onovo-title-3,
+h4.onovo-title-3,
+h5.onovo-title-3,
+h6.onovo-title-3,
+.onovo-title-3 {
+    color: $heading_color;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, 
+h1.onovo-title-1,
+h2.onovo-title-1,
+h3.onovo-title-1,
+h4.onovo-title-1,
+h5.onovo-title-1,
+h6.onovo-title-1,
+.onovo-title-1,
+h1.onovo-title-2,
+h2.onovo-title-2,
+h3.onovo-title-2,
+h4.onovo-title-2,
+h5.onovo-title-2,
+h6.onovo-title-2,
+.onovo-title-2,
+h1.onovo-title-3,
+h2.onovo-title-3,
+h3.onovo-title-3,
+h4.onovo-title-3,
+h5.onovo-title-3,
+h6.onovo-title-3,
+.onovo-title-3 {
+    font-family: $heading_font_family;
+}
+@media (min-width: 993px) {
+    .h1, h1, h1.onovo-title-1, .onovo-title-1 {
+        font-size: $heading_font_size;
+    }
+}
+.h1, h1, h1.onovo-title-1, .onovo-title-1 {
+    font-weight: $heading_font_weight;
+}
+@media (min-width: 993px) {
+    .h1, h1, h1.onovo-title-1, .onovo-title-1 {
+        letter-spacing: $heading_letter_spacing;
+    }
+}
+.h1, h1, h1.onovo-title-1, .onovo-title-1 {
+    text-transform: $heading_font_transform;
+}
+@media (min-width: 993px) {
+    .h2, h2, h2.onovo-title-2, .onovo-title-2 {
+        font-size: $heading2_font_size;
+    }
+}
+.h2, h2, h2.onovo-title-2, .onovo-title-2 {
+    font-weight: $heading2_font_weight;
+}
+@media (min-width: 993px) {
+    .h2, h2, h2.onovo-title-2, .onovo-title-2 {
+        letter-spacing: $heading2_letter_spacing;
+    }
+}
+.h2, h2, h2.onovo-title-2, .onovo-title-2 {
+    text-transform: $heading2_font_transform;
+}
+@media (min-width: 993px) {
+    .h3, h3 {
+        font-size: $heading3_font_size;
+    }
+}
+.h3, h3 {
+    font-weight: $heading3_font_weight;
+}
+@media (min-width: 993px) {
+    .h3, h3 {
+        letter-spacing: $heading3_letter_spacing;
+    }
+}
+.h3, h3 {
+    text-transform: $heading3_font_transform;
+}
+@media (min-width: 993px) {
+    .h4, h4 {
+        font-size: $heading4_font_size;
+    }
+}
+.h4, h4 {
+    font-weight: $heading4_font_weight;
+}
+@media (min-width: 993px) {
+    .h4, h4 {
+        letter-spacing: $heading4_letter_spacing;
+    }
+}
+.h4, h4 {
+    text-transform: $heading4_font_transform;
+}
+@media (min-width: 993px) {
+    .h5, h5 {
+        font-size: $heading5_font_size;
+    }
+}
+.h5, h5 {
+    font-weight: $heading5_font_weight;
+}
+@media (min-width: 993px) {
+    .h5, h5 {
+        letter-spacing: $heading5_letter_spacing;
+    }
+}
+.h5, h5 {
+    text-transform: $heading5_font_transform;
+}
+@media (min-width: 993px) {
+    .h6, h6 {
+        font-size: $heading6_font_size;
+    }
+}
+.h6, h6 {
+    font-weight: $heading6_font_weight;
+}
+@media (min-width: 993px) {
+    .h6, h6 {
+        letter-spacing: $heading6_letter_spacing;
+    }
+}
+.h6, h6 {
+    text-transform: $heading6_font_transform;
+}
+
+/* paragraphs */
+html,
+body {
+    color: $text_color;
+}
+html,
+body,
+input,
+textarea,
+button,
+label,
+legend {
+    font-family: $text_font_family;
+}
+html,
+body,
+input,
+textarea,
+button,
+label,
+legend {
+    font-size: $text_font_size;
+}
+html,
+body,
+input,
+textarea,
+button,
+label,
+legend {
+    font-weight: $text_font_weight;
+}
+html,
+body,
+label,
+legend {
+    line-height: $text_line_height;
+}
+html,
+body,
+input,
+textarea,
+button,
+label,
+legend {
+    letter-spacing: $text_letter_spacing;
+}
+
+/* intro */
+.onovo-intro .onovo-title-1,
+.onovo-intro.intro--black .onovo-title-1,
+.onovo-intro .onovo-title-1.onovo-text-white,
+.onovo-intro.intro--black .onovo-title-1.onovo-text-white,
+.onovo-intro .onovo-title-1.onovo-text-black,
+.onovo-intro.intro--black .onovo-title-1.onovo-text-black {
+    color: $intro_color;
+}
+.onovo-intro .onovo-subtitle-2,
+.onovo-intro.intro--black .onovo-subtitle-2,
+.onovo-intro .onovo-subtitle-2.onovo-text-white,
+.onovo-intro.intro--black .onovo-subtitle-2.onovo-text-white,
+.onovo-intro .onovo-subtitle-2.onovo-text-black,
+.onovo-intro.intro--black .onovo-subtitle-2.onovo-text-black {
+    color: $intro_subtitle_color;
+}
+.onovo-intro .onovo-breadcrums ul li, 
+.onovo-intro .onovo-breadcrums ul li a
+.onovo-intro.intro--black .onovo-breadcrums ul li, 
+.onovo-intro.intro--black .onovo-breadcrums ul li a {
+    color: $intro_bread_color;
+}
+
+/* theme color */
+.block-quote::before,
+blockquote::before,
+.block-quote::before,
+.wp-block-quote::before,
+.wp-block-quote.is-large::before,
+.wp-block-quote.is-style-large::before,
+.wp-block-pullquote::before,
+.onovo-hover-1::before,
+.onovo-hover-2::before,
+.onovo-hover-3::before,
+.onovo-hover-btn > .arrow::after,
+.onovo-hover-btn > i::after,
+.onovo-hover-btn::after,
+a.onovo-lnk.lnk--active::after,
+span.onovo-lnk.lnk--active::after,
+.onovo-lnk.lnk--active a::after,
+.onovo-btn.btn--border.btn--color::after,
+.onovo-btn.btn--active::before,
+.onovo-btn .arrow::before,
+.onovo-head-btn .arrow::before,
+.onovo-btn.btn--border .arrow::after,
+.onovo-btn.btn--border i::after,
+.onovo-social-2 ul li a::before,
+.onovo-social-active ul li a::before,
+.onovo-stars,
+.pager a:hover,
+.page-links .post-page-numbers:hover,
+.pager .current,
+.page-links .current,
+.preloader::before,
+.preloader__double-bounce,
+.onovo-menu-overlay,
+.onovo-service-item .image,
+.onovo-bubble .bubble-1,
+.onovo-bubble .bubble-2,
+.onovo-bubble .bubble-3,
+.onovo-services-showcase .items .img-circle,
+.onovo-filter.filter--default .onovo-filter-nav-active,
+.onovo-showcase .img-circle,
+.onovo-video .play::before,
+.onovo-cta-social .cta-img-circle,
+.onovo-blog-item .desc .date,
+.wp-block-latest-posts__post-date,
+.onovo-post-date .date,
+.onovo-blog-slide-item .desc .date,
+.onovo-pricing-item:hover a.onovo-btn.btn--color::after,
+.onovo-pricing-item:hover .onovo-btn.btn--color::after,
+.onovo-faq-item .onovo-collapse-btn::after,
+.tags-links a,
+.col-sidebar .tagcloud a,
+.wp-block-tag-cloud a,
+.sidebar__tag-item,
+.onovo-post-tags a {
+    background-color: $theme_color;
+}
+.onovo-team-item:hover .num,
+.onovo-cta-info .email,
+.onovo-cta-info .email a,
+.wp-block-calendar a {
+    color: $theme_color;
+}
+.onovo-social-2 ul li a:hover,
+.onovo-social-active ul li a:hover,
+.pager a:hover,
+.page-links .post-page-numbers:hover {
+    border-color: $theme_color;
+}
+@media (max-width: 1024px) {
+    .onovo-filter.filter--default ul li button.item--active,
+    .comment .comment-item__reply a:hover, 
+    .comment .comment-item__reply a:focus, 
+    .comment .comment-item__reply a:hover::before, 
+    .comment .comment-item__reply a:focus::before {
+        background: $theme_color;
+    }
+}
+
+/* buttons */
+.onovo-hover-btn::before,
+.onovo-btn .arrow::after,
+button[type="submit"], 
+input[type="submit"] {
+    background-color: $btn_color;
+}
+.onovo-hover-btn::after,
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.onovo-btn.btn--border.btn--color::after,
+.onovo-btn.btn--active::before,
+.onovo-btn .arrow::before,
+.onovo-head-btn .arrow::before,
+.onovo-btn.btn--border .arrow::after,
+.onovo-btn.btn--border i::after,
+.onovo-pricing-item:hover a.onovo-btn.btn--color::after,
+.onovo-pricing-item:hover .onovo-btn.btn--color::after {
+    background-color: $btn_hover_color;
+}
+button[type="submit"].onovo-btn:hover {
+    background-color: transparent;
+}
+a.onovo-btn,
+.onovo-btn,
+.onovo-head-btn,
+button[type="submit"],
+input[type="submit"],
+body div.wpforms-container .wpforms-form .onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn[type="submit"] {
+    font-family: $btn_font_family;
+}
+a.onovo-btn,
+.onovo-btn,
+button[type="submit"],
+input[type="submit"],
+body div.wpforms-container .wpforms-form .onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn[type="submit"] {
+    font-size: $btn_font_size;
+}
+a.onovo-btn,
+.onovo-btn,
+button[type="submit"],
+input[type="submit"],
+body div.wpforms-container .wpforms-form .onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn[type="submit"] {
+    font-weight: $btn_font_weight;
+}
+a.onovo-btn,
+.onovo-btn,
+button[type="submit"],
+input[type="submit"],
+body div.wpforms-container .wpforms-form .onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn[type="submit"] {
+    letter-spacing: $btn_letter_spacing;
+}
+a.onovo-btn,
+.onovo-btn,
+button[type="submit"],
+input[type="submit"],
+body div.wpforms-container .wpforms-form .onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn[type="submit"] {
+    text-transform: $btn_font_transform;
+}
+a.onovo-btn,
+.onovo-btn,
+button[type="submit"],
+input[type="submit"],
+body div.wpforms-container .wpforms-form .onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn,
+body div.wpforms-container .wpforms-form button.onovo-btn[type="submit"],
+.onovo-hover-btn::before {
+    border-radius: $btn_border_radius;
+}
+
+/* Preloader BG Color */
+.preloader::after {
+    background-color: $preloader_bg_color;
+}
+
+/* Preloader Color */
+.preloader__double-bounce {
+    background-color: $preloader_color;
+}
+/* --options end */

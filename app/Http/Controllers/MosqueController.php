@@ -82,10 +82,33 @@ class MosqueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Mosque $mosque)
+    public function destroy($id)
     {
-        //
+        $mosque = User::where('id', $id)->first();
+
+        if ($mosque) {
+            $mosque->delete();
+            // Lakukan tindakan setelah penghapusan berhasil
+        } else {
+            // Tindakan yang harus diambil jika item tidak ditemukan
+        }
     }
+
+    public function accept($id)
+    {
+
+        $mosque = User::find($id);
+        if ($mosque) {
+
+            $mosque->verif = !$mosque->verif;
+            $mosque->save();
+            return redirect()->route('home');
+        } else {
+            // Handle the case where the user is not found
+            // ...
+        }
+    }
+
     public function activate(Request $request, $id)
     {
         $user = User::findOrFail($id);

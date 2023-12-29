@@ -248,10 +248,27 @@
                                     </form>
                                 </div>
                             </div>
-
                             {{-- end profile items  --}}
+                            @role('admin')
+                                <div class="row mx-2">
+
+
+                                    @if ($mosque->verif)
+                                        <button class="btn btn-warning text-white col-12 poppins disable-btn"
+                                            onclick="confirmDisable()">NonAktifkan</button>
+                                    @else
+                                        <button class="btn btn-success col-12 poppins accept-btn"
+                                            onclick="confirmAccept()">Terima</button>
+                                    @endif
+                                </div>
+                            @else
+                                <br>
+                            @endrole
+
                         </div>
+
                     </div>
+
                     {{-- end item pertama  --}}
                 </div>
             </div>
@@ -263,3 +280,80 @@
         <!-- main-panel ends -->
     </div>
 @endsection
+
+@push('addon-script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function confirmDelete() {
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin menghapus?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Kirim formulir dengan metode POST
+                    sendForm("{{ route('mosque.destroy', ['id' => $mosque->id]) }}", 'DELETE');
+                }
+            });
+        }
+
+        function confirmDisable() {
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin menonaktifkan?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Nonaktifkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Kirim formulir dengan metode POST
+                    sendForm("{{ route('mosque.accept', ['id' => $mosque->id]) }}", 'POST');
+                }
+            });
+        }
+
+        function confirmAccept() {
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin menerima?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Terima!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Kirim formulir dengan metode POST
+                    sendForm("{{ route('mosque.accept', ['id' => $mosque->id]) }}", 'POST');
+                }
+            });
+        }
+
+        // Fungsi untuk membuat dan mengirim formulir dengan metode POST
+        function sendForm(action, method) {
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = action;
+
+            var csrfField = document.createElement('input');
+            csrfField.type = 'hidden';
+            csrfField.name = '_token';
+            csrfField.value = "{{ csrf_token() }}";
+
+            var methodField = document.createElement('input');
+            methodField.type = 'hidden';
+            methodField.name = '_method';
+            methodField.value = method;
+
+            form.appendChild(csrfField);
+            form.appendChild(methodField);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+@endpush

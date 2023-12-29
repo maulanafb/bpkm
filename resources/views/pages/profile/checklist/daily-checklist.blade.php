@@ -73,14 +73,14 @@
                             <div class="card-body">
 
                                 <div class="row mb-4 align-items-center ">
-                                    <div class="col-md-6 col-sm-12 d-flex align-items-center ">
+                                    <div class="col-md-6 col-sm-12 d-flex align-items-center col-12">
                                         <h4 class="card-title text-center mb-0">Checklist Program Harian</h4>
                                     </div>
-                                    <div class="col-md-6 col-sm-12 d-flex justify-content-end align-items-center">
-                                        <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
+                                    <div class="col-md-6 col-sm-12 col-12 d-flex justify-content-end align-items-center">
+                                        {{-- <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
                                             data-target="#pdfExportModal">
                                             Export <i class="fas fa-file-pdf"></i>
-                                        </button>
+                                        </button> --}}
                                         <button class="btn btn-primary mx-2 poppins" data-toggle="modal"
                                             data-target="#tambahModal">
                                             Tambah
@@ -98,8 +98,6 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary">Filter</button>
                                     </div>
-
-
                                 </form>
 
                                 <hr>

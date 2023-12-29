@@ -88,10 +88,10 @@
                                     </div>
                                     <div class="col-md-6 col-sm-12 d-flex justify-content-end ">
                                         <div class="row align-items-center">
-                                            <button class="btn btn-danger mx-2" data-toggle="modal"
+                                            {{-- <button class="btn btn-danger mx-2" data-toggle="modal"
                                                 data-target="#pdfExportModal">
                                                 Export <i class="fas fa-file-pdf"></i>
-                                            </button>
+                                            </button> --}}
                                             <button class="btn btn-primary mx-2" data-toggle="modal"
                                                 data-target="#tambahModal">
                                                 Tambah

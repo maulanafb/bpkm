@@ -65,11 +65,9 @@
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-md-6 col-sm-12">
                                         <div class="row align-items-center">
-
                                             <form action="{{ route('monthly-report.index') }}" method="GET"
                                                 class="d-flex align-items-center">
-
-                                                <div class="mx-auto row d-flex align-items-center">
+                                                <div class="mx-auto row align-items-center ">
                                                     <div class="mr-2">
                                                         <input required type="date" name="start_date"
                                                             class="form-control">
@@ -79,19 +77,16 @@
                                                     </div>
                                                     <button type="submit" class="btn btn-primary">Filter</button>
                                                 </div>
-
-
                                             </form>
 
                                         </div>
-
                                     </div>
                                     <div class="col-md-6 col-sm-12 d-flex justify-content-end ">
                                         <div class="row align-items-center">
-                                            <button class="btn btn-danger mx-2" data-toggle="modal"
+                                            {{-- <button class="btn btn-danger mx-2" data-toggle="modal"
                                                 data-target="#pdfExportModal">
                                                 Export <i class="fas fa-file-pdf"></i>
-                                            </button>
+                                            </button> --}}
                                             <button class="btn btn-primary mx-2" data-toggle="modal"
                                                 data-target="#tambahModal">
                                                 Tambah
