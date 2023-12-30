@@ -6,6 +6,7 @@ use App\Models\JumahFinancialreport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class JumahFinancialController extends Controller
 {
@@ -16,6 +17,7 @@ class JumahFinancialController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index(Request $request)
     {
         // Ambil data keuangan bulanan
@@ -32,12 +34,24 @@ class JumahFinancialController extends Controller
         }
 
         $jumahReports = $reports->get();
+        $totalIncome = $jumahReports->sum('income');
+
+        $monthlySummaries = $reports->select(
+            DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
+            DB::raw('SUM(income) as total_income')
+        )
+            ->groupBy('month')
+            ->get();
 
         // $jumahReports = Auth::user()->monthly_report;
         // dd($reports->income);
+        $availableYears = JumahFinancialreport::select(DB::raw('YEAR(date) as year'))
+            ->groupBy('year')
+            ->orderBy('year', 'desc')
+            ->pluck('year');
         $mosque = Auth::user();
         $auth = Auth::user()->id;
-        return view('pages.finance.jumah-report', compact(['jumahReports', 'mosque', 'auth']));
+        return view('pages.finance.jumah-report', compact(['availableYears', 'totalIncome', 'monthlySummaries', 'jumahReports', 'mosque', 'auth']));
     }
     public function show(Request $request, $id)
     {

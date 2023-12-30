@@ -71,7 +71,7 @@
                                         <div class="col-md-5 col-12">
                                             <img class="img-thumbnail img-fluid rounded"
                                                 src="{{ Storage::url($user->photo_path) }}" alt=""
-                                                style="max-width: 500px; max-height: 500px;">
+                                                style=" max-height: 400px;">
                                         </div>
                                         <div class="col-md-7 p-2 col-12">
                                             <div class="form-group mt-3">

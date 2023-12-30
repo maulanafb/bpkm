@@ -104,7 +104,7 @@
                                     Add class <code>.table</code>
                                 </p> --}}
                                 <div class="table-responsive">
-                                    <table class="table" id="report">
+                                    <table class="table poppins" id="report">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -146,6 +146,62 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row h-75">
+                    <div class="col-md-12 grid-margin ">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <div class="row align-center">
+                                        <div class="col-6">
+                                            <h4 class="card-title text-start pt-3">Grafik Pemasukan Tiap Bulan</h4>
+                                        </div>
+                                        <div class="col-6 align-center d-flex pt-3 justify-content-end ">
+                                            <div class="form-group ms-auto ">
+                                                <div
+                                                    class="input-group input-group-sm mb-3 poppins rounded border p-2 border-primary">
+                                                    <select class="form-select" id="selectYear" aria-label="Pilih Tahun"
+                                                        onchange="changeYear()">
+                                                        @foreach ($availableYears as $year)
+                                                            <option value="{{ $year }}">{{ $year }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <canvas id="myChart" class="poppins" width="400" height="200"></canvas>
+                                    </div>
+                                    <hr>
+                                    <div class="mt-4">
+                                        <h4 class="card-title poppins" id="totalIncomeTitle">Total Pemasukan Tahun
+                                            <span id="tahunDipilih"></span>
+                                        </h4>
+                                        <hr>
+                                        <h5 class="poppins text-bold">
+                                            <u class="text">Total Pemasukan</u> :
+                                            <span class="font-weight-bold" id="totalIncomeAmount">Rp
+                                                {{ number_format($totalIncome, 0, ',', '.') }}</span>
+                                        </h5>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h4 class="card-title poppins ">Total Pemasukan Sepanjang Masa</h4>
+                                        <hr>
+                                        <h5 class="poppins  text-bold"><u class="text">Total Pemasukan</u> :
+                                            <span class="font-weight-bold">Rp
+                                                {{ number_format($totalIncome, 0, ',', '.') }}</span>
+                                        </h5>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             <!-- Modal "Tambah" -->
@@ -160,7 +216,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form enctype="multipart/form-data" action="{{ route('jumah-report.store') }}" method="POST">
+                            <form enctype="multipart/form-data" action="{{ route('jumah-report.store') }}"
+                                method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" name="user_id" value="1">
@@ -230,12 +287,143 @@
     </div>
 @endsection
 @push('addon-script')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Contoh referensi Numeral.js dari internet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script>
+        // Variabel untuk menyimpan instance Chart
+        var myChart;
+
+        // Inisialisasi data bulanan dari server
+        var monthlySummaries = {!! json_encode($monthlySummaries) !!};
+
+        function changeYear() {
+            var selectedYear = document.getElementById('selectYear').value;
+
+            // Filter data yang sesuai dengan tahun yang dipilih
+            var filteredData = {
+                labels: [],
+                data: []
+            };
+
+            for (var i = 0; i < monthlySummaries.length; i++) {
+                var year = monthlySummaries[i].month.split('-')[0];
+                if (year == selectedYear) {
+                    filteredData.labels.push(monthlySummaries[i].month);
+                    filteredData.data.push(monthlySummaries[i].total_income);
+                }
+            }
+
+            // Hancurkan grafik sebelumnya (jika ada)
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            // Panggil fungsi untuk memperbarui chart atau tabel dengan data baru
+            updateChart(filteredData);
+
+            // Perbarui total pemasukan tahun
+            updateTotalIncomeTitle(selectedYear);
+            updateTotalIncomeAmount(formatNumber(calculateTotalIncome(filteredData.data)));
+
+            // Perbarui tahun yang dipilih pada elemen HTML
+            document.getElementById('tahunDipilih').innerText = selectedYear;
+        }
+
+        function calculateTotalIncome(data) {
+            // Hilangkan tanda koma dan "Rp" dari setiap elemen data
+            const cleanedData = data.map(amount => parseFloat(amount.replace(/[^\d.-]/g, '')));
+
+            // Hitung total pemasukan
+            const totalIncome = cleanedData.reduce((total, amount) => total + amount, 0);
+
+            return totalIncome;
+        }
+
+        function updateChart(data) {
+            // Perbarui chart Anda dengan data baru
+            // Misalnya, jika Anda menggunakan Chart.js:
+            var ctx = document.getElementById('myChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Total Pemasukan Tiap Bulan',
+                        data: data.data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Panggil fungsi untuk menginisialisasi chart pada awalnya
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dapatkan nilai tahun terpilih pada input
+            var selectedYear = document.getElementById('selectYear').value;
+
+            // Filter data bulanan berdasarkan tahun terpilih
+            var initialData = monthlySummaries.filter(item => item.month.startsWith(selectedYear));
+            updateChart({
+                labels: initialData.map(item => item.month),
+                data: initialData.map(item => item.total_income)
+            });
+
+            changeYear();
+        });
+
+        function updateTotalIncomeTitle(year) {
+            document.getElementById('totalIncomeTitle').innerText = 'Total Pemasukan Tahun ' + year;
+        }
+
+        function updateTotalIncomeAmount(amount) {
+            document.getElementById('totalIncomeAmount').innerText = 'Rp ' + amount;
+        }
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+
+            var labels = {!! json_encode($monthlySummaries->pluck('month')) !!};
+            var data = {!! json_encode($monthlySummaries->pluck('total_income')) !!};
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Total Pemasukan Tiap Bulan',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('.btn-delete').click(function() {
@@ -311,7 +499,13 @@
     <script>
         $(document).ready(function() {
             // Inisiasi tabel dengan DataTables
-            var table = $('#report').DataTable();
+            var table = $('#report').DataTable({
+                "pageLength": 100, // Set the default number of rows per page to 100
+                "lengthMenu": [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ] // Provide options for page length, including "All"
+            });
         });
     </script>
     <script>

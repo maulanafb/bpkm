@@ -87,3 +87,14 @@
 
     </ul>
 </nav>
+<script>
+    // Mendapatkan elemen tombol dan elemen navigasi
+    var toggleButton = document.getElementById('toggle-sidebar-mobile');
+    var sidebar = document.getElementById('sidebar');
+
+    // Menambahkan event listener untuk meng-handle klik pada tombol
+    toggleButton.addEventListener('click', function() {
+        // Toggle kelas 'active' pada elemen navigasi
+        sidebar.classList.toggle('active');
+    });
+</script>

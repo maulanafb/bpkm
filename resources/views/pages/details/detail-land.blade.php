@@ -220,8 +220,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <p class="card-title">Status Tanah dan Bangunan</p>
-                                <form class="forms-sample" method="POST"
-                                    action="{{ route('mosque-land-update', $auth) }}" enctype="multipart/form-data">
+                                <form class="forms-sample" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
 
@@ -232,7 +231,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="land_status">Status tanah masjid</label>
-                                                <select class="form-control text-center" id="land_status"
+                                                <select disabled class="form-control text-center" id="land_status"
                                                     name="land_status">
                                                     <option value="{{ $user->land_status }}">
                                                         {{ $statusMapping[$user->land_status] }}</option>
@@ -247,7 +246,7 @@
 
                                             <div class="form-group">
                                                 <label for="land_name">Status tanah atas nama siapa</label>
-                                                <input type="text" name="land_name" class="form-control"
+                                                <input disabled type="text" name="land_name" class="form-control"
                                                     id="land_name" placeholder="Status tanah atas nama siapa"
                                                     value="{{ $user->land_name }}">
                                             </div>
@@ -256,15 +255,15 @@
                                             <div class="form-group">
                                                 <label for="total_land_area">Luas tanah dalam Meter persegi contoh : 1000
                                                 </label>
-                                                <input type="number" name="total_land_area" class="form-control"
-                                                    id="total_land_area"
+                                                <input disabled type="number" name="total_land_area"
+                                                    class="form-control" id="total_land_area"
                                                     placeholder="Luas tanah dalam Meter persegi contoh : 1000"
                                                     value="{{ $user->total_land_area }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Luas bangunan Masjid dalam Meter persegi contoh :
                                                     1000</label>
-                                                <input type="number" name="building_area" class="form-control"
+                                                <input disabled type="number" name="building_area" class="form-control"
                                                     id="building_area"
                                                     placeholder="Luas bangunan Masjid dalam m persegi contoh : 1000"
                                                     value="{{ $user->building_area }}">

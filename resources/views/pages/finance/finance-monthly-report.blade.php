@@ -99,7 +99,7 @@
                                     Add class <code>.table</code>
                                 </p> --}}
                                 <div class="table-responsive">
-                                    <table class="table" id="report">
+                                    <table class="table poppins" id="report">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -339,7 +339,13 @@
     <script>
         $(document).ready(function() {
             // Inisiasi tabel dengan DataTables
-            var table = $('#report').DataTable();
+            var table = $('#report').DataTable({
+                "pageLength": 100, // Set the default number of rows per page to 100
+                "lengthMenu": [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ] // Provide options for page length, including "All"
+            });
         });
     </script>
     <script>
