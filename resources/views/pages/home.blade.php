@@ -27,6 +27,25 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Override col-lg-2 untuk membuatnya lebih besar */
+        @media (min-width: 992px) {
+            .col-lg-2-c {
+                flex: 0 0 20%;
+                /* Sesuaikan persentase lebar sesuai kebutuhan */
+                max-width: 20%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-lg-3-c {
+                flex: 0 0 28%;
+                /* Sesuaikan persentase lebar sesuai kebutuhan */
+                max-width: 28%;
+            }
+        }
+    </style>
+
 
 </head>
 
@@ -136,145 +155,7 @@
 
 
             <!-- Onovo Showcase -->
-            <section class="onovo-section gap-bottom-140" style="border-bottom: 1px solid #555;">
-                <div class="container">
 
-                    <!-- Heading -->
-                    <div class="onovo-heading gap-bottom-40">
-                        <div class="onovo-subtitle-1">
-                            <span> Featured Projects </span>
-                        </div>
-                        <h2 class="onovo-title-2">
-                            <span> Studio Showcase </span>
-                        </h2>
-                    </div>
-
-                    <!-- Showcase -->
-                    <div class="onovo-showcase gap-bottom-40">
-                        <div class="img-circle onovo-circle-move"></div>
-
-                        <!-- Showcase items -->
-                        <div class="onovo-showcase-items">
-
-                            <!--showcase item-->
-                            <div class="onovo-showcase-item">
-                                <div class="category">
-                                    <a href="project-detail.html">
-                                        <span data-splitting data-onovo-scroll>
-                                            <span>Branding</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="project-detail.html">
-                                        <span class="onovo-lnk" data-splitting data-onovo-scroll> Museums Art Concept
-                                        </span>
-                                    </a>
-                                </h3>
-                                <div class="image" data-onovo-overlay data-onovo-scroll>
-                                    <span class="img"
-                                        style="background-image: url(assets/images/project-n01-3-1200x900.jpg);"></span>
-                                </div>
-                            </div>
-
-                            <!--showcase item-->
-                            <div class="onovo-showcase-item">
-                                <div class="category">
-                                    <a href="project-detail.html">
-                                        <span data-splitting data-onovo-scroll>
-                                            <span>Marketing</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="project-detail.html">
-                                        <span class="onovo-lnk" data-splitting data-onovo-scroll> Market Economy
-                                            Graphics </span>
-                                    </a>
-                                </h3>
-                                <div class="image" data-onovo-overlay data-onovo-scroll>
-                                    <span class="img"
-                                        style="background-image: url(assets/images/project-2-2-1200x982.jpg);"></span>
-                                </div>
-                            </div>
-
-                            <!--showcase item-->
-                            <div class="onovo-showcase-item">
-                                <div class="category">
-                                    <a href="project-detail.html">
-                                        <span data-splitting data-onovo-scroll>
-                                            <span>Design</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="project-detail.html">
-                                        <span class="onovo-lnk" data-splitting data-onovo-scroll> Headphones 3D
-                                            Rendering </span>
-                                    </a>
-                                </h3>
-                                <div class="image" data-onovo-overlay data-onovo-scroll>
-                                    <span class="img"
-                                        style="background-image: url(assets/images/project-2-1200x988.jpg);"></span>
-                                </div>
-                            </div>
-
-                            <!--showcase item-->
-                            <div class="onovo-showcase-item">
-                                <div class="category">
-                                    <a href="project-detail.html">
-                                        <span data-splitting data-onovo-scroll>
-                                            <span>Design</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="project-detail.html">
-                                        <span class="onovo-lnk" data-splitting data-onovo-scroll> Business Card Logo
-                                        </span>
-                                    </a>
-                                </h3>
-                                <div class="image" data-onovo-overlay data-onovo-scroll>
-                                    <span class="img"
-                                        style="background-image: url(assets/images/project-4.jpg);"></span>
-                                </div>
-                            </div>
-
-                            <!--showcase item-->
-                            <div class="onovo-showcase-item">
-                                <div class="category">
-                                    <a href="project-detail.html">
-                                        <span data-splitting data-onovo-scroll>
-                                            <span>Interactive</span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="project-detail.html">
-                                        <span class="onovo-lnk" data-splitting data-onovo-scroll> Flower Store Mobile
-                                            App </span>
-                                    </a>
-                                </h3>
-                                <div class="image" data-onovo-overlay data-onovo-scroll>
-                                    <span class="img"
-                                        style="background-image: url(assets/images/project-3-1200x750.jpg);"></span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Button -->
-                    <a class="onovo-btn onovo-hover-btn" href="projects.html">
-                        <i class="arrow">
-                            <span></span>
-                        </i>
-                        <span> All Projects </span>
-                    </a>
-
-                </div>
-            </section>
 
             <!-- Onovo Team -->
             <section class="onovo-section gap-top-140 gap-bottom-140">
@@ -288,443 +169,466 @@
                         </h2>
                     </div>
 
-                    <!-- Team items -->
-                    <div class="row gap-row">
-
-                        <!--team item-->
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <a href="team-detail.html" class="onovo-lnk">
-                                                <span data-splitting data-onovo-scroll> Gun Mayudi </span>
-                                            </a>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Direktur BPKM </span>
-                                        </div>
-
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-2-t-min.png" width="350"
-                                                height="530" alt="Thomas Jackki" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> T </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--team item-->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <a href="team-detail.html" class="onovo-lnk">
-                                                <span data-splitting data-onovo-scroll> Zulfiadi </span>
-                                            </a>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Wakil Direktur BPKM
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
-                                                height="530" alt="Melanie Robinson" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> M </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--team item-->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <a href="team-detail.html" class="onovo-lnk">
-                                                <span data-splitting data-onovo-scroll> Steven Morrison </span>
-                                            </a>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Full-stack Developer </span>
-                                        </div>
-
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-1-t-min.png" width="350"
-                                                height="530" alt="Steven Morrison" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> S </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row gap-row mt-5 mt-sm-2 justify-content">
-                        <!--team item-->
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <a href="team-detail.html" class="onovo-lnk">
-                                                <span data-splitting data-onovo-scroll> Gun Mayudi </span>
-                                            </a>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Direktur BPKM </span>
-                                        </div>
-
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-2-t-min.png" width="350"
-                                                height="530" alt="Thomas Jackki" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> T </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--team item-->
-                        <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <a href="team-detail.html" class="onovo-lnk">
-                                                <span data-splitting data-onovo-scroll> Melanie Robinson </span>
-                                            </a>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Seo &amp; Marketing </span>
-                                        </div>
-
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
-                                                height="530" alt="Melanie Robinson" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> M </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--team item-->
-                        <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <a href="team-detail.html" class="onovo-lnk">
-                                                <span data-splitting data-onovo-scroll> Steven Morrison </span>
-                                            </a>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Full-stack Developer </span>
-                                        </div>
-
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-1-t-min.png" width="350"
-                                                height="530" alt="Steven Morrison" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> S </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--team item-->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
-                                <div class="onovo-team-item onovo-hover-3">
-                                    <div class="desc">
-                                        <h5 class="title">
-                                            <span data-splitting data-onovo-scroll> Charlotte Johnson </span>
-                                        </h5>
-                                        <div class="onovo-subtitle-1">
-                                            <span data-splitting data-onovo-scroll> Seo &amp; Copywriter </span>
-                                        </div>
-                                    </div>
-                                    <div class="image">
-                                        <a href="team-detail.html">
-                                            <img decoding="async" src="assets/images/team-7-t-min.png" width="350"
-                                                height="530" alt="Charlotte Johnson" />
-                                        </a>
-                                    </div>
-                                    <div class="num onovo-text-white">
-                                        <span> E </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
-            </section>
+                {{-- end  --}}
 
-
-
-            <!-- Onovo Video -->
-            <section class="onovo-section mb-5">
-                <div class="container">
-
-                    <!--video-->
-                    <div class="onovo-video" data-onovo-overlay data-onovo-scroll>
-                        <div class="image" style="background-image: url(assets/images/posts1.jpg);"></div>
-                        <iframe class="js-video-iframe"
-                            data-src="https://www.youtube.com/embed/Gu6z6kIukgg?showinfo=0&rel=0&autoplay=1"></iframe>
-                        <div class="play onovo-circle-text">
-                            <div class="arrow"></div>
-                            <div class="label onovo-text-black onovo-circle-text-label"> Play Video - Play Video - Play
-                                Video - </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-
-            <!-- Onovo CTA -->
-            <section class="onovo-section gap-top-140 gap-bottom-140 mt-5"
-                style="background-image: url(assets/images/cta-bg-1.jpg); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-
-                            <!-- Heading -->
-                            <div class="onovo-heading gap-bottom-40 onovo-text-white">
-                                <div class="onovo-subtitle-1">
-                                    <span> Get in Touch </span>
-                                </div>
-                                <h2 class="onovo-title-2">
-                                    <span> Send Us Your <br>
-                                        <strong>Bright Ideas</strong>
-                                    </span>
-                                </h2>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="onovo-cta-text">
-                                <a href="mailto:infoname@domain.com" target="_blank">infoname@domain.com</a>
-                                <p>36 East 8th Street, New York, <br />NY 10003, United States. </p>
-                            </div>
-
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-
-                            <!-- Social -->
-                            <div class="onovo-cta-social">
-                                <div class="image">
-                                    <div class="cta-img-circle img-circle--1"></div>
-                                    <div class="cta-img-circle img-circle--2"></div>
-                                    <div class="cta-img-circle img-circle--3"></div>
-                                </div>
+                {{-- Start --}}
+                <div class="row gap-row justify-content-around">
+                    <!-- Team item 1 -->
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
                                 <div class="desc">
-                                    <ul>
-                                        <li>
-                                            <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
-                                                href="http://facebook.com" target="_blank">
-                                                <i aria-hidden="true" class="fab fa-facebook-f"></i>
-                                                <span> Facebook </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
-                                                href="http://instagram.com" target="_blank">
-                                                <i aria-hidden="true" class="fab fa-instagram"></i>
-                                                <span> Instagram </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
-                                                href="http://twitter.com" target="_blank">
-                                                <i aria-hidden="true" class="fab fa-twitter"></i>
-                                                <span> Twitter </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
-                                                href="http://linkedin.com" target="_blank">
-                                                <i aria-hidden="true" class="fab fa-linkedin-in"></i>
-                                                <span> LinkedIn </span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> Gun Mayudi </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Direktur BPKM </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team item 2 -->
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> Zulfiadi </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> wAkil direktur bpkm </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team item 3 -->
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> Harry Dirgantara </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Wakil Direktur BPKM </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <!-- Footer -->
-        <footer class="onovo-footer footer--dark">
-            <div class="footer--default">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                            <!-- Description -->
-                            <div class="onovo-text onovo-text-white">
-                                <h5>Information</h5>
-                                <p style="opacity: 0.6;">From the moment our company was founded, we have helped our
-                                    clients find exceptional solutions <strong>for their businesses</strong>. </p>
+
+                <div class="row gap-row mt-5 mt-sm-2 justify-content-between">
+                    <!-- Team item 4 -->
+
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-2-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Kabag Umum Dan Administrasi </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
                             </div>
-
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 offset-lg-1">
-
-                            <!-- Description -->
-                            <div class="onovo-text onovo-text-white">
-                                <h5>Get in Touch</h5>
-                                <p style="opacity: 0.6;">Baird House, 15-17 St Cross St <br />London EC1N 8UW </p>
-                                <p style="opacity: 0.6;">
-                                    <a href="tel:+10204302973" class="onovo-lnk lnk--white" target="_blank">+ 1 (020)
-                                        430 2973</a><br>
-                                    <a href="mailto:username@domain.com" class="onovo-lnk lnk--white"
-                                        target="_blank">username@domain.com</a>
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-
-                            <!-- Gallery items -->
-                            <div class="row">
-
-                                <!--gallery item-->
-                                <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                    <figure class="gallery-item">
-                                        <a href='assets/images/post5.jpg'>
-                                            <img src="assets/images/post5-1024x683.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                </div>
-
-                                <!--gallery item-->
-                                <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                    <figure class="gallery-item">
-                                        <a href='assets/images/post4.jpg'>
-                                            <img src="assets/images/post4-1024x683.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                </div>
-
-                                <!--gallery item-->
-                                <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                    <figure class="gallery-item">
-                                        <a href='assets/images/post3.jpg'>
-                                            <img src="assets/images/post3-1024x683.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                </div>
-
-                                <!--gallery item-->
-                                <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                    <figure class="gallery-item">
-                                        <a href='assets/images/post4.jpg'>
-                                            <img src="assets/images/post4-1024x683.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                </div>
-
-                                <!--gallery item-->
-                                <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                    <figure class="gallery-item">
-                                        <a href='assets/images/post1.jpg'>
-                                            <img src="assets/images/post1-1024x683.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                </div>
-
-                                <!--gallery item-->
-                                <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                                    <figure class="gallery-item">
-                                        <a href='assets/images/post6.jpg'>
-                                            <img src="assets/images/post6-1024x683.jpg" alt="" />
-                                        </a>
-                                    </figure>
-                                </div>
-
-                            </div>
-
                         </div>
                     </div>
 
-                    <div class="separator"></div>
-
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-self-center">
-
-                            <!-- Copyright -->
-                            <div class="copyright onovo-text-white">
-                                © 2023 ONOVO by <a href="https://bslthemes.com" target="blank"
-                                    class="onovo-lnk lnk--white">bslthemes Team</a>. All rights reserved.
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-2-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> M Awal </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Kabag Operasional </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
                             </div>
-
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-right">
+                    </div>
 
-                            <!-- Social-->
-                            <div class="onovo-social-1 onovo-social-active">
+                    <!-- Team item 5 -->
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-2-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> Erlangga </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Kabag Multimedia </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team item 6 -->
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-2-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> Siswanto </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Kabag Program </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team item 7 -->
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-2-c">
+                        <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                            <div class="onovo-team-item onovo-hover-3">
+                                <div class="desc">
+                                    <h5 class="title">
+                                        <a href="team-detail.html" class="onovo-lnk">
+                                            <span data-splitting data-onovo-scroll> Hisbul Wathon </span>
+                                        </a>
+                                    </h5>
+                                    <div class="onovo-subtitle-1">
+                                        <span data-splitting data-onovo-scroll> Kabag Pembangunan </span>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                    <a href="team-detail.html">
+                                        <img decoding="async" src="assets/images/team-6-t-min.png" width="350"
+                                            height="530" alt="Melanie Robinson" />
+                                    </a>
+                                </div>
+                                <div class="num onovo-text-white">
+                                    <span> M </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team item 8 -->
+
+                </div>
+                {{-- END --}}
+        </div>
+        </section>
+        <!-- Onovo Video -->
+        <section class="onovo-section mb-5">
+            <div class="container">
+
+                <!--video-->
+                <div class="onovo-video" data-onovo-overlay data-onovo-scroll>
+                    <div class="image" style="background-image: url(assets/images/posts1.jpg);"></div>
+                    <iframe class="js-video-iframe"
+                        data-src="https://www.youtube.com/embed/Gu6z6kIukgg?showinfo=0&rel=0&autoplay=1"></iframe>
+                    <div class="play onovo-circle-text">
+                        <div class="arrow"></div>
+                        <div class="label onovo-text-black onovo-circle-text-label"> Play Video - Play Video - Play
+                            Video - </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- Onovo CTA -->
+        <section class="onovo-section gap-top-140 gap-bottom-140 mt-5"
+            style="background-image: url(assets/images/cta-bg-1.jpg); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+                        <!-- Heading -->
+                        <div class="onovo-heading gap-bottom-40 onovo-text-white">
+                            <div class="onovo-subtitle-1">
+                                <span> Get in Touch </span>
+                            </div>
+                            <h2 class="onovo-title-2">
+                                <span> Send Us Your <br>
+                                    <strong>Bright Ideas</strong>
+                                </span>
+                            </h2>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="onovo-cta-text">
+                            <a href="mailto:infoname@domain.com" target="_blank">infoname@domain.com</a>
+                            <p>36 East 8th Street, New York, <br />NY 10003, United States. </p>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+                        <!-- Social -->
+                        <div class="onovo-cta-social">
+                            <div class="image">
+                                <div class="cta-img-circle img-circle--1"></div>
+                                <div class="cta-img-circle img-circle--2"></div>
+                                <div class="cta-img-circle img-circle--3"></div>
+                            </div>
+                            <div class="desc">
                                 <ul>
                                     <li>
-                                        <a class="onovo-social-link onovo-hover-2" href="http://twitter.com"
-                                            title="Twitter" target="_blank">
-                                            <i class="fab fa-twitter"></i>
+                                        <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
+                                            href="http://facebook.com" target="_blank">
+                                            <i aria-hidden="true" class="fab fa-facebook-f"></i>
+                                            <span> Facebook </span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="onovo-social-link onovo-hover-2" href="http://linkedin.com"
-                                            title="LinkedIn" target="_blank">
-                                            <i class="fab fa-linkedin-in"></i>
+                                        <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
+                                            href="http://instagram.com" target="_blank">
+                                            <i aria-hidden="true" class="fab fa-instagram"></i>
+                                            <span> Instagram </span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="onovo-social-link onovo-hover-2" href="http://dribbble.com"
-                                            title="Dribbble" target="_blank">
-                                            <i class="fab fa-behance"></i>
+                                        <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
+                                            href="http://twitter.com" target="_blank">
+                                            <i aria-hidden="true" class="fab fa-twitter"></i>
+                                            <span> Twitter </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="onovo-btn btn--white btn--large btn--icon onovo-hover-btn"
+                                            href="http://linkedin.com" target="_blank">
+                                            <i aria-hidden="true" class="fab fa-linkedin-in"></i>
+                                            <span> LinkedIn </span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
-        </footer>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer class="onovo-footer footer--dark">
+        <div class="footer--default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                        <!-- Description -->
+                        <div class="onovo-text onovo-text-white">
+                            <h5>Information</h5>
+                            <p style="opacity: 0.6;">From the moment our company was founded, we have helped our
+                                clients find exceptional solutions <strong>for their businesses</strong>. </p>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 offset-lg-1">
+
+                        <!-- Description -->
+                        <div class="onovo-text onovo-text-white">
+                            <h5>Get in Touch</h5>
+                            <p style="opacity: 0.6;">Baird House, 15-17 St Cross St <br />London EC1N 8UW </p>
+                            <p style="opacity: 0.6;">
+                                <a href="tel:+10204302973" class="onovo-lnk lnk--white" target="_blank">+ 1 (020)
+                                    430 2973</a><br>
+                                <a href="mailto:username@domain.com" class="onovo-lnk lnk--white"
+                                    target="_blank">username@domain.com</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+
+                        <!-- Gallery items -->
+                        <div class="row">
+
+                            <!--gallery item-->
+                            <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <figure class="gallery-item">
+                                    <a href='assets/images/post5.jpg'>
+                                        <img src="assets/images/post5-1024x683.jpg" alt="" />
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <!--gallery item-->
+                            <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <figure class="gallery-item">
+                                    <a href='assets/images/post4.jpg'>
+                                        <img src="assets/images/post4-1024x683.jpg" alt="" />
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <!--gallery item-->
+                            <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <figure class="gallery-item">
+                                    <a href='assets/images/post3.jpg'>
+                                        <img src="assets/images/post3-1024x683.jpg" alt="" />
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <!--gallery item-->
+                            <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <figure class="gallery-item">
+                                    <a href='assets/images/post4.jpg'>
+                                        <img src="assets/images/post4-1024x683.jpg" alt="" />
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <!--gallery item-->
+                            <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <figure class="gallery-item">
+                                    <a href='assets/images/post1.jpg'>
+                                        <img src="assets/images/post1-1024x683.jpg" alt="" />
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <!--gallery item-->
+                            <div class="col-4 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <figure class="gallery-item">
+                                    <a href='assets/images/post6.jpg'>
+                                        <img src="assets/images/post6-1024x683.jpg" alt="" />
+                                    </a>
+                                </figure>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-self-center">
+
+                        <!-- Copyright -->
+                        <div class="copyright onovo-text-white">
+                            © 2023 ONOVO by <a href="https://bslthemes.com" target="blank"
+                                class="onovo-lnk lnk--white">bslthemes Team</a>. All rights reserved.
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-right">
+
+                        <!-- Social-->
+                        <div class="onovo-social-1 onovo-social-active">
+                            <ul>
+                                <li>
+                                    <a class="onovo-social-link onovo-hover-2" href="http://twitter.com"
+                                        title="Twitter" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="onovo-social-link onovo-hover-2" href="http://linkedin.com"
+                                        title="LinkedIn" target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="onovo-social-link onovo-hover-2" href="http://dribbble.com"
+                                        title="Dribbble" target="_blank">
+                                        <i class="fab fa-behance"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
     </div>
 

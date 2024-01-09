@@ -117,7 +117,7 @@
                                 <h1 class="text-white text-center poppins p-2">{{ $mosque->name }}</h1>
                             </div>
                             <div class="mt-3 ">
-                                <img src="{{ Storage::url($mosque->mosque_profiles->photo_path) }}" alt=""
+                                <img src="{{ Storage::url($mosque->mosque_profiles->photo_path ?? '') }}" alt=""
                                     class="w-full img-fluid rounded">
                             </div>
                             <div>
@@ -136,14 +136,15 @@
                                                     <select data-show-subtext="true" data-live-search="true"
                                                         name="province_id" id="province_id"
                                                         class="selectpicker form-control" disabled>
-                                                        <option data-tokens="{{ $mosque->mosque_profiles->province->name }}"
-                                                            value="{{ $mosque->mosque_profiles->province_id }}">
-                                                            {{ $mosque->mosque_profiles->province->name }}
+                                                        <option
+                                                            data-tokens="{{ $mosque->mosque_profiles->province->name ?? '' }}"
+                                                            value="{{ $mosque->mosque_profiles->province_id ?? '' }}">
+                                                            {{ $mosque->mosque_profiles->province->name ?? '' }}
                                                         </option>
                                                         @foreach ($provinces as $province)
-                                                            <option data-tokens="{{ $province->name }}"
-                                                                value="{{ $province->id }}">
-                                                                {{ $province->name }}
+                                                            <option data-tokens="{{ $province->name ?? '' }}"
+                                                                value="{{ $province->id ?? '' }}">
+                                                                {{ $province->name ?? '' }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -152,9 +153,10 @@
                                                     <label for="regencies_id">Kabupaten/Kota</label>
                                                     <select disabled data-live-search="true" name="regency_id"
                                                         id="regencies_id" class="selectpicker form-control">
-                                                        <option data-tokens="{{ $mosque->mosque_profiles->regency->name }}"
-                                                            value="{{ $mosque->mosque_profiles->regency_id }}">
-                                                            {{ $mosque->mosque_profiles->regency->name }}
+                                                        <option
+                                                            data-tokens="{{ $mosque->mosque_profiles->regency->name ?? '' }}"
+                                                            value="{{ $mosque->mosque_profiles->regency_id ?? '' }}">
+                                                            {{ $mosque->mosque_profiles->regency->name ?? '' }}
                                                         </option>
                                                         @foreach ($regencies as $regency)
                                                             @if ($regency->province_id == $provinces[0]->id)
@@ -172,20 +174,20 @@
                                                 <div class="form-group">
 
                                                     <textarea id="address" type="text" disabled class="form-control @error('address') is-invalid @enderror"
-                                                        name="address" value="{{ $mosque->mosque_profiles->address }}" required autocomplete="address" autofocus
-                                                        placeholder="Alamat Lengkap Masjid">{{ $mosque->mosque_profiles->address }}</textarea>
+                                                        name="address" value="{{ $mosque->mosque_profiles->address ?? '' }}" required autocomplete="address" autofocus
+                                                        placeholder="Alamat Lengkap Masjid">{{ $mosque->mosque_profiles->address ?? '' }}</textarea>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <div class="form-group">
                                                     <label for="history">Sejarah Singkat Masjid</label>
-                                                    <textarea disabled name="history" class="form-control" id="history" placeholder="Sejarah Masjid">{{ $mosque->mosque_profiles->history }}</textarea>
+                                                    <textarea disabled name="history" class="form-control" id="history" placeholder="Sejarah Masjid">{{ $mosque->mosque_profiles->history ?? '' }}</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="deputy_regional_supervisor">Nama Wakil Pengasuh
                                                         Wilayah</label>
                                                     <input disabled type="text"
-                                                        value="{{ $mosque->mosque_profiles->deputy_regional_supervisor }}"
+                                                        value="{{ $mosque->mosque_profiles->deputy_regional_supervisor ?? '' }}"
                                                         name="deputy_regional_supervisor" class="form-control"
                                                         id="deputy_regional_supervisor" placeholder="Sejarah Masjid">
                                                 </div>

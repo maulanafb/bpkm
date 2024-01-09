@@ -149,6 +149,79 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="row h-75">
+                    <div class="col-md-12 grid-margin ">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <div class="row align-center">
+                                        <div class="col-6">
+                                            <h4 class="card-title text-start pt-3">Grafik Pemasukan Tiap Bulan</h4>
+                                        </div>
+                                        <div class="col-6 align-center d-flex pt-3 justify-content-end ">
+                                            <div class="form-group ms-auto ">
+                                                <div
+                                                    class="input-group input-group-sm mb-3 poppins rounded border p-2 border-primary">
+                                                    <select class="form-select" id="selectYear" aria-label="Pilih Tahun"
+                                                        onchange="changeYear()">
+                                                        @foreach ($availableYears as $year)
+                                                            <option value="{{ $year }}">{{ $year }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <canvas id="myChart" class="poppins" width="400" height="200"></canvas>
+                                    </div>
+                                    <hr>
+                                    <div class="mt-4">
+                                        <h4 class="card-title poppins" id="totalIncomeTitle">Total Pemasukan Tahun
+                                            <span id="tahunDipilih"></span>
+                                        </h4>
+
+                                        <h5 class="poppins text-bold">
+                                            <span class="text">Total Pemasukan</span> :
+                                            <span class="font-weight-bold" id="totalIncomeAmount">
+                                        </h5>
+                                        <h5 class="poppins text-bold">
+                                            <span class="text">Total Pengeluaran</span> :
+                                            <span class="font-weight-bold" id="totalOutcomeAmount">
+                                        </h5>
+                                        <h5 class="poppins text-bold">
+                                            <span class="text">Total Saldo</span> :
+                                            <span class="font-weight-bold" id="totalSaldoAmount">Rp
+                                                {{ number_format($totalIncome, 0, ',', '.') }}</span>
+                                        </h5>
+                                    </div>
+                                    <hr>
+                                    <div class="mt-4">
+                                        <h4 class="card-title poppins ">Total Keuangan Sepanjang Masa</h4>
+                                        <hr>
+                                        <h5 class="poppins  text-bold"><span class="text">Total Pemasukan</span> :
+                                            <span class="font-weight-bold">Rp
+                                                {{ number_format($totalIncome, 0, ',', '.') }}</span>
+                                        </h5>
+
+                                        <h5 class="poppins  text-bold"><span class="text">Total Pengeluaran</span> :
+                                            <span class="font-weight-bold">Rp
+                                                {{ number_format($totalOutcome, 0, ',', '.') }}</span>
+                                        </h5>
+                                        <h5 class="poppins  text-bold"><span class="text">Total Saldo</span> :
+                                            <span class="font-weight-bold">Rp
+                                                {{ number_format($totalIncome - $totalOutcome, 0, ',', '.') }}</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             <!-- Modal "Tambah" -->
@@ -243,6 +316,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
 
@@ -261,6 +335,156 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Contoh referensi Numeral.js dari internet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Variabel untuk menyimpan instance Chart
+        var myChart;
+
+        // Inisialisasi data bulanan dari server
+        var monthlySummaries = {!! json_encode($monthlySummaries) !!};
+
+        function changeYear() {
+            var selectedYear = document.getElementById('selectYear').value;
+
+            // Filter data that matches the selected year
+            var filteredData = {
+                labels: [],
+                incomeData: [],
+                outcomeData: []
+            };
+
+            for (var i = 0; i < monthlySummaries.length; i++) {
+                var year = monthlySummaries[i].month.split('-')[0];
+                if (year == selectedYear) {
+                    filteredData.labels.push(monthlySummaries[i].month);
+                    filteredData.incomeData.push(monthlySummaries[i].total_income);
+                    filteredData.outcomeData.push(monthlySummaries[i].total_outcome);
+                }
+            }
+
+            // Destroy the previous chart instance
+            if (myChart) {
+                myChart.destroy();
+            }
+            // Update the chart and total income for the selected year
+            updateChart(filteredData);
+            updateTotalTitleIncome(selectedYear); // Update total income title
+            updateTotalAmount('totalIncomeAmount', formatNumber(calculateTotal(filteredData.incomeData)));
+            updateTotalAmount('totalOutcomeAmount', formatNumber(calculateTotal(filteredData.outcomeData)));
+            updateTotalAmount('totalSaldoAmount', formatNumber(calculateSaldo(filteredData.incomeData, filteredData
+                .outcomeData)));
+
+            // Update the selected year in the HTML element
+            document.getElementById('tahunDipilih').innerText = selectedYear;
+        }
+
+
+        function formatNumber(value) {
+            if (value === '') {
+                return '';
+            } else {
+                return parseFloat(value).toLocaleString('id-ID');
+            }
+        }
+
+        function calculateSaldo(incomeData, outcomeData) {
+            // Hitung total saldo
+            const totalIncome = calculateTotal(incomeData);
+            const totalOutcome = calculateTotal(outcomeData);
+
+            return totalIncome - totalOutcome;
+        }
+
+        function calculateTotal(data) {
+            // Hilangkan tanda koma dan "Rp" dari setiap elemen data
+            const cleanedData = data.map(amount => parseFloat(amount.replace(/[^\d.-]/g, '')));
+
+            // Hitung total
+            const total = cleanedData.reduce((total, amount) => total + amount, 0);
+
+            return total;
+        }
+
+        function updateChart(data) {
+            // Perbarui chart Anda dengan data baru
+            // Misalnya, jika Anda menggunakan Chart.js:
+            var ctx = document.getElementById('myChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Total Pemasukan',
+                        data: data.incomeData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Total Pengeluaran',
+                        data: data.outcomeData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Panggil fungsi untuk menginisialisasi chart pada awalnya
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dapatkan nilai tahun terpilih pada input
+            var selectedYear = document.getElementById('selectYear').value;
+
+            // Filter data bulanan berdasarkan tahun terpilih
+            var initialData = monthlySummaries.filter(item => item.month.startsWith(selectedYear));
+            updateChart({
+                labels: initialData.map(item => item.month),
+                incomeData: initialData.map(item => item.total_income),
+                outcomeData: initialData.map(item => item.total_outcome)
+            });
+            changeYear();
+        });
+
+        function updateTotalTitleIncome(year) {
+            var totalIncomeTitleElement = document.getElementById('totalIncomeTitle');
+
+            // Check if the element exists before updating
+            if (totalIncomeTitleElement) {
+                totalIncomeTitleElement.innerText = 'Total Keuangan Tahun ' + year;
+            } else {
+                console.error('Element with ID "totalIncomeTitle" not found.');
+            }
+        }
+
+        function updateTotalTitleOutcome(year) {
+            var totalIncomeTitleElement = document.getElementById('totalIncomeTitle');
+
+            // Check if the element exists before updating
+            if (totalIncomeTitleElement) {
+                totalIncomeTitleElement.innerText = 'Total Keuangan Tahun ' + year;
+            } else {
+                console.error('Element with ID "totalIncomeTitle" not found.');
+            }
+        }
+
+        function updateTotalAmount(elementId, amount) {
+            var targetElement = document.getElementById(elementId);
+
+            // Check if the element exists before updating
+            if (targetElement) {
+                targetElement.innerText = amount;
+            } else {
+                console.error('Element with ID "' + elementId + '" not found.');
+            }
+        }
+    </script>
     <script>
         $(document).ready(function() {
             $('.btn-delete').click(function() {

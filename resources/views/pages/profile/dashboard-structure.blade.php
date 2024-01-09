@@ -68,10 +68,10 @@
                                         <h4 class="card-title text-center mb-0">Edit Struktur Masjid</h4>
                                     </div>
                                     <div class="col-md-6 col-sm-12 d-flex justify-content-end align-items-center">
-                                        <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
+                                        {{-- <button class="btn btn-danger mx-2 poppins" data-toggle="modal"
                                             data-target="#pdfExportModal">
                                             Export <i class="fas fa-file-pdf"></i>
-                                        </button>
+                                        </button> --}}
                                         <button class="btn btn-primary mx-2 poppins" data-toggle="modal"
                                             data-target="#tambahModal">
                                             Tambah
@@ -118,6 +118,7 @@
                                                         <button class="btn btn-warning btn-edit"
                                                             data-id="{{ $item->id }}" data-name="{{ $item->name }}"
                                                             data-position="{{ $item->position }}"
+                                                            data-other="{{ $item->position }}"
                                                             data-photo_path="{{ $item->photo_path }}" data-toggle="modal"
                                                             data-target="#editModal">
                                                             Edit
@@ -173,12 +174,14 @@
                                         <option value="Kabag Program">Kabag Program</option>
                                         <option value="Kabag Pembangunan">Kabag Pembangunan</option>
                                         <option value="Kepala Unit">Kepala Unit</option>
-                                        <option value="Administrasi">Administrasi</option>
-                                        <option value="Program">Program</option>
-                                        <option value="Operasional">Operasional</option>
-                                        <option value="Multimedia">Multimedia</option>
-                                        <option value="Perlengkapan">Perlengkapan</option>
+
+                                        <option value="">Other (Manual Input)</option>
                                     </select>
+                                    <div class="form-group mt-3" id="manualInputContainer" style="display: none;">
+                                        <label for="manual_input">Lainnya</label>
+                                        <input type="text" class="form-control" id="manual_input" name="manual_input"
+                                            placeholder="Masukkan Posisi Lainnya">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="photo_path">Upload Foto</label>
@@ -228,12 +231,18 @@
                                         <option value="Kabag Program">Kabag Program</option>
                                         <option value="Kabag Pembangunan">Kabag Pembangunan</option>
                                         <option value="Kepala Unit">Kepala Unit</option>
-                                        <option value="Administrasi">Administrasi</option>
+                                        {{-- <option value="Administrasi">Administrasi</option>
                                         <option value="Program">Program</option>
                                         <option value="Operasional">Operasional</option>
                                         <option value="Multimedia">Multimedia</option>
-                                        <option value="Perlengkapan">Perlengkapan</option>
+                                        <option value="Perlengkapan">Perlengkapan</option> --}}
+                                        <option value="">Other (Manual Input)</option>
                                     </select>
+                                    <div class="form-group mt-3" id="manualInputContainerEdit" style="display: none;">
+                                        <label for="manual_input">Lainnya</label>
+                                        <input type="text" class="form-control" id="manual_inputEdit"
+                                            name="manual_input" placeholder="Masukkan Posisi Lainnya">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="editPhoto">Ubah Foto</label>
@@ -268,6 +277,36 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        document.getElementById('position').addEventListener('change', function() {
+            var manualInputContainer = document.getElementById('manualInputContainer');
+            var positionInput = document.getElementById('manual_input');
+
+            // Tampilkan atau sembunyikan input manual berdasarkan pilihan dropdown
+            if (this.value === '') {
+                manualInputContainer.style.display = 'block';
+                positionInput.setAttribute('required', 'required');
+            } else {
+                manualInputContainer.style.display = 'none';
+                positionInput.removeAttribute('required');
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('editPosition').addEventListener('change', function() {
+            var manualInputContainer = document.getElementById('manualInputContainerEdit');
+            var positionInput = document.getElementById('manual_inputEdit');
+
+            // Tampilkan atau sembunyikan input manual berdasarkan pilihan dropdown
+            if (this.value === '') {
+                manualInputContainer.style.display = 'block';
+                positionInput.setAttribute('required', 'required');
+            } else {
+                manualInputContainer.style.display = 'none';
+                positionInput.removeAttribute('required');
+            }
+        });
+    </script>
     <script>
         $(document).ready(function() {
             // ...
@@ -349,6 +388,7 @@
             var id = button.data('id');
             var name = button.data('name');
             var position = button.data('position');
+            var other = button.data('position');
             var photoPath = button.data('photo_path');
 
             var modal = $(this);
@@ -360,6 +400,7 @@
             modal.find('#editid').val(id);
             modal.find('#editName').val(name);
             modal.find('#editPosition').val(position);
+            modal.find('#manualInputContainerEdit').val(position);
             modal.find('#editPhotoPreview').attr('src', '{{ asset('storage/') }}/' + photoPath);
         });
     </script>

@@ -130,7 +130,7 @@
                             {{-- <div class="bcca-breadcrumb-item">Home</div> --}}
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
+                            <h4 class="card-title">Harap Melengkapi Data profil Masjid</h4>
                             <p class="card-description">
                                 Harap Perhatikan data sebaik mungkin
                             </p>
@@ -147,12 +147,12 @@
                                 @else
                                     <input type="file" name="photo_path" class="form-control" />
                                 @endif
-                                <label for="manager" class="mt-3">Nama Manager/Koordinator/PJ Masjid</label>
+                                <label for="manager" class="mt-3">Nama Manager/Kanit/PJ Masjid</label>
                                 <div class="form-group">
                                     <input id="manager" type="text"
                                         class="form-control @error('manager') is-invalid @enderror" name="manager"
                                         value="{{ old('manager') }}" required autocomplete="manager" autofocus
-                                        placeholder="Nama Manager/Koordinator/PJ Masjid">
+                                        placeholder="Nama Manager/Kanit/PJ Masjid">
                                 </div>
                                 <label for="name">Nomor Hp Masjid, Harap dengan format (08xxxxxxxx) contoh :
                                     0812345667</label>
@@ -212,12 +212,12 @@
                                         id="deputy_regional_supervisor" placeholder="Sejarah Masjid" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="deputy_branch_supervisor">Nama wakil Pengasuh Cabang(Jika ada)</label>
+                                    <label for="deputy_branch_supervisor">Nama wakil Pengasuh Cabang</label>
                                     <input type="text" name="deputy_branch_supervisor" class="form-control"
                                         id="deputy_branch_supervisor" placeholder="Sejarah Masjid">
                                 </div>
                                 <div class="form-group">
-                                    <label for="instagram">Instagram (Jika Ada)</label>
+                                    <label for="instagram">Instagram </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fab fa-instagram"></i></span>
@@ -228,7 +228,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="youtube">YouTube (Jika Ada)</label>
+                                    <label for="youtube">YouTube </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fab fa-youtube"></i></span>
@@ -239,7 +239,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="facebook">Facebook (Jika Ada)</label>
+                                    <label for="facebook">Facebook </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fab fa-facebook"></i></span>
@@ -250,7 +250,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="tiktok">TikTok (Jika Ada)</label>
+                                    <label for="tiktok">TikTok </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fab fa-tiktok"></i></span>
@@ -261,7 +261,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="tweeter">Twitter (Jika Ada)</label>
+                                    <label for="tweeter">Twitter </label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fab fa-twitter"></i></span>

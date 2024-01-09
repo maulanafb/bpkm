@@ -6,6 +6,7 @@ use App\Models\MonthlyFinancialReport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class MonthlyFinancianReportController extends Controller
@@ -33,12 +34,27 @@ class MonthlyFinancianReportController extends Controller
         }
 
         $monthlyReports = $reports->get();
+        $totalIncome = $monthlyReports->sum('income');
+        $totalOutcome = $monthlyReports->sum('outcome');
+
+        $monthlySummaries = $reports->select(
+            DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
+            DB::raw('SUM(income) as total_income'),
+            DB::raw('SUM(outcome) as total_outcome'),
+        )
+            ->groupBy('month')
+            ->get();
+        $availableYears = MonthlyFinancialReport::select(DB::raw('YEAR(date) as year'))
+            ->groupBy('year')
+            ->orderBy('year', 'desc')
+            ->pluck('year');
+
 
         // $monthlyReports = Auth::user()->monthly_report;
         // dd($reports->income);
         $mosque = Auth::user();
         $auth = Auth::user()->id;
-        return view('pages.finance.finance-monthly-report', compact(['monthlyReports', 'mosque', 'auth']));
+        return view('pages.finance.finance-monthly-report', compact(['totalOutcome', 'availableYears', 'totalIncome', 'monthlySummaries', 'monthlyReports', 'mosque', 'auth']));
     }
 
     public function show(Request $request, $id)
@@ -57,13 +73,25 @@ class MonthlyFinancianReportController extends Controller
         }
 
         $monthlyReports = $reports->get();
+        $totalIncome = $monthlyReports->sum('income');
+        $totalOutcome = $monthlyReports->sum('outcome');
 
-        // $monthlyReports = Auth::user()->monthly_report;
-        // dd($reports->income);
+        $monthlySummaries = $reports->select(
+            DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
+            DB::raw('SUM(income) as total_income'),
+            DB::raw('SUM(outcome) as total_outcome'),
+        )
+            ->groupBy('month')
+            ->get();
+        $availableYears = MonthlyFinancialReport::select(DB::raw('YEAR(date) as year'))
+            ->groupBy('year')
+            ->orderBy('year', 'desc')
+            ->pluck('year');
+
         $mosqueId = $id;
         $mosque = Auth::user();
         $auth = Auth::user()->id;
-        return view('pages.details.detail-finance-monthly-report', compact(['mosqueId', 'monthlyReports', 'mosque', 'auth']));
+        return view('pages.details.detail-finance-monthly-report', compact(['totalOutcome', 'availableYears', 'totalIncome', 'monthlySummaries', 'mosqueId', 'monthlyReports', 'mosque', 'auth']));
     }
 
 

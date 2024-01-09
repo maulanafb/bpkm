@@ -87,6 +87,7 @@ Route::delete('monthly-report/{id}', [MonthlyFinancianReportController::class, '
 
 
 Route::get('/jumah-report', [JumahFinancialController::class, 'index'])->name('jumah-report.index');
+
 Route::get('/jumah-report/{id}', [JumahFinancialController::class, 'show'])->name('jumah-report.show');
 Route::post('/jumah-report', [JumahFinancialController::class, 'store'])->name('jumah-report.store');
 Route::put('/jumah-report-update/{id}', [JumahFinancialController::class, 'update'])->name('jumah-report.update');

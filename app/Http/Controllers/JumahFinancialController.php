@@ -69,13 +69,22 @@ class JumahFinancialController extends Controller
         }
 
         $jumahReports = $reports->get();
+        $totalIncome = $jumahReports->sum('income');
 
-        // $jumahReports = Auth::user()->monthly_report;
-        // dd($reports->income);
+        $monthlySummaries = $reports->select(
+            DB::raw('DATE_FORMAT(date, "%Y-%m") as month'),
+            DB::raw('SUM(income) as total_income')
+        )
+            ->groupBy('month')
+            ->get();
+        $availableYears = JumahFinancialreport::select(DB::raw('YEAR(date) as year'))
+            ->groupBy('year')
+            ->orderBy('year', 'desc')
+            ->pluck('year');
         $mosqueId = $id;
         $mosque = Auth::user();
         $auth = Auth::user()->id;
-        return view('pages.details.detail-jumah-report', compact(['mosqueId', 'jumahReports', 'mosque', 'auth']));
+        return view('pages.details.detail-jumah-report', compact(['availableYears', 'monthlySummaries', 'totalIncome', 'mosqueId', 'jumahReports', 'mosque', 'auth']));
     }
     /**
      * Show the form for creating a new resource.

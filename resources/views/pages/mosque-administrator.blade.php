@@ -144,7 +144,7 @@
                         </div>
                         <div class="card-body">
 
-                            <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
+                            <h4 class="card-title">Harap Melengkapi Profil Manager/Kanit/PJ Masjid</h4>
 
                             <form class="forms-sample" enctype="multipart/form-data" method="POST"
                                 action="{{ route('mosque-administrator-store') }}">
@@ -153,7 +153,7 @@
                                     <input required type="hidden" value="{{ $auth }}" name="user_id"
                                         id="user_id">
                                 </div>
-                                <label>Foto Manager/Koordinator/PJ Masjid</label>
+                                <label>Foto Manager/Kanit/PJ Masjid</label>
                                 @if ($user != null)
                                     <img width="100px" class="img-thumbnail" src="{{ Storage::url($user->photo_path) }}"
                                         alt="">
@@ -161,14 +161,14 @@
                                     <input type="file" name="photo_path" class="form-control" />
                                 @endif
                                 <div class="form-group mt-3">
-                                    <label for="manager_name">Nama Manager/Koordinator/PJ Masjid</label>
+                                    <label for="manager_name">Nama Manager/Kanit/PJ Masjid</label>
                                     <input required type="text" name="manager_name" class="form-control"
-                                        id="manager_name" placeholder="Nama Manager/Koordinator/PJ Masjid">
+                                        id="manager_name" placeholder="Nama Manager/Kanit/PJ Masjid">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone_number">No Hp Manager/Koordinator/PJ Masjid</label>
+                                    <label for="phone_number">No Hp Manager/Kanit/PJ Masjid</label>
                                     <input required type="text" name="phone_number" class="form-control"
-                                        id="phone_number" placeholder="Nomor Hp Koordinator/Penanggung jawab Masjid">
+                                        id="phone_number" placeholder="Nomor Hp Kanit/Penanggung jawab Masjid">
                                 </div>
                                 <div class="form-group">
                                     <label for="manager_status">Apakah Santri Penerima Amanah (S.P.A) Masjid Kapal
@@ -181,11 +181,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="other_position">Jabatan/amanah lainnya? (selain koordinator/PJ Masjid Kapal
+                                    <label for="other_position">Jabatan/amanah lainnya? (selain Manager/Kanit/PJ Masjid
+                                        Masjid Kapal
                                         Munzalan Cabang)</label>
                                     <input required type="text" name="other_position" class="form-control"
                                         id="other_position"
-                                        placeholder="Jabatan/amanah lainnya? (selain koordinator/PJ Masjid Kapal Munzalan Cabang)">
+                                        placeholder="Jabatan/amanah lainnya? (selain Manager/Kanit/PJ Masjid Masjid Kapal Munzalan Cabang)">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>

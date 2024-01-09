@@ -34,6 +34,7 @@ class MosqueStructureController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         try {
             // $request->validate([
             //     'name' => 'required',
@@ -44,13 +45,20 @@ class MosqueStructureController extends Controller
             $data = [
                 'name' => $request->name,
                 'position' => $request->position,
+                // 'manual_input' => $request->manual_input,
                 'user_id' => Auth::user()->id,
             ];
+
+            if ($request->position) {
+                $data['position'] = $request->position;
+            } else {
+                $data['position'] = $request->manual_input;
+            }
 
             if ($request->hasFile('photo_path')) {
                 $data['photo_path'] = $request->file('photo_path')->store('mosque_structures', 'public');
             }
-
+            // dd($data);
             MosqueStructure::create($data);
             notify()->success('Struktur berhasil ditambah.');
 
@@ -59,7 +67,7 @@ class MosqueStructureController extends Controller
             return redirect()->back()->withErrors($e->validator)->withInput();
         } catch (\Exception $e) {
             // Handle other types of exceptions if needed
-            notify()->error('Terjadi kesalahan. Silakan coba lagi.');
+            notify()->error($e);
             return redirect()->back();
         }
     }
@@ -83,18 +91,36 @@ class MosqueStructureController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi data yang diterima dari formulir
-        $request->validate([
-            'name' => 'required',
-            'position' => 'required',
-            'photo_path' => 'image|mimes:jpeg,png,jpg,gif,webp|max:10000',
-        ]);
+        // dd($request->all());
+        // $request->validate([
+        //     'name' => 'required',
+        //     'position' => 'required',
+        //     'photo_path' => 'image|mimes:jpeg,png,jpg,gif,webp|max:10000',
+        // ]);
+
+        $data = [
+            'name' => $request->name,
+            'position' => $request->position,
+            // 'manual_input' => $request->manual_input,
+            'user_id' => Auth::user()->id,
+        ];
+
+        if (!$data['position']) {
+            $data['position'] = $request->manual_input;
+        }
 
         // Ambil struktur masjid berdasarkan ID
         $structure = MosqueStructure::find($id);
 
         // Perbarui data struktur masjid
         $structure->name = $request->get('name');
-        $structure->position = $request->get('position');
+        $structure->position = $data['position'];
+
+        // dd($structure);
+
+        // if(!$request->position){
+        //     $request->position = $request->manual_input;
+        // }
 
         // Perbarui foto jika ada yang diunggah
         if ($request->hasFile('photo_path')) {

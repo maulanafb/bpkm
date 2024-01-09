@@ -130,7 +130,7 @@
                             {{-- <div class="bcca-breadcrumb-item">Home</div> --}}
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
+                            <h4 class="card-title">Harap Melengkapi Data Status Program Masjid</h4>
                             <p class="card-description">
                                 Harap Perhatikan data sebaik mungkin
                             </p>

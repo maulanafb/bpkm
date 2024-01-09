@@ -130,7 +130,7 @@
                             {{-- <div class="bcca-breadcrumb-item">Home</div> --}}
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Harap Melengkapi Profil terlebih dahulu</h4>
+                            <h4 class="card-title">Harap Melengkapi Data Tanah & Bangunan Masjid</h4>
                             <p class="card-description">
                                 Harap Perhatikan data sebaik mungkin
                             </p>
@@ -175,17 +175,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="land_document">Upload Dokumen SHM/Surat Tanah/AIW (PDF) Jika Ada</label>
+                                    <label for="land_document">Upload Dokumen SHM/Surat Tanah/AIW (PDF) </label>
                                     <input type="file" name="land_document" class="form-control-file">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mosque_design">Upload Design Masjid (PDF) Jika Ada</label>
+                                    <label for="mosque_design">Upload Design Masjid (PDF) </label>
                                     <input type="file" name="mosque_design" class="form-control-file">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mosque_rab">Upload RAB Pembangunan Masjid (PDF) Jika Ada</label>
+                                    <label for="mosque_rab">Upload RAB Pembangunan Masjid (PDF) </label>
                                     <input type="file" name="mosque_rab" class="form-control-file">
                                 </div>
 
