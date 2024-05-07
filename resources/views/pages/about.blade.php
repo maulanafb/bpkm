@@ -65,41 +65,17 @@
             /* Untuk memastikan overlay tidak menghalangi interaksi pengguna. */
         }
 
-        .image {
-            position: relative;
-            overflow: hidden;
-            animation: zoomOutAnimation 10s infinite alternate;
-            /* Mengatur animasi selama 10 detik */
+        .onovo-team-item-c {
+            /* Default height for non-mobile screens */
+            height: 520px;
         }
 
-        .image img {
-            width: 100%;
-            height: auto;
-            transform: scale(1);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        @keyframes zoomOutAnimation {
-            from {
-                transform: scale(1);
-                /* Skala awal */
+        /* Media query for mobile screens */
+        @media only screen and (max-width: 767px) {
+            .onovo-team-item-c {
+                /* Adjusted height for mobile screens */
+                height: 669px;
             }
-
-            to {
-                transform: scale(1.2);
-                /* Skala akhir */
-            }
-        }
-
-        .overlayy {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* background: rgba(0, 0, 0, 0.5); */
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
         }
     </style>
 
@@ -126,7 +102,7 @@
                         <div class="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-2 align-self-center ">
                             <!-- Logo -->
                             <div class="onovo-logo-image" style="max-width: 200px">
-                                <a href="">
+                                <a href="{{ route('landing') }}">
                                     <img src="images/logo-bpkm.png" alt="Onovo" />
                                     <img class="logo--white" src="images/logo-bpkm.png" alt="Onovo" />
                                 </a>
@@ -139,7 +115,7 @@
                             <div class="onovo-menu-horizontal">
                                 <ul class="onovo-menu-nav">
                                     <li>
-                                        <a class="onovo-lnk lnk--active" href="{{ route('about') }}">Tentang</a>
+                                        <a class="onovo-lnk lnk--active" href="{{ route('register') }}">Tentang</a>
                                     </li>
                                     <li>
                                         <a class="onovo-lnk lnk--active" href="{{ route('register') }}">Daftar</a>
@@ -158,16 +134,16 @@
                                         <div class="onovo-menu">
                                             <ul class="onovo-menu-nav">
                                                 <li>
-                                                    <a class="onovo-lnk lnk--active"
-                                                        href="{{ route('about') }}">Tentang</a>
-                                                </li>
-                                                <li>
-                                                    <a class="onovo-lnk lnk--active"
-                                                        href="{{ route('register') }}">Daftar</a>
-                                                </li>
-                                                <li>
-                                                    <a class="onovo-lnk lnk--active"
+                                                    <a class="onovo-lnk lnk--active text-dark"
                                                         href="{{ route('login') }}">Masuk</a>
+                                                </li>
+                                                <li>
+                                                    <a class="onovo-lnk lnk--active text-dark"
+                                                        href="{{ route('login') }}">Tentang</a>
+                                                </li>
+                                                <li>
+                                                    <a class="onovo-lnk lnk--active text-dark"
+                                                        href="{{ route('register') }}">Daftar</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -180,7 +156,7 @@
                             style="padding-left: 0px">
                             <!-- Button -->
                             <a class="onovo-btn onovo-hover-btn btn--active" href="{{ route('login') }}">
-                                <span style="color:white">Masuk</span>
+                                <span>Masuk</span>
                             </a>
                         </div>
                     </div>
@@ -208,195 +184,284 @@
 
 
 
-            <!-- Onovo Hero -->
-            <section class="onovo-section onovo-hero hero--two">
-
-                <!-- Hero swiper -->
-                <div class="swiper-container js-hero-slider" data-loop="true" data-autoplay="6000">
-                    <div class="swiper-wrapper">
-
-                        <!--slide-->
-                        <div class="swiper-slide" data-swiper-autoplay>
-                            <div class="onovo-hero-slide-item">
-                                <div class="image" data-dimg="assets/images/banner1.jpg"
-                                    data-mimg="assets/images/banner1.jpg" style="opacity: 0.5">
-                                    <div class="overlayy" style="opacity: 1;"></div>
-                                </div>
-                                <div class="container">
-                                    <div class="titles">
-                                        <h1 class="title onovo-text-white">
-                                            <span data-splitting> Badan Pengelola <br />Kemakmuran Masjid </span>
-                                        </h1>
-                                        <div class="text">
-                                            <div class="subtitle onovo-text-white subtitle--left">
-                                                <div data-splitting> Badan Pengelola Kemakmuran Masjid (BPKM) adalah
-                                                    lembaga khusus mewakili pengasuh dalam mengelola bangunan Masjid
-                                                    Pusat dan Masjid Cabang</div>
-                                            </div>
-                                            {{-- <div class="onovo-bts">
-                                                <a class="onovo-btn btn--border btn--white btn--color onovo-hover-btn"
-                                                    href="about-us.html">
-                                                    <i class="arrow">
-                                                         <span></span>
-                                                    </i>
-                                                    <span> Learn More </span>
-                                                </a>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!--slide-->
-                        <div class="swiper-slide" data-swiper-autoplay>
-                            <div class="onovo-hero-slide-item">
-                                <div class="image" data-dimg="assets/images/banner2.jpg"
-                                    data-mimg="assets/images/banner2.jpg" style="opacity: 0.5">
-                                    <div class="overlayy" style="opacity: 1;"></div>
-                                </div>
-                                <div class="container">
-                                    <div class="titles">
-                                        <h1 class="title onovo-text-white">
-                                            <span data-splitting> Badan Pengelola <br />Kemakmuran Masjid </span>
-                                        </h1>
-                                        <div class="text">
-                                            <div class="subtitle onovo-text-white subtitle--left">
-                                                <div data-splitting> Berdiri pada hari Jum'at 28 Oktober 2022 dalam
-                                                    rangka memberi layanan khusus untuk mengelola Masjid Pusat dan
-                                                    Masjid Cabang</div>
-                                            </div>
-                                            {{-- <div class="onovo-bts">
-                                                <a class="onovo-btn btn--border btn--white btn--color onovo-hover-btn"
-                                                    href="services.html">
-                                                    <i class="arrow">
-                                                        <span></span>
-                                                    </i>
-                                                    <span> Our Services </span>
-                                                </a>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!--navs-->
-                    <div class="onovo-navs js-hero-slider-navs">
-                        <div class="onovo-prev js-hero-slider-prev nav--white onovo-hover-2">
-                            <i></i>
-                        </div>
-                        <div class="onovo-paginations-container pag--white">
-                            <div class="onovo-paginations js-hero-pagination"></div>
-                        </div>
-                        <div class="onovo-next js-hero-slider-next nav--white onovo-hover-2">
-                            <i></i>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
 
 
             {{-- sambutan bang gun  --}}
 
-            <section class="onovo-section onovo-section-bg gap-top-40  ">
-                <!-- Heading -->
-                <div class="onovo-heading align-center gap-bottom-40">
-                    <h2 class="onovo-title-2">
-                        <span>The Management</span>
-                    </h2>
-                </div>
-        </div>
-        <div class="container">
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 offset-lg-1 mb-3 d-flex align-items-center ">
-                    <!-- Image -->
-                    <div class="p-2 border" style="border-radius: 45px">
-                        <img src="assets/images/bg-gun.png" alt="" class="img-rounded "
-                            style="border-top-right-radius: 40px;border-top-left-radius: 40px;;border-radius: 40px" />
-                        <h5 class=" text-center mt-3" style="font-size: 24px;margin-bottom: 5px;">
-                            <a class="onovo-lnk">
-                                <span data-splitting data-onovo-scroll> Gun Mayudi </span>
-                            </a>
-                        </h5>
-                        <h5 class="title text-center " style="font-size: 16px;">
-                            <a class="onovo-lnk">
-                                <span style="color: #696969" data-splitting data-onovo-scroll> Direktur BPKM </span>
-                            </a>
-                        </h5>
-                    </div>
 
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+            {{-- end sambutan bang gun  --}}
+
+
+            <!-- Onovo Team -->
+            <section class="onovo-section gap-top-140 gap-bottom-50">
+                <div class="container">
                     <!-- Heading -->
-                    <div class="onovo-heading gap-bottom-60 text-lg-left ">
-                        <div class="onovo-text">
-                            <p>
-                                <strong>
-                                    Bismillahirrahmanirrahim Assalamualaikum Wr Wb. Selamat datang di website
-                                    Badan Pengelola Kemakmuran Masjid (BPKM)
-                                    Masjid Kapal Munzalan seluruh Indonesia
-                                </strong>
+                    <div class="onovo-heading align-center gap-bottom-40">
+                        <h2 class="onovo-title-2">
+                            <span> Struktur (BOD) <br> Board of Director BPKM </span>
+                        </h2>
+                    </div>
+                </div>
+                {{-- end  --}}
 
-                            </p>
-                            <p>Sejatinya Masjid bukan beton dan besi, tapi fungsi dan kontribusi
-                                Kalimat ini disampakan oleh Ayahman dalam setiap pertemuan kemasjidan. BPKM
-                                adalah lembaga khusus yang didirikan untuk mengawal salah satu pilar
-                                Masajidallah yaitu Baitullah.
-                            </p>
-                            <p>Spirit Baitullah adalah spirit Ketaatan.
-                                "Sesungguhnya rumah (ibadah) pertama yang dibangun untuk manusia, ialaha
-                                (Baitullah) yang di Bakkah (Mekah) yang diberkahi dan menjadi petunjuk bagi
-                                seluruh alam" (QS 3:96)
+                <div class="container">
+                    {{-- Start --}}
+                    <div class="row gap-row justify-content-around">
+                        <!-- Team item 1 -->
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Gun Mayudi </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Direktur BPKM </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/bg-gun.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            </p>
-                            <p>Alhamdulillah atas izin Allah saat ini BPKM mengawal 24 bangunan Baitullah
-                                Masjid Pusat dan Cabang yang ada diseluruh Indonesia. Menjadikan Masjid Kapal
-                                Munzalan seluruh Indonesia menjadi Masjid yang ROMMANTIS (Ramah Orang Muda,
-                                Musafir, Anak, Tetangga, Hamba Istimewa) dan BESTARI (Bersih, Sejuk, Tertib,
-                                Aman, Rapi dan Wangi)
+                        <!-- Team item 2 -->
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Zulfiadi </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> wAkil direktur bpkm </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/zulfiadi.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            </p>
-                            <p>Semoga Allah meridhoi setiap langkah kita
-                                Bersaudara Sampai Surga
-                                Sampai Jumpa di Baitullah 🕋</p>
+                        <!-- Team item 3 -->
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Harry Dirgantara </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Wakil Direktur BPKM </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/harry.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <!-- Services Showcase -->
+
+                    <div class="row gap-row mt-5 mt-sm-2 justify-content-between">
+                        <!-- Team item 4 -->
+                        <div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-2-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-team-item-c onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll>Novianti</span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Kabag Umum Dan Administrasi </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/novi.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-2-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-team-item-c onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> M Awal </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Kabag Operasional </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/mawal.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team item 5 -->
+                        <div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-2-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-team-item-c onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Erlangga </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Kabag Multimedia </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/angga.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team item 6 -->
+                        <div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-2-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-team-item-c onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Siswanto </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Kabag Program </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/siswanto.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team item 7 -->
+                        <div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-2-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-team-item-c onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Hisbul Wathon </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Kabag Pembangunan </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <a>
+                                            <img decoding="async" src="assets/images/hizbul.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </a>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team item 8 -->
+
+                    </div>
+                    <div class="row justify-content-center mt-5  ">
+                        <div class="col-12 col-lg-2-c">
+                            <div class="onovo-team" data-onovo-overlay data-onovo-scroll>
+                                <div class="onovo-team-item onovo-team-item-c onovo-hover-3">
+                                    <div class="desc">
+                                        <h5 class="title">
+                                            <a class="onovo-lnk">
+                                                <span data-splitting data-onovo-scroll> Muammar </span>
+                                            </a>
+                                        </h5>
+                                        <div class="onovo-subtitle-1">
+                                            <span data-splitting data-onovo-scroll> Kepala Unit BPKM MKMI </span>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <div>
+                                            <img decoding="async" src="assets/images/muammar.png" width="350"
+                                                height="530" alt="Melanie Robinson" />
+                                        </div>
+                                    </div>
+                                    <div class="num onovo-text-white">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- END --}}
+                </div>
         </div>
         </section>
-
-        {{-- end sambutan bang gun  --}}
-
-
-
         <!-- Onovo Video -->
-        <section class="onovo-section mb-5">
-            <div class="container">
 
-                <!--video-->
-                <div class="onovo-video" data-onovo-overlay data-onovo-scroll>
-                    <div class="image" style="background-image: url(assets/images/ytthumbnail.jpg);"></div>
-                    <iframe class="js-video-iframe"
-                        data-src="https://www.youtube.com/embed/jzpg2W1ELhQ?si=hfLXZExNFhp9dpnK?showinfo=0&rel=0&autoplay=1"></iframe>
-                    <div class="play onovo-circle-text">
-                        <div class="arrow"></div>
-                        <div class="label onovo-text-black onovo-circle-text-label"> Play Video - Play Video - Play
-                            Video - </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
 
 
 
@@ -514,16 +579,21 @@
                         </div>
 
                     </div>
+
                 </div>
+
                 <div class="separator"></div>
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-self-center">
+
                         <!-- Copyright -->
                         <div class="copyright onovo-text-white">
                             © 2024 Badan Pengelola Kemakmuran Masjid. All rights reserved.
                         </div>
+
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-md-right align-center">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-right">
 
                         <!-- Social-->
                         <div class="onovo-social-1 onovo-social-active">

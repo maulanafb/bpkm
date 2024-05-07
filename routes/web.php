@@ -36,6 +36,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/about', [LandingController::class, 'about'])->name('about');
 
 Route::get('/masjid/{id}', [MosqueController::class, 'show'])->name('mosque.show');
 Route::get('/masjid/active/{id}', [MosqueController::class, 'activate'])->name('mosque.activate');

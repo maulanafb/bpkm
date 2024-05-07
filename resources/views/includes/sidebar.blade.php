@@ -57,7 +57,7 @@
             <a class="nav-link" data-toggle="collapse" href="#checklist" aria-expanded="false"
                 aria-controls="checklist">
                 <i class="fas fa-tasks menu-icon"></i>
-                <span class="menu-title font-sm">Checklist</span>
+                <span class="menu-title font-sm">Laporan</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="checklist">
@@ -78,7 +78,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('mosque-gallery.index') }}">
                 <i class="fas fa-images menu-icon"></i>
-                <span class="menu-title font-sm">Gallery</span>
+                <span class="menu-title font-sm">Galeri</span>
             </a>
         </li>
 
